@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4M Conference YPD | D'SEIKOU</title>
+  <link rel="icon" href="../media/white-favicon.png" type="image" />
+
+  <!-- Google Fonts: Syne (editorial display) + Outfit (clean body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — LIGHT MAIN QUEST PROJECT DETAIL
+    ============================================================ */
+    :root {
+      --bg: #efefe9;
+      --fg: #11100f;
+      --accent: #be001c;
+      --accent-soft: rgba(190, 0, 28, 0.08);
+      --accent-glow: rgba(190, 0, 28, 0.18);
+      --cream: #efefe9;
+      --ink: #11100f;
+      --glass: rgba(255, 255, 255, 0.48);
+      --glass-strong: rgba(255, 255, 255, 0.72);
+      --glass-border: rgba(17, 16, 15, 0.12);
+      --muted: rgba(17, 16, 15, 0.64);
+      --shadow-soft: 0 24px 70px rgba(17, 16, 15, 0.10);
+      --shadow-hover: 0 28px 80px rgba(190, 0, 28, 0.16);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 80% 8%, rgba(190, 0, 28, 0.11), transparent 34%),
+        radial-gradient(circle at 10% 22%, rgba(17, 16, 15, 0.06), transparent 28%),
+        var(--bg);
+      color: var(--fg);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    a { color: inherit; }
+    img { max-width: 100%; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    nav.site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(239, 239, 233, 0.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo img {
+      display: block;
+      height: 2rem;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.35s ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 0.5rem 1.4rem !important;
+      border: 1px solid rgba(17, 16, 15, 0.14) !important;
+      border-radius: 100px !important;
+      background: var(--ink) !important;
+      color: var(--cream) !important;
+      box-shadow: 0 12px 34px rgba(17, 16, 15, 0.12);
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; }
+
+    #menu-button {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--fg);
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    #mobile-menu {
+      display: none;
+      background: rgba(239, 239, 233, 0.96);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+      padding: 1rem 1.5rem 1.5rem;
+    }
+
+    #mobile-menu a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.75rem;
+      border-radius: 12px;
+      color: var(--fg);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    #mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
+    #mobile-menu .mob-cta { background: var(--ink); color: var(--cream); font-weight: 700; }
+    #mobile-menu .mob-cta:hover { background: var(--accent); color: var(--cream); }
+
+    /* ============================================================
+       SHARED
+    ============================================================ */
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .soft-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 32px;
+      box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.75rem 1.2rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-primary {
+      border: 1.5px solid var(--accent);
+      background: var(--accent);
+      color: var(--cream);
+      box-shadow: 0 10px 30px rgba(190, 0, 28, 0.24);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(190, 0, 28, 0.34), 0 0 20px rgba(190, 0, 28, 0.22);
+    }
+
+    .btn-cream {
+      border: 1.5px solid rgba(17, 16, 15, 0.14);
+      background: var(--cream);
+      color: var(--ink);
+      box-shadow: 0 10px 26px rgba(17, 16, 15, 0.10);
+    }
+
+    .btn-cream:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 14px 34px rgba(17, 16, 15, 0.14);
+    }
+
+    /* ============================================================
+       BREADCRUMB
+    ============================================================ */
+    .breadcrumb-wrap {
+      border-bottom: 1px solid rgba(17, 16, 15, 0.08);
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1rem 0;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .breadcrumb a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      color: var(--fg);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--accent);
+      transform: translateX(-2px);
+    }
+
+    .breadcrumb-separator { color: var(--accent); }
+
+    /* ============================================================
+       PROJECT DETAIL HEADER
+    ============================================================ */
+    .project-hero {
+      position: relative;
+      padding: 4.5rem 0 2.5rem;
+      overflow: hidden;
+    }
+
+    .project-hero::before {
+      content: '';
+      position: absolute;
+      top: -6rem;
+      right: -8rem;
+      width: 420px;
+      height: 420px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.18), transparent 68%);
+      pointer-events: none;
+    }
+
+    .project-intro {
+      position: relative;
+      padding: 3rem 2.5rem;
+      text-align: center;
+    }
+
+    .project-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.95rem 0.35rem 0.65rem;
+      border: 1px solid rgba(190, 0, 28, 0.42);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent-glow);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    .project-title {
+      font-size: clamp(2.7rem, 7vw, 6rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      color: var(--fg);
+    }
+
+    .project-subtitle {
+      max-width: 790px;
+      margin: 1.35rem auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.75;
+    }
+
+    /* ============================================================
+       SLIDESHOW
+    ============================================================ */
+    .showcase-section { padding: 1rem 0 3.5rem; }
+
+    .showcase-card {
+      padding: 1rem;
+      border-radius: 32px;
+    }
+
+    .slideshow-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: var(--ink);
+      border: 1px solid rgba(17, 16, 15, 0.10);
+      box-shadow: 0 22px 70px rgba(17, 16, 15, 0.16);
+    }
+
+    .mySlides { display: none; }
+    .mySlides.active { display: block; }
+
+    .mySlides img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3rem;
+      height: 3rem;
+      border: 1px solid rgba(239, 239, 233, 0.22);
+      border-radius: 999px;
+      background: rgba(17, 16, 15, 0.58);
+      color: var(--cream);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.55rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.25s ease, box-shadow 0.25s ease;
+      z-index: 2;
+    }
+
+    .slide-btn:hover {
+      background: var(--accent);
+      transform: translateY(-50%) scale(1.05);
+      box-shadow: 0 0 22px rgba(190, 0, 28, 0.34);
+    }
+
+    .slide-prev { left: 1rem; }
+    .slide-next { right: 1rem; }
+
+    .slide-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 1rem;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.55rem;
+      z-index: 3;
+    }
+
+    .slide-dot {
+      width: 9px;
+      height: 9px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(239, 239, 233, 0.45);
+      cursor: pointer;
+      transition: width 0.25s ease, background 0.25s ease;
+    }
+
+    .slide-dot.active {
+      width: 28px;
+      background: var(--accent);
+    }
+
+    .fade { animation: fade 0.35s ease; }
+    @keyframes fade { from { opacity: 0.55; } to { opacity: 1; } }
+
+    /* ============================================================
+       PROJECT CONTENT
+    ============================================================ */
+    .project-content {
+      padding: 0 0 5.5rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .article-card {
+      padding: 2.5rem;
+      border-radius: 32px;
+    }
+
+    .article-card h2 {
+      color: var(--accent);
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      line-height: 1;
+      margin-bottom: 1.35rem;
+    }
+
+    .project-body {
+      color: rgba(17, 16, 15, 0.78);
+      line-height: 1.85;
+    }
+
+    .project-body p + p { margin-top: 1rem; }
+    .project-body strong { color: var(--ink); font-weight: 800; }
+
+    .client-comment {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 24px;
+      background: var(--ink);
+      color: var(--cream);
+      border: 1px solid rgba(190, 0, 28, 0.36);
+      box-shadow: 0 18px 50px rgba(17, 16, 15, 0.16), 0 0 24px rgba(190, 0, 28, 0.12);
+    }
+
+    .client-comment blockquote {
+      font-size: 1.02rem;
+      color: rgba(239, 239, 233, 0.86);
+      font-style: italic;
+      line-height: 1.85;
+    }
+
+    .client-comment cite {
+      display: block;
+      margin-top: 1rem;
+      text-align: right;
+      color: var(--accent);
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    .project-aside {
+      position: sticky;
+      top: 6.25rem;
+      padding: 1.5rem;
+      border-radius: 28px;
+    }
+
+    .project-aside h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--fg);
+    }
+
+    .info-list {
+      list-style: none;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .info-list li {
+      padding: 0.9rem 0;
+      border-top: 1px solid rgba(17, 16, 15, 0.10);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .info-list strong {
+      display: block;
+      color: var(--fg);
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    .aside-actions {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 1.2rem;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-coffee { display: flex; justify-content: center; margin-bottom: 2.25rem; }
+
+    .footer-coffee a {
+      display: inline-block;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .footer-coffee a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(255, 221, 0, 0.3);
+    }
+
+    .footer-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .footer-contact-item { display: flex; align-items: center; gap: 0.75rem; }
+    .footer-contact-item i { color: var(--accent); font-size: 1.05rem; }
+
+    .footer-contact-item a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-contact-item a:hover { color: var(--accent); }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .footer-socials a {
+      color: var(--cream);
+      font-size: 1.25rem;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-socials a:hover { color: var(--accent); transform: translateY(-2px); }
+
+    .footer-copy {
+      text-align: center;
+      border-top: 1px solid rgba(190, 0, 28, 0.45);
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+      color: rgba(239, 239, 233, 0.88);
+    }
+
+    .footer-copy a { color: var(--accent); text-decoration: none; }
+    .footer-copy a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .project-aside { position: relative; top: auto; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      #menu-button { display: block; }
+      .project-hero { padding-top: 3.5rem; }
+      .project-intro { padding: 2.25rem 1.25rem; border-radius: 26px; }
+      .article-card { padding: 1.5rem; border-radius: 26px; }
+      .showcase-card { padding: 0.65rem; border-radius: 26px; }
+      .slide-btn { width: 2.65rem; height: 2.65rem; font-size: 1.25rem; }
+      .slide-prev { left: 0.65rem; }
+      .slide-next { right: 0.65rem; }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell { padding: 0 1rem; }
+      .project-title { font-size: clamp(2.35rem, 15vw, 4rem); }
+      .breadcrumb { font-size: 0.78rem; }
+      footer { padding-left: 1rem; padding-right: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="https://dseikou.co.za" class="nav-logo">
+        <img src="/media/D'SEIKOU Logo Black.png" alt="D'SEIKOU Logo" />
+      </a>
+
+      <div class="nav-links" id="desktop-nav">
+        <a href="/multimedia-design/">Home</a>
+        <a href="/more-about-me/">About</a>
+        <a href="/fullstack-development/">Development</a>
+        <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+        <a href="/contact/" class="nav-cta">Contact</a>
+      </div>
+
+      <button id="menu-button" aria-label="Toggle menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu">
+      <a href="/multimedia-design/">Home</a>
+      <a href="/more-about-me/">About</a>
+      <a href="/fullstack-development/">Development</a>
+      <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+      <a href="/contact/" class="mob-cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ===================== BREADCRUMB ===================== -->
+  <div class="breadcrumb-wrap">
+    <div class="page-shell">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/multimedia-design/"><i class="bi bi-arrow-left-circle"></i> Back to Multimedia Design</a>
+        <span class="breadcrumb-separator">/</span>
+        <span aria-current="page">Design Project Details</span>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <!-- ===================== PROJECT HERO ===================== -->
+    <section class="project-hero">
+      <div class="page-shell">
+        <div class="project-intro soft-card reveal">
+          <div class="project-pill">
+            <span class="project-pill-dot"></span>
+            Design Project Details
+          </div>
+          <h1 class="project-title">Mokone’s<br>Very Own</h1>
+          <p class="project-subtitle">
+            Custom appreciation jackets designed to honour leadership, legacy, and service within the Mangena Maake
+            Mokone Memorial YPD Conference.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SHOWCASE ===================== -->
+    <section class="showcase-section">
+      <div class="page-shell">
+        <div class="showcase-card soft-card reveal">
+          <div class="slideshow-container" aria-label="Project image slideshow">
+            <div class="mySlides fade active"><img src="./assets/one.png" alt="Mokone's Very Own jacket design slide 1"></div>
+            <div class="mySlides fade"><img src="./assets/two.png" alt="Mokone's Very Own jacket design slide 2"></div>
+            <div class="mySlides fade"><img src="./assets/three.png" alt="Mokone's Very Own jacket design slide 3"></div>
+
+            <button class="slide-btn slide-prev" type="button" aria-label="Previous slide" onclick="plusSlides(-1)">&#10094;</button>
+            <button class="slide-btn slide-next" type="button" aria-label="Next slide" onclick="plusSlides(1)">&#10095;</button>
+
+            <div class="slide-dots" aria-label="Slideshow pagination">
+              <button class="slide-dot active" type="button" aria-label="Go to slide 1" onclick="currentSlide(1)"></button>
+              <button class="slide-dot" type="button" aria-label="Go to slide 2" onclick="currentSlide(2)"></button>
+              <button class="slide-dot" type="button" aria-label="Go to slide 3" onclick="currentSlide(3)"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECT CONTENT ===================== -->
+    <section class="project-content">
+      <div class="page-shell">
+        <div class="content-grid">
+          <article class="article-card soft-card reveal">
+            <h2>About the Project</h2>
+
+            <div class="project-body">
+              <p>
+                <strong>Mokone’s Very Own</strong> was a commemorative jacket design project created as an appreciation
+                gift for outgoing presidents of the Mangena Maake Mokone Memorial Conference YPD, in recognition of
+                their leadership, service, and contribution to the organisation. The intention behind the project was to
+                create something that felt both <strong>personal and prestigious</strong> — not just merchandise, but a
+                wearable keepsake that honoured their legacy of service.
+              </p>
+
+              <p>
+                I was responsible for both the <strong>creative design</strong> and the <strong>project management</strong>
+                of the jackets, from developing the visual direction and symbolic structure of the garment, to sourcing a
+                supplier and managing the production process through to execution. Each jacket was intentionally designed
+                as a personalised recognition piece, with every element carrying meaning tied to the individual’s term of
+                office and identity within the organisation.
+              </p>
+
+              <p>
+                The final composition of the jacket included the <strong>year in which their service concluded on one
+                  sleeve</strong>, their <strong>initials on the opposite sleeve</strong>, a featured <strong>personal
+                  quote on the chest and back</strong>, and a <strong>Roman numeral indicating the number president they
+                  were in the organisation’s history</strong>. In this case, for example, <strong>R.B.S. Mashishi</strong>
+                was recognised as the <strong>18th elected president</strong>, while <strong>Z.O.E. Mnguni</strong>
+                represented the <strong>19th</strong>. The “<strong>Mokone’s Very Own</strong>” mark was developed to
+                reinforce a sense of belonging, distinction, and institutional pride.
+              </p>
+
+              <p>
+                This project sits at the intersection of <strong>apparel design, symbolism, tribute design, and
+                  production coordination</strong>, reflecting my ability to not only create meaningful visual systems,
+                but also carry a concept through the practical realities of execution and delivery.
+              </p>
+
+              <div class="client-comment">
+                <blockquote>
+                  “ This project reflects the kind of work I enjoy most — design that holds meaning, tells a story, and
+                  becomes something people can physically keep as part of their journey.”
+                </blockquote>
+                <cite>- D’SEIKOU</cite>
+              </div>
+            </div>
+          </article>
+
+          <aside class="project-aside soft-card reveal">
+            <h3>Project Information</h3>
+            <ul class="info-list">
+              <li><strong>Category</strong><span class="info-tag">Design</span></li>
+              <li><strong>Client</strong>4M YPD</li>
+            </ul>
+            <div class="aside-actions">
+              <a class="btn btn-primary" href="/multimedia-design/"><i class="bi bi-folder2-open"></i> More Projects</a>
+              <a class="btn btn-cream" href="#contact"><i class="bi bi-chat-dots"></i> Start a Project</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-coffee">
+        <a href="https://www.buymeacoffee.com/dseikou" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
+            style="height:60px;width:217px;display:block;" />
+        </a>
+      </div>
+
+      <div class="footer-contacts">
+        <div class="footer-contact-item">
+          <i class="bi bi-envelope"></i>
+          <a href="mailto:dinalediseko@dseikou.co.za">dinalediseko@dseikou.co.za</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="bi bi-telephone"></i>
+          <a href="tel:+27818994791">(+27) 81 899 4791</a>
+        </div>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <a href="https://www.instagram.com/ngwanokestar" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+
+      <div class="footer-copy">
+        Copyright © <span id="year"></span>
+        <a href="https://dseikou.co.za">D'SEIKOU</a>.
+        All rights reserved
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let slideIndex = 1;
+
+    function showSlides(n) {
+      const slides = document.querySelectorAll('.mySlides');
+      const dots = document.querySelectorAll('.slide-dot');
+
+      if (!slides.length) return;
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+
+      slides[slideIndex - 1].classList.add('active');
+      if (dots[slideIndex - 1]) dots[slideIndex - 1].classList.add('active');
+    }
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      showSlides(slideIndex);
+
+      const menuBtn = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const desktopNav = document.getElementById('desktop-nav');
+
+      function syncNav() {
+        const mobile = window.innerWidth <= 768;
+        if (menuBtn) menuBtn.style.display = mobile ? 'block' : 'none';
+        if (desktopNav) desktopNav.style.display = mobile ? 'none' : 'flex';
+        if (!mobile && mobileMenu) mobileMenu.style.display = 'none';
+      }
+
+      syncNav();
+      window.addEventListener('resize', syncNav);
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+        });
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href && href !== '#') {
+            e.preventDefault();
+            if (mobileMenu) mobileMenu.style.display = 'none';
+            const el = document.querySelector(href);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      const revealEls = document.querySelectorAll('.reveal');
+      const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.12 });
+
+      revealEls.forEach(el => revealObs.observe(el));
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D'SEIKOU - Contact</title>
+  <link rel="icon" href="/media/black-favicon.png" type="image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    :root {
+      --bg: #11100f;
+      --fg: #efefe9;
+      --accent: #be001c;
+      --accent-soft: rgba(190, 0, 28, 0.12);
+      --accent-glow: rgba(190, 0, 28, 0.24);
+      --cream: #efefe9;
+      --ink: #11100f;
+      --glass: rgba(239, 239, 233, 0.045);
+      --glass-strong: rgba(239, 239, 233, 0.075);
+      --glass-border: rgba(239, 239, 233, 0.12);
+      --muted: rgba(239, 239, 233, 0.66);
+      --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.22);
+      --shadow-hover: 0 26px 80px rgba(190, 0, 28, 0.16);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 82% 8%, rgba(190, 0, 28, 0.15), transparent 34%),
+        radial-gradient(circle at 10% 24%, rgba(239, 239, 233, 0.06), transparent 28%),
+        var(--bg);
+      color: var(--fg);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    a { color: inherit; }
+    img { max-width: 100%; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(17, 16, 15, 0.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo img { display: block; height: 2rem; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+
+    .nav-links a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.35s ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 0.5rem 1.4rem !important;
+      border: 1px solid rgba(239, 239, 233, 0.14) !important;
+      border-radius: 100px !important;
+      background: var(--cream) !important;
+      color: var(--ink) !important;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; color: var(--cream) !important; }
+
+    #menu-button {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--fg);
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    #mobile-menu {
+      display: none;
+      background: rgba(17, 16, 15, 0.96);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+      padding: 1rem 1.5rem 1.5rem;
+    }
+
+    #mobile-menu a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.75rem;
+      border-radius: 12px;
+      color: var(--fg);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    #mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
+    #mobile-menu .mob-cta { background: var(--cream); color: var(--ink); font-weight: 700; }
+    #mobile-menu .mob-cta:hover { background: var(--accent); color: var(--cream); }
+
+    .page-shell { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    .contact-hero { padding: 6.5rem 0 3.75rem; position: relative; overflow: hidden; }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: 1.5rem;
+      right: -8rem;
+      width: 420px;
+      height: 420px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.18), transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-card {
+      position: relative;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 3rem 2.25rem;
+      border-radius: 32px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(239, 239, 233, 0.08);
+      backdrop-filter: blur(14px);
+      text-align: center;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.95rem 0.35rem 0.65rem;
+      border: 1px solid rgba(190, 0, 28, 0.5);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent-glow);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    .hero-title {
+      font-size: clamp(2.9rem, 7vw, 6rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      color: var(--fg);
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 1.35rem auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.75;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 1.5rem;
+      align-items: start;
+      padding-bottom: 5.5rem;
+    }
+
+    .info-card, .form-card, .faq-card {
+      border-radius: 28px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(14px);
+    }
+
+    .info-card { padding: 2rem; position: sticky; top: 6rem; }
+    .info-card h2, .form-card h2, .faq-card h2 { font-size: 1.65rem; line-height: 1.1; margin-bottom: 0.85rem; }
+    .info-card p, .form-card p, .faq-card p { color: var(--muted); }
+
+    .quick-actions { display: grid; gap: 0.85rem; margin-top: 1.5rem; }
+
+    .quick-action {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1rem;
+      border-radius: 18px;
+      background: rgba(239, 239, 233, 0.055);
+      border: 1px solid var(--glass-border);
+      text-decoration: none;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .quick-action:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 0 24px rgba(190, 0, 28, 0.18);
+    }
+
+    .quick-action i { color: var(--accent); font-size: 1.25rem; }
+    .quick-action strong { display: block; font-size: 0.95rem; }
+    .quick-action span { display: block; color: var(--muted); font-size: 0.84rem; }
+
+    .mini-note {
+      margin-top: 1.25rem;
+      padding: 1rem;
+      border-radius: 18px;
+      background: rgba(190, 0, 28, 0.10);
+      border: 1px solid rgba(190, 0, 28, 0.22);
+      color: rgba(239, 239, 233, 0.78);
+      font-size: 0.9rem;
+    }
+
+    .form-card { padding: 2rem; }
+    .form-intro { margin-bottom: 1.5rem; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .field { display: grid; gap: 0.45rem; margin-bottom: 1rem; }
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(239, 239, 233, 0.74);
+      font-weight: 700;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid rgba(239, 239, 233, 0.14);
+      border-radius: 16px;
+      background: rgba(239, 239, 233, 0.06);
+      color: var(--fg);
+      padding: 0.92rem 1rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.98rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    input::placeholder, textarea::placeholder { color: rgba(239, 239, 233, 0.34); }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(190, 0, 28, 0.12);
+      background: rgba(239, 239, 233, 0.08);
+    }
+
+    select option { background: var(--ink); color: var(--cream); }
+    textarea { min-height: 140px; resize: vertical; }
+
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .chip input { position: absolute; opacity: 0; pointer-events: none; }
+    .chip span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.68rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(190, 0, 28, 0.45);
+      color: var(--accent);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.84rem;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .chip input:checked + span, .chip span:hover {
+      background: var(--accent);
+      color: var(--cream);
+      border-color: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(190, 0, 28, 0.24);
+    }
+
+    .send-panel {
+      margin-top: 1.25rem;
+      padding: 1.1rem;
+      border-radius: 22px;
+      background: rgba(239, 239, 233, 0.055);
+      border: 1px solid var(--glass-border);
+    }
+
+    .send-panel h3 { font-size: 1.2rem; margin-bottom: 0.25rem; }
+    .send-panel p { font-size: 0.9rem; margin-bottom: 1rem; }
+
+    .button-row { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+    .submit-btn, .secondary-btn, .fallback-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 46px;
+      padding: 0.78rem 1.15rem;
+      border-radius: 999px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .submit-btn {
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: var(--cream);
+      box-shadow: 0 10px 30px rgba(190, 0, 28, 0.28);
+    }
+
+    .secondary-btn {
+      border: 1px solid rgba(239, 239, 233, 0.16);
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .fallback-btn {
+      border: 1px solid rgba(239, 239, 233, 0.16);
+      background: transparent;
+      color: var(--fg);
+    }
+
+    .submit-btn:hover, .secondary-btn:hover, .fallback-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(190, 0, 28, 0.20);
+    }
+
+    .status {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .status.success { display: block; background: rgba(71, 196, 113, 0.14); color: #9bf1b9; border: 1px solid rgba(71, 196, 113, 0.24); }
+    .status.error { display: block; background: rgba(190, 0, 28, 0.16); color: #ffb2be; border: 1px solid rgba(190, 0, 28, 0.28); }
+
+    .faq-section { padding-bottom: 5.5rem; }
+    .faq-card { padding: 2rem; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.3rem; }
+
+    details {
+      background: rgba(239, 239, 233, 0.055);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 1rem;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--fg);
+    }
+
+    details p { margin-top: 0.7rem; font-size: 0.92rem; }
+
+    footer {
+      background: var(--cream);
+      color: var(--ink);
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-coffee { display: flex; justify-content: center; margin-bottom: 2.25rem; }
+    .footer-coffee a { display: inline-block; border-radius: 10px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .footer-coffee a:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255, 221, 0, 0.3); }
+
+    .footer-contacts, .footer-socials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-contacts { gap: 1.5rem 3rem; margin-bottom: 2rem; }
+    .footer-contact-item { display: flex; align-items: center; gap: 0.75rem; }
+    .footer-contact-item i { color: var(--accent); font-size: 1.05rem; }
+    .footer-contact-item a { color: var(--ink); text-decoration: none; font-size: 0.9rem; transition: color 0.2s ease; }
+    .footer-contact-item a:hover { color: var(--accent); }
+    .footer-socials { gap: 1.25rem; margin-bottom: 2.25rem; }
+    .footer-socials a { color: var(--accent); font-size: 1.25rem; transition: color 0.2s ease, transform 0.2s ease; }
+    .footer-socials a:hover { color: var(--ink); transform: translateY(-2px); }
+    .footer-copy { text-align: center; border-top: 1px solid rgba(17, 16, 15, 0.18); padding-top: 1.5rem; font-size: 0.85rem; color: var(--ink); }
+    .footer-copy a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .info-card { position: static; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      #menu-button { display: block; }
+      .contact-hero { padding-top: 5rem; }
+      .hero-card, .form-card, .info-card, .faq-card { border-radius: 26px; }
+      .hero-card { padding: 2.25rem 1.25rem; }
+      .form-grid, .faq-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell { padding: 0 1rem; }
+      .button-row { flex-direction: column; }
+      .submit-btn, .secondary-btn, .fallback-btn { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="https://dseikou.co.za" class="nav-logo">
+        <img src="/media/D'SEIKOU Logo White.png" alt="D'SEIKOU Logo" />
+      </a>
+
+      <div class="nav-links" id="desktop-nav">
+        <a href="/homepage/">Home</a>
+        <a href="/more-about-me/">About</a>
+        <a href="/multimedia-design/">Multimedia Design</a>
+        <a href="/fullstack-development/">Full-Stack Development</a>
+        <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+        <a href="/contact/" class="nav-cta">Contact</a>
+      </div>
+
+      <button id="menu-button" aria-label="Toggle menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu">
+      <a href="/homepage/">Home</a>
+      <a href="/more-about-me/">About</a>
+      <a href="/multimedia-design/">Multimedia Design</a>
+      <a href="/fullstack-development/">Full-Stack Development</a>
+      <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+      <a href="/contact/" class="mob-cta">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="contact-hero">
+      <div class="page-shell">
+        <div class="hero-card">
+          <div class="hero-pill"><span class="hero-pill-dot"></span>Project Inquiry</div>
+          <h1 class="hero-title">Ready to<br>start?</h1>
+          <p class="hero-copy">Tell me what you are building, what you need, and where you are in the process. The form sends a project brief to both of us so the next step is clear.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell contact-layout">
+      <aside class="info-card">
+        <h2>Not sure yet?</h2>
+        <p>You can ask first, send a full project inquiry, or email me directly. The form is best when you already have an idea of what you need.</p>
+
+        <div class="quick-actions">
+          <a class="quick-action" href="mailto:dinalediseko@dseikou.co.za?subject=Project%20Inquiry%20-%20D'SEIKOU">
+            <i class="bi bi-envelope-fill"></i>
+            <span><strong>Email directly</strong><span>dinalediseko@dseikou.co.za</span></span>
+          </a>
+          <a class="quick-action" href="https://api.whatsapp.com/send?phone=27818994791&text=Hi%20Didi%2C%20I%20have%20a%20question%20before%20starting%20a%20project." target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-whatsapp"></i>
+            <span><strong>Ask first</strong><span>Quick questions on WhatsApp</span></span>
+          </a>
+        </div>
+
+        <div class="mini-note">
+          <strong>How the Resend button works:</strong><br>
+          When you click Send Inquiry, this page sends the brief through a secure serverless function. You receive the inquiry and the client receives a copy.
+        </div>
+      </aside>
+
+      <section class="form-card">
+        <div class="form-intro">
+          <h2>Project brief</h2>
+          <p>The more context you share here, the easier it is for me to respond with useful next steps.</p>
+        </div>
+
+        <form id="project-form" method="post" action="/.netlify/functions/send-inquiry" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Your name *</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email address *</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">WhatsApp / phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="+27...">
+            </div>
+
+            <div class="field">
+              <label for="projectName">Company / project name *</label>
+              <input id="projectName" name="projectName" type="text" placeholder="Project name" required>
+            </div>
+
+            <div class="field full">
+              <label>What do you need?</label>
+              <div class="chip-group" data-checkbox-group="services">
+                <label class="chip"><input type="checkbox" name="services" value="Website"><span>Website</span></label>
+                <label class="chip"><input type="checkbox" name="services" value="Branding"><span>Branding</span></label>
+                <label class="chip"><input type="checkbox" name="services" value="Social media graphics"><span>Social media graphics</span></label>
+                <label class="chip"><input type="checkbox" name="services" value="Copywriting"><span>Copywriting</span></label>
+                <label class="chip"><input type="checkbox" name="services" value="Motion / video"><span>Motion / video</span></label>
+                <label class="chip"><input type="checkbox" name="services" value="Consulting"><span>Consulting</span></label>
+                <label class="chip"><input type="checkbox" name="services" value="Other"><span>Other</span></label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="stage">Project stage</label>
+              <select id="stage" name="stage">
+                <option value="">Select one</option>
+                <option>Just an idea</option>
+                <option>I have a brief</option>
+                <option>I have content/assets</option>
+                <option>I need a redesign</option>
+                <option>Ongoing support/retainer</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="timeline">Ideal timeline</label>
+              <select id="timeline" name="timeline">
+                <option value="">Select one</option>
+                <option>1 month</option>
+                <option>2-3 months</option>
+                <option>3-4 months</option>
+                <option>1 year / long-term</option>
+                <option>Rush / urgent</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="budget">Expected budget</label>
+              <select id="budget" name="budget">
+                <option value="">Select one</option>
+                <option>Under R1 000</option>
+                <option>R1 000 - R3 000</option>
+                <option>R3 000 - R6 000</option>
+                <option>R6 000 - R10 000</option>
+                <option>R10 000+</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="deadline">Deadline</label>
+              <input id="deadline" name="deadline" type="date">
+            </div>
+
+            <div class="field full">
+              <label for="projectDescription">Describe your project *</label>
+              <textarea id="projectDescription" name="projectDescription" placeholder="What are you trying to create, fix, launch or improve?" required></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="deliverables">Expected deliverables</label>
+              <textarea id="deliverables" name="deliverables" placeholder="Example: 5 social media posters, landing page, logo refresh, copywriting, video edit..."></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="links">Website / reference links</label>
+              <textarea id="links" name="links" placeholder="Paste any current website, Pinterest board, Instagram page, Google Drive folder or references."></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="discovery">How did you find D'SEIKOU?</label>
+              <input id="discovery" name="discovery" type="text" placeholder="Instagram, referral, portfolio, church/community, Google, etc.">
+            </div>
+          </div>
+
+          <div class="send-panel">
+            <h3>Ready to send?</h3>
+            <p>Send Inquiry emails the project brief to D'SEIKOU and sends the client a copy. Ask First opens WhatsApp for a quick question.</p>
+            <div class="button-row">
+              <button type="submit" class="submit-btn" id="submit-btn"><i class="bi bi-send-fill"></i> Send Inquiry</button>
+              <a class="secondary-btn" href="https://api.whatsapp.com/send?phone=27818994791&text=Hi%20Didi%2C%20I%20have%20a%20question%20before%20starting%20a%20project." target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i> Ask First</a>
+              <button type="button" class="fallback-btn" id="mailto-btn"><i class="bi bi-envelope"></i> Email App Fallback</button>
+            </div>
+            <div id="form-status" class="status" role="status"></div>
+          </div>
+        </form>
+      </section>
+    </section>
+
+    <section class="page-shell faq-section">
+      <div class="faq-card">
+        <h2>Quick FAQ</h2>
+        <p>Short answers to help clients understand how working together usually works.</p>
+        <div class="faq-grid">
+          <details>
+            <summary>Do I need to pay a deposit?</summary>
+            <p>Yes. A 50% deposit is required to start most projects, with the remaining 50% due before final delivery.</p>
+          </details>
+          <details>
+            <summary>How many revisions are included?</summary>
+            <p>Most projects include 2 revision rounds. Extra revisions can be added if the project needs more iteration.</p>
+          </details>
+          <details>
+            <summary>Can I request urgent work?</summary>
+            <p>Yes, rush work can be discussed. Rush timelines may include an additional fee depending on urgency and scope.</p>
+          </details>
+          <details>
+            <summary>Who owns the final files?</summary>
+            <p>The client owns final deliverables after full payment. Source files can be discussed separately where applicable.</p>
+          </details>
+          <details>
+            <summary>What about stock images, fonts or licences?</summary>
+            <p>Any paid stock, fonts, subscriptions or licences needed for the project are usually billed to the client.</p>
+          </details>
+          <details>
+            <summary>Are retainers available?</summary>
+            <p>Yes. Retainers are available for ongoing design, content, website updates, reporting and project support.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-coffee">
+        <a href="https://www.buymeacoffee.com/dseikou" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height:60px;width:217px;display:block;" />
+        </a>
+      </div>
+
+      <div class="footer-contacts">
+        <div class="footer-contact-item"><i class="bi bi-envelope"></i><a href="mailto:dinalediseko@dseikou.co.za">dinalediseko@dseikou.co.za</a></div>
+        <div class="footer-contact-item"><i class="bi bi-telephone"></i><a href="tel:+27818994791">(+27) 81 899 4791</a></div>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <a href="https://www.instagram.com/ngwanokestar" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+
+      <div class="footer-copy">Copyright © <span id="year"></span> <a href="https://dseikou.co.za">D'SEIKOU</a>. All rights reserved</div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const menuBtn = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const desktopNav = document.getElementById('desktop-nav');
+
+      function syncNav() {
+        const mobile = window.innerWidth <= 768;
+        if (menuBtn) menuBtn.style.display = mobile ? 'block' : 'none';
+        if (desktopNav) desktopNav.style.display = mobile ? 'none' : 'flex';
+        if (!mobile && mobileMenu) mobileMenu.style.display = 'none';
+      }
+      syncNav();
+      window.addEventListener('resize', syncNav);
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+        });
+      }
+
+      const form = document.getElementById('project-form');
+      const statusEl = document.getElementById('form-status');
+      const submitBtn = document.getElementById('submit-btn');
+      const mailtoBtn = document.getElementById('mailto-btn');
+
+      function collectFormData() {
+        const formData = new FormData(form);
+        const data = {};
+
+        for (const [key, value] of formData.entries()) {
+          if (key === 'services') continue;
+          data[key] = typeof value === 'string' ? value.trim() : value;
+        }
+
+        data.services = Array.from(form.querySelectorAll('input[name="services"]:checked'))
+          .map(input => input.value.trim())
+          .filter(Boolean);
+
+        return data;
+      }
+
+      function buildEmailBody(data) {
+        return [
+          `Hi Didi,`,
+          ``,
+          `I would like to submit a project inquiry.`,
+          ``,
+          `Name: ${data.name || ''}`,
+          `Email: ${data.email || ''}`,
+          `WhatsApp / Phone: ${data.phone || ''}`,
+          `Company / Project: ${data.projectName || ''}`,
+          `Services needed: ${(data.services || []).join(', ') || 'Not specified'}`,
+          `Project stage: ${data.stage || 'Not specified'}`,
+          `Timeline: ${data.timeline || 'Not specified'}`,
+          `Budget: ${data.budget || 'Not specified'}`,
+          `Deadline: ${data.deadline || 'Not specified'}`,
+          ``,
+          `Project description:`,
+          `${data.projectDescription || ''}`,
+          ``,
+          `Expected deliverables:`,
+          `${data.deliverables || ''}`,
+          ``,
+          `Links / references:`,
+          `${data.links || ''}`,
+          ``,
+          `How I found D'SEIKOU: ${data.discovery || ''}`
+        ].join('\n');
+      }
+
+      function openMailto() {
+        const data = collectFormData();
+        const subject = encodeURIComponent(`Project Inquiry - ${data.projectName || 'D\'SEIKOU'}`);
+        const body = encodeURIComponent(buildEmailBody(data));
+        window.location.href = `mailto:dinalediseko@dseikou.co.za?subject=${subject}&body=${body}`;
+      }
+
+      if (mailtoBtn) mailtoBtn.addEventListener('click', openMailto);
+
+      function showStatus(type, message) {
+        if (!statusEl) return;
+        statusEl.className = `status ${type}`;
+        statusEl.textContent = message;
+      }
+
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      if (form) {
+        form.addEventListener('submit', async function (event) {
+          event.preventDefault();
+          const data = collectFormData();
+
+          if (!data.name || !data.email || !data.projectName || !data.projectDescription) {
+            showStatus('error', 'Please complete your name, email, project name and project description.');
+            return;
+          }
+
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
+          statusEl.className = 'status';
+          statusEl.textContent = '';
+
+          try {
+            const response = await fetch('/.netlify/functions/send-inquiry', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data)
+            });
+
+            const result = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+              throw new Error(result.error || 'Something went wrong while sending.');
+            }
+
+            showStatus('success', 'Sent. Thank you — your project inquiry has been emailed to D\'SEIKOU and a copy has been sent to you.');
+            form.reset();
+          } catch (error) {
+            showStatus('error', `${error.message} You can use the Email App Fallback button instead.`);
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="bi bi-send-fill"></i> Send Inquiry';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

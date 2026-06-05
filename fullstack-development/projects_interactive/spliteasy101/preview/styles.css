@@ -1,0 +1,190 @@
+/* ===== Neumorphic Theme ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ecf0f3; /* Soft background */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Main container – raised card */
+.container {
+  background: #ecf0f3;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 13px 13px 20px #cbced1,
+              -13px -13px 20px #ffffff;
+  max-width: 450px;
+  width: 100%;
+}
+
+h1 {
+  color: #e67e22;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Form – no extra card, just spacing */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label span {
+  font-weight: 700;
+  color: #666;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 10px;
+}
+
+/* Inputs – inset (pressed) neumorphic style */
+input {
+  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 16px;
+  background: #ecf0f3;
+  box-shadow: inset 8px 8px 8px #cbced1,
+              inset -8px -8px 8px #ffffff;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+  box-shadow: inset 6px 6px 6px #cbced1,
+              inset -6px -6px 6px #ffffff,
+              0 0 0 2px #e67e2233; /* subtle orange glow */
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+/* Button – raised neumorphic with orange accent */
+button {
+  background: #ecf0f3;
+  color: #e67e22;
+  border: none;
+  padding: 14px 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 6px 6px 12px #cbced1,
+              -6px -6px 12px #ffffff;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  box-shadow: 4px 4px 8px #cbced1,
+              -4px -4px 8px #ffffff;
+  color: #cf641c;
+}
+
+button:active {
+  box-shadow: inset 6px 6px 12px #cbced1,
+              inset -6px -6px 12px #ffffff;
+  color: #b8530f;
+  transform: scale(0.98);
+}
+
+/* Divider line – neumorphic ridge */
+hr {
+  border: 0;
+  height: 3px;
+  background: #ecf0f3;
+  box-shadow: 0 2px 4px #cbced1,
+              0 -2px 4px #ffffff;
+  margin: 30px 0 20px 0;
+  border-radius: 10px;
+}
+
+/* Result display – raised card */
+[data-result] {
+  background: #ecf0f3;
+  padding: 20px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #e67e22;
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px #cbced1,
+              -8px -8px 16px #ffffff;
+  transition: all 0.3s ease;
+  min-height: 40px;
+  word-break: break-word;
+}
+
+/* Fade-in animation (same as before) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+[data-result] {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* ===== Error Styles (Neumorphic) ===== */
+.error-message {
+  color: #ff3860;
+  background: #fff3f3;
+  border-left: 4px solid #ff3860;
+  padding: 15px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 4px 4px 8px #f5cfcf,
+              -4px -4px 8px #ffffff;
+  font-weight: 600;
+}
+
+/* Critical Error – full-screen overlay with neumorphic card */
+.critical-error {
+  background: #ffe0e0;
+  color: #c70000;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 0 30px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.2);
+  border-radius: 0; /* full screen */
+}

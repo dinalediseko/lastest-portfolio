@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validator</title>
+    <link rel="icon" href="/fullstack-development/projects/form-validator/preview/assets/vf-logo.png" type="image" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- Animated background blobs to show off the glass transparency -->
+    <div class="bg-blob blob1"></div>
+    <div class="bg-blob blob2"></div>
+
+    <div class="form-container">
+        <h2>Form Validator</h2>
+        <form id="validationForm" novalidate>
+            <div class="input-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Lethabo" required>
+                <span class="error-msg" id="firstNameError"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Joy" required>
+                <span class="error-msg" id="lastNameError"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+27 123 456 7890" required>
+                <span class="error-msg" id="phoneNumberError"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                <span class="error-msg" id="emailError"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="country">Country</label>
+                <input type="text" id="country" name="country" placeholder="South Africa" required>
+                <span class="error-msg" id="countryError"></span>
+            </div>
+
+            <div class="input-group captcha-group">
+                <label for="captcha" id="captchaLabel">What is X + Y?</label>
+                <input type="number" id="captcha" name="captcha" placeholder="Your answer" required>
+                <span class="error-msg" id="captchaError"></span>
+            </div>
+
+            <button type="submit" id="submitBtn">Submit Securely</button>
+        </form>
+        <p id="formResult" class="form-result"></p>
+    </div>
+</body>
+
+</html>

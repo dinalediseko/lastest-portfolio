@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping List App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Auth Section -->
+    <div class="container" id="auth-section">
+        <img src="assets/propic.png" alt="SLApp Logo">
+        <h1>SLApp</h1>
+        <p class="tagline">Your smart shopping companion</p>
+        <input type="email" id="email" placeholder="Email address">
+        <input type="password" id="password" placeholder="Password">
+        <button id="signup-btn">Sign Up</button>
+        <button id="login-btn">Log In</button>
+    </div>
+
+    <!-- Main App Section -->
+    <div class="container" id="app-section" style="display: none;">
+        <img src="assets/propic.png" alt="SLApp Logo">
+        <h1>SLApp</h1>
+        
+        <div class="user-bar">
+            <span id="user-email"></span>
+            <button id="logout-btn">Log Out</button>
+        </div>
+
+        <div class="list-management">
+            <p class="current-list" id="current-list-name">My Personal List</p>
+            <div class="list-actions">
+                <button id="new-list-btn">+ New List</button>
+                <button id="share-list-btn">🔗 Share List</button>
+                <input type="text" id="join-list-input" placeholder="List ID to join">
+                <button id="join-list-btn">Join</button>
+            </div>
+        </div>
+
+        <input type="text" id="input-field" placeholder="Add item (e.g. Milk)">
+        <div class="add-row">
+            <select id="category">
+                <option value="General">General</option>
+                <option value="Dairy">Dairy</option>
+                <option value="Bakery">Bakery</option>
+                <option value="Fruit & Veg">Fruit & Veg</option>
+                <option value="Meat">Meat</option>
+            </select>
+            <input type="number" id="quantity" placeholder="Qty" min="1" value="1" style="width:70px;">
+            <button id="add-button">+ Add Item</button>
+        </div>
+
+        <ul id="shopping-list"></ul>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="index.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D'SEIKOU - Personal Portfolio | About Me</title>
+  <link rel="icon" href="/media/black-favicon.png" type="image" />
+
+  <!-- Google Fonts: Syne (editorial display) + Outfit (clean body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --bg: #11100f;
+      --fg: #efefe9;
+      --accent: #be001c;
+      --accent-glow: rgba(190, 0, 28, 0.18);
+      --close-friends: #00ff00;
+      --close-friends-glow: rgba(0, 255, 0, 0.18);
+      --glass: rgba(239, 239, 233, 0.04);
+      --glass-border: rgba(239, 239, 233, 0.1);
+      --glass-hover: rgba(190, 0, 28, 0.25);
+      --muted: rgba(239, 239, 233, 0.68);
+      --muted-soft: rgba(239, 239, 233, 0.5);
+      --card-bg: rgba(239, 239, 233, 0.045);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+
+    a { color: inherit; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(17, 16, 15, 0.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo img {
+      height: 2rem;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.55rem;
+    }
+
+    .nav-links a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.35s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--accent); }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-cta {
+      padding: 0.5rem 1.4rem !important;
+      border: 1px solid var(--glass-border) !important;
+      border-radius: 100px !important;
+      background: var(--glass) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .nav-cta::after { display: none !important; }
+
+    .nav-cta:hover {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      color: var(--fg) !important;
+    }
+
+    #menu-button {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--accent);
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    #mobile-menu {
+      display: none;
+      background: rgba(17, 16, 15, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+      padding: 1rem 1.5rem 1.5rem;
+    }
+
+    #mobile-menu a {
+      display: block;
+      text-align: center;
+      padding: 0.75rem;
+      border-radius: 10px;
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    #mobile-menu a:hover,
+    #mobile-menu a.active {
+      background: var(--accent-glow);
+      color: var(--accent);
+    }
+
+    #mobile-menu .mob-cta {
+      background: var(--fg);
+      color: var(--bg);
+      font-weight: 700;
+    }
+
+    #mobile-menu .mob-cta:hover {
+      background: var(--accent);
+      color: var(--fg);
+    }
+
+    /* ============================================================
+       SHARED LAYOUT
+    ============================================================ */
+    main {
+      position: relative;
+      overflow: hidden;
+    }
+
+    main::before {
+      content: '';
+      position: absolute;
+      top: 6rem;
+      right: -12rem;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.075) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    main::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 560px;
+      background-image:
+        linear-gradient(rgba(239, 239, 233, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(239, 239, 233, 0.02) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 20%, black 10%, transparent 100%);
+      pointer-events: none;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 5.5rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title.left,
+    .section-label.left { text-align: left; }
+
+    .section-rule {
+      width: 36px;
+      height: 2px;
+      background: var(--accent);
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-rule.left { margin-left: 0; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.stagger-1 { transition-delay: 0.1s; }
+    .reveal.stagger-2 { transition-delay: 0.2s; }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.875rem 1.6rem;
+      border: 1.5px solid var(--fg);
+      border-radius: 100px;
+      background: transparent;
+      color: var(--fg);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .about-hero {
+      min-height: calc(100vh - 74px);
+      display: flex;
+      align-items: center;
+      padding-top: 7rem;
+    }
+
+    .about-hero-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-portrait-wrap {
+      position: relative;
+      width: 340px;
+      height: 340px;
+      margin: 0 auto;
+    }
+
+    .about-portrait-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%;
+      background: linear-gradient(135deg, var(--close-friends-glow) 0%, transparent 55%);
+      animation: morph 9s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .about-portrait-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%;
+      border: 1px solid rgba(0, 255, 0, 0.28);
+      animation: morph 9s ease-in-out infinite reverse;
+      z-index: 0;
+    }
+
+    @keyframes morph {
+      0%, 100% { border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%; }
+      33% { border-radius: 45% 55% 60% 40% / 60% 40% 55% 45%; }
+      66% { border-radius: 55% 45% 40% 60% / 45% 60% 40% 55%; }
+    }
+
+    .about-portrait-wrap img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%;
+      animation: morph 9s ease-in-out infinite;
+      border: 4px solid var(--close-friends);
+      box-shadow: 0 18px 45px rgba(0, 255, 0, 0.16);
+      display: block;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 1rem 0.35rem 0.65rem;
+      border: 1px solid rgba(190, 0, 28, 0.5);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .about-hero-title {
+      font-size: clamp(3rem, 6vw, 5.75rem);
+      font-weight: 800;
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      color: var(--fg);
+      max-width: 760px;
+    }
+
+    .about-hero-title span { color: var(--accent); }
+
+    .about-hero-subtitle {
+      margin-top: 1.5rem;
+      max-width: 640px;
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .about-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       BIO
+    ============================================================ */
+    .bio-card {
+      padding: 2.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    .bio-card p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1.1rem;
+    }
+
+    .bio-card p:last-child { margin-bottom: 0; }
+
+    /* ============================================================
+       SWOT
+    ============================================================ */
+    .swot-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .swot-card {
+      padding: 1.6rem;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    .swot-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(190, 0, 28, 0.35);
+      box-shadow: 0 24px 60px rgba(190, 0, 28, 0.10);
+    }
+
+    .swot-head {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(239, 239, 233, 0.1);
+    }
+
+    .swot-head i {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(190, 0, 28, 0.1);
+      color: var(--accent);
+      font-size: 1.1rem;
+      flex: 0 0 auto;
+    }
+
+    .swot-head h3 {
+      font-size: 1.1rem;
+      color: var(--fg);
+      font-weight: 700;
+    }
+
+    .swot-card ul {
+      list-style: none;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .swot-card li {
+      position: relative;
+      padding-left: 1.05rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .swot-card li::before {
+      content: '';
+      position: absolute;
+      top: 0.72em;
+      left: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ============================================================
+       EXPERIENCE TIMELINE
+    ============================================================ */
+    .timeline {
+      position: relative;
+      max-width: 920px;
+      margin: 0 auto;
+      padding-left: 2.4rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.55rem;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.6rem;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.225rem;
+      top: 0.16rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(190, 0, 28, 0.13);
+    }
+
+    .timeline-date {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+      line-height: 1.2;
+    }
+
+    .timeline-card {
+      padding: 1.6rem;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(190, 0, 28, 0.35);
+      box-shadow: 0 24px 60px rgba(190, 0, 28, 0.10);
+    }
+
+    .timeline-card h3 {
+      font-size: 1.16rem;
+      color: var(--fg);
+      line-height: 1.35;
+      margin-bottom: 0.65rem;
+    }
+
+    .timeline-card h3 span {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .timeline-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--fg);
+      color: var(--bg);
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-coffee {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2.25rem;
+    }
+
+    .footer-coffee a {
+      display: inline-block;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .footer-coffee a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(255, 221, 0, 0.3);
+    }
+
+    .footer-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-contact-item i { color: var(--accent); font-size: 1.05rem; }
+
+    .footer-contact-item a {
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-item a:hover { color: var(--accent); }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .footer-socials a {
+      color: var(--accent);
+      font-size: 1.25rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .footer-socials a:hover {
+      color: var(--bg);
+      transform: translateY(-2px);
+    }
+
+    .footer-copy {
+      text-align: center;
+      border-top: 1px solid rgba(17, 16, 15, 0.18);
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--bg);
+    }
+
+    .footer-copy a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1100px) {
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.68rem; }
+      .swot-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .about-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        text-align: center;
+      }
+
+      .about-portrait-wrap {
+        width: 280px;
+        height: 280px;
+      }
+
+      .about-actions { justify-content: center; }
+      .section-title.left,
+      .section-label.left { text-align: center; }
+      .section-rule.left { margin-left: auto; }
+      .bio-card { padding: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      #menu-button { display: block; }
+      section { padding: 4.5rem 1.25rem; }
+      .about-hero { padding-top: 5.5rem; }
+      .about-hero-title { font-size: 2.8rem; }
+      .about-actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .swot-grid { grid-template-columns: 1fr; }
+      .timeline { padding-left: 2rem; }
+      .timeline-item::before { left: -1.825rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav>
+    <div class="nav-inner">
+      <a href="https://dseikou.co.za" class="nav-logo">
+        <img src="/media/D'SEIKOU Logo White.png" alt="D'SEIKOU Logo">
+      </a>
+
+      <div class="nav-links" id="desktop-nav">
+        <a href="/homepage/">Home</a>
+        <a href="/more-about-me/" class="active">About</a>
+        <a href="/multimedia-design/">Multimedia Design</a>
+        <a href="/fullstack-development/">Full-Stack Development</a>
+        <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+        <a href="/contact/" class="nav-cta">Contact</a>
+      </div>
+
+      <button id="menu-button" aria-label="Toggle menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu">
+      <a href="/homepage/">Home</a>
+      <a href="/more-about-me/" class="active">About</a>
+      <a href="/multimedia-design/">Multimedia Design</a>
+      <a href="/fullstack-development/">Full-Stack Development</a>
+      <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+      <a href="/contact/" class="mob-cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="about-hero">
+      <div class="section-inner about-hero-grid">
+        <div class="about-portrait-wrap reveal">
+          <img src="/media/about-me-page-picture.jpg" alt="casual portrait">
+        </div>
+
+        <div class="reveal stagger-1">
+          <div class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            About Me
+          </div>
+          <h1 class="about-hero-title">You can call me, <span>Didi</span>,</h1>
+          <p class="about-hero-subtitle">the 'close friend' your projects didn't know they needed.</p>
+
+          <div class="about-actions">
+            <a href="https://www.linkedin.com/in/dinalediseko" class="btn">LinkedIn</a>
+            <a href="https://www.instagram.com/ngwanokestar" class="btn">Instagram</a>
+            <a href="https://api.whatsapp.com/send?phone=27818994791" class="btn">Chat</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BIO ===================== -->
+    <section id="about">
+      <div class="section-inner">
+        <p class="section-label left">The person behind the pixels</p>
+        <h2 class="section-title left">All About Didi</h2>
+        <div class="section-rule left"></div>
+
+        <div class="bio-card glass-card reveal">
+          <p>Born in a small town in the North West—Itsoseng—and raised in
+            <i>'Pitori'</i>, I’ve learned that from still roots grow bold
+            branches. You could say my mind lives in both spaces. I'm a
+            philosophy enthusiast; I love thinking deeply. We often bash
+            overthinking, but honestly? She’s an underrated girlie.
+          </p>
+          <p> I naturally gravitate toward intellectual challenges—but always
+            tackle them my way: creatively. That’s why, while I’m passionate
+            about visual design, I’m just as excited by software development.
+            I thrive in roles that let me merge both sides of my brain—writing
+            code that’s thoughtful and functional, and creating interfaces
+            that are intuitive and impactful.</p>
+          <p>I’m not perfect—and I never aim to be. What I strive for is
+            impact. I approach every challenge with ownership and a
+            solutions-first mindset. Instead of getting stuck in the problem,
+            I focus on the people it affects and find clear, human-centered
+            ways forward. My work is guided by empathy, intention, and a bias
+            toward action. I collaborate openly, iterate quickly, and keep my
+            eye on the bigger picture. If I’m on the team, I’m all in.</p>
+          <p>
+            They call me Star—not just because it’s a direct translation of my
+            second name, but because I show up, stand out, and help others
+            shine.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SWOT ANALYSIS ===================== -->
+    <section>
+      <div class="section-inner">
+        <p class="section-label">Self-awareness in motion</p>
+        <h2 class="section-title">SWOT Analysis</h2>
+        <div class="section-rule"></div>
+
+        <div class="swot-grid reveal">
+          <!-- Strengths -->
+          <div class="swot-card glass-card">
+            <div class="swot-head">
+              <i class="bi bi-star-fill"></i>
+              <h3>Strengths</h3>
+            </div>
+            <ul>
+              <li>I’m a creative through and through—it's not just how I work, it’s how I see the world. From the way I approach a brief to how I solve a problem, creativity is my first instinct.</li>
+              <li>Communication is huge for me. I believe in asking questions, checking in, and making sure we’re on the same page—because I won’t know unless you tell me.</li>
+              <li>When I start something, I finish it. No half-done work. If it has my name on it, it’s going to be seen through to the end— however long that may take.</li>
+              <li>I move with intention. I’m not a fan of the phrase “I’m sorry, it wasn’t my intention”—because if that wasn’t the intention, then what was? I believe in showing up fully, mindfully, and responsibly.</li>
+              <li>I care. About the work, the people involved, and the impact—nothing I do is just for the sake of doing.</li>
+            </ul>
+          </div>
+
+          <!-- Weaknesses -->
+          <div class="swot-card glass-card">
+            <div class="swot-head">
+              <i class="bi bi-shield-exclamation"></i>
+              <h3>Weaknesses</h3>
+            </div>
+            <ul>
+              <li>I’m reserved. You might call it shy or quiet, but really, I’ve just trained myself to listen first. I only open up in spaces that feel safe and welcoming.</li>
+              <li>Tunnel vision. My commitment to seeing things through can sometimes mean I get too locked in. It’s not that I don’t see the bigger picture—I just want to honour the details before I zoom out.</li>
+              <li>Vulnerability hangover. Being intentional and reflective also means I sometimes carry the weight of moments longer than I should.</li>
+            </ul>
+          </div>
+
+          <!-- Opportunities -->
+          <div class="swot-card glass-card">
+            <div class="swot-head">
+              <i class="bi bi-lightbulb-fill"></i>
+              <h3>Opportunities</h3>
+            </div>
+            <ul>
+              <li>I’m learning to be more outspoken—not just to speak, but to speak up. I’m naturally a yapper when I feel safe (just ask my friends), and I want to channel that voice into being an advocate, especially for those who don’t feel heard.</li>
+              <li>I’m a recovering people-pleaser, which means there’s room (and willingness) to put boundaries in place and prioritize my own growth too.</li>
+              <li>I'm becoming more comfortable being uncomfortable—saying “yes” to new spaces, new risks, and new roles where I don’t have it all figured out (yet).</li>
+              <li>Building confidence in leadership: not just contributing to ideas, but guiding them. That’s the next leap I’m aiming for.</li>
+            </ul>
+          </div>
+
+          <!-- Threats -->
+          <div class="swot-card glass-card">
+            <div class="swot-head">
+              <i class="bi bi-cone-striped"></i>
+              <h3>Threats</h3>
+            </div>
+            <ul>
+              <li>Overthinking. It’s not a weakness per se, but if left unchecked, it tends to spiral into self-doubt or sabotage. I call it a beautifully dangerous thing—it pushes me to be thorough, but sometimes at the cost of peace of mind.</li>
+              <li>Environments matter. I don’t thrive in places that are cold, competitive, or closed off. I do best where curiosity, collaboration, and respect are the baseline.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE TIMELINE ===================== -->
+    <section>
+      <div class="section-inner">
+        <p class="section-label">Where I have shown up</p>
+        <h2 class="section-title">Experience</h2>
+        <div class="section-rule"></div>
+
+        <div class="timeline reveal">
+          <!-- Timeline Item -->
+          <div class="timeline-item">
+            <p class="timeline-date">2023 - Present</p>
+            <div class="timeline-card glass-card">
+              <h3>Youth Leader & Creative Volunteer <span>@ African Methodist Episcopal Church</span></h3>
+              <p>I serve in various youth-focused initiatives including media production, event branding, and mentorship. From leading creative direction for major youth programs to facilitating workshops and designing promotional materials, I use my design and leadership skills to inspire and empower the next generation in faith-based spaces.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item -->
+          <div class="timeline-item">
+            <p class="timeline-date">2020 - Present</p>
+            <div class="timeline-card glass-card">
+              <h3>Senior Designer <span>@ D'SEIKOU</span></h3>
+              <p>I established D'SEIKOU during my first year at university as a space to freelance and grow creatively. Since then, I’ve led branding, web, and digital design projects that balance strategy with style—always driven by purpose, curiosity, and a love for thoughtful visuals.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item -->
+          <div class="timeline-item">
+            <p class="timeline-date">2024</p>
+            <div class="timeline-card glass-card">
+              <h3>Full-Stack Developer <span>@ CodeSpace</span></h3>
+              <p>Worked on a range of full-stack projects that sharpened my skills in both front-end and back-end development. Built responsive web apps, implemented RESTful APIs, and collaborated on real-world scenarios that emphasized clean code, problem-solving, and end-user experience.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item -->
+          <div class="timeline-item">
+            <p class="timeline-date">2021-2023</p>
+            <div class="timeline-card glass-card">
+              <h3>Graphic Designer <span>@ ASAF Fleet</span></h3>
+              <p>Created brand-aligned visuals for ASAF Fleet’s school shuttle service, including a side vehicle wrap and magnetic sticker design for mobile advertising.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item -->
+          <div class="timeline-item">
+            <p class="timeline-date">2022</p>
+            <div class="timeline-card glass-card">
+              <h3>ICT Academy Ambassador <span>@ Huawei South Africa</span></h3>
+              <p>Acted as a key representative, engaging with stakeholders and forming strategic partnerships to advance Academy initiatives.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-coffee">
+        <a href="https://www.buymeacoffee.com/dseikou" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height:60px;width:217px;display:block;">
+        </a>
+      </div>
+
+      <div class="footer-contacts">
+        <div class="footer-contact-item">
+          <i class="bi bi-envelope"></i>
+          <a href="mailto:dinalediseko@dseikou.co.za">dinalediseko@dseikou.co.za</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="bi bi-telephone"></i>
+          <a href="tel:+27818994791">(+27) 81 899 4791</a>
+        </div>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <a href="https://www.instagram.com/ngwanokestar" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+
+      <div class="footer-copy">
+        Copyright © <span id="year"></span>
+        <a href="https://dseikou.co.za">D'SEIKOU</a>.
+        All rights reserved
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // ── Mobile Nav ──────────────────────────────────────────
+      const menuBtn = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const desktopNav = document.getElementById('desktop-nav');
+
+      function syncNav() {
+        const mobile = window.innerWidth <= 768;
+        menuBtn.style.display = mobile ? 'block' : 'none';
+        desktopNav.style.display = mobile ? 'none' : 'flex';
+        if (!mobile) mobileMenu.style.display = 'none';
+      }
+
+      syncNav();
+      window.addEventListener('resize', syncNav);
+
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+      });
+
+      // ── Smooth Scroll + close mobile menu ───────────────────
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href && href !== '#') {
+            e.preventDefault();
+            mobileMenu.style.display = 'none';
+            const el = document.querySelector(href);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      // ── Scroll Reveal ────────────────────────────────────────
+      const revealEls = document.querySelectorAll('.reveal');
+      const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.12 });
+
+      revealEls.forEach(el => revealObs.observe(el));
+
+      // ── Copyright date ───────────────────────────────────────
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Didintle Naledi Diseko - UX/UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                border: none;
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        body {
+            background-color: #faf5e7; /* Clean, earthy cream base */
+            font-family: 'Inter', sans-serif;
+            color: #202020;
+        }
+
+        .resume-container {
+            background: white;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 3rem;
+            box-shadow: 0 10px 25px rgba(32, 32, 32, 0.05);
+            border-top: 10px solid #faa31a; /* Branding Yellow */
+        }
+
+        h1 {
+            color: #202020;
+        }
+
+        h2 {
+            border-bottom: 2px solid #faa31a;
+            padding-bottom: 0.5rem;
+            color: #202020;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 1.1rem;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        strong {
+            color: #202020;
+        }
+
+        .job-title {
+            color: #202020;
+            font-weight: 700;
+        }
+
+        .date-badge {
+            background-color: #faf5e7;
+            color: #202020;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .ref-card {
+            border-left: 3px solid #faa31a;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            background: #faf5e7;
+            padding: 10px 15px;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <header class="text-center mb-6">
+            <h1 class="text-5xl font-black mb-2 tracking-tighter uppercase">DIDINTLE NALEDI DISEKO</h1>
+            <p class="text-[#faa31a] font-bold tracking-widest uppercase text-sm mb-3">UX/UI Designer & Frontend Developer</p>
+            <div class="contact-info flex flex-wrap justify-center gap-6 text-[#202020] font-medium text-xs">
+                <span>📍 Pretoria, Gauteng</span>
+                <span>📞 +27 81 899 4791</span>
+                <span>✉️ dinalediseko@dseikou.co.za</span>
+            </div>
+        </header>
+
+        <!-- Summary -->
+        <section>
+            <h2>Professional Profile</h2>
+            <p class="text-[#202020] text-sm leading-relaxed opacity-90">
+                Multimedia Designer and Software Developer dedicated to crafting intuitive, mobile-first interfaces. Operating at the intersection of design and code, I specialize in bringing visual concepts to life using modern frontend frameworks like Next.js, React, and Tailwind CSS. As a philosophy enthusiast, I value deep reflection and thoroughness in my creative process, ensuring that user flows are not only highly functional but aesthetically rooted in principles of sacred minimalism and clean architecture.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section>
+            <h2>Core Competencies & Stack</h2>
+            <div class="grid grid-cols-3 gap-4 text-[11px] text-[#202020]">
+                <div>
+                    <p class="font-bold text-[#faa31a] uppercase mb-1">UX/UI Design</p>
+                    <ul class="space-y-1">
+                        <li>Wireframing & Rapid Prototyping</li>
+                        <li>Mobile-First Interface Design</li>
+                        <li>Sacred Minimalism & Typography</li>
+                        <li>User Journeys & Flow Mapping</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="font-bold text-[#faa31a] uppercase mb-1">Frontend Development</p>
+                    <ul class="space-y-1">
+                        <li>React.js, Next.js & Vite</li>
+                        <li>Tailwind CSS & Styling</li>
+                        <li>Firebase Integration</li>
+                        <li>Phaser (Web Game UI)</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="font-bold text-[#faa31a] uppercase mb-1">Tools & Methodologies</p>
+                    <ul class="space-y-1">
+                        <li>Figma & Adobe Creative Suite</li>
+                        <li>Git Version Control</li>
+                        <li>Agile Project Management</li>
+                        <li>A/B Testing & User Research</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Projects (Crucial for UX/UI) -->
+        <section>
+            <h2>Selected Digital Projects</h2>
+            <div class="mb-4">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">Hyper-Casual Arcade Web Hub</h3>
+                    <span class="date-badge">2026</span>
+                </div>
+                <p class="text-[#202020] text-xs opacity-90 leading-relaxed">
+                    Designed and developed a responsive, mobile-first 6-game arcade hub utilizing <strong>React, Tailwind CSS, and Phaser</strong>. Engineered intuitive touch interfaces and retro pixel-art aesthetic elements for titles including Snake, 2048, and Block Slide, focusing on seamless user engagement and low-friction onboarding.
+                </p>
+            </div>
+            <div class="mb-4">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">Digital Event Application ("Save the Date")</h3>
+                    <span class="date-badge">2026</span>
+                </div>
+                <p class="text-[#202020] text-xs opacity-90 leading-relaxed">
+                    Spearheaded the UX/UI and frontend development of a custom event web application. Created interactive countdown components and cohesive event branding elements, emphasizing a minimalist layout and optimal cross-device usability.
+                </p>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section>
+            <h2>Work Experience</h2>
+
+            <div class="mb-5">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">Freelance Multimedia Designer</h3>
+                    <span class="date-badge">Jan 2023 – Present</span>
+                </div>
+                <p class="italic font-medium text-[#faa31a] text-xs mb-1">D’SEIKOU</p>
+                <ul class="list-disc ml-5 text-[#202020] space-y-1 text-xs opacity-90">
+                    <li>Design comprehensive branding identities, utilizing core minimalist palettes and tailored UI layouts for digital touchpoints.</li>
+                    <li>Develop high-fidelity prototypes and translate client requirements into scalable web applications.</li>
+                    <li>Create varied visual collateral, from custom streetwear templates to digital marketing assets.</li>
+                </ul>
+            </div>
+
+            <div class="mb-5">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">Content Creator & Digital Designer</h3>
+                    <span class="date-badge">Previous</span>
+                </div>
+                <p class="italic font-medium text-[#faa31a] text-xs mb-1">TILT</p>
+                <ul class="list-disc ml-5 text-[#202020] space-y-1 text-xs opacity-90">
+                    <li>Conceptualized and produced engaging digital content tailored to specific audience personas.</li>
+                    <li>Collaborated on visual strategies to maximize user retention and platform engagement.</li>
+                </ul>
+            </div>
+
+            <div class="mb-5">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">Floor Marshall & Marketing Team</h3>
+                    <span class="date-badge">Sept 2024 – Present</span>
+                </div>
+                <p class="italic font-medium text-[#faa31a] text-xs mb-1">Total Ninja Kolonnade</p>
+                <ul class="list-disc ml-5 text-[#202020] space-y-1 text-xs opacity-90">
+                    <li>Contribute to local marketing strategies, leveraging direct customer interactions to understand real-world user needs and pain points.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h2>Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div>
+                    <p class="font-bold text-[#faa31a] mb-1 uppercase">Software Development (NQF 5)</p>
+                    <p class="font-bold">CodeSpace Academy</p>
+                    <p class="text-gray-600">Merit Pass | React.js, TypeScript, Git, VS Code</p>
+                </div>
+                <div>
+                    <p class="font-bold text-[#faa31a] mb-1 uppercase">Dip. Integrated Communication Design</p>
+                    <p class="font-bold">Tshwane University of Technology</p>
+                    <p class="text-gray-600">Incomplete (2 Yrs) | Graphic & Information Design</p>
+                </div>
+                <div class="col-span-2">
+                    <p class="font-bold text-[#faa31a] mb-1 uppercase">Senior Certificate (Bachelor's Pass)</p>
+                    <p class="font-bold">Pretoria Technical High School</p>
+                    <p class="text-gray-600">Electrical Tech & Engineering Graphics (EGD)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- References -->
+        <section>
+            <h2>References</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                <div class="ref-card">
+                    <p class="font-bold text-sm">Nthabiseng Mmethi</p>
+                    <p class="text-[#202020] font-semibold text-[10px] mb-1 uppercase">Supervisor | Total Ninja</p>
+                    <p class="mb-1 font-medium">📞 +27 83 950 7114</p>
+                </div>
+                <div class="ref-card">
+                    <p class="font-bold text-sm">Noluthando Madzivhe</p>
+                    <p class="text-[#202020] font-semibold text-[10px] mb-1 uppercase">Talent Manager | Huawei</p>
+                    <p class="mb-1 font-medium">📞 +27 71 398 1609</p>
+                </div>
+                <div class="ref-card">
+                    <p class="font-bold text-sm">Katlego Malapane</p>
+                    <p class="text-[#202020] font-semibold text-[10px] mb-1 uppercase">Solutions Architect | HPE</p>
+                    <p class="mb-1 font-medium">📞 +27 79 857 9231</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-6 pt-4 border-t border-gray-200 text-center">
+            <p class="text-[9px] text-gray-400 uppercase tracking-widest">End of Curriculum Vitae - Didintle Naledi Diseko</p>
+        </footer>
+    </div>
+</body>
+
+</html>

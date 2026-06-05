@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CertifyMe</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="index.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 20% 30%, #667eea22, #764ba211),
+                linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            color: #fff;
+        }
+
+        /* Glassmorphism controls */
+        .controls {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 40px;
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        input {
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .btn {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .btn-preview {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-bulk {
+            background: #ff6b6b;
+            grid-column: span 2;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Certificate wrapper – also glassy */
+        #cert-wrapper {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Certificate itself – still solid white for printing */
+        #cert-container {
+            width: 1123px;
+            height: 794px;
+            background: white;
+            color: #000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            border: 20px solid #e86510;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .inner-border {
+            border: 2px solid #e86510;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .flap {
+            position: absolute;
+            top: 50%;
+            background: #1e3a8a;
+            color: white;
+            padding: 8px 35px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            z-index: 20;
+        }
+
+        .left-flap {
+            left: 0;
+            transform: translate(-35%, -50%) rotate(-90deg);
+        }
+
+        .right-flap {
+            right: 0;
+            transform: translate(35%, -50%) rotate(90deg);
+        }
+
+        .header-logo {
+            height: 90px;
+            margin-bottom: 15px;
+        }
+
+        .company-name {
+            font-weight: 900;
+            font-size: 28px;
+            color: #1e3a8a;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .cert-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 58px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin: 10px 0;
+            border-top: 2px solid #1e3a8a;
+            border-bottom: 2px solid #1e3a8a;
+            padding: 10px 40px;
+        }
+
+        .presented-to {
+            font-size: 18px;
+            color: #444;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-top: 40px;
+            text-transform: uppercase;
+        }
+
+        .student-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-style: italic;
+            font-weight: 700;
+            color: #000;
+            margin: 20px 0 10px 0;
+        }
+
+        .id-number {
+            font-size: 20px;
+            color: #1e3a8a;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .performance-text {
+            font-size: 18px;
+            color: #444;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .module-name {
+            font-weight: 900;
+            color: #e86510;
+            font-size: 24px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .star-seal {
+            width: 60px;
+            height: 60px;
+        }
+
+        #sec-logo {
+            height: 70px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            #cert-wrapper {
+                transform: scale(0.8);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .controls {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-bulk {
+                grid-column: span 1;
+            }
+
+            #cert-wrapper {
+                transform: scale(0.6);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="controls">
+        <div class="input-group">
+            <label>Organization Name</label>
+            <input type="text" id="inOrg" value="CertifyMe" oninput="updatePreview()">
+        </div>
+        <div class="input-group">
+            <label>Achievement / Module</label>
+            <input type="text" id="inModule" value="EXCELLENCE IN INNOVATION" oninput="updatePreview()">
+        </div>
+        <div class="input-group">
+            <label>Student Name</label>
+            <input type="text" id="inName" value="Naledi DISEKO" oninput="updatePreview()">
+        </div>
+        <div class="input-group">
+            <label>ID Number</label>
+            <input type="text" id="inID" value="0123456789123" oninput="updatePreview()">
+        </div>
+        <div class="input-group">
+            <label>Upload Main Logo</label>
+            <input type="file" accept="image/*" onchange="loadImg(event, 'main-logo')">
+        </div>
+        <div class="input-group">
+            <label>Upload Secondary Logo</label>
+            <input type="file" accept="image/*" onchange="loadImg(event, 'sec-logo')">
+        </div>
+        <div class="input-group" style="grid-column: span 2;">
+            <label>Bulk CSV (Name, ID)</label>
+            <input type="file" id="csvFile" accept=".csv">
+        </div>
+        <button class="btn btn-preview" onclick="updatePreview()">Refresh Preview</button>
+        <button class="btn btn-bulk" onclick="generateBulk()">CertifyMe</button>
+    </div>
+
+    <div id="cert-wrapper">
+        <div id="cert-container">
+            <div class="flap left-flap">Awarded – 2025</div>
+            <div class="flap right-flap">Issued – 2026</div>
+
+            <div class="inner-border">
+                <img id="main-logo" class="header-logo"
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23eee'/%3E%3C/svg%3E"
+                    alt="Logo">
+
+                <div class="company-name" id="dispOrg">CertifyMe Example</div>
+                <div class="cert-title">CERTIFICATE OF ACHIEVEMENT</div>
+
+                <div class="presented-to">PROUDLY PRESENTED TO</div>
+
+                <div class="student-name" id="dispName">Naledi DISEKO</div>
+                <div class="id-number" id="dispID">ID 0123456789123</div>
+
+                <div class="performance-text">
+                    FOR THEIR EXCELLENT PERFORMANCE IN
+                    <span class="module-name" id="dispModule">EXCELLENCE IN INNOVATION</span>
+                </div>
+
+                <div class="footer">
+                    <svg class="star-seal" viewBox="0 0 100 100">
+                        <polygon points="50,5 63,37 95,50 63,63 50,95 37,63 5,50 37,37" fill="#1e3a8a" />
+                    </svg>
+
+                    <img id="sec-logo"
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23eee'/%3E%3C/svg%3E"
+                        alt="Secondary Logo">
+
+                    <svg class="star-seal" viewBox="0 0 100 100">
+                        <polygon points="50,5 63,37 95,50 63,63 50,95 37,63 5,50 37,37" fill="#1e3a8a" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

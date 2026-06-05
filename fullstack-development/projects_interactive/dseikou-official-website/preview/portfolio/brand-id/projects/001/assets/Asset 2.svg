@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060.56 1060.56">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5 {
+        fill: #f6e3d3;
+      }
+
+      .cls-6 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 22px;
+      }
+
+      .cls-7 {
+        fill: #c77c5d;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-9 {
+        fill: #bdb1ae;
+      }
+
+      .cls-10 {
+        fill: #74877d;
+      }
+
+      .cls-11 {
+        fill: #c6b39c;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <rect class="cls-10" y="864.16" width="1060.56" height="196.4" rx="31.38" ry="31.38"/>
+      <rect class="cls-11" y="0" width="1060.56" height="196.4" rx="31.38" ry="31.38"/>
+      <rect class="cls-5" y="648.12" width="1060.56" height="196.4" rx="31.38" ry="31.38"/>
+      <rect class="cls-7" y="432.08" width="1060.56" height="196.4" rx="31.38" ry="31.38"/>
+      <rect class="cls-9" y="216.04" width="1060.56" height="196.4" rx="31.38" ry="31.38"/>
+    </g>
+    <g>
+      <text class="cls-6" transform="translate(9.72 902.57)"><tspan x="0" y="0">R=116 G=135 B=125</tspan><tspan x="0" y="26.4">HEX 74 87 7d</tspan><tspan class="cls-4" x="0" y="52.8">R</tspan><tspan x="11.9" y="52.8">GB 116 135 125</tspan><tspan x="0" y="79.2">CM</tspan><tspan class="cls-3" x="30.45" y="79.2">Y</tspan><tspan x="42.2" y="79.2">K 57 36 49 7</tspan><tspan x="0" y="105.6">LAB 55 -9 2</tspan><tspan x="0" y="132">G</tspan><tspan class="cls-2" x="14.21" y="132">r</tspan><tspan class="cls-8" x="21.3" y="132">a</tspan><tspan x="31.72" y="132">y</tspan><tspan class="cls-1" x="42.09" y="132">S</tspan><tspan x="53.06" y="132">cale 50</tspan></text>
+      <text class="cls-6" transform="translate(9.72 22.57)"><tspan x="0" y="0">R=198 G=179 B=156</tspan><tspan x="0" y="26.4">HEX c6 b3 9c</tspan><tspan class="cls-4" x="0" y="52.8">R</tspan><tspan x="11.9" y="52.8">GB 198 179 156</tspan><tspan x="0" y="79.2">CM</tspan><tspan class="cls-3" x="30.45" y="79.2">Y</tspan><tspan x="42.2" y="79.2">K 23 27 38 0</tspan><tspan x="0" y="105.6">LAB 74 4 14</tspan><tspan x="0" y="132">G</tspan><tspan class="cls-2" x="14.21" y="132">r</tspan><tspan class="cls-8" x="21.3" y="132">a</tspan><tspan x="31.72" y="132">y</tspan><tspan class="cls-1" x="42.09" y="132">S</tspan><tspan x="53.06" y="132">cale 29</tspan></text>
+      <text class="cls-6" transform="translate(9.72 682.57)"><tspan x="0" y="0">R=246 G=227 B=211</tspan><tspan x="0" y="26.4">HEX f6 e3 d3</tspan><tspan class="cls-4" x="0" y="52.8">R</tspan><tspan x="11.9" y="52.8">GB 246 227 211</tspan><tspan x="0" y="79.2">CM</tspan><tspan class="cls-3" x="30.45" y="79.2">Y</tspan><tspan x="42.2" y="79.2">K 3 11 15 0</tspan><tspan x="0" y="105.6">LAB 91 4 10</tspan><tspan x="0" y="132">G</tspan><tspan class="cls-2" x="14.21" y="132">r</tspan><tspan class="cls-8" x="21.3" y="132">a</tspan><tspan x="31.72" y="132">y</tspan><tspan class="cls-1" x="42.09" y="132">S</tspan><tspan x="53.06" y="132">cale 9</tspan></text>
+      <text class="cls-6" transform="translate(9.72 462.57)"><tspan x="0" y="0">R=199 G=124 B=93</tspan><tspan x="0" y="26.4">HEX c7 7c 5d</tspan><tspan class="cls-4" x="0" y="52.8">R</tspan><tspan x="11.9" y="52.8">GB 199 124 93</tspan><tspan x="0" y="79.2">CM</tspan><tspan class="cls-3" x="30.45" y="79.2">Y</tspan><tspan x="42.2" y="79.2">K 19 58 66 3</tspan><tspan x="0" y="105.6">LAB 60 27 29</tspan><tspan x="0" y="132">G</tspan><tspan class="cls-2" x="14.21" y="132">r</tspan><tspan class="cls-8" x="21.3" y="132">a</tspan><tspan x="31.72" y="132">y</tspan><tspan class="cls-1" x="42.09" y="132">S</tspan><tspan x="53.06" y="132">cale 44</tspan></text>
+      <text class="cls-6" transform="translate(9.72 242.57)"><tspan x="0" y="0">R=189 G=177 B=174</tspan><tspan x="0" y="26.4">HEX bd b1 ae</tspan><tspan class="cls-4" x="0" y="52.8">R</tspan><tspan x="11.9" y="52.8">GB 189 177 174</tspan><tspan x="0" y="79.2">CM</tspan><tspan class="cls-3" x="30.45" y="79.2">Y</tspan><tspan x="42.2" y="79.2">K 27 27 27 0</tspan><tspan x="0" y="105.6">LAB 73 4 3</tspan><tspan x="0" y="132">G</tspan><tspan class="cls-2" x="14.21" y="132">r</tspan><tspan class="cls-8" x="21.3" y="132">a</tspan><tspan x="31.72" y="132">y</tspan><tspan class="cls-1" x="42.09" y="132">S</tspan><tspan x="53.06" y="132">cale 29</tspan></text>
+    </g>
+  </g>
+</svg>

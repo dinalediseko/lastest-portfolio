@@ -1,0 +1,270 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+}
+
+.invite-shell {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.invite-card {
+  width: 100%;
+  max-width: 430px;
+  min-height: calc(100vh - 36px);
+  background:
+  linear-gradient(rgba(252,247,240,0.88), rgba(252,247,240,0.92)),
+  url('/paper-texture.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  box-shadow: 0 18px 50px rgba(92, 63, 39, 0.12);
+  position: relative;
+  overflow: hidden;
+  padding: 30px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.invite-card::before {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border-radius: 22px;
+  border: 1px solid rgba(173, 132, 86, 0.2);
+  pointer-events: none;
+}
+
+.header,
+.scratch-section,
+.action-area,
+.names {
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.title {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  line-height: 0.95;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.subtitle {
+  margin: 10px auto 0;
+  max-width: 260px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.scratch-section {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0 10px;
+}
+
+.heart-stage {
+  position: relative;
+  width: min(84vw, 320px);
+  aspect-ratio: 340 / 320;
+  margin: auto;
+}
+
+.heart-stage,
+.scratch-canvas {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.scratch-canvas {
+  display: block;
+  touch-action: none;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.heart-date-layer,
+.scratch-canvas,
+.heart-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heart-date-layer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 42px 58px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scratch-canvas {
+  display: block;
+  touch-action: none;
+  z-index: 2;
+}
+
+.heart-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.date-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  transform: translateY(-2px);
+  opacity: 0.88;
+}
+
+.date-label {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.date-main {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.05rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.date-year {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.names {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.names h2 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.names p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.action-area {
+  position: relative;
+  z-index: 1;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0 18px;
+}
+
+.helper {
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.calendar-btn {
+  width: 100%;
+  max-width: 320px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #caa06b 0%, #ab7e50 100%);
+  color: #fffdf8;
+  padding: 15px 18px;
+  font-size: 0.96rem;
+  font-weight: 600;
+  box-shadow: 0 10px 24px rgba(166, 124, 82, 0.24);
+  cursor: pointer;
+}
+
+.calendar-btn:active {
+  transform: scale(0.99);
+}
+
+.calendar-btn-pop {
+  animation: popIn 0.45s ease;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (min-width: 768px) {
+  .invite-shell {
+    padding: 30px;
+  }
+
+  .invite-card {
+    max-width: 460px;
+    min-height: 780px;
+    padding: 34px 28px 28px;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .names h2 {
+    font-size: 2.4rem;
+  }
+}
+
+/* ---------- DEBOSSED PAPER TEXT ---------- */
+
+.deboss {
+  color: #8b6d4f;
+
+  text-shadow:
+    0.6px 0.6px 0 rgba(255,255,255,0.65), /* paper highlight */
+   -0.6px -0.6px 0 rgba(160,120,80,0.35); /* inner shadow */
+}

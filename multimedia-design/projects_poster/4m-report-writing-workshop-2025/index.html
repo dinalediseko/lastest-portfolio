@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4M Conference YPD</title>
+    <link rel="icon" href="../media/white-favicon.png" type="image" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="bg-[#efefe9] font-sans text-[#11100f]">
+
+    <nav class="bg-[#efefe9] shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Your Logo/Name -->
+                <div class="text-xl font-bold">
+                    <a href="https://dseikou.co.za">
+                        <img src="/media/D'SEIKOU Logo Black.png" alt="D'SEIKOU Logo" class="h-8 w-auto">
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/multimedia-design," class="text-[#11100f] font-semibold hover:text-[#be001c]">Home</a>
+                    <a href="/more-about-me/" class="text-[#11100f] font-semibold hover:text-[#be001c]">About</a>
+                    <a href="/fullstack-development/"
+                        class="text-[#11100f] font-semibold hover:text-[#be001c]">Development</a>
+                    <a href="/404.html" class="text-[#11100f] font-semibold hover:text-[#be001c]">Side Quest</a>
+                    <a href="#contact"
+                        class="bg-[#11100f] text-[#efefe9] font-semibold px-4 py-2 rounded-md hover:bg-[#be001c]">Contact</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="menu-button" class="text-[#be001c] focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2 bg-[#efefe9]">
+            <a href="/multimedia-design/"
+                class="block text-[#11100f] text-center font-semibold hover:bg-[#be001c] hover:text-[#efefe9] p-2 rounded">Home</a>
+            <a href="/more-about-me/"
+                class="block text-[#11100f] text-center font-semibold hover:bg-[#be001c] hover:text-[#efefe9] p-2 rounded">About</a>
+            <a href="/fullstack-development/"
+                class="block text-[#11100f] text-center font-semibold hover:bg-[#be001c] hover:text-[#efefe9] p-2 rounded">Development</a>
+            <a href="http://side-quest.dseikou.co.za/"
+                class="block text-[#11100f] text-center font-semibold hover:bg-[#be001c] hover:text-[#efefe9] p-2 rounded">Side
+                Quest</a>
+            <a href="#contact"
+                class="block bg-[#11100f] text-[#efefe9] text-center font-semibold px-4 py-2 rounded-md hover:bg-[#be001c]">Contact</a>
+        </div>
+    </nav>
+
+    <!-- NEW: Breadcrumb Navigation -->
+    <div class="bg-[#efefe9] py-4 border-b border-[#efefe9]">
+        <div class="container mx-auto px-6">
+            <nav aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2 text-sm">
+                    <li>
+                        <a href="/multimedia-design/" class="text-[#11100f] font-medium  hover:text-[#be001c]">
+                            <i class="bi bi-arrow-left-circle"></i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <span class="text-[#be001c]">/</span>
+                    </li>
+                    <li aria-current="page" class="font-medium text-[#11100f] hover:text-[#be001c]">
+                        Design Project Details
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-6 py-8">
+        <div class="bg-[#efefe9] p-8 rounded-lg shadow-lg">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 md:gap-12">
+
+                <section class="md:col-span-3 mb-8">
+                    <div class="slideshow-container relative">
+                        <div class="mySlides fade"><img src="./assets/one.png" class="w-full rounded-lg"></div>
+                        <div class="mySlides fade hidden"><img src="./assets/two.png" class="w-full rounded-lg">
+                        </div>
+                        <div class="mySlides fade hidden"><img src="./assets/three.png" class=" w-full rounded-lg">
+                        </div>
+                        <div class="mySlides fade hidden"><img src="./assets/books.png" class=" w-full rounded-lg">
+                        </div>
+                        <div class="mySlides fade hidden"><img src="./assets/ypd-pattern.png" class="w-full rounded-lg">
+                        </div>
+                        <div class="mySlides fade hidden"><img src="./assets/four.png" class="w-full rounded-lg">
+                        </div>
+                        <div class="mySlides fade hidden"><img src="./assets/five.png" class=" w-full rounded-lg">
+                        </div>
+                        <div class="mySlides fade hidden"><img src="./assets/board-design.png"
+                                class="w-full rounded-lg">
+                        </div>
+                        <div class="mySlides fade hidden"><img src="./assets/seven.png" class="w-full rounded-lg">
+                        </div>
+                        <div class="mySlides fade hidden"><img src="./assets/naked.png" class="w-full rounded-lg">
+                        </div>
+
+                        <a class="prev absolute top-1/2 left-0 transform -translate-y-1/2 p-4 text-[#efefe9] font-bold text-2xl bg-[#000000]/[0.4] hover:bg-[#000000]/[0.7] transition-colors duration-300 cursor-pointer rounded-r-lg"
+                            onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next absolute top-1/2 right-0 transform -translate-y-1/2 p-4 text-[#efefe9] font-bold text-2xl bg-[#000000]/[0.4] hover:bg-[#000000]/[0.7] transition-colors duration-300 cursor-pointer rounded-l-lg"
+                            onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                </section>
+
+                <section class="md:col-span-2">
+                    <div class="project-header mb-6">
+                        <h1 class="text-4xl text-[#be001c] font-bold mb-2">The Power of the Pen: YPD Reporting 101</h1>
+                        <p class="text-xl text-[#11100f]">A concept-driven promotional poster designed to make
+                            organisational
+                            reporting feel accessible and engaging.</p>
+                    </div>
+
+                    <div class="project-body space-y-4 text-[#11100f] leading-relaxed">
+                        <h2 class="text-2xl font-semibold">About the Project</h2>
+
+                        <p>
+                            <strong>The Power of the Pen: YPD Reporting 101</strong> was designed as a promotional
+                            poster for a youth-focused
+                            educational session aimed at helping members better understand reporting within the YPD
+                            context.
+                            Rather than approaching the piece as a standard informational flyer, I wanted the design to
+                            immediately communicate
+                            <strong>learning, writing, structure, and participation</strong> in a way that felt visually
+                            engaging and easy to connect with.
+                        </p>
+
+                        <p>
+                            The creative direction was built around the familiar atmosphere of a <strong>classroom and
+                                study environment</strong> —
+                            using a chalkboard-inspired visual language, hand-drawn notations, sketch-style iconography,
+                            and educational references
+                            to reinforce the idea of reporting as something that can be taught, learned, and understood.
+                            I designed the custom <strong>YPD pattern and board graphic in Adobe Illustrator</strong>,
+                            using them as core visual assets
+                            to build a more ownable and thematic identity for the piece.
+                        </p>
+
+                        <p>
+                            To bring the concept to life more fully, I then composited the final poster in <strong>Adobe
+                                Photoshop</strong>,
+                            combining my original design elements with carefully selected <strong>stock imagery sourced
+                                from Unsplash</strong>.
+                            This allowed me to create a more immersive and editorial-feeling scene, where the visuals
+                            moved beyond a flat flyer
+                            and into something that felt more atmospheric, layered, and story-driven.
+                        </p>
+
+                        <p>
+                            The final outcome was intended to make a functional ministry topic feel more approachable
+                            and visually relevant to a younger audience,
+                            balancing <strong>information design, concept development, illustration, and digital
+                                composition</strong>.
+                           Reflecting my mission to create work that
+                            helps shape how a message is received and remembered.
+                        </p>
+
+                        <div class="client-comment mt-8 bg-[#11100f] p-6 border-l-4 border-[#be001c]">
+                            <blockquote class="italic text-[#efefe9]">
+                                “This project reflects the kind of work I do in service spaces — building visuals that
+                                don’t just look good,
+                                but help people feel invited, informed, and part of something bigger.”
+                            </blockquote>
+                            <cite class="block text-right text-[#be001c] mt-2 font-semibold">- D’SEIKOU</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="mt-8 md:mt-0">
+                    <div class="bg-[#efefe9] p-6 rounded-lg border border-[#be001c]">
+                        <h3 class="text-xl font-bold mb-4">Project Information</h3>
+                        <ul class="space-y-3 text-[#11100f]">
+                            <li><strong>Category:</strong> <span id="project-category">Design</span></li>
+                            <li><strong>Client:</strong> <span id="project-client">4M YPD</span></li>
+                            <li><strong>Project URL:</strong> <a
+                                    href="https://www.instagram.com/p/DNDufVHsH5z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                                    id="project-url" class="text-[#be001c] hover:underline">See Poster</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Reused Footer -->
+    <footer id="contact" class="bg-[#11100f] text-[#efefe9] pt-10 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center mb-8">
+                <a href="https://www.buymeacoffee.com/dseikou" target="_blank"
+                    class="rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 hover:shadow-[0_0_10px_#FFDD00]">
+                    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
+                        style="height: 60px !important; width: 217px !important; display: block;" />
+                </a>
+            </div>
+            <div class="flex flex-wrap justify-center items-center text-center gap-y-4 md:gap-x-8">
+                <div class="flex items-center gap-x-3">
+                    <i class="bi bi-envelope text-xl text-[#be001c]"></i>
+                    <a href="mailto:dinalediseko@dseikou.co.za"
+                        class="text-medium hover:text-[#be001c]">dinalediseko@dseikou.co.za </a>
+                </div>
+                <div class="flex items-center gap-x-3">
+                    <i class="bi bi-telephone text-xl text-[#be001c]"></i>
+                    <a href="tel:+27818994791" class="text-medium hover:text-[#be001c]">(+27) 81 899 4791</a>
+                </div>
+            </div>
+            <div class="flex justify-center mt-8 gap-x-6">
+                <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"
+                    class="text-2xl text-[#efefe9] hover:text-[#be001c]"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/dinalediseko" aria-label="GitHub"
+                    class="text-2xl text-[#efefe9] hover:text-[#be001c]"><i class="bi bi-github"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"
+                    class="text-2xl text-[#efefe9] hover:text-[#be001c]"><i class="bi bi-whatsapp"></i></a>
+                <a href="https://www.instagram.com/ngwanokestar" aria-label="Instagram"
+                    class="text-2xl text-[#efefe9] hover:text-[#be001c]"><i class="bi bi-instagram"></i></a>
+            </div>
+            <div class="text-center text-[#be001c] mt-8 border-t border-[#be001c] pt-6">
+                <span class="text-[#efefe9]">Copyright © 2026 <a href="https://dseikou.co.za"
+                        class="text-[#be001c] hover:underline">
+                        D'SEIKOU</a>. All rights
+                    reserved</span>
+            </div>
+        </div>
+    </footer>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            const slides = document.getElementsByClassName("mySlides");
+
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.add("hidden");
+            }
+
+            slides[slideIndex - 1].classList.remove("hidden");
+        }
+
+        const menuButton = document.getElementById("menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+            });
+        }
+    </script>
+</body>
+
+</html>

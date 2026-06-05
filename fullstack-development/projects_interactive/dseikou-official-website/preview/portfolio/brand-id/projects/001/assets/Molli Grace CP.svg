@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060.56 1060.56">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #101010;
+        font-family: MontserratRoman-SemiBold, Montserrat;
+        font-size: 22px;
+        font-variation-settings: 'wght' 600;
+        font-weight: 600;
+      }
+
+      .cls-2 {
+        fill: #f6e3d3;
+      }
+
+      .cls-3 {
+        fill: #c77c5d;
+      }
+
+      .cls-4 {
+        fill: #bdb1ae;
+      }
+
+      .cls-5 {
+        fill: #74877d;
+      }
+
+      .cls-6 {
+        fill: #c6b39c;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <rect class="cls-5" y="864.16" width="1060.56" height="196.4" rx="31.38" ry="31.38"/>
+      <rect class="cls-6" y="0" width="1060.56" height="196.4" rx="31.38" ry="31.38"/>
+      <rect class="cls-2" y="648.12" width="1060.56" height="196.4" rx="31.38" ry="31.38"/>
+      <rect class="cls-3" y="432.08" width="1060.56" height="196.4" rx="31.38" ry="31.38"/>
+      <rect class="cls-4" y="216.04" width="1060.56" height="196.4" rx="31.38" ry="31.38"/>
+    </g>
+    <g>
+      <text class="cls-1" transform="translate(9.72 903.27)"><tspan x="0" y="0">R=116 G=135 B=125</tspan><tspan x="0" y="26.4">HEX 74 87 7D</tspan><tspan x="0" y="52.8">RGB 116 135 125</tspan><tspan x="0" y="79.2">CMYK 57 36 49 7</tspan><tspan x="0" y="105.6">LAB 55 -9 2</tspan><tspan x="0" y="132">GRAYSCALE 50</tspan></text>
+      <text class="cls-1" transform="translate(9.72 23.27)"><tspan x="0" y="0">R=198 G=179 B=156</tspan><tspan x="0" y="26.4">HEX C6 B3 9C</tspan><tspan x="0" y="52.8">RGB 198 179 156</tspan><tspan x="0" y="79.2">CMYK 23 27 38 0</tspan><tspan x="0" y="105.6">LAB 74 4 14</tspan><tspan x="0" y="132">GRAYSCALE 29</tspan></text>
+      <text class="cls-1" transform="translate(9.72 683.27)"><tspan x="0" y="0">R=246 G=227 B=211</tspan><tspan x="0" y="26.4">HEX F6 E3 D3</tspan><tspan x="0" y="52.8">RGB 246 227 211</tspan><tspan x="0" y="79.2">CMYK 3 11 15 0</tspan><tspan x="0" y="105.6">LAB 91 4 10</tspan><tspan x="0" y="132">GRAYSCALE 9</tspan></text>
+      <text class="cls-1" transform="translate(9.72 463.27)"><tspan x="0" y="0">R=199 G=124 B=93</tspan><tspan x="0" y="26.4">HEX C7 7C 5D</tspan><tspan x="0" y="52.8">RGB 199 124 93</tspan><tspan x="0" y="79.2">CMYK 19 58 66 3</tspan><tspan x="0" y="105.6">LAB 60 27 29</tspan><tspan x="0" y="132">GRAYSCALE 44</tspan></text>
+      <text class="cls-1" transform="translate(9.72 243.27)"><tspan x="0" y="0">R=189 G=177 B=174</tspan><tspan x="0" y="26.4">HEX BD B1 AE</tspan><tspan x="0" y="52.8">RGB 189 177 174</tspan><tspan x="0" y="79.2">CMYK 27 27 27 0</tspan><tspan x="0" y="105.6">LAB 73 4 3</tspan><tspan x="0" y="132">GRAYSCALE 29</tspan></text>
+    </g>
+  </g>
+</svg>
