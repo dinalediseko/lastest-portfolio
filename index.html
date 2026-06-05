@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D'SEIKOU - Personal Portfolio | Homepage</title>
+  <link rel="icon" href="/media/black-favicon.png" type="image" />
+
+  <!-- Google Fonts: Syne (editorial display) + Outfit (clean body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --bg: #11100f;
+      --fg: #efefe9;
+      --accent: #be001c;
+      --accent-glow: rgba(190, 0, 28, 0.18);
+      --glass: rgba(239, 239, 233, 0.04);
+      --glass-border: rgba(239, 239, 233, 0.1);
+      --glass-hover: rgba(190, 0, 28, 0.25);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* Subtle grain texture overlay – 2026 trend */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* ============================================================
+       NAVIGATION – frosted glass, 2026 staple
+    ============================================================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(17, 16, 15, 0.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.35s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.5rem 1.4rem !important;
+      border: 1px solid var(--glass-border) !important;
+      border-radius: 100px !important;
+      background: var(--glass) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      color: var(--fg) !important;
+    }
+
+    /* Mobile hamburger */
+    #menu-button {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--accent);
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    #mobile-menu {
+      display: none;
+      background: rgba(17, 16, 15, 0.96);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+      padding: 1rem 1.5rem 1.5rem;
+    }
+
+    #mobile-menu a {
+      display: block;
+      text-align: center;
+      padding: 0.75rem;
+      border-radius: 10px;
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    #mobile-menu a:hover {
+      background: var(--accent-glow);
+      color: var(--accent);
+    }
+
+    #mobile-menu .mob-cta {
+      background: var(--fg);
+      color: var(--bg);
+      font-weight: 700;
+    }
+
+    #mobile-menu .mob-cta:hover {
+      background: var(--accent);
+      color: var(--fg);
+    }
+
+    /* ============================================================
+       SHARED SECTION STYLES
+    ============================================================ */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(239, 239, 233, 0.5);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-rule {
+      width: 36px;
+      height: 2px;
+      background: var(--accent);
+      margin: 0 auto 3.5rem;
+    }
+
+    /* Scroll reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.stagger-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal.stagger-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+    #profile {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient glow */
+    #profile::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      right: 8%;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Subtle grid lines – 2026 editorial aesthetic */
+    #profile::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(239, 239, 233, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(239, 239, 233, 0.025) 1px, transparent 1px);
+      background-size: 72px 72px;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    /* Pill label with pulsing dot */
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 1rem 0.35rem 0.65rem;
+      border: 1px solid rgba(190, 0, 28, 0.5);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    /* Oversized editorial name – key 2026 trend */
+    .hero-name {
+      font-size: clamp(3.2rem, 6.5vw, 6rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--fg);
+    }
+
+    .hero-role-wrapper {
+      height: 2.75rem;
+      margin-top: 1.25rem;
+      overflow: hidden;
+    }
+
+    .hero-role {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--accent);
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* CTA buttons */
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.875rem 2rem;
+      border: 1.5px solid var(--fg);
+      border-radius: 100px;
+      background: transparent;
+      color: var(--fg);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Social icons – circled */
+    .hero-socials {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(190, 0, 28, 0.35);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      color: var(--fg);
+      border-color: var(--fg);
+      transform: translateY(-3px);
+    }
+
+    /* Organic morphing image */
+    .hero-image-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image-frame {
+      position: relative;
+      width: 380px;
+      height: 380px;
+    }
+
+    /* Outer glow ring */
+    .hero-image-frame::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%;
+      background: linear-gradient(135deg, rgba(190, 0, 28, 0.5) 0%, transparent 55%);
+      animation: morph 9s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    /* Inner accent ring */
+    .hero-image-frame::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%;
+      border: 1px solid rgba(190, 0, 28, 0.2);
+      animation: morph 9s ease-in-out infinite reverse;
+      z-index: 0;
+    }
+
+    @keyframes morph {
+
+      0%,
+      100% {
+        border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%;
+      }
+
+      33% {
+        border-radius: 45% 55% 60% 40% / 60% 40% 55% 45%;
+      }
+
+      66% {
+        border-radius: 55% 45% 40% 60% / 45% 60% 40% 55%;
+      }
+    }
+
+    .hero-image-frame img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%;
+      animation: morph 9s ease-in-out infinite;
+    }
+
+    .coffee-wrap {
+      margin-top: 2.25rem;
+    }
+
+    .coffee-wrap a {
+      display: inline-block;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .coffee-wrap a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(255, 221, 0, 0.25);
+    }
+
+    /* ============================================================
+       MARQUEE TICKER – 2026 editorial staple
+    ============================================================ */
+    .ticker-strip {
+      padding: 1rem 0;
+      background: var(--accent);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      gap: 3rem;
+      animation: ticker 18s linear infinite;
+    }
+
+    .ticker-strip:hover .ticker-inner {
+      animation-play-state: paused;
+    }
+
+    @keyframes ticker {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .ticker-item {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .ticker-item::after {
+      content: '✦';
+      font-size: 0.6rem;
+      opacity: 0.6;
+    }
+
+    /* ============================================================
+       ABOUT SECTION
+    ============================================================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image-wrap img {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Decorative corner brackets */
+    .about-image-wrap::before {
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: -14px;
+      width: 56px;
+      height: 56px;
+      border-top: 2px solid var(--accent);
+      border-left: 2px solid var(--accent);
+      border-radius: 4px 0 0 0;
+      z-index: 1;
+    }
+
+    .about-image-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -14px;
+      right: -14px;
+      width: 56px;
+      height: 56px;
+      border-bottom: 2px solid var(--accent);
+      border-right: 2px solid var(--accent);
+      border-radius: 0 0 4px 0;
+      z-index: 1;
+    }
+
+    .about-text p {
+      color: rgba(239, 239, 233, 0.68);
+      line-height: 1.85;
+      font-size: 1rem;
+    }
+
+    /* ============================================================
+       LOGO SLIDER
+    ============================================================ */
+    #brands {
+      padding: 3rem 0;
+      overflow: hidden;
+    }
+
+    .logo-track-wrapper {
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    }
+
+    .logo-track {
+      display: flex;
+      align-items: center;
+      gap: 5rem;
+      width: max-content;
+      animation: scroll-logos 22s linear infinite;
+    }
+
+    #brands:hover .logo-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll-logos {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .logo-track img {
+      height: 3rem;
+      object-fit: contain;
+      opacity: 0.6;
+      filter: grayscale(1) invert(1) brightness(1.1);
+      transition: opacity 0.3s, filter 0.3s;
+    }
+
+    .logo-track img:hover {
+      opacity: 1;
+      filter: grayscale(0) invert(0) brightness(1);
+    }
+
+    /* ============================================================
+       SKILLS SECTION – bento grid cards, 2026 dominant trend
+    ============================================================ */
+    .skills-bento {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2.25rem;
+      backdrop-filter: blur(12px);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .skill-card:hover {
+      border-color: rgba(190, 0, 28, 0.35);
+      transform: translateY(-4px);
+    }
+
+    .skill-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--fg);
+      font-family: 'Syne', sans-serif;
+    }
+
+    .skill-row {
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .skill-track {
+      width: 100%;
+      height: 5px;
+      background: rgba(239, 239, 233, 0.1);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent) 0%, #ff3354 100%);
+      border-radius: 100px;
+      transition: width 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ============================================================
+       PROJECTS SECTION
+    ============================================================ */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      display: block;
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      text-decoration: none;
+      transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .project-card:hover {
+      border-color: rgba(190, 0, 28, 0.45);
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(190, 0, 28, 0.12);
+    }
+
+    .project-card-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .project-card:hover .project-card-img {
+      transform: scale(1.05);
+    }
+
+    .project-card-body {
+      padding: 1.75rem;
+    }
+
+    .project-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--fg);
+      font-family: 'Syne', sans-serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card-desc {
+      font-size: 0.875rem;
+      color: rgba(239, 239, 233, 0.5);
+      line-height: 1.65;
+    }
+
+    .project-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      transition: gap 0.3s ease;
+    }
+
+    .project-card:hover .project-card-cta {
+      gap: 0.8rem;
+    }
+
+    /* ============================================================
+       MODAL
+    ============================================================ */
+    #project-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    #modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+    }
+
+    #modal-content {
+      background: #1c1a18;
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      max-width: 640px;
+      width: 100%;
+      padding: 2.5rem;
+      position: relative;
+      z-index: 1;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    #modal-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--fg);
+    }
+
+    #modal-description {
+      color: rgba(239, 239, 233, 0.68);
+      line-height: 1.8;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    #modal-close-btn {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      color: var(--fg);
+      cursor: pointer;
+      font-size: 1.2rem;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    #modal-close-btn:hover {
+      opacity: 1;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--fg);
+      color: var(--bg);
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-coffee {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2.25rem;
+    }
+
+    .footer-coffee a {
+      display: inline-block;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .footer-coffee a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(255, 221, 0, 0.3);
+    }
+
+    .footer-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-contact-item i {
+      color: var(--accent);
+      font-size: 1.05rem;
+    }
+
+    .footer-contact-item a {
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-item a:hover {
+      color: var(--accent);
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .footer-socials a {
+      color: var(--accent);
+      font-size: 1.25rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .footer-socials a:hover {
+      color: var(--bg);
+      transform: translateY(-2px);
+    }
+
+    .footer-copy {
+      text-align: center;
+      border-top: 1px solid rgba(17, 16, 15, 0.18);
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--bg);
+    }
+
+    .footer-copy a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       TYPED CURSOR
+    ============================================================ */
+    .typed-cursor {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* ============================================================
+   CONCEPTS SECTION
+============================================================ */
+    #concepts {
+      padding: 6rem 2rem;
+    }
+
+    .concept-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .concept-filter-btn {
+      padding: 0.7rem 1.35rem;
+      border: 1px solid rgba(190, 0, 28, 0.55);
+      border-radius: 100px;
+      background: transparent;
+      color: var(--fg);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .concept-filter-btn:hover,
+    .concept-filter-btn.is-active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--fg);
+      transform: translateY(-2px);
+    }
+
+    .concept-grid {
+      margin-left: -0.75rem;
+      margin-right: -0.75rem;
+    }
+
+    .grid-sizer,
+    .concept-item-container {
+      width: 33.333%;
+    }
+
+    .concept-item-container {
+      padding: 0.75rem;
+    }
+
+    .concept-card {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+    }
+
+    .concept-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease, filter 0.6s ease;
+    }
+
+    .concept-overlay {
+      position: absolute;
+      inset: 0;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(17, 16, 15, 0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.45s ease;
+    }
+
+    .concept-card:hover img {
+      transform: scale(1.08);
+      filter: saturate(0.9) brightness(0.7);
+    }
+
+    .concept-card:hover .concept-overlay {
+      opacity: 1;
+    }
+
+    .concept-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--fg);
+      margin-bottom: 0.65rem;
+    }
+
+    .concept-desc {
+      font-size: 0.85rem;
+      color: rgba(239, 239, 233, 0.68);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .concept-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .concept-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1rem;
+      border-radius: 100px;
+      border: 1px solid transparent;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .concept-action.secondary {
+      background: var(--fg);
+      color: var(--bg);
+    }
+
+    .concept-action.primary {
+      background: var(--accent);
+      color: var(--fg);
+    }
+
+    .concept-action:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 900px) {
+
+      .grid-sizer,
+      .concept-item-container {
+        width: 50%;
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      .grid-sizer,
+      .concept-item-container {
+        width: 100%;
+      }
+
+      .concept-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .concept-action {
+        width: 100%;
+      }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3.5rem;
+      }
+
+      .hero-image-frame {
+        width: 280px;
+        height: 280px;
+        margin: 0 auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-socials {
+        justify-content: center;
+      }
+
+      .coffee-wrap {
+        display: flex;
+        justify-content: center;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .skills-bento {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none !important;
+      }
+
+      #menu-button {
+        display: block;
+      }
+
+      .hero-name {
+        font-size: 2.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav>
+    <div class="nav-inner">
+      <a href="https://dseikou.co.za">
+        <img src="/media/D'SEIKOU Logo White.png" alt="D'SEIKOU Logo" style="height: 2rem; width: auto;">
+      </a>
+
+      <div class="nav-links" id="desktop-nav">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="/multimedia-design/">Multimedia Design</a>
+        <a href="/fullstack-development/">Full-Stack Development</a>
+        <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+        <a href="/contact/" class="nav-cta">Contact</a>
+      </div>
+
+      <button id="menu-button" aria-label="Toggle menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="/multimedia-design/">Multimedia Design</a>
+      <a href="/fullstack-development/">Full-Stack Development</a>
+      <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+      <a href="/contact/" class="mob-cta">Contact</a>
+    </div>
+  </nav>
+
+
+  <!-- ===================== HERO ===================== -->
+  <section id="profile">
+    <div class="hero-grid">
+
+      <!-- Left: Text -->
+      <div class="reveal">
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          Hello, I'm
+        </div>
+        <h1 class="hero-name">Didintle<br>Naledi<br>Diseko</h1>
+        <div class="hero-role-wrapper">
+          <div class="hero-role"><span class="auto-type"></span></div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Contact Info</a>
+          <a href="https://api.whatsapp.com/send?phone=27818994791" class="btn">Chat</a>
+        </div>
+
+        <div class="hero-socials">
+          <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn" class="social-icon"><i
+              class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/dinalediseko" aria-label="GitHub" class="social-icon"><i
+              class="bi bi-github"></i></a>
+          <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp" class="social-icon"><i
+              class="bi bi-whatsapp"></i></a>
+          <a href="https://www.instagram.com/ngwanokestar/" aria-label="Instagram" class="social-icon"><i
+              class="bi bi-instagram"></i></a>
+        </div>
+
+        <div class="coffee-wrap">
+          <a href="https://www.buymeacoffee.com/dseikou" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
+              style="height:60px;width:217px;display:block;">
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="hero-image-wrap reveal stagger-1">
+        <div class="hero-image-frame">
+          <img src="/media/hero-picture.png" alt="Professional portrait of Didintle Naledi Diseko">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===================== TICKER STRIP ===================== -->
+  <div class="ticker-strip" aria-hidden="true">
+    <div class="ticker-inner">
+      <!-- 2 copies for seamless loop -->
+      <span class="ticker-item">Multimedia Designer</span>
+      <span class="ticker-item">Creative Director</span>
+      <span class="ticker-item">Full-Stack Developer</span>
+      <span class="ticker-item">D'SEIKOU</span>
+      <span class="ticker-item">Based in Pretoria</span>
+      <span class="ticker-item">Multimedia Designer</span>
+      <span class="ticker-item">Creative Director</span>
+      <span class="ticker-item">Full-Stack Developer</span>
+      <span class="ticker-item">D'SEIKOU</span>
+      <span class="ticker-item">Based in Pretoria</span>
+    </div>
+  </div>
+
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label">Get To Know More</p>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-rule"></div>
+
+      <div class="about-grid">
+        <div class="about-image-wrap reveal">
+          <img src="/media/about-pic.png" alt="About me picture">
+        </div>
+        <div class="about-text reveal stagger-1">
+          <p>
+            You can call me Didi. My professional identity, D'SEIKOU, is a fusion of my surname, Diseko, and the
+            Japanese word for success, 'seikou'. It reflects my core beliefs and who I am at my essence. I spent three
+            years studying towards a diploma in Integrated Communication Design at the Tshwane University of Technology,
+            gaining hands-on experience in a variety of creative disciplines. My time there equipped me with a versatile
+            skill set, spanning Interaction Design, Information Design, Photography, Motion Design, and Marketing,
+            giving me a comprehensive understanding of the creative industry. Driven by a passion for continuous growth,
+            I recently expanded my expertise into the realm of software development, merging my design background with
+            technical skills to create innovative solutions.
+          </p>
+          <div style="margin-top: 2.25rem;">
+            <a href="/more-about-me/" class="btn">More About Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== LOGO SLIDER ===================== -->
+  <section id="brands">
+    <div class="logo-track-wrapper">
+      <div class="logo-track">
+        <img src="/media/logo-slider/slider1.png" alt="ASAF">
+        <img src="/media/logo-slider/slider3.png" alt="Huawei">
+        <img src="/media/logo-slider/slider5.png" alt="YCC">
+        <img src="/media/logo-slider/slider6.png" alt="The South African State Theatre">
+        <img src="/media/logo-slider/slider7.png" alt="Mokone YPD">
+        <img src="/media/logo-slider/slider8.png" alt="MStudios">
+        <img src="/media/logo-slider/slider10.png" alt="Kustom Kreations">
+        <img src="/media/logo-slider/slider11.png" alt="Elysian Empire">
+        <!-- Duplicate -->
+        <img src="/media/logo-slider/slider1.png" alt="ASAF">
+        <img src="/media/logo-slider/slider3.png" alt="Huawei">
+        <img src="/media/logo-slider/slider5.png" alt="YCC">
+        <img src="/media/logo-slider/slider6.png" alt="The South African State Theatre">
+        <img src="/media/logo-slider/slider7.png" alt="Mokone YPD">
+        <img src="/media/logo-slider/slider8.png" alt="MStudios">
+        <img src="/media/logo-slider/slider10.png" alt="Kustom Kreations">
+        <img src="/media/logo-slider/slider11.png" alt="Elysian Empire">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SKILLS ===================== -->
+  <section id="experience">
+    <div class="section-inner">
+      <p class="section-label">Explore My</p>
+      <h2 class="section-title">Skills</h2>
+      <div class="section-rule"></div>
+
+      <div class="skills-bento reveal">
+        <!-- Soft Skills -->
+        <div class="skill-card">
+          <h3 class="skill-card-title">Soft Skills</h3>
+          <div class="skill-row">
+            <div class="skill-meta"><span>Communication</span><span>90%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="90%"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span>Problem-Solving</span><span>90%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="90%"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span>Collaboration</span><span>80%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="80%"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span>Adaptability</span><span>95%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="95%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="skill-card">
+          <h3 class="skill-card-title">Technical Skills</h3>
+          <div class="skill-row">
+            <div class="skill-meta"><span>Design Software Proficiency</span><span>95%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="95%"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span>UX/UI Design</span><span>80%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="80%"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span>Coding Skills</span><span>70%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="70%"></div>
+            </div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span>Project Management</span><span>90%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-width="90%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects">
+    <div class="section-inner">
+      <p class="section-label">The Actual Portfolio</p>
+      <h2 class="section-title">Projects</h2>
+      <div class="section-rule"></div>
+
+      <div class="projects-grid reveal">
+        <a href="/multimedia-design/" class="project-card">
+          <img src="/media/design-card.png" alt="Multimedia Designer" class="project-card-img">
+          <div class="project-card-body">
+            <div class="project-card-title">Multimedia Designer</div>
+            <p class="project-card-desc">Turning the ordinary into the extraordinary, one pixel at a time.</p>
+            <div class="project-card-cta">View Work <i class="bi bi-arrow-right-circle"></i></div>
+          </div>
+        </a>
+
+        <a href="/fullstack-development/" class="project-card">
+          <img src="/media/dev-card.png" alt="Full-Stack Developer" class="project-card-img">
+          <div class="project-card-body">
+            <div class="project-card-title">Full-Stack Developer</div>
+            <p class="project-card-desc">Transforming caffeine into functional code and minor miracles.</p>
+            <div class="project-card-cta">View Work <i class="bi bi-arrow-right-circle"></i></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONCEPTS ===================== 
+  <section id="concepts">
+    <div class="section-inner">
+      <p class="section-label">The Art of What Could Be</p>
+      <h2 class="section-title">Concepts</h2>
+      <div class="section-rule"></div>
+
+      <div id="concept-filters" class="concept-filters reveal">
+        <button data-filter="*" class="concept-filter-btn is-active">All</button>
+        <button data-filter=".design" class="concept-filter-btn">Multimedia Design</button>
+        <button data-filter=".development" class="concept-filter-btn">Full-Stack Dev</button>
+        <button data-filter=".direction" class="concept-filter-btn">Creative Direction</button>
+      </div>
+     
+
+  <div class="concept-grid reveal stagger-1">
+    <div class="grid-sizer"></div>
+     -->
+
+  <!-- Concept Card 1: Design 
+        <div class="concept-item-container design">
+          <div class="concept-card">
+            <img src="https://placehold.co/600x450/3d5a80/ffffff?text=Design+1" alt="Packaging Design concept">
+
+            <div class="concept-overlay">
+              <h4 class="concept-title">Packaging Design</h4>
+              <p class="concept-desc">Coke redesign concept focusing on minimalist aesthetics.</p>
+
+              <div class="concept-actions">
+                <button type="button" title="Read More" class="concept-action secondary modal-trigger"
+                  data-title="Packaging Design"
+                  data-description="This is a conceptual redesign of Coca-Cola's packaging, aiming for a cleaner and more modern look. The design emphasizes minimalism and uses a refined color palette to appeal to a contemporary audience.">
+                  Read More
+                </button>
+
+                <a href="#" title="More Details" class="concept-action primary">
+                  View Page
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        -->
+
+  <!-- Concept Card 2: Development 
+        <div class="concept-item-container development">
+          <div class="concept-card">
+            <img src="https://placehold.co/600x450/293241/ffffff?text=Dev+1" alt="Brand Strategy API concept">
+
+            <div class="concept-overlay">
+              <h4 class="concept-title">Brand Strategy API</h4>
+              <p class="concept-desc">A developmental concept for a brand management tool.</p>
+
+              <div class="concept-actions">
+                <button type="button" title="Read More" class="concept-action secondary modal-trigger"
+                  data-title="Brand Strategy API"
+                  data-description="This is a backend development concept for an API that allows businesses to manage their brand assets, guidelines, and messaging programmatically. It's designed to ensure consistency across all digital platforms.">
+                  Read More
+                </button>
+
+                <a href="#" title="More Details" class="concept-action primary">
+                  View Page
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        -->
+
+  <!-- Concept Card 3: Direction 
+        <div class="concept-item-container direction">
+          <div class="concept-card">
+            <img src="https://placehold.co/600x450/ee6c4d/ffffff?text=Direction+1" alt="Visual Campaign concept">
+
+            <div class="concept-overlay">
+              <h4 class="concept-title">Visual Campaign</h4>
+              <p class="concept-desc">Art direction for a conceptual awareness campaign.</p>
+
+              <div class="concept-actions">
+                <button type="button" title="Read More" class="concept-action secondary modal-trigger"
+                  data-title="Visual Campaign"
+                  data-description="This concept outlines the art direction for a public awareness campaign about mental health. The visual strategy uses a combination of powerful imagery and typography to convey a message of hope and support.">
+                  Read More
+                </button>
+
+                <a href="#" title="More Details" class="concept-action primary">
+                  View Page
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- ===================== MODAL ===================== 
+  <div id="project-modal">
+    <div id="modal-backdrop"></div>
+    <div id="modal-content">
+      <button id="modal-close-btn" aria-label="Close modal"><i class="bi bi-x-lg"></i></button>
+      <h3 id="modal-title"></h3>
+      <div id="modal-description"></div>
+    </div>
+  </div>
+-->
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-coffee">
+        <a href="https://www.buymeacoffee.com/dseikou" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
+            style="height:60px;width:217px;display:block;">
+        </a>
+      </div>
+
+      <div class="footer-contacts">
+        <div class="footer-contact-item">
+          <i class="bi bi-envelope"></i>
+          <a href="mailto:dinalediseko@dseikou.co.za">dinalediseko@dseikou.co.za</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="bi bi-telephone"></i>
+          <a href="tel:+27818994791">(+27) 81 899 4791</a>
+        </div>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i
+            class="bi bi-whatsapp"></i></a>
+        <a href="https://www.instagram.com/ngwanokestar" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+
+      <div class="footer-copy">
+        Copyright © <span id="year"></span>
+        <a href="https://dseikou.co.za">D'SEIKOU</a>.
+        All rights reserved
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // ── Mobile Nav ──────────────────────────────────────────
+      const menuBtn = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const desktopNav = document.getElementById('desktop-nav');
+
+      function syncNav() {
+        const mobile = window.innerWidth <= 768;
+        menuBtn.style.display = mobile ? 'block' : 'none';
+        desktopNav.style.display = mobile ? 'none' : 'flex';
+        if (!mobile) mobileMenu.style.display = 'none';
+      }
+      syncNav();
+      window.addEventListener('resize', syncNav);
+
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+      });
+
+      // ── Typed.js ────────────────────────────────────────────
+      if (window.Typed) {
+        new Typed('.auto-type', {
+          strings: ['Designer', 'Creative Director', 'Developer'],
+          typeSpeed: 150,
+          backSpeed: 150,
+          loop: true
+        });
+      }
+      // ── Smooth Scroll + close mobile menu ───────────────────
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href && href !== '#') {
+            e.preventDefault();
+            mobileMenu.style.display = 'none';
+            const el = document.querySelector(href);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      // ── Scroll Reveal ────────────────────────────────────────
+      const revealEls = document.querySelectorAll('.reveal');
+      const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(el => revealObs.observe(el));
+
+      // ── Skill Bars ───────────────────────────────────────────
+      const skillFills = document.querySelectorAll('.skill-fill');
+      let skillsFired = false;
+      const skillSection = document.getElementById('experience');
+
+      const skillObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !skillsFired) {
+            skillsFired = true;
+            skillFills.forEach(fill => {
+              fill.style.width = fill.getAttribute('data-width');
+            });
+          }
+        });
+      }, { threshold: 0.3 });
+
+      if (skillSection) skillObs.observe(skillSection);
+
+      // ── Concepts Filter / Isotope ────────────────────────────
+      const conceptGrid = document.querySelector('.concept-grid');
+
+      if (conceptGrid && window.Isotope) {
+        const iso = new Isotope(conceptGrid, {
+          itemSelector: '.concept-item-container',
+          layoutMode: 'masonry',
+          percentPosition: true,
+          masonry: {
+            columnWidth: '.grid-sizer'
+          }
+        });
+
+        const filterButtons = document.querySelectorAll('#concept-filters button');
+
+        filterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const filterValue = button.getAttribute('data-filter');
+
+            iso.arrange({
+              filter: filterValue
+            });
+
+            filterButtons.forEach(btn => btn.classList.remove('is-active'));
+            button.classList.add('is-active');
+          });
+        });
+      }
+
+      // ── Modal ────────────────────────────────────────────────
+      const modal = document.getElementById('project-modal');
+      const modalCont = document.getElementById('modal-content');
+      const modalTitle = document.getElementById('modal-title');
+      const modalDesc = document.getElementById('modal-description');
+      const closeBtn = document.getElementById('modal-close-btn');
+      const backdrop = document.getElementById('modal-backdrop');
+
+      function openModal(title, desc) {
+        modalTitle.textContent = title;
+        modalDesc.innerHTML = desc.split('\n').map(p => `<p style="margin-bottom:.75rem">${p}</p>`).join('');
+        modal.style.opacity = '1';
+        modal.style.pointerEvents = 'auto';
+        modalCont.style.transform = 'scale(1)';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.style.opacity = '0';
+        modalCont.style.transform = 'scale(0.95)';
+        setTimeout(() => { modal.style.pointerEvents = 'none'; }, 300);
+        document.body.style.overflow = '';
+      }
+
+      document.body.addEventListener('click', e => {
+        if (e.target.matches('.modal-trigger')) {
+          openModal(e.target.dataset.title, e.target.dataset.description);
+        }
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      backdrop.addEventListener('click', closeModal);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    });
+
+    // ── Copyright date  ────────────────────────────────────────────────
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
