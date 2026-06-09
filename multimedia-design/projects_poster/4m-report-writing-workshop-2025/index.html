@@ -1,268 +1,1232 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4M Conference YPD</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Power of the Pen: YPD Reporting 101 | D'SEIKOU</title>
+    <meta name="description"
+        content="A D'SEIKOU project detail page for The Power of the Pen: YPD Reporting 101, a concept-driven promotional poster and visual system for youth-focused organisational reporting education." />
     <link rel="icon" href="../media/white-favicon.png" type="image" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts: Syne (editorial display) + Outfit (clean body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <style>
+        /* ============================================================
+       DESIGN TOKENS — LIGHT MAIN QUEST / PROJECT DETAIL
+    ============================================================ */
+        :root {
+            --bg: #efefe9;
+            --fg: #11100f;
+            --accent: #be001c;
+            --accent-soft: rgba(190, 0, 28, 0.08);
+            --accent-glow: rgba(190, 0, 28, 0.18);
+            --cream: #efefe9;
+            --ink: #11100f;
+            --glass: rgba(255, 255, 255, 0.48);
+            --glass-strong: rgba(255, 255, 255, 0.74);
+            --glass-border: rgba(17, 16, 15, 0.12);
+            --muted: rgba(17, 16, 15, 0.64);
+            --muted-strong: rgba(17, 16, 15, 0.78);
+            --shadow-soft: 0 24px 70px rgba(17, 16, 15, 0.10);
+            --shadow-hover: 0 28px 80px rgba(190, 0, 28, 0.16);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 80% 8%, rgba(190, 0, 28, 0.11), transparent 34%),
+                radial-gradient(circle at 10% 22%, rgba(17, 16, 15, 0.06), transparent 28%),
+                var(--bg);
+            color: var(--fg);
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Syne', sans-serif;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ============================================================
+       NAVIGATION
+    ============================================================ */
+        nav.site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(239, 239, 233, 0.72);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .nav-logo img {
+            height: 2rem;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--fg);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.35s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.5rem 1.4rem !important;
+            border: 1px solid rgba(17, 16, 15, 0.14) !important;
+            border-radius: 100px !important;
+            background: var(--ink) !important;
+            color: var(--cream) !important;
+            box-shadow: 0 12px 34px rgba(17, 16, 15, 0.12);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent) !important;
+            border-color: var(--accent) !important;
+        }
+
+        #menu-button {
+            display: none;
+            border: none;
+            background: transparent;
+            color: var(--fg);
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        #mobile-menu {
+            display: none;
+            background: rgba(239, 239, 233, 0.96);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+            padding: 1rem 1.5rem 1.5rem;
+        }
+
+        #mobile-menu a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            padding: 0.75rem;
+            border-radius: 12px;
+            color: var(--fg);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.25rem;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        #mobile-menu a:hover {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        #mobile-menu .mob-cta {
+            background: var(--ink);
+            color: var(--cream);
+        }
+
+        #mobile-menu .mob-cta:hover {
+            background: var(--accent);
+            color: var(--cream);
+        }
+
+        /* ============================================================
+       SHARED
+    ============================================================ */
+        .page-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .soft-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            padding: 0.78rem 1.2rem;
+            border-radius: 100px;
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary {
+            border: 1.5px solid var(--accent);
+            background: var(--accent);
+            color: var(--cream);
+            box-shadow: 0 10px 30px rgba(190, 0, 28, 0.24);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 36px rgba(190, 0, 28, 0.34), 0 0 20px rgba(190, 0, 28, 0.22);
+        }
+
+        .btn-secondary {
+            border: 1.5px solid rgba(17, 16, 15, 0.16);
+            background: var(--glass-strong);
+            color: var(--ink);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .section-kicker::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 18px var(--accent-glow);
+        }
+
+        /* ============================================================
+       HERO
+    ============================================================ */
+        .project-hero {
+            padding: 7rem 0 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            right: -11rem;
+            top: 1rem;
+            width: 460px;
+            height: 460px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(190, 0, 28, 0.18), transparent 68%);
+            pointer-events: none;
+        }
+
+        .project-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(17, 16, 15, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(17, 16, 15, 0.035) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, black 20%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero-card {
+            position: relative;
+            z-index: 1;
+            padding: clamp(2rem, 5vw, 4rem);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: end;
+        }
+
+        .project-label {
+            margin-bottom: 1.15rem;
+        }
+
+        .project-title {
+            font-size: clamp(3.2rem, 9vw, 7.4rem);
+            line-height: 0.9;
+            letter-spacing: -0.07em;
+            font-weight: 800;
+            max-width: 780px;
+        }
+
+        .project-title span {
+            color: var(--accent);
+        }
+
+        .project-intro {
+            max-width: 670px;
+            margin-top: 1.35rem;
+            color: var(--muted-strong);
+            font-size: clamp(1rem, 1.6vw, 1.22rem);
+            line-height: 1.75;
+        }
+
+        .hero-meta {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .meta-chip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.9rem 1rem;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .meta-chip small {
+            color: var(--muted);
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.68rem;
+        }
+
+        .meta-chip strong {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.98rem;
+            text-align: right;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        /* ============================================================
+       SHOWCASE / SLIDER
+    ============================================================ */
+        .showcase-section {
+            padding: 2rem 0 4rem;
+        }
+
+        .showcase-wrap {
+            position: relative;
+            border-radius: 34px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            background: var(--glass);
+            box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(12px);
+        }
+
+        .slides {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            background: rgba(255, 255, 255, 0.26);
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: unset;
+            object-position: unset;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 4;
+            width: 48px;
+            height: 48px;
+            border-radius: 999px;
+            border: 1px solid rgba(17, 16, 15, 0.14);
+            background: rgba(239, 239, 233, 0.82);
+            color: var(--ink);
+            box-shadow: 0 18px 40px rgba(17, 16, 15, 0.16);
+            cursor: pointer;
+            transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--accent);
+            color: var(--cream);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .slider-btn.prev {
+            left: 1rem;
+        }
+
+        .slider-btn.next {
+            right: 1rem;
+        }
+
+        .slide-dots {
+            position: absolute;
+            left: 50%;
+            bottom: 1rem;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.45rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(239, 239, 233, 0.72);
+            border: 1px solid rgba(17, 16, 15, 0.12);
+            backdrop-filter: blur(12px);
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            border: none;
+            border-radius: 999px;
+            background: rgba(17, 16, 15, 0.26);
+            cursor: pointer;
+            transition: width 0.25s ease, background 0.25s ease;
+        }
+
+        .dot.active {
+            width: 26px;
+            background: var(--accent);
+        }
+
+        /* ============================================================
+       CONTENT
+    ============================================================ */
+        .project-content {
+            padding: 4rem 0 6rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .article-card {
+            padding: clamp(1.5rem, 4vw, 3rem);
+        }
+
+        .article-card h2 {
+            margin-top: 0.65rem;
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            line-height: 0.98;
+            letter-spacing: -0.055em;
+        }
+
+        .project-body {
+            margin-top: 1.75rem;
+        }
+
+        .project-body p {
+            color: var(--muted-strong);
+            margin-bottom: 1.25rem;
+        }
+
+        .project-body strong {
+            color: var(--fg);
+            font-weight: 800;
+        }
+
+        .project-insight {
+            margin-top: 2rem;
+            padding: 1.45rem;
+            border-radius: 26px;
+            background: linear-gradient(135deg, rgba(190, 0, 28, 0.08), rgba(255, 255, 255, 0.48));
+            border: 1px solid rgba(190, 0, 28, 0.2);
+            box-shadow: 0 18px 46px rgba(190, 0, 28, 0.08);
+        }
+
+        .insight-label {
+            margin-bottom: 0.55rem !important;
+            color: var(--accent) !important;
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .project-insight blockquote {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            line-height: 1.12;
+            font-size: clamp(1.45rem, 3vw, 2.55rem);
+            color: var(--fg);
+        }
+
+        .side-card {
+            padding: 1.5rem;
+            position: sticky;
+            top: 6rem;
+        }
+
+        .side-card h3 {
+            font-size: 1.35rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .info-list {
+            display: grid;
+            gap: 0.9rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .info-item {
+            display: grid;
+            gap: 0.2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 1px solid rgba(17, 16, 15, 0.1);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .info-item span {
+            color: var(--muted);
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .info-item strong {
+            font-size: 0.98rem;
+        }
+
+        .scope-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .scope-tags span {
+            padding: 0.45rem 0.75rem;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        .next-actions {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .action-card {
+            padding: 1.25rem;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.42);
+            text-decoration: none;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .action-card i {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        .action-card strong {
+            display: block;
+            margin-top: 0.35rem;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .action-card span {
+            display: block;
+            margin-top: 0.25rem;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* ============================================================
+       FOOTER
+    ============================================================ */
+        footer {
+            background: var(--ink);
+            color: var(--cream);
+            padding: 4rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -160px;
+            right: -120px;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(190, 0, 28, 0.18), transparent 70%);
+            pointer-events: none;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 2rem;
+            align-items: start;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(239, 239, 233, 0.12);
+        }
+
+        .footer-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+            font-weight: 800;
+        }
+
+        .footer-title span {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            margin-top: 1rem;
+            color: rgba(239, 239, 233, 0.66);
+            max-width: 560px;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 0.8rem;
+            justify-items: end;
+        }
+
+        .contact-list a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            color: rgba(239, 239, 233, 0.82);
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .contact-list a:hover {
+            color: var(--accent);
+        }
+
+        .socials {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: flex-end;
+            margin-top: 1rem;
+        }
+
+        .socials a {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: rgba(239, 239, 233, 0.08);
+            border: 1px solid rgba(239, 239, 233, 0.12);
+            color: var(--cream);
+            transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .socials a:hover {
+            transform: translateY(-3px);
+            background: var(--accent);
+            color: var(--cream);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            color: rgba(239, 239, 233, 0.55);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+        @media (max-width: 980px) {
+            .nav-links {
+                display: none;
+            }
+
+            #menu-button {
+                display: block;
+            }
+
+            .hero-grid,
+            .content-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .side-card {
+                position: static;
+            }
+
+            .contact-list,
+            .socials {
+                justify-items: start;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .page-shell {
+                padding: 0 1rem;
+            }
+
+            .nav-inner {
+                padding: 1rem;
+            }
+
+            .project-hero {
+                padding: 4.5rem 0 2rem;
+            }
+
+            .hero-card,
+            .article-card,
+            .side-card {
+                border-radius: 24px;
+            }
+
+            .hero-actions,
+            .next-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .slide,
+            .slide img {
+                min-height: 300px;
+            }
+
+            .slider-btn {
+                width: 42px;
+                height: 42px;
+            }
+
+            .slider-btn.prev {
+                left: 0.65rem;
+            }
+
+            .slider-btn.next {
+                right: 0.65rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-[#efefe9] font-sans text-[#11100f]">
+<body>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo" aria-label="D'SEIKOU Home">
+                <img src="/media/D'SEIKOU Logo Black.png" alt="D'SEIKOU Logo" />
+            </a>
 
-    <nav class="bg-[#efefe9] shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <!-- Your Logo/Name -->
-                <div class="text-xl font-bold">
-                    <a href="https://dseikou.co.za">
-                        <img src="/media/D'SEIKOU Logo Black.png" alt="D'SEIKOU Logo" class="h-8 w-auto">
-                    </a>
-                </div>
-
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="/multimedia-design," class="text-[#11100f] font-semibold hover:text-[#be001c]">Home</a>
-                    <a href="/more-about-me/" class="text-[#11100f] font-semibold hover:text-[#be001c]">About</a>
-                    <a href="/fullstack-development/"
-                        class="text-[#11100f] font-semibold hover:text-[#be001c]">Development</a>
-                    <a href="/404.html" class="text-[#11100f] font-semibold hover:text-[#be001c]">Side Quest</a>
-                    <a href="#contact"
-                        class="bg-[#11100f] text-[#efefe9] font-semibold px-4 py-2 rounded-md hover:bg-[#be001c]">Contact</a>
-                </div>
-
-                <div class="md:hidden flex items-center">
-                    <button id="menu-button" class="text-[#be001c] focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </button>
-                </div>
+            <div class="nav-links" id="desktop-nav">
+                <a href="/">Home</a>
+                <a href="/more-about-me/">About</a>
+                <a href="/multimedia-design/">Multimedia Design</a>
+                <a href="/fullstack-development/">Development</a>
+                <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+                <a href="/contact/" class="nav-cta">Contact</a>
             </div>
+
+            <button id="menu-button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2 bg-[#efefe9]">
-            <a href="/multimedia-design/"
-                class="block text-[#11100f] text-center font-semibold hover:bg-[#be001c] hover:text-[#efefe9] p-2 rounded">Home</a>
-            <a href="/more-about-me/"
-                class="block text-[#11100f] text-center font-semibold hover:bg-[#be001c] hover:text-[#efefe9] p-2 rounded">About</a>
-            <a href="/fullstack-development/"
-                class="block text-[#11100f] text-center font-semibold hover:bg-[#be001c] hover:text-[#efefe9] p-2 rounded">Development</a>
-            <a href="http://side-quest.dseikou.co.za/"
-                class="block text-[#11100f] text-center font-semibold hover:bg-[#be001c] hover:text-[#efefe9] p-2 rounded">Side
-                Quest</a>
-            <a href="#contact"
-                class="block bg-[#11100f] text-[#efefe9] text-center font-semibold px-4 py-2 rounded-md hover:bg-[#be001c]">Contact</a>
+        <div id="mobile-menu">
+            <a href="/">Home</a>
+            <a href="/more-about-me/">About</a>
+            <a href="/multimedia-design/">Multimedia Design</a>
+            <a href="/fullstack-development/">Development</a>
+            <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+            <a href="/contact/" class="mob-cta">Contact</a>
         </div>
     </nav>
 
-    <!-- NEW: Breadcrumb Navigation -->
-    <div class="bg-[#efefe9] py-4 border-b border-[#efefe9]">
-        <div class="container mx-auto px-6">
-            <nav aria-label="Breadcrumb">
-                <ol class="flex items-center space-x-2 text-sm">
-                    <li>
-                        <a href="/multimedia-design/" class="text-[#11100f] font-medium  hover:text-[#be001c]">
-                            <i class="bi bi-arrow-left-circle"></i> Home
-                        </a>
-                    </li>
-                    <li>
-                        <span class="text-[#be001c]">/</span>
-                    </li>
-                    <li aria-current="page" class="font-medium text-[#11100f] hover:text-[#be001c]">
-                        Design Project Details
-                    </li>
-                </ol>
-            </nav>
-        </div>
-    </div>
+    <main>
+        <!-- HERO -->
+        <section class="project-hero">
+            <div class="page-shell">
+                <div class="hero-card soft-card reveal">
+                    <div class="hero-grid">
+                        <div>
+                            <p class="section-kicker project-label">The Power of the Pen</p>
+                            <h1 class="project-title">YPD Reporting <span>101</span></h1>
+                            <p class="project-intro">
+                                A concept-driven promotional poster designed to make organisational reporting feel
+                                accessible, visual, and engaging for a younger audience.
+                            </p>
 
-    <main class="container mx-auto px-6 py-8">
-        <div class="bg-[#efefe9] p-8 rounded-lg shadow-lg">
-
-            <div class="grid grid-cols-1 md:grid-cols-3 md:gap-12">
-
-                <section class="md:col-span-3 mb-8">
-                    <div class="slideshow-container relative">
-                        <div class="mySlides fade"><img src="./assets/one.png" class="w-full rounded-lg"></div>
-                        <div class="mySlides fade hidden"><img src="./assets/two.png" class="w-full rounded-lg">
-                        </div>
-                        <div class="mySlides fade hidden"><img src="./assets/three.png" class=" w-full rounded-lg">
-                        </div>
-                        <div class="mySlides fade hidden"><img src="./assets/books.png" class=" w-full rounded-lg">
-                        </div>
-                        <div class="mySlides fade hidden"><img src="./assets/ypd-pattern.png" class="w-full rounded-lg">
-                        </div>
-                        <div class="mySlides fade hidden"><img src="./assets/four.png" class="w-full rounded-lg">
-                        </div>
-                        <div class="mySlides fade hidden"><img src="./assets/five.png" class=" w-full rounded-lg">
-                        </div>
-                        <div class="mySlides fade hidden"><img src="./assets/board-design.png"
-                                class="w-full rounded-lg">
-                        </div>
-                        <div class="mySlides fade hidden"><img src="./assets/seven.png" class="w-full rounded-lg">
-                        </div>
-                        <div class="mySlides fade hidden"><img src="./assets/naked.png" class="w-full rounded-lg">
+                            <div class="hero-actions">
+                                <a class="btn btn-primary" href="#project-story"><i
+                                        class="bi bi-arrow-down-right-circle-fill"></i> Read the Case Study</a>
+                                <a class="btn btn-secondary" href="/multimedia-design/"><i
+                                        class="bi bi-grid-1x2-fill"></i> Back to Multimedia</a>
+                            </div>
                         </div>
 
-                        <a class="prev absolute top-1/2 left-0 transform -translate-y-1/2 p-4 text-[#efefe9] font-bold text-2xl bg-[#000000]/[0.4] hover:bg-[#000000]/[0.7] transition-colors duration-300 cursor-pointer rounded-r-lg"
-                            onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next absolute top-1/2 right-0 transform -translate-y-1/2 p-4 text-[#efefe9] font-bold text-2xl bg-[#000000]/[0.4] hover:bg-[#000000]/[0.7] transition-colors duration-300 cursor-pointer rounded-l-lg"
-                            onclick="plusSlides(1)">&#10095;</a>
+                        <aside class="hero-meta" aria-label="Project summary">
+                            <div class="meta-chip"><small>Category</small><strong>Poster Design</strong></div>
+                            <div class="meta-chip"><small>Focus</small><strong>Education & Engagement</strong></div>
+                            <div class="meta-chip"><small>Role</small><strong>Designer + Visual Storyteller</strong>
+                            </div>
+                            <div class="meta-chip"><small>Client</small><strong>4M Conference YPD</strong></div>
+                        </aside>
                     </div>
-                </section>
-
-                <section class="md:col-span-2">
-                    <div class="project-header mb-6">
-                        <h1 class="text-4xl text-[#be001c] font-bold mb-2">The Power of the Pen: YPD Reporting 101</h1>
-                        <p class="text-xl text-[#11100f]">A concept-driven promotional poster designed to make
-                            organisational
-                            reporting feel accessible and engaging.</p>
-                    </div>
-
-                    <div class="project-body space-y-4 text-[#11100f] leading-relaxed">
-                        <h2 class="text-2xl font-semibold">About the Project</h2>
-
-                        <p>
-                            <strong>The Power of the Pen: YPD Reporting 101</strong> was designed as a promotional
-                            poster for a youth-focused
-                            educational session aimed at helping members better understand reporting within the YPD
-                            context.
-                            Rather than approaching the piece as a standard informational flyer, I wanted the design to
-                            immediately communicate
-                            <strong>learning, writing, structure, and participation</strong> in a way that felt visually
-                            engaging and easy to connect with.
-                        </p>
-
-                        <p>
-                            The creative direction was built around the familiar atmosphere of a <strong>classroom and
-                                study environment</strong> —
-                            using a chalkboard-inspired visual language, hand-drawn notations, sketch-style iconography,
-                            and educational references
-                            to reinforce the idea of reporting as something that can be taught, learned, and understood.
-                            I designed the custom <strong>YPD pattern and board graphic in Adobe Illustrator</strong>,
-                            using them as core visual assets
-                            to build a more ownable and thematic identity for the piece.
-                        </p>
-
-                        <p>
-                            To bring the concept to life more fully, I then composited the final poster in <strong>Adobe
-                                Photoshop</strong>,
-                            combining my original design elements with carefully selected <strong>stock imagery sourced
-                                from Unsplash</strong>.
-                            This allowed me to create a more immersive and editorial-feeling scene, where the visuals
-                            moved beyond a flat flyer
-                            and into something that felt more atmospheric, layered, and story-driven.
-                        </p>
-
-                        <p>
-                            The final outcome was intended to make a functional ministry topic feel more approachable
-                            and visually relevant to a younger audience,
-                            balancing <strong>information design, concept development, illustration, and digital
-                                composition</strong>.
-                           Reflecting my mission to create work that
-                            helps shape how a message is received and remembered.
-                        </p>
-
-                        <div class="client-comment mt-8 bg-[#11100f] p-6 border-l-4 border-[#be001c]">
-                            <blockquote class="italic text-[#efefe9]">
-                                “This project reflects the kind of work I do in service spaces — building visuals that
-                                don’t just look good,
-                                but help people feel invited, informed, and part of something bigger.”
-                            </blockquote>
-                            <cite class="block text-right text-[#be001c] mt-2 font-semibold">- D’SEIKOU</cite>
-                        </div>
-                    </div>
-                </section>
-
-                <aside class="mt-8 md:mt-0">
-                    <div class="bg-[#efefe9] p-6 rounded-lg border border-[#be001c]">
-                        <h3 class="text-xl font-bold mb-4">Project Information</h3>
-                        <ul class="space-y-3 text-[#11100f]">
-                            <li><strong>Category:</strong> <span id="project-category">Design</span></li>
-                            <li><strong>Client:</strong> <span id="project-client">4M YPD</span></li>
-                            <li><strong>Project URL:</strong> <a
-                                    href="https://www.instagram.com/p/DNDufVHsH5z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-                                    id="project-url" class="text-[#be001c] hover:underline">See Poster</a></li>
-                        </ul>
-                    </div>
-                </aside>
-
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- SHOWCASE -->
+        <section class="showcase-section reveal" aria-label="Project visuals">
+            <div class="page-shell">
+                <div class="showcase-wrap">
+                    <div class="slides">
+                        <figure class="slide active">
+                            <img src="./assets/one.png" alt="The Power of the Pen poster design slide 1" />
+                        </figure>
+                        <figure class="slide">
+                            <img src="./assets/two.png" alt="The Power of the Pen poster design slide 2" />
+                        </figure>
+                        <figure class="slide">
+                            <img src="./assets/three.png" alt="The Power of the Pen poster design slide 3" />
+                        </figure>
+                        <figure class="slide">
+                            <img src="./assets/books.png"
+                                alt="Books and education visual asset for YPD Reporting 101" />
+                        </figure>
+                        <figure class="slide">
+                            <img src="./assets/ypd-pattern.png"
+                                alt="Custom YPD pattern designed for the reporting poster" />
+                        </figure>
+                        <figure class="slide">
+                            <img src="./assets/four.png" alt="The Power of the Pen design development slide 4" />
+                        </figure>
+                        <figure class="slide">
+                            <img src="./assets/five.png" alt="The Power of the Pen design development slide 5" />
+                        </figure>
+                        <figure class="slide">
+                            <img src="./assets/board-design.png"
+                                alt="Chalkboard-inspired board graphic for YPD Reporting 101" />
+                        </figure>
+                        <figure class="slide">
+                            <img src="./assets/seven.png" alt="The Power of the Pen final visual composition slide" />
+                        </figure>
+                        <figure class="slide">
+                            <img src="./assets/naked.png"
+                                alt="The Power of the Pen poster composition without additional context" />
+                        </figure>
+                    </div>
+
+                    <button class="slider-btn prev" type="button" aria-label="Previous slide"><i
+                            class="bi bi-chevron-left"></i></button>
+                    <button class="slider-btn next" type="button" aria-label="Next slide"><i
+                            class="bi bi-chevron-right"></i></button>
+
+                    <div class="slide-dots" aria-label="Choose slide">
+                        <button class="dot active" type="button" aria-label="View slide 1"></button>
+                        <button class="dot" type="button" aria-label="View slide 2"></button>
+                        <button class="dot" type="button" aria-label="View slide 3"></button>
+                        <button class="dot" type="button" aria-label="View slide 4"></button>
+                        <button class="dot" type="button" aria-label="View slide 5"></button>
+                        <button class="dot" type="button" aria-label="View slide 6"></button>
+                        <button class="dot" type="button" aria-label="View slide 7"></button>
+                        <button class="dot" type="button" aria-label="View slide 8"></button>
+                        <button class="dot" type="button" aria-label="View slide 9"></button>
+                        <button class="dot" type="button" aria-label="View slide 10"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT -->
+        <section class="project-content" id="project-story">
+            <div class="page-shell">
+                <div class="content-grid">
+                    <article class="article-card soft-card reveal">
+                        <p class="section-kicker">About the Project</p>
+                        <h2>Turning reporting into something people want to learn.</h2>
+
+                        <div class="project-body">
+                            <p>
+                                <strong>The Power of the Pen: YPD Reporting 101</strong> was created as a promotional
+                                poster for a youth-focused educational session on reporting within the YPD context. The
+                                aim was to take a practical organisational topic and present it in a way that felt
+                                accessible, memorable, and visually inviting.
+                            </p>
+
+                            <p>
+                                Instead of treating the piece as a standard information flyer, I built the creative
+                                direction around the atmosphere of a <strong>classroom and study environment</strong>.
+                                Chalkboard textures, hand-drawn notations, sketch-style iconography, books, and
+                                educational references helped position reporting as something that can be taught,
+                                learned, and confidently understood.
+                            </p>
+
+                            <p>
+                                I designed the custom <strong>YPD pattern and board graphic in Adobe
+                                    Illustrator</strong>, then developed the final composition in <strong>Adobe
+                                    Photoshop</strong>. The poster combined original vector elements with selected stock
+                                imagery from Unsplash to create a layered editorial scene rather than a flat
+                                announcement graphic.
+                            </p>
+
+                            <p>
+                                The final outcome balanced <strong>information design, concept development,
+                                    illustration, and digital composition</strong>. It made a functional ministry topic
+                                feel more approachable for a younger audience while still respecting the structure and
+                                seriousness of the message.
+                            </p>
+
+                            <p>
+                                This project reflects my approach to service-based design: creating visuals that do more
+                                than decorate information — they shape how a message is received, understood, and
+                                remembered.
+                            </p>
+
+                            <div class="project-insight">
+                                <p class="insight-label">Project Thesis</p>
+                                <blockquote>
+                                    Educational design works best when it turns instruction into invitation.
+                                </blockquote>
+                            </div>
+
+                            <div class="next-actions">
+                                <a class="action-card" href="/multimedia-design/">
+                                    <i class="bi bi-folder-fill"></i>
+                                    <strong>More Projects</strong>
+                                    <span>Return to the multimedia design archive.</span>
+                                </a>
+
+                                <a class="action-card" href="/contact/">
+                                    <i class="bi bi-send-fill"></i>
+                                    <strong>Start a Project</strong>
+                                    <span>Brief D'SEIKOU for your next visual system.</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <aside class="side-card soft-card reveal">
+                        <h3>Project Information</h3>
+
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span>Category</span>
+                                <strong>Design</strong>
+                            </div>
+                            <div class="info-item">
+                                <span>Client / Context</span>
+                                <strong>4M Conference YPD</strong>
+                            </div>
+                            <div class="info-item">
+                                <span>Deliverable</span>
+                                <strong>Promotional Poster & Visual Assets</strong>
+                            </div>
+                            <div class="info-item">
+                                <span>Role</span>
+                                <strong>Concept Development, Illustration, Digital Composition</strong>
+                            </div>
+                            <div class="info-item">
+                                <span>Project URL</span>
+                                <strong><a
+                                        href="https://www.instagram.com/p/DNDufVHsH5z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                                        target="_blank" rel="noopener noreferrer">See Poster</a></strong>
+                            </div>
+                        </div>
+
+                        <div class="scope-tags" aria-label="Project tags">
+                            <span>Poster Design</span>
+                            <span>Information Design</span>
+                            <span>Illustration</span>
+                            <span>Photoshop</span>
+                            <span>Illustrator</span>
+                            <span>Youth Ministry</span>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Reused Footer -->
-    <footer id="contact" class="bg-[#11100f] text-[#efefe9] pt-10 pb-8">
-        <div class="container mx-auto px-6">
-            <div class="flex justify-center mb-8">
-                <a href="https://www.buymeacoffee.com/dseikou" target="_blank"
-                    class="rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 hover:shadow-[0_0_10px_#FFDD00]">
-                    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
-                        style="height: 60px !important; width: 217px !important; display: block;" />
-                </a>
-            </div>
-            <div class="flex flex-wrap justify-center items-center text-center gap-y-4 md:gap-x-8">
-                <div class="flex items-center gap-x-3">
-                    <i class="bi bi-envelope text-xl text-[#be001c]"></i>
-                    <a href="mailto:dinalediseko@dseikou.co.za"
-                        class="text-medium hover:text-[#be001c]">dinalediseko@dseikou.co.za </a>
+    <footer id="contact">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <h2 class="footer-title">Let’s make something <span>intentional.</span></h2>
+                    <p class="footer-copy">
+                        Have a project that needs design direction, campaign visuals, digital systems, or something
+                        beautifully in-between? Let’s talk.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="/contact/"><i class="bi bi-send-fill"></i> Contact D'SEIKOU</a>
+                        <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i
+                                class="bi bi-whatsapp"></i> WhatsApp</a>
+                    </div>
                 </div>
-                <div class="flex items-center gap-x-3">
-                    <i class="bi bi-telephone text-xl text-[#be001c]"></i>
-                    <a href="tel:+27818994791" class="text-medium hover:text-[#be001c]">(+27) 81 899 4791</a>
+
+                <div>
+                    <div class="contact-list">
+                        <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i>
+                            dinalediseko@dseikou.co.za</a>
+                        <a href="tel:+27818994791"><i class="bi bi-telephone-fill"></i> (+27) 81 899 4791</a>
+                    </div>
+
+                    <div class="socials" aria-label="Social links">
+                        <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i
+                                class="bi bi-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/ngwanokestar/" aria-label="Instagram"><i
+                                class="bi bi-instagram"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="flex justify-center mt-8 gap-x-6">
-                <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"
-                    class="text-2xl text-[#efefe9] hover:text-[#be001c]"><i class="bi bi-linkedin"></i></a>
-                <a href="https://github.com/dinalediseko" aria-label="GitHub"
-                    class="text-2xl text-[#efefe9] hover:text-[#be001c]"><i class="bi bi-github"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"
-                    class="text-2xl text-[#efefe9] hover:text-[#be001c]"><i class="bi bi-whatsapp"></i></a>
-                <a href="https://www.instagram.com/ngwanokestar" aria-label="Instagram"
-                    class="text-2xl text-[#efefe9] hover:text-[#be001c]"><i class="bi bi-instagram"></i></a>
-            </div>
-            <div class="text-center text-[#be001c] mt-8 border-t border-[#be001c] pt-6">
-                <span class="text-[#efefe9]">Copyright © 2026 <a href="https://dseikou.co.za"
-                        class="text-[#be001c] hover:underline">
-                        D'SEIKOU</a>. All rights
-                    reserved</span>
+
+            <div class="footer-bottom">
+                <p>Copyright © <span id="year"></span> D'SEIKOU. All rights reserved.</p>
+                <p>The Power of the Pen: YPD Reporting 101</p>
             </div>
         </div>
     </footer>
+
     <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
+        document.addEventListener('DOMContentLoaded', function () {
+            const yearEl = document.getElementById('year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
+            const menuBtn = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const desktopNav = document.getElementById('desktop-nav');
 
-        function showSlides(n) {
-            const slides = document.getElementsByClassName("mySlides");
-
-            if (n > slides.length) slideIndex = 1;
-            if (n < 1) slideIndex = slides.length;
-
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.add("hidden");
+            function syncNav() {
+                const mobile = window.innerWidth <= 980;
+                if (menuBtn) menuBtn.style.display = mobile ? 'block' : 'none';
+                if (desktopNav) desktopNav.style.display = mobile ? 'none' : 'flex';
+                if (!mobile && mobileMenu) mobileMenu.style.display = 'none';
+                if (!mobile && menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
             }
 
-            slides[slideIndex - 1].classList.remove("hidden");
-        }
+            syncNav();
+            window.addEventListener('resize', syncNav);
 
-        const menuButton = document.getElementById("menu-button");
-        const mobileMenu = document.getElementById("mobile-menu");
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', function () {
+                    const isOpen = mobileMenu.style.display === 'block';
+                    mobileMenu.style.display = isOpen ? 'none' : 'block';
+                    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+                });
+            }
 
-        if (menuButton && mobileMenu) {
-            menuButton.addEventListener("click", () => {
-                mobileMenu.classList.toggle("hidden");
+            const slides = Array.from(document.querySelectorAll('.slide'));
+            const dots = Array.from(document.querySelectorAll('.dot'));
+            const prev = document.querySelector('.slider-btn.prev');
+            const next = document.querySelector('.slider-btn.next');
+            let currentSlide = 0;
+            let slideTimer = null;
+
+            function showSlide(index) {
+                if (!slides.length) return;
+                currentSlide = (index + slides.length) % slides.length;
+                slides.forEach((slide, i) => slide.classList.toggle('active', i === currentSlide));
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+            }
+
+            function startAutoplay() {
+                window.clearInterval(slideTimer);
+                slideTimer = window.setInterval(function () {
+                    showSlide(currentSlide + 1);
+                }, 5200);
+            }
+
+            if (prev) prev.addEventListener('click', function () { showSlide(currentSlide - 1); startAutoplay(); });
+            if (next) next.addEventListener('click', function () { showSlide(currentSlide + 1); startAutoplay(); });
+            dots.forEach(function (dot, index) {
+                dot.addEventListener('click', function () { showSlide(index); startAutoplay(); });
             });
-        }
+            startAutoplay();
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            revealElements.forEach(function (element) { observer.observe(element); });
+        });
     </script>
 </body>
 

@@ -1,0 +1,1143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D'SEIKOU Invoice | DSK-INV-050626-001</title>
+    <link rel="icon" href="/media/white-favicon.png" type="image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <style>
+        :root {
+            --bg: #11100f;
+            --fg: #efefe9;
+            --cream: #efefe9;
+            --ink: #11100f;
+            --accent: #be001c;
+            --accent-dark: #a50018;
+            --muted: rgba(239, 239, 233, 0.68);
+            --glass: rgba(239, 239, 233, 0.055);
+            --glass-strong: rgba(239, 239, 233, 0.09);
+            --glass-border: rgba(239, 239, 233, 0.13);
+            --paper: #fbfbf7;
+            --paper-soft: #f1f1ea;
+            --paper-line: rgba(17, 16, 15, 0.14);
+            --paper-text: #11100f;
+            --paper-muted: rgba(17, 16, 15, 0.62);
+            --shadow: 0 30px 100px rgba(0, 0, 0, .35);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 82% 8%, rgba(190, 0, 28, 0.16), transparent 34%),
+                radial-gradient(circle at 8% 18%, rgba(239, 239, 233, 0.05), transparent 30%),
+                var(--bg);
+            color: var(--fg);
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            line-height: 1.55;
+            padding: 2rem;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 999;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Syne', sans-serif;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        .app-shell {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+        }
+
+        .top-actions {
+            position: sticky;
+            top: 1rem;
+            z-index: 50;
+            display: flex;
+            justify-content: flex-end;
+            gap: .75rem;
+            margin-bottom: 1rem;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            min-height: 2.7rem;
+            padding: .72rem 1.05rem;
+            border: 0;
+            border-radius: 999px;
+            background: var(--accent);
+            color: var(--cream);
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 14px 36px rgba(190, 0, 28, .28);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 44px rgba(190, 0, 28, .36);
+        }
+
+        .action-btn.secondary {
+            background: var(--cream);
+            color: var(--ink);
+            box-shadow: 0 12px 34px rgba(0, 0, 0, .28);
+        }
+
+        .builder {
+            margin-bottom: 1.5rem;
+            padding: 1.25rem;
+            border-radius: 28px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow), inset 0 1px 0 rgba(239, 239, 233, .08);
+            backdrop-filter: blur(14px);
+        }
+
+        .builder-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .builder-head h1 {
+            font-size: clamp(2rem, 4vw, 3.7rem);
+            line-height: .95;
+            letter-spacing: -.055em;
+        }
+
+        .builder-head p {
+            color: var(--muted);
+            max-width: 42rem;
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .34rem .9rem .34rem .65rem;
+            border-radius: 999px;
+            border: 1px solid rgba(190, 0, 28, .48);
+            color: var(--accent);
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            margin-bottom: .9rem;
+        }
+
+        .kicker::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 18px rgba(190, 0, 28, .34);
+        }
+
+        .builder-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: .85rem;
+        }
+
+        .field {
+            display: grid;
+            gap: .32rem;
+        }
+
+        .field.span-2 {
+            grid-column: span 2;
+        }
+
+        .field.span-3 {
+            grid-column: span 3;
+        }
+
+        .field.span-4 {
+            grid-column: span 4;
+        }
+
+        .field label {
+            color: rgba(239, 239, 233, .58);
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .11em;
+            text-transform: uppercase;
+        }
+
+        .control {
+            width: 100%;
+            min-height: 2.55rem;
+            border: 1px solid rgba(239, 239, 233, .14);
+            border-radius: 14px;
+            background: rgba(239, 239, 233, .06);
+            color: var(--fg);
+            padding: .66rem .78rem;
+            outline: none;
+            transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+
+        textarea.control {
+            min-height: 96px;
+            resize: vertical;
+        }
+
+        .control:focus {
+            border-color: var(--accent);
+            background: rgba(239, 239, 233, .09);
+            box-shadow: 0 0 0 4px rgba(190, 0, 28, .13);
+        }
+
+        select.control option {
+            background: var(--ink);
+            color: var(--cream);
+        }
+
+        .item-editor {
+            grid-column: 1 / -1;
+            display: grid;
+            gap: .7rem;
+            padding: .9rem;
+            border: 1px solid rgba(239, 239, 233, .11);
+            border-radius: 18px;
+            background: rgba(239, 239, 233, .035);
+        }
+
+        .item-row {
+            display: grid;
+            grid-template-columns: 1.05fr 1.4fr 118px;
+            gap: .65rem;
+            align-items: end;
+        }
+
+        /* ======================= PRINT PREVIEW ======================= */
+        .invoice-preview-wrap {
+            display: flex;
+            justify-content: center;
+        }
+
+        .invoice-preview {
+            width: 210mm;
+            min-height: 297mm;
+            background: var(--paper);
+            color: var(--paper-text);
+            box-shadow: var(--shadow);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .paper-page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 16mm 15mm 14mm;
+            background: var(--paper);
+            position: relative;
+        }
+
+        .paper-page+.paper-page {
+            border-top: 1px solid var(--paper-line);
+        }
+
+        .invoice-header {
+            display: grid;
+            grid-template-columns: 1fr 68mm;
+            gap: 12mm;
+            align-items: start;
+            padding-bottom: 10mm;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .brand-logo {
+            width: 47mm;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 7mm;
+        }
+
+        .brand-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 2mm;
+            padding: 1.7mm 5mm 1.7mm 3.5mm;
+            border: 1px solid rgba(190, 0, 28, .45);
+            border-radius: 999px;
+            color: var(--accent);
+            font-size: 7.5pt;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: 4mm;
+        }
+
+        .brand-pill::before {
+            content: '';
+            width: 2mm;
+            height: 2mm;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .invoice-heading {
+            font-size: 42pt;
+            line-height: .88;
+            letter-spacing: -.055em;
+            font-weight: 800;
+            color: var(--paper-text);
+        }
+
+        .studio-text {
+            margin-top: 5mm;
+            font-size: 8.7pt;
+            color: var(--paper-muted);
+        }
+
+        .studio-text strong {
+            color: var(--paper-text);
+        }
+
+        .detail-card {
+            background: var(--paper-soft);
+            border: 1px solid var(--paper-line);
+            border-radius: 5mm;
+            padding: 5mm;
+        }
+
+        .detail-card h2 {
+            font-size: 15pt;
+            line-height: 1;
+            margin-bottom: 4mm;
+        }
+
+        .detail-list {
+            display: grid;
+            gap: 2.5mm;
+        }
+
+        .detail-item {
+            border-bottom: 1px solid var(--paper-line);
+            padding-bottom: 2mm;
+        }
+
+        .detail-item:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            display: block;
+            color: var(--paper-muted);
+            font-size: 7pt;
+            font-weight: 800;
+            letter-spacing: .11em;
+            text-transform: uppercase;
+            margin-bottom: .8mm;
+        }
+
+        .detail-value {
+            font-size: 9.2pt;
+            font-weight: 500;
+            word-break: break-word;
+        }
+
+        .paper-section {
+            margin-top: 8mm;
+        }
+
+        .section-card {
+            border: 1px solid var(--paper-line);
+            border-radius: 5mm;
+            padding: 5mm;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .section-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 2mm;
+            padding: 1.4mm 4.5mm 1.4mm 3mm;
+            border: 1px solid rgba(190, 0, 28, .4);
+            border-radius: 999px;
+            color: var(--accent);
+            font-size: 7pt;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: 3.5mm;
+        }
+
+        .section-pill::before {
+            content: '';
+            width: 1.8mm;
+            height: 1.8mm;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7mm;
+        }
+
+        .field-display {
+            border-bottom: 1px solid var(--paper-line);
+            padding-bottom: 2mm;
+            margin-bottom: 3mm;
+        }
+
+        .field-display:last-child {
+            margin-bottom: 0;
+        }
+
+        .field-display strong {
+            display: block;
+            color: var(--paper-muted);
+            font-size: 7pt;
+            font-weight: 800;
+            letter-spacing: .11em;
+            text-transform: uppercase;
+            margin-bottom: .8mm;
+        }
+
+        .field-display span,
+        .field-display p {
+            font-size: 9.2pt;
+            color: var(--paper-text);
+            white-space: pre-line;
+            word-break: break-word;
+        }
+
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            border: 1px solid var(--paper-line);
+            border-radius: 5mm;
+            overflow: hidden;
+        }
+
+        .items-table th,
+        .items-table td {
+            padding: 3.2mm 3.5mm;
+            border-bottom: 1px solid var(--paper-line);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .items-table th {
+            background: rgba(190, 0, 28, .07);
+            color: var(--accent);
+            font-size: 7pt;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .items-table td {
+            font-size: 9pt;
+            color: var(--paper-text);
+        }
+
+        .items-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .items-table th:nth-child(1),
+        .items-table td:nth-child(1) {
+            width: 35%;
+        }
+
+        .items-table th:nth-child(2),
+        .items-table td:nth-child(2) {
+            width: 43%;
+        }
+
+        .items-table th:nth-child(3),
+        .items-table td:nth-child(3) {
+            width: 22%;
+            text-align: right;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .item-note {
+            display: block;
+            margin-top: 1mm;
+            color: var(--paper-muted);
+            font-size: 8pt;
+            line-height: 1.25;
+        }
+
+        .summary-layout {
+            display: grid;
+            grid-template-columns: 1fr 63mm;
+            gap: 7mm;
+            align-items: start;
+        }
+
+        .scope-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6mm;
+        }
+
+        .scope-text {
+            white-space: pre-line;
+            font-size: 9pt;
+            line-height: 1.38;
+        }
+
+        .totals-card {
+            overflow: hidden;
+            border-radius: 5mm;
+            border: 1px solid var(--paper-line);
+            background: var(--paper-soft);
+        }
+
+        .total-line {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 5mm;
+            padding: 3mm 4mm;
+            border-bottom: 1px solid var(--paper-line);
+            font-size: 9pt;
+            font-weight: 800;
+        }
+
+        .total-line span:first-child {
+            color: var(--paper-muted);
+        }
+
+        .total-line span:last-child {
+            white-space: nowrap;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .total-line.grand {
+            background: var(--accent);
+            color: white;
+            font-size: 11pt;
+            border-bottom: 0;
+        }
+
+        .total-line.grand span:first-child {
+            color: white;
+        }
+
+        .payment-details {
+            padding: 4mm;
+        }
+
+        .payment-details h3 {
+            font-size: 13pt;
+            margin-bottom: 3mm;
+        }
+
+        .payment-list {
+            display: grid;
+            gap: 2.5mm;
+        }
+
+        .terms-text {
+            white-space: pre-line;
+            font-size: 9pt;
+            line-height: 1.45;
+        }
+
+        .thank-you {
+            margin-top: 8mm;
+            text-align: center;
+            padding: 8mm 5mm;
+            border-radius: 5mm;
+            border: 1px solid rgba(190, 0, 28, .32);
+            background: rgba(190, 0, 28, .05);
+        }
+
+        .thank-you h2 {
+            font-size: 28pt;
+            line-height: .95;
+            letter-spacing: -.055em;
+            margin-bottom: 2mm;
+        }
+
+        .thank-you p {
+            font-size: 9pt;
+            color: var(--paper-muted);
+        }
+
+        .paper-footer {
+            position: absolute;
+            left: 15mm;
+            right: 15mm;
+            bottom: 10mm;
+            display: flex;
+            justify-content: space-between;
+            gap: 6mm;
+            border-top: 1px solid var(--paper-line);
+            padding-top: 3mm;
+            color: var(--paper-muted);
+            font-size: 8.5pt;
+        }
+
+        .paper-footer strong {
+            color: var(--paper-text);
+        }
+
+        @media (max-width: 980px) {
+            body {
+                padding: 1rem;
+            }
+
+            .builder-grid,
+            .invoice-header,
+            .info-grid,
+            .summary-layout,
+            .scope-box {
+                grid-template-columns: 1fr;
+            }
+
+            .field.span-2,
+            .field.span-3,
+            .field.span-4 {
+                grid-column: span 1;
+            }
+
+            .item-row {
+                grid-template-columns: 1fr;
+            }
+
+            .invoice-preview {
+                width: 100%;
+                min-height: auto;
+            }
+
+            .paper-page {
+                width: 100%;
+                min-height: auto;
+            }
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            html,
+            body {
+                width: auto !important;
+                min-height: auto !important;
+            }
+
+            body {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                color: #11100f !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            body::after,
+            .top-actions,
+            .builder {
+                display: none !important;
+                visibility: hidden !important;
+            }
+
+            .app-shell {
+                width: auto !important;
+                margin: 0 !important;
+            }
+
+            .invoice-preview-wrap {
+                display: block !important;
+            }
+
+            .invoice-preview {
+                width: 210mm !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                overflow: visible !important;
+            }
+
+            .paper-page {
+                width: 210mm !important;
+                min-height: 297mm !important;
+                padding: 14mm 14mm 12mm !important;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .paper-page:last-child {
+                page-break-after: auto;
+                break-after: auto;
+            }
+
+            .paper-section,
+            .section-card,
+            .detail-card,
+            .items-table tr,
+            .totals-card,
+            .thank-you {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .invoice-header {
+                grid-template-columns: 1fr 66mm !important;
+                gap: 10mm !important;
+            }
+
+            .invoice-heading {
+                font-size: 39pt !important;
+            }
+
+            .brand-logo {
+                width: 44mm !important;
+            }
+
+            .items-table th,
+            .items-table td {
+                padding: 2.7mm 3mm !important;
+            }
+
+            .items-table td {
+                font-size: 8.6pt !important;
+            }
+
+            .summary-layout {
+                grid-template-columns: 1fr 62mm !important;
+                gap: 6mm !important;
+            }
+
+            .scope-box {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 5mm !important;
+            }
+
+            .paper-footer {
+                bottom: 8mm !important;
+                left: 14mm !important;
+                right: 14mm !important;
+            }
+
+            a[href]::after {
+                content: '' !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-shell">
+        <div class="top-actions">
+            <button class="action-btn secondary" id="resetBtn" type="button"><i
+                    class="bi bi-arrow-counterclockwise"></i> Reset</button>
+            <button class="action-btn" id="downloadBtn" type="button"><i class="bi bi-download"></i> Download
+                PDF</button>
+        </div>
+
+        <section class="builder" aria-label="Invoice builder form">
+            <div class="builder-head">
+                <div>
+                    <div class="kicker">Invoice Builder</div>
+                    <h1>Build invoice</h1>
+                </div>
+                <p>Fill in the form. The clean A4 invoice preview below is what gets downloaded/printed — this form and
+                    the buttons will not appear in the PDF.</p>
+            </div>
+
+            <form id="invoiceForm" class="builder-grid">
+                <div class="field span-2"><label for="projectTitle">Project title</label><input class="control"
+                        id="projectTitle" value="RR Wright YPD Apparel Collateral"></div>
+                <div class="field"><label for="invoiceDate">Invoice date</label><input class="control" id="invoiceDate"
+                        type="date" value="2026-06-05"></div>
+                <div class="field"><label for="dailyNumber">No. for day</label><input class="control" id="dailyNumber"
+                        type="number" min="1" value="1"></div>
+
+                <div class="field"><label>Invoice no.</label><input class="control" id="invoiceNumber" readonly></div>
+                <div class="field"><label>Payment ref.</label><input class="control" id="paymentReference" readonly>
+                </div>
+                <div class="field"><label for="dueDate">Due date / terms</label><input class="control" id="dueDate"
+                        value="Upon receipt"></div>
+                <div class="field"><label for="status">Status</label><select class="control" id="status">
+                        <option>Pending</option>
+                        <option>Deposit Due</option>
+                        <option>Partially Paid</option>
+                        <option>Paid</option>
+                    </select></div>
+
+                <div class="field"><label for="clientName">Client / organisation</label><input class="control"
+                        id="clientName" value="RR Wright YPD"></div>
+                <div class="field"><label for="contactPerson">Contact person</label><input class="control"
+                        id="contactPerson" value="Gontse Mathopa"></div>
+                <div class="field span-2"><label for="clientContact">Email / phone</label><input class="control"
+                        id="clientContact" value="0789446306"></div>
+
+                <div class="field span-4"><label for="projectDescription">Project description</label><textarea
+                        class="control"
+                        id="projectDescription">Logo reconstruction, custom monogram development, T-shirt design collateral, varsity jacket concept layout, and digital mockup presentation.</textarea>
+                </div>
+
+                <div class="item-editor">
+                    <div class="kicker">Items</div>
+                    <div class="item-row">
+                        <div class="field"><label>Item</label><input class="control item-title"
+                                value="Logo Vector Reconstruction"></div>
+                        <div class="field"><label>Description</label><input class="control item-description"
+                                value="Clean vector reconstruction based on the client-provided logo/reference."></div>
+                        <div class="field"><label>Amount</label><input class="control item-amount" type="number" min="0"
+                                step="0.01" value="1200"></div>
+                    </div>
+                    <div class="item-row">
+                        <div class="field"><label>Item</label><input class="control item-title"
+                                value="Custom Monogram Development"></div>
+                        <div class="field"><label>Description</label><input class="control item-description"
+                                value="Custom RR Wright YPD monogram and supporting pattern/graphic element development.">
+                        </div>
+                        <div class="field"><label>Amount</label><input class="control item-amount" type="number" min="0"
+                                step="0.01" value="1000"></div>
+                    </div>
+                    <div class="item-row">
+                        <div class="field"><label>Item</label><input class="control item-title"
+                                value="T-shirt Design Collateral"></div>
+                        <div class="field"><label>Description</label><input class="control item-description"
+                                value="Front/back T-shirt layout, visual refinement, and apparel mockup presentation.">
+                        </div>
+                        <div class="field"><label>Amount</label><input class="control item-amount" type="number" min="0"
+                                step="0.01" value="1500"></div>
+                    </div>
+                    <div class="item-row">
+                        <div class="field"><label>Item</label><input class="control item-title"
+                                value="Varsity Jacket Concept Layout"></div>
+                        <div class="field"><label>Description</label><input class="control item-description"
+                                value="Front/back varsity jacket concept direction and apparel placement layout."></div>
+                        <div class="field"><label>Amount</label><input class="control item-amount" type="number" min="0"
+                                step="0.01" value="1300"></div>
+                    </div>
+                    <div class="item-row">
+                        <div class="field"><label>Item</label><input class="control item-title"
+                                value="File Preparation & Export"></div>
+                        <div class="field"><label>Description</label><input class="control item-description"
+                                value="Digital presentation mockups and print-ready export files."></div>
+                        <div class="field"><label>Amount</label><input class="control item-amount" type="number" min="0"
+                                step="0.01" value="500"></div>
+                    </div>
+                </div>
+
+                <div class="field"><label for="discountPercent">Discount %</label><input class="control"
+                        id="discountPercent" type="number" min="0" max="100" step="0.01" value="75"></div>
+                <div class="field"><label for="depositPercent">Deposit %</label><input class="control"
+                        id="depositPercent" type="number" min="0" max="100" step="0.01" value="50"></div>
+                <div class="field"><label for="bankName">Bank</label><input class="control" id="bankName"
+                        value="GOTymeBank"></div>
+                <div class="field"><label for="accountHolder">Account holder</label><input class="control"
+                        id="accountHolder" value="D'SEIKOU"></div>
+                <div class="field"><label for="accountNumber">Account no.</label><input class="control"
+                        id="accountNumber" value="53001818233"></div>
+                <div class="field"><label for="branchCode">Branch code</label><input class="control" id="branchCode"
+                        value="678910"></div>
+
+                <div class="field span-2"><label for="includedScope">Included</label><textarea class="control"
+                        id="includedScope">• Logo vector reconstruction
+• Custom RR Wright YPD monogram
+• Supporting graphic/pattern element development
+• T-shirt front and back design
+• Varsity jacket concept layout
+• Digital mockups for presentation
+• Print-ready artwork export
+• Unlimited revision rounds
+• Courtesy discount</textarea></div>
+                <div class="field span-2"><label for="excludedScope">Excluded</label><textarea class="control"
+                        id="excludedScope">• Printing
+• Garment sourcing
+• Embroidery digitising
+• Courier or delivery
+• Additional design concepts
+• Additional revision rounds
+• Source/editable files unless agreed separately</textarea></div>
+                <div class="field span-4"><label for="notesTerms">Notes & terms</label><textarea class="control"
+                        id="notesTerms">
+                    Payment & Deliverables: A 50% non-refundable deposit is required before work commences. Final, flattened artwork files (e.g., PDF, JPG, PNG) will be released only once the remaining balance has been received in full.
+
+Source Files: Editable/source working files (e.g., .AI, .PSD, .INDD) remain the property of the designer and are not included in the standard handover unless agreed upon in writing. If requested, source files can be purchased for an additional fee of 40% of the total project cost.
+                    </textarea>
+                </div>
+            </form>
+        </section>
+
+        <div class="invoice-preview-wrap">
+            <article class="invoice-preview" id="invoicePreview">
+                <section class="paper-page">
+                    <header class="invoice-header">
+                        <div>
+                            <img class="brand-logo" src="/media/D'SEIKOU Logo Black.png" alt="D'SEIKOU Logo">
+                            <div class="brand-pill">D'SEIKOU Design Studio</div>
+                            <h1 class="invoice-heading">Invoice</h1>
+                            <p class="studio-text"><strong>Didintle Naledi Diseko</strong><br>dinalediseko@dseikou.co.za
+                                · (+27) 81 899 4791 · dseikou.co.za</p>
+                        </div>
+                        <aside class="detail-card">
+                            <h2>Invoice Details</h2>
+                            <div class="detail-list">
+                                <div class="detail-item"><span class="detail-label">Project title</span><span
+                                        class="detail-value" data-out="projectTitle"></span></div>
+                                <div class="detail-item"><span class="detail-label">Invoice no.</span><span
+                                        class="detail-value" data-out="invoiceNumber"></span></div>
+                                <div class="detail-item"><span class="detail-label">Invoice date</span><span
+                                        class="detail-value" data-out="invoiceDatePretty"></span></div>
+                                <div class="detail-item"><span class="detail-label">Due date / terms</span><span
+                                        class="detail-value" data-out="dueDate"></span></div>
+                                <div class="detail-item"><span class="detail-label">Status</span><span
+                                        class="detail-value" data-out="status"></span></div>
+                            </div>
+                        </aside>
+                    </header>
+
+                    <section class="paper-section info-grid">
+                        <div class="section-card">
+                            <div class="section-pill">Bill To</div>
+                            <div class="field-display"><strong>Client / organisation</strong><span
+                                    data-out="clientName"></span></div>
+                            <div class="field-display"><strong>Contact person</strong><span
+                                    data-out="contactPerson"></span></div>
+                            <div class="field-display"><strong>Email / phone</strong><span
+                                    data-out="clientContact"></span></div>
+                        </div>
+                        <div class="section-card">
+                            <div class="section-pill">Project Description</div>
+                            <div class="field-display"><strong>Description</strong>
+                                <p data-out="projectDescription"></p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="paper-section">
+                        <table class="items-table">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody id="previewItems"></tbody>
+                        </table>
+                    </section>
+
+                    <section class="paper-section summary-layout">
+                        <div class="section-card">
+                            <div class="section-pill">Scope</div>
+                            <div class="scope-box">
+                                <div class="field-display"><strong>Included</strong>
+                                    <p class="scope-text" data-out="includedScope"></p>
+                                </div>
+                                <div class="field-display"><strong>Excluded</strong>
+                                    <p class="scope-text" data-out="excludedScope"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <aside class="totals-card">
+                            <div class="total-line"><span>Subtotal</span><span data-out="subtotal"></span></div>
+                            <div class="total-line"><span>Discount</span><span data-out="discount"></span></div>
+                            <div class="total-line"><span>Deposit Due</span><span data-out="deposit"></span></div>
+                            <div class="total-line"><span>Balance Before Handover</span><span data-out="balance"></span>
+                            </div>
+                            <div class="total-line grand"><span>Total Due</span><span data-out="total"></span></div>
+                            <div class="payment-details">
+                                <h3>Payment Details</h3>
+                                <div class="payment-list">
+                                    <div class="field-display"><strong>Bank</strong><span data-out="bankName"></span>
+                                    </div>
+                                    <div class="field-display"><strong>Account holder</strong><span
+                                            data-out="accountHolder"></span></div>
+                                    <div class="field-display"><strong>Account no.</strong><span
+                                            data-out="accountNumber"></span></div>
+                                    <div class="field-display"><strong>Branch code</strong><span
+                                            data-out="branchCode"></span></div>
+                                    <div class="field-display"><strong>Reference</strong><span
+                                            data-out="paymentReference"></span></div>
+                                </div>
+                            </div>
+                        </aside>
+                    </section>
+                </section>
+
+                <section class="paper-page">
+                    <section class="paper-section section-card" style="margin-top:0;">
+                        <div class="section-pill">Notes & Terms</div>
+                        <p class="terms-text" data-out="notesTerms"></p>
+                    </section>
+
+                    <section class="thank-you">
+                        <h2>Thank You</h2>
+                        <p>Thank you for choosing D'SEIKOU. I appreciate the opportunity to bring this project to life.
+                        </p>
+                    </section>
+
+                    <footer class="paper-footer"><span><strong>D'SEIKOU</strong> — Design Studio</span><span>@dseikou_ ·
+                            portfolio.dseikou.co.za</span></footer>
+                </section>
+            </article>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('invoiceForm');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const previewItems = document.getElementById('previewItems');
+
+            const get = (id) => document.getElementById(id);
+            const fields = ['projectTitle', 'dueDate', 'status', 'clientName', 'contactPerson', 'clientContact', 'projectDescription', 'includedScope', 'excludedScope', 'bankName', 'accountHolder', 'accountNumber', 'branchCode', 'notesTerms'];
+
+            function formatDateCode(isoDate) {
+                if (!isoDate) return '000000';
+                const [year, month, day] = isoDate.split('-');
+                return `${day}${month}${year.slice(-2)}`;
+            }
+
+            function formatPrettyDate(isoDate) {
+                if (!isoDate) return '';
+                const [year, month, day] = isoDate.split('-');
+                return `${day}/${month}/${year}`;
+            }
+
+            function padDailyNumber(value) {
+                const safe = Math.max(1, parseInt(value || '1', 10));
+                return String(safe).padStart(3, '0');
+            }
+
+            function money(value) {
+                return new Intl.NumberFormat('en-ZA', {
+                    style: 'currency', currency: 'ZAR', minimumFractionDigits: 2
+                }).format(value || 0).replace('ZAR', 'R').trim();
+            }
+
+            function setOut(key, value) {
+                document.querySelectorAll(`[data-out="${key}"]`).forEach(el => { el.textContent = value || ''; });
+            }
+
+            function collectItems() {
+                const titles = Array.from(document.querySelectorAll('.item-title'));
+                const descriptions = Array.from(document.querySelectorAll('.item-description'));
+                const amounts = Array.from(document.querySelectorAll('.item-amount'));
+                return titles.map((title, index) => ({
+                    title: title.value.trim(),
+                    description: descriptions[index]?.value.trim() || '',
+                    amount: parseFloat(amounts[index]?.value || '0') || 0
+                })).filter(item => item.title || item.description || item.amount);
+            }
+
+            function renderItems(items) {
+                previewItems.innerHTML = items.map(item => `
+          <tr>
+            <td><strong>${escapeHTML(item.title)}</strong></td>
+            <td>${escapeHTML(item.description)}</td>
+            <td>${money(item.amount)}</td>
+          </tr>
+        `).join('');
+            }
+
+            function escapeHTML(value) {
+                return String(value).replace(/[&<>'"]/g, char => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#039;', '"': '&quot;'
+                }[char]));
+            }
+
+            function update() {
+                const invoiceNo = `DSK-INV-${formatDateCode(get('invoiceDate').value)}-${padDailyNumber(get('dailyNumber').value)}`;
+                get('invoiceNumber').value = invoiceNo;
+                get('paymentReference').value = invoiceNo;
+                document.title = `D'SEIKOU Invoice | ${invoiceNo}`;
+
+                fields.forEach(id => setOut(id, get(id)?.value || ''));
+                setOut('invoiceNumber', invoiceNo);
+                setOut('paymentReference', invoiceNo);
+                setOut('invoiceDatePretty', formatPrettyDate(get('invoiceDate').value));
+
+                const items = collectItems();
+                renderItems(items);
+
+                const subtotal = items.reduce((sum, item) => sum + item.amount, 0);
+                const discountRate = Math.min(100, Math.max(0, parseFloat(get('discountPercent').value || '0')));
+                const depositRate = Math.min(100, Math.max(0, parseFloat(get('depositPercent').value || '0')));
+                const discount = subtotal * discountRate / 100;
+                const total = Math.max(0, subtotal - discount);
+                const deposit = total * depositRate / 100;
+                const balance = Math.max(0, total - deposit);
+
+                setOut('subtotal', money(subtotal));
+                setOut('discount', `${money(discount)} (${discountRate}%)`);
+                setOut('deposit', `${money(deposit)} (${depositRate}%)`);
+                setOut('balance', money(balance));
+                setOut('total', money(total));
+            }
+
+            form.addEventListener('input', update);
+            form.addEventListener('change', update);
+
+            downloadBtn.addEventListener('click', () => {
+                update();
+                setTimeout(() => window.print(), 80);
+            });
+
+            resetBtn.addEventListener('click', () => {
+                form.reset();
+                update();
+            });
+
+            update();
+        });
+    </script>
+</body>
+
+</html>

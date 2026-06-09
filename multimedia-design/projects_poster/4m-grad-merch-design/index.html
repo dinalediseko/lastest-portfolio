@@ -4,14 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4M Conference YPD | D'SEIKOU</title>
+  <title>Mokone’s Very Own | D'SEIKOU</title>
+  <meta name="description"
+    content="A D'SEIKOU project detail page for Mokone’s Very Own, a commemorative apparel design project honouring leadership, service, and legacy within the 4M Conference YPD." />
   <link rel="icon" href="../media/white-favicon.png" type="image" />
 
   <!-- Google Fonts: Syne (editorial display) + Outfit (clean body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Bootstrap Icons -->
@@ -19,7 +21,7 @@
 
   <style>
     /* ============================================================
-       DESIGN TOKENS — LIGHT MAIN QUEST PROJECT DETAIL
+       DESIGN TOKENS — LIGHT MAIN QUEST / PROJECT DETAIL
     ============================================================ */
     :root {
       --bg: #efefe9;
@@ -30,20 +32,25 @@
       --cream: #efefe9;
       --ink: #11100f;
       --glass: rgba(255, 255, 255, 0.48);
-      --glass-strong: rgba(255, 255, 255, 0.72);
+      --glass-strong: rgba(255, 255, 255, 0.74);
       --glass-border: rgba(17, 16, 15, 0.12);
       --muted: rgba(17, 16, 15, 0.64);
+      --muted-strong: rgba(17, 16, 15, 0.78);
       --shadow-soft: 0 24px 70px rgba(17, 16, 15, 0.10);
       --shadow-hover: 0 28px 80px rgba(190, 0, 28, 0.16);
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       min-height: 100vh;
@@ -67,9 +74,21 @@
       z-index: 999;
     }
 
-    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
-    a { color: inherit; }
-    img { max-width: 100%; }
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Syne', sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
     /* ============================================================
        NAVIGATION
@@ -91,10 +110,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
     }
 
     .nav-logo img {
-      display: block;
       height: 2rem;
       width: auto;
     }
@@ -109,7 +128,7 @@
       color: var(--fg);
       text-decoration: none;
       font-size: 0.8rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       position: relative;
@@ -127,8 +146,13 @@
       transition: width 0.35s ease;
     }
 
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
     .nav-cta {
       padding: 0.5rem 1.4rem !important;
@@ -139,8 +163,14 @@
       box-shadow: 0 12px 34px rgba(17, 16, 15, 0.12);
     }
 
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; }
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+    }
 
     #menu-button {
       display: none;
@@ -167,15 +197,26 @@
       border-radius: 12px;
       color: var(--fg);
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.06em;
       margin-bottom: 0.25rem;
       transition: background 0.2s ease, color 0.2s ease;
     }
 
-    #mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
-    #mobile-menu .mob-cta { background: var(--ink); color: var(--cream); font-weight: 700; }
-    #mobile-menu .mob-cta:hover { background: var(--accent); color: var(--cream); }
+    #mobile-menu a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    #mobile-menu .mob-cta {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    #mobile-menu .mob-cta:hover {
+      background: var(--accent);
+      color: var(--cream);
+    }
 
     /* ============================================================
        SHARED
@@ -192,7 +233,10 @@
       transition: opacity 0.75s ease, transform 0.75s ease;
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .soft-card {
       background: var(--glass);
@@ -208,10 +252,10 @@
       align-items: center;
       justify-content: center;
       gap: 0.45rem;
-      padding: 0.75rem 1.2rem;
+      padding: 0.78rem 1.2rem;
       border-radius: 100px;
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-size: 0.88rem;
+      font-weight: 800;
       text-decoration: none;
       cursor: pointer;
       transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -229,182 +273,215 @@
       box-shadow: 0 14px 36px rgba(190, 0, 28, 0.34), 0 0 20px rgba(190, 0, 28, 0.22);
     }
 
-    .btn-cream {
-      border: 1.5px solid rgba(17, 16, 15, 0.14);
-      background: var(--cream);
+    .btn-secondary {
+      border: 1.5px solid rgba(17, 16, 15, 0.16);
+      background: var(--glass-strong);
       color: var(--ink);
-      box-shadow: 0 10px 26px rgba(17, 16, 15, 0.10);
     }
 
-    .btn-cream:hover {
+    .btn-secondary:hover {
       transform: translateY(-3px);
       border-color: var(--accent);
       color: var(--accent);
-      box-shadow: 0 14px 34px rgba(17, 16, 15, 0.14);
+      box-shadow: var(--shadow-hover);
     }
 
-    /* ============================================================
-       BREADCRUMB
-    ============================================================ */
-    .breadcrumb-wrap {
-      border-bottom: 1px solid rgba(17, 16, 15, 0.08);
-    }
-
-    .breadcrumb {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 1rem 0;
-      font-size: 0.86rem;
-      font-weight: 700;
-      color: var(--muted);
-    }
-
-    .breadcrumb a {
+    .section-kicker {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      text-decoration: none;
-      color: var(--fg);
-      transition: color 0.2s ease, transform 0.2s ease;
-    }
-
-    .breadcrumb a:hover {
+      gap: 0.5rem;
       color: var(--accent);
-      transform: translateX(-2px);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
-    .breadcrumb-separator { color: var(--accent); }
+    .section-kicker::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent-glow);
+    }
 
     /* ============================================================
-       PROJECT DETAIL HEADER
+       HERO
     ============================================================ */
     .project-hero {
+      padding: 7rem 0 3.5rem;
       position: relative;
-      padding: 4.5rem 0 2.5rem;
       overflow: hidden;
     }
 
     .project-hero::before {
       content: '';
       position: absolute;
-      top: -6rem;
-      right: -8rem;
-      width: 420px;
-      height: 420px;
+      right: -11rem;
+      top: 1rem;
+      width: 460px;
+      height: 460px;
       border-radius: 999px;
       background: radial-gradient(circle, rgba(190, 0, 28, 0.18), transparent 68%);
       pointer-events: none;
     }
 
-    .project-intro {
+    .project-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(17, 16, 15, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 16, 15, 0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, black 20%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-card {
       position: relative;
-      padding: 3rem 2.5rem;
-      text-align: center;
+      z-index: 1;
+      padding: clamp(2rem, 5vw, 4rem);
+      overflow: hidden;
     }
 
-    .project-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.95rem 0.35rem 0.65rem;
-      border: 1px solid rgba(190, 0, 28, 0.42);
-      border-radius: 999px;
-      color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: end;
     }
 
-    .project-pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 18px var(--accent-glow);
-      animation: blink 2s ease-in-out infinite;
+    .project-label {
+      margin-bottom: 1.15rem;
     }
-
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
 
     .project-title {
-      font-size: clamp(2.7rem, 7vw, 6rem);
-      line-height: 0.94;
-      letter-spacing: -0.05em;
+      font-size: clamp(3.2rem, 9vw, 7.4rem);
+      line-height: 0.9;
+      letter-spacing: -0.07em;
       font-weight: 800;
-      color: var(--fg);
+      max-width: 780px;
     }
 
-    .project-subtitle {
-      max-width: 790px;
-      margin: 1.35rem auto 0;
-      color: var(--muted);
-      font-size: clamp(1rem, 1.8vw, 1.2rem);
+    .project-title span {
+      color: var(--accent);
+    }
+
+    .project-intro {
+      max-width: 670px;
+      margin-top: 1.35rem;
+      color: var(--muted-strong);
+      font-size: clamp(1rem, 1.6vw, 1.22rem);
       line-height: 1.75;
     }
 
-    /* ============================================================
-       SLIDESHOW
-    ============================================================ */
-    .showcase-section { padding: 1rem 0 3.5rem; }
-
-    .showcase-card {
-      padding: 1rem;
-      border-radius: 32px;
+    .hero-meta {
+      display: grid;
+      gap: 0.75rem;
     }
 
-    .slideshow-container {
+    .meta-chip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: 20px;
+      border: 1px solid var(--glass-border);
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .meta-chip small {
+      color: var(--muted);
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+    }
+
+    .meta-chip strong {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.98rem;
+      text-align: right;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    /* ============================================================
+       SHOWCASE / SLIDER
+    ============================================================ */
+    .showcase-section {
+      padding: 2rem 0 4rem;
+    }
+
+    .showcase-wrap {
+      position: relative;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      background: var(--glass);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(12px);
+    }
+
+    .slides {
       position: relative;
       overflow: hidden;
-      border-radius: 24px;
-      background: var(--ink);
-      border: 1px solid rgba(17, 16, 15, 0.10);
-      box-shadow: 0 22px 70px rgba(17, 16, 15, 0.16);
     }
 
-    .mySlides { display: none; }
-    .mySlides.active { display: block; }
+    .slide {
+      display: none;
+      background: rgba(255, 255, 255, 0.26);
+    }
 
-    .mySlides img {
+    .slide.active {
       display: block;
+    }
+
+    .slide img {
       width: 100%;
       height: auto;
-      object-fit: cover;
+      display: block;
+      object-fit: unset;
+      object-position: unset;
     }
 
-    .slide-btn {
+    .slider-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 3rem;
-      height: 3rem;
-      border: 1px solid rgba(239, 239, 233, 0.22);
+      z-index: 4;
+      width: 48px;
+      height: 48px;
       border-radius: 999px;
-      background: rgba(17, 16, 15, 0.58);
-      color: var(--cream);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.55rem;
-      font-weight: 800;
+      border: 1px solid rgba(17, 16, 15, 0.14);
+      background: rgba(239, 239, 233, 0.82);
+      color: var(--ink);
+      box-shadow: 0 18px 40px rgba(17, 16, 15, 0.16);
       cursor: pointer;
-      transition: transform 0.2s ease, background 0.25s ease, box-shadow 0.25s ease;
-      z-index: 2;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
     }
 
-    .slide-btn:hover {
+    .slider-btn:hover {
       background: var(--accent);
+      color: var(--cream);
       transform: translateY(-50%) scale(1.05);
-      box-shadow: 0 0 22px rgba(190, 0, 28, 0.34);
     }
 
-    .slide-prev { left: 1rem; }
-    .slide-next { right: 1rem; }
+    .slider-btn.prev {
+      left: 1rem;
+    }
+
+    .slider-btn.next {
+      right: 1rem;
+    }
 
     .slide-dots {
       position: absolute;
@@ -412,136 +489,192 @@
       bottom: 1rem;
       transform: translateX(-50%);
       display: flex;
+      align-items: center;
       gap: 0.55rem;
-      z-index: 3;
+      padding: 0.45rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(239, 239, 233, 0.72);
+      border: 1px solid rgba(17, 16, 15, 0.12);
+      backdrop-filter: blur(12px);
     }
 
-    .slide-dot {
+    .dot {
       width: 9px;
       height: 9px;
       border: none;
       border-radius: 999px;
-      background: rgba(239, 239, 233, 0.45);
+      background: rgba(17, 16, 15, 0.26);
       cursor: pointer;
       transition: width 0.25s ease, background 0.25s ease;
     }
 
-    .slide-dot.active {
-      width: 28px;
+    .dot.active {
+      width: 26px;
       background: var(--accent);
     }
 
-    .fade { animation: fade 0.35s ease; }
-    @keyframes fade { from { opacity: 0.55; } to { opacity: 1; } }
-
     /* ============================================================
-       PROJECT CONTENT
+       CONTENT
     ============================================================ */
     .project-content {
-      padding: 0 0 5.5rem;
+      padding: 4rem 0 6rem;
     }
 
     .content-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 320px;
+      grid-template-columns: minmax(0, 1fr) 340px;
       gap: 1.5rem;
       align-items: start;
     }
 
     .article-card {
-      padding: 2.5rem;
-      border-radius: 32px;
+      padding: clamp(1.5rem, 4vw, 3rem);
     }
 
     .article-card h2 {
-      color: var(--accent);
-      font-size: clamp(1.6rem, 3vw, 2.25rem);
-      line-height: 1;
-      margin-bottom: 1.35rem;
+      margin-top: 0.65rem;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
     }
 
     .project-body {
-      color: rgba(17, 16, 15, 0.78);
-      line-height: 1.85;
+      margin-top: 1.75rem;
     }
 
-    .project-body p + p { margin-top: 1rem; }
-    .project-body strong { color: var(--ink); font-weight: 800; }
-
-    .client-comment {
-      margin-top: 2rem;
-      padding: 1.5rem;
-      border-radius: 24px;
-      background: var(--ink);
-      color: var(--cream);
-      border: 1px solid rgba(190, 0, 28, 0.36);
-      box-shadow: 0 18px 50px rgba(17, 16, 15, 0.16), 0 0 24px rgba(190, 0, 28, 0.12);
+    .project-body p {
+      color: var(--muted-strong);
+      margin-bottom: 1.25rem;
     }
 
-    .client-comment blockquote {
-      font-size: 1.02rem;
-      color: rgba(239, 239, 233, 0.86);
-      font-style: italic;
-      line-height: 1.85;
-    }
-
-    .client-comment cite {
-      display: block;
-      margin-top: 1rem;
-      text-align: right;
-      color: var(--accent);
-      font-style: normal;
+    .project-body strong {
+      color: var(--fg);
       font-weight: 800;
     }
 
-    .project-aside {
-      position: sticky;
-      top: 6.25rem;
-      padding: 1.5rem;
-      border-radius: 28px;
+    .project-insight {
+      margin-top: 2rem;
+      padding: 1.45rem;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(190, 0, 28, 0.08), rgba(255, 255, 255, 0.48));
+      border: 1px solid rgba(190, 0, 28, 0.2);
+      box-shadow: 0 18px 46px rgba(190, 0, 28, 0.08);
     }
 
-    .project-aside h3 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
+    .insight-label {
+      margin-bottom: 0.55rem !important;
+      color: var(--accent) !important;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .project-insight blockquote {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.12;
+      font-size: clamp(1.45rem, 3vw, 2.55rem);
       color: var(--fg);
+    }
+
+    .side-card {
+      padding: 1.5rem;
+      position: sticky;
+      top: 6rem;
+    }
+
+    .side-card h3 {
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
     }
 
     .info-list {
-      list-style: none;
       display: grid;
       gap: 0.9rem;
+      margin-bottom: 1.25rem;
     }
 
-    .info-list li {
-      padding: 0.9rem 0;
-      border-top: 1px solid rgba(17, 16, 15, 0.10);
+    .info-item {
+      display: grid;
+      gap: 0.2rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid rgba(17, 16, 15, 0.1);
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-item span {
       color: var(--muted);
-      font-size: 0.94rem;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
     }
 
-    .info-list strong {
-      display: block;
-      color: var(--fg);
-      font-weight: 800;
-      margin-bottom: 0.2rem;
+    .info-item strong {
+      font-size: 0.98rem;
     }
 
-    .info-tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.35rem 0.75rem;
+    .scope-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .scope-tags span {
+      padding: 0.45rem 0.75rem;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
+      font-size: 0.78rem;
       font-weight: 800;
-      font-size: 0.8rem;
     }
 
-    .aside-actions {
+    .next-actions {
       display: grid;
-      gap: 0.7rem;
-      margin-top: 1.2rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .action-card {
+      padding: 1.25rem;
+      border-radius: 24px;
+      border: 1px solid var(--glass-border);
+      background: rgba(255, 255, 255, 0.42);
+      text-decoration: none;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .action-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .action-card i {
+      color: var(--accent);
+      font-size: 1.25rem;
+    }
+
+    .action-card strong {
+      display: block;
+      margin-top: 0.35rem;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .action-card span {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.88rem;
     }
 
     /* ============================================================
@@ -550,243 +683,386 @@
     footer {
       background: var(--ink);
       color: var(--cream);
-      padding: 3.5rem 2rem 2rem;
-    }
-
-    .footer-inner { max-width: 1200px; margin: 0 auto; }
-    .footer-coffee { display: flex; justify-content: center; margin-bottom: 2.25rem; }
-
-    .footer-coffee a {
-      display: inline-block;
-      border-radius: 10px;
+      padding: 4rem 2rem 2rem;
+      position: relative;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .footer-coffee a:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(255, 221, 0, 0.3);
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -160px;
+      right: -120px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.18), transparent 70%);
+      pointer-events: none;
     }
 
-    .footer-contacts {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 1.5rem 3rem;
-      text-align: center;
-      margin-bottom: 2rem;
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
-    .footer-contact-item { display: flex; align-items: center; gap: 0.75rem; }
-    .footer-contact-item i { color: var(--accent); font-size: 1.05rem; }
-
-    .footer-contact-item a {
-      color: var(--cream);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s ease;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: start;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(239, 239, 233, 0.12);
     }
 
-    .footer-contact-item a:hover { color: var(--accent); }
-
-    .footer-socials {
-      display: flex;
-      justify-content: center;
-      gap: 1.25rem;
-      margin-bottom: 2.25rem;
+    .footer-title {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 800;
     }
 
-    .footer-socials a {
-      color: var(--cream);
-      font-size: 1.25rem;
-      transition: color 0.2s ease, transform 0.2s ease;
+    .footer-title span {
+      color: var(--accent);
     }
-
-    .footer-socials a:hover { color: var(--accent); transform: translateY(-2px); }
 
     .footer-copy {
-      text-align: center;
-      border-top: 1px solid rgba(190, 0, 28, 0.45);
-      padding-top: 1.5rem;
-      font-size: 0.85rem;
-      color: rgba(239, 239, 233, 0.88);
+      margin-top: 1rem;
+      color: rgba(239, 239, 233, 0.66);
+      max-width: 560px;
     }
 
-    .footer-copy a { color: var(--accent); text-decoration: none; }
-    .footer-copy a:hover { text-decoration: underline; }
+    .contact-list {
+      display: grid;
+      gap: 0.8rem;
+      justify-items: end;
+    }
+
+    .contact-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: rgba(239, 239, 233, 0.82);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .contact-list a:hover {
+      color: var(--accent);
+    }
+
+    .socials {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
+
+    .socials a {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(239, 239, 233, 0.08);
+      border: 1px solid rgba(239, 239, 233, 0.12);
+      color: var(--cream);
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .socials a:hover {
+      transform: translateY(-3px);
+      background: var(--accent);
+      color: var(--cream);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      color: rgba(239, 239, 233, 0.55);
+      font-size: 0.9rem;
+    }
 
     /* ============================================================
        RESPONSIVE
     ============================================================ */
-    @media (max-width: 900px) {
-      .content-grid { grid-template-columns: 1fr; }
-      .project-aside { position: relative; top: auto; }
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      #menu-button {
+        display: block;
+      }
+
+      .hero-grid,
+      .content-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side-card {
+        position: static;
+      }
+
+      .contact-list,
+      .socials {
+        justify-items: start;
+        justify-content: flex-start;
+      }
     }
 
-    @media (max-width: 768px) {
-      .nav-links { display: none !important; }
-      #menu-button { display: block; }
-      .project-hero { padding-top: 3.5rem; }
-      .project-intro { padding: 2.25rem 1.25rem; border-radius: 26px; }
-      .article-card { padding: 1.5rem; border-radius: 26px; }
-      .showcase-card { padding: 0.65rem; border-radius: 26px; }
-      .slide-btn { width: 2.65rem; height: 2.65rem; font-size: 1.25rem; }
-      .slide-prev { left: 0.65rem; }
-      .slide-next { right: 0.65rem; }
+    @media (max-width: 680px) {
+      .page-shell {
+        padding: 0 1rem;
+      }
+
+      .nav-inner {
+        padding: 1rem;
+      }
+
+      .project-hero {
+        padding: 4.5rem 0 2rem;
+      }
+
+      .hero-card,
+      .article-card,
+      .side-card {
+        border-radius: 24px;
+      }
+
+      .hero-actions,
+      .next-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .slide,
+      .slide img {
+        min-height: 300px;
+      }
+
+      .slider-btn {
+        width: 42px;
+        height: 42px;
+      }
+
+      .slider-btn.prev {
+        left: 0.65rem;
+      }
+
+      .slider-btn.next {
+        right: 0.65rem;
+      }
     }
 
-    @media (max-width: 640px) {
-      .page-shell { padding: 0 1rem; }
-      .project-title { font-size: clamp(2.35rem, 15vw, 4rem); }
-      .breadcrumb { font-size: 0.78rem; }
-      footer { padding-left: 1rem; padding-right: 1rem; }
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- ===================== NAVIGATION ===================== -->
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="https://dseikou.co.za" class="nav-logo">
+      <a href="/" class="nav-logo" aria-label="D'SEIKOU Home">
         <img src="/media/D'SEIKOU Logo Black.png" alt="D'SEIKOU Logo" />
       </a>
 
       <div class="nav-links" id="desktop-nav">
-        <a href="/multimedia-design/">Home</a>
+        <a href="/">Home</a>
         <a href="/more-about-me/">About</a>
+        <a href="/multimedia-design/">Multimedia Design</a>
         <a href="/fullstack-development/">Development</a>
         <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
         <a href="/contact/" class="nav-cta">Contact</a>
       </div>
 
-      <button id="menu-button" aria-label="Toggle menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <button id="menu-button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
     </div>
 
     <div id="mobile-menu">
-      <a href="/multimedia-design/">Home</a>
+      <a href="/">Home</a>
       <a href="/more-about-me/">About</a>
+      <a href="/multimedia-design/">Multimedia Design</a>
       <a href="/fullstack-development/">Development</a>
       <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
       <a href="/contact/" class="mob-cta">Contact</a>
     </div>
   </nav>
 
-  <!-- ===================== BREADCRUMB ===================== -->
-  <div class="breadcrumb-wrap">
-    <div class="page-shell">
-      <nav aria-label="Breadcrumb" class="breadcrumb">
-        <a href="/multimedia-design/"><i class="bi bi-arrow-left-circle"></i> Back to Multimedia Design</a>
-        <span class="breadcrumb-separator">/</span>
-        <span aria-current="page">Design Project Details</span>
-      </nav>
-    </div>
-  </div>
-
   <main>
-    <!-- ===================== PROJECT HERO ===================== -->
+    <!-- HERO -->
     <section class="project-hero">
       <div class="page-shell">
-        <div class="project-intro soft-card reveal">
-          <div class="project-pill">
-            <span class="project-pill-dot"></span>
-            Design Project Details
-          </div>
-          <h1 class="project-title">Mokone’s<br>Very Own</h1>
-          <p class="project-subtitle">
-            Custom appreciation jackets designed to honour leadership, legacy, and service within the Mangena Maake
-            Mokone Memorial YPD Conference.
-          </p>
-        </div>
-      </div>
-    </section>
+        <div class="hero-card soft-card reveal">
+          <div class="hero-grid">
+            <div>
+              <p class="section-kicker project-label">Mokone’s Very Own</p>
+              <h1 class="project-title">Mokone’s <span>Very Own</span></h1>
+              <p class="project-intro">
+                Custom appreciation jackets designed to honour leadership, legacy, and service within the Mangena Maake
+                Mokone Memorial Conference YPD.
+              </p>
 
-    <!-- ===================== SHOWCASE ===================== -->
-    <section class="showcase-section">
-      <div class="page-shell">
-        <div class="showcase-card soft-card reveal">
-          <div class="slideshow-container" aria-label="Project image slideshow">
-            <div class="mySlides fade active"><img src="./assets/one.png" alt="Mokone's Very Own jacket design slide 1"></div>
-            <div class="mySlides fade"><img src="./assets/two.png" alt="Mokone's Very Own jacket design slide 2"></div>
-            <div class="mySlides fade"><img src="./assets/three.png" alt="Mokone's Very Own jacket design slide 3"></div>
-
-            <button class="slide-btn slide-prev" type="button" aria-label="Previous slide" onclick="plusSlides(-1)">&#10094;</button>
-            <button class="slide-btn slide-next" type="button" aria-label="Next slide" onclick="plusSlides(1)">&#10095;</button>
-
-            <div class="slide-dots" aria-label="Slideshow pagination">
-              <button class="slide-dot active" type="button" aria-label="Go to slide 1" onclick="currentSlide(1)"></button>
-              <button class="slide-dot" type="button" aria-label="Go to slide 2" onclick="currentSlide(2)"></button>
-              <button class="slide-dot" type="button" aria-label="Go to slide 3" onclick="currentSlide(3)"></button>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#project-story"><i class="bi bi-arrow-down-right-circle-fill"></i> Read
+                  the Case Study</a>
+                <a class="btn btn-secondary" href="/multimedia-design/"><i class="bi bi-grid-1x2-fill"></i> Back to
+                  Multimedia</a>
+              </div>
             </div>
+
+            <aside class="hero-meta" aria-label="Project summary">
+              <div class="meta-chip"><small>Category</small><strong>Apparel Design</strong></div>
+              <div class="meta-chip"><small>Focus</small><strong>Recognition & Legacy</strong></div>
+              <div class="meta-chip"><small>Role</small><strong>Designer + Project Lead</strong></div>
+              <div class="meta-chip"><small>Client</small><strong>4M Conference YPD</strong></div>
+            </aside>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== PROJECT CONTENT ===================== -->
-    <section class="project-content">
+    <!-- SHOWCASE -->
+    <section class="showcase-section reveal" aria-label="Project visuals">
+      <div class="page-shell">
+        <div class="showcase-wrap">
+          <div class="slides">
+            <figure class="slide active">
+              <img src="./assets/one.png" alt="Mokone's Very Own appreciation jacket design slide 1" />
+            </figure>
+            <figure class="slide">
+              <img src="./assets/two.png" alt="Mokone's Very Own appreciation jacket design slide 2" />
+            </figure>
+            <figure class="slide">
+              <img src="./assets/three.png" alt="Mokone's Very Own appreciation jacket design slide 3" />
+            </figure>
+          </div>
+
+          <button class="slider-btn prev" type="button" aria-label="Previous slide"><i
+              class="bi bi-chevron-left"></i></button>
+          <button class="slider-btn next" type="button" aria-label="Next slide"><i
+              class="bi bi-chevron-right"></i></button>
+
+          <div class="slide-dots" aria-label="Choose slide">
+            <button class="dot active" type="button" aria-label="View slide 1"></button>
+            <button class="dot" type="button" aria-label="View slide 2"></button>
+            <button class="dot" type="button" aria-label="View slide 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="project-content" id="project-story">
       <div class="page-shell">
         <div class="content-grid">
           <article class="article-card soft-card reveal">
-            <h2>About the Project</h2>
+            <p class="section-kicker">About the Project</p>
+            <h2>A tribute piece, not just merchandise.</h2>
 
             <div class="project-body">
               <p>
-                <strong>Mokone’s Very Own</strong> was a commemorative jacket design project created as an appreciation
-                gift for outgoing presidents of the Mangena Maake Mokone Memorial Conference YPD, in recognition of
-                their leadership, service, and contribution to the organisation. The intention behind the project was to
-                create something that felt both <strong>personal and prestigious</strong> — not just merchandise, but a
-                wearable keepsake that honoured their legacy of service.
+                <strong>Mokone’s Very Own</strong> was a commemorative apparel design project created for the outgoing
+                presidents of the Mangena Maake Mokone Memorial Conference YPD. The jackets were designed as
+                appreciation gifts that honoured leadership, service, and legacy within the organisation.
               </p>
 
               <p>
-                I was responsible for both the <strong>creative design</strong> and the <strong>project management</strong>
-                of the jackets, from developing the visual direction and symbolic structure of the garment, to sourcing a
-                supplier and managing the production process through to execution. Each jacket was intentionally designed
-                as a personalised recognition piece, with every element carrying meaning tied to the individual’s term of
-                office and identity within the organisation.
+                The goal was to create something more meaningful than standard merchandise. Each jacket needed to feel
+                personal, prestigious, and rooted in the identity of the person receiving it — a wearable keepsake that
+                could carry memory, recognition, and institutional pride.
               </p>
 
               <p>
-                The final composition of the jacket included the <strong>year in which their service concluded on one
-                  sleeve</strong>, their <strong>initials on the opposite sleeve</strong>, a featured <strong>personal
-                  quote on the chest and back</strong>, and a <strong>Roman numeral indicating the number president they
-                  were in the organisation’s history</strong>. In this case, for example, <strong>R.B.S. Mashishi</strong>
-                was recognised as the <strong>18th elected president</strong>, while <strong>Z.O.E. Mnguni</strong>
-                represented the <strong>19th</strong>. The “<strong>Mokone’s Very Own</strong>” mark was developed to
-                reinforce a sense of belonging, distinction, and institutional pride.
+                I led both the <strong>creative design</strong> and <strong>project management</strong> of the project.
+                This included developing the visual direction, structuring the symbolic details, sourcing the supplier,
+                and managing the production process through to execution.
               </p>
 
               <p>
-                This project sits at the intersection of <strong>apparel design, symbolism, tribute design, and
-                  production coordination</strong>, reflecting my ability to not only create meaningful visual systems,
-                but also carry a concept through the practical realities of execution and delivery.
+                The final design included personalised elements such as the year their service concluded, their
+                initials, a featured personal quote, and a Roman numeral representing their place in the organisation’s
+                presidential history. These details transformed the jackets into individual tribute pieces rather than
+                generic apparel.
               </p>
 
-              <div class="client-comment">
+              <p>
+                This project reflects my ability to design with meaning while also managing the practical realities of
+                production, supplier coordination, and final delivery.
+              </p>
+
+              <div class="project-insight">
+                <p class="insight-label">Project Thesis</p>
                 <blockquote>
-                  “ This project reflects the kind of work I enjoy most — design that holds meaning, tells a story, and
-                  becomes something people can physically keep as part of their journey.”
+                  Recognition design should feel personal, symbolic, and worthy of the legacy it represents.
                 </blockquote>
-                <cite>- D’SEIKOU</cite>
+              </div>
+
+              <div class="next-actions">
+                <a class="action-card" href="/multimedia-design/">
+                  <i class="bi bi-folder-fill"></i>
+                  <strong>More Projects</strong>
+                  <span>Return to the multimedia design archive.</span>
+                </a>
+
+                <a class="action-card" href="/contact/">
+                  <i class="bi bi-send-fill"></i>
+                  <strong>Start a Project</strong>
+                  <span>Brief D'SEIKOU for your next visual system.</span>
+                </a>
               </div>
             </div>
           </article>
 
-          <aside class="project-aside soft-card reveal">
+          <aside class="side-card soft-card reveal">
             <h3>Project Information</h3>
-            <ul class="info-list">
-              <li><strong>Category</strong><span class="info-tag">Design</span></li>
-              <li><strong>Client</strong>4M YPD</li>
-            </ul>
-            <div class="aside-actions">
-              <a class="btn btn-primary" href="/multimedia-design/"><i class="bi bi-folder2-open"></i> More Projects</a>
-              <a class="btn btn-cream" href="/contact/"><i class="bi bi-chat-dots"></i> Start a Project</a>
+
+            <div class="info-list">
+              <div class="info-item">
+                <span>Category</span>
+                <strong>Design</strong>
+              </div>
+              <div class="info-item">
+                <span>Client / Context</span>
+                <strong>4M Conference YPD</strong>
+              </div>
+              <div class="info-item">
+                <span>Deliverable</span>
+                <strong>Custom Appreciation Jackets</strong>
+              </div>
+              <div class="info-item">
+                <span>Role</span>
+                <strong>Creative Design, Symbolic System, Supplier Coordination</strong>
+              </div>
+            </div>
+
+            <div class="scope-tags" aria-label="Project tags">
+              <span>Apparel</span>
+              <span>Tribute Design</span>
+              <span>Identity</span>
+              <span>Production</span>
+              <span>Project Management</span>
             </div>
           </aside>
         </div>
@@ -794,114 +1070,113 @@
     </section>
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
   <footer id="contact">
     <div class="footer-inner">
-      <div class="footer-coffee">
-        <a href="https://www.buymeacoffee.com/dseikou" target="_blank" rel="noopener noreferrer">
-          <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
-            style="height:60px;width:217px;display:block;" />
-        </a>
-      </div>
-
-      <div class="footer-contacts">
-        <div class="footer-contact-item">
-          <i class="bi bi-envelope"></i>
-          <a href="mailto:dinalediseko@dseikou.co.za">dinalediseko@dseikou.co.za</a>
+      <div class="footer-grid">
+        <div>
+          <h2 class="footer-title">Let’s make something <span>intentional.</span></h2>
+          <p class="footer-copy">
+            Have a project that needs design direction, visual identity, apparel, digital systems, or something
+            beautifully in-between? Let’s talk.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact/"><i class="bi bi-send-fill"></i> Contact D'SEIKOU</a>
+            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i
+                class="bi bi-whatsapp"></i> WhatsApp</a>
+          </div>
         </div>
-        <div class="footer-contact-item">
-          <i class="bi bi-telephone"></i>
-          <a href="tel:+27818994791">(+27) 81 899 4791</a>
+
+        <div>
+          <div class="contact-list">
+            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i>
+              dinalediseko@dseikou.co.za</a>
+            <a href="tel:+27818994791"><i class="bi bi-telephone-fill"></i> (+27) 81 899 4791</a>
+          </div>
+
+          <div class="socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i
+                class="bi bi-whatsapp"></i></a>
+            <a href="https://www.instagram.com/ngwanokestar/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
         </div>
       </div>
 
-      <div class="footer-socials">
-        <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-        <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
-        <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-        <a href="https://www.instagram.com/ngwanokestar" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-      </div>
-
-      <div class="footer-copy">
-        Copyright © <span id="year"></span>
-        <a href="https://dseikou.co.za">D'SEIKOU</a>.
-        All rights reserved
+      <div class="footer-bottom">
+        <p>Copyright © <span id="year"></span> D'SEIKOU. All rights reserved.</p>
+        <p>Mokone’s Very Own</p>
       </div>
     </div>
   </footer>
 
   <script>
-    let slideIndex = 1;
-
-    function showSlides(n) {
-      const slides = document.querySelectorAll('.mySlides');
-      const dots = document.querySelectorAll('.slide-dot');
-
-      if (!slides.length) return;
-      if (n > slides.length) slideIndex = 1;
-      if (n < 1) slideIndex = slides.length;
-
-      slides.forEach(slide => slide.classList.remove('active'));
-      dots.forEach(dot => dot.classList.remove('active'));
-
-      slides[slideIndex - 1].classList.add('active');
-      if (dots[slideIndex - 1]) dots[slideIndex - 1].classList.add('active');
-    }
-
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
     document.addEventListener('DOMContentLoaded', function () {
       const yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-      showSlides(slideIndex);
 
       const menuBtn = document.getElementById('menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
       const desktopNav = document.getElementById('desktop-nav');
 
       function syncNav() {
-        const mobile = window.innerWidth <= 768;
+        const mobile = window.innerWidth <= 980;
         if (menuBtn) menuBtn.style.display = mobile ? 'block' : 'none';
         if (desktopNav) desktopNav.style.display = mobile ? 'none' : 'flex';
         if (!mobile && mobileMenu) mobileMenu.style.display = 'none';
+        if (!mobile && menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
       }
 
       syncNav();
       window.addEventListener('resize', syncNav);
 
       if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-          mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+        menuBtn.addEventListener('click', function () {
+          const isOpen = mobileMenu.style.display === 'block';
+          mobileMenu.style.display = isOpen ? 'none' : 'block';
+          menuBtn.setAttribute('aria-expanded', String(!isOpen));
         });
       }
 
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const href = this.getAttribute('href');
-          if (href && href !== '#') {
-            e.preventDefault();
-            if (mobileMenu) mobileMenu.style.display = 'none';
-            const el = document.querySelector(href);
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      });
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const dots = Array.from(document.querySelectorAll('.dot'));
+      const prev = document.querySelector('.slider-btn.prev');
+      const next = document.querySelector('.slider-btn.next');
+      let currentSlide = 0;
+      let slideTimer = null;
 
-      const revealEls = document.querySelectorAll('.reveal');
-      const revealObs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
+      function showSlide(index) {
+        if (!slides.length) return;
+        currentSlide = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === currentSlide));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+      }
+
+      function startAutoplay() {
+        window.clearInterval(slideTimer);
+        slideTimer = window.setInterval(function () {
+          showSlide(currentSlide + 1);
+        }, 5200);
+      }
+
+      if (prev) prev.addEventListener('click', function () { showSlide(currentSlide - 1); startAutoplay(); });
+      if (next) next.addEventListener('click', function () { showSlide(currentSlide + 1); startAutoplay(); });
+      dots.forEach(function (dot, index) {
+        dot.addEventListener('click', function () { showSlide(index); startAutoplay(); });
+      });
+      startAutoplay();
+
+      const revealElements = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
         });
       }, { threshold: 0.12 });
 
-      revealEls.forEach(el => revealObs.observe(el));
+      revealElements.forEach(function (element) { observer.observe(element); });
     });
   </script>
 </body>
