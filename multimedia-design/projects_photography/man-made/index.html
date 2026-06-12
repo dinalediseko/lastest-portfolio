@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Man-Made | D'SEIKOU</title>
+  <meta name="description" content="An unedited photography project exploring the fragility, weathering, and impermanence of man-made structures, surfaces, and objects." />
+  <link rel="icon" href="/media/black-favicon.png" type="image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    :root {
+      --bg: #efefe9;
+      --fg: #11100f;
+      --accent: #be001c;
+      --accent-soft: rgba(190, 0, 28, 0.08);
+      --accent-glow: rgba(190, 0, 28, 0.18);
+      --cream: #efefe9;
+      --ink: #11100f;
+      --glass: rgba(255, 255, 255, 0.50);
+      --glass-strong: rgba(255, 255, 255, 0.72);
+      --glass-border: rgba(17, 16, 15, 0.12);
+      --muted: rgba(17, 16, 15, 0.64);
+      --muted-strong: rgba(17, 16, 15, 0.78);
+      --shadow-soft: 0 24px 70px rgba(17, 16, 15, 0.10);
+      --shadow-hover: 0 28px 80px rgba(190, 0, 28, 0.16);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 78% 8%, rgba(190, 0, 28, 0.11), transparent 34%),
+        radial-gradient(circle at 10% 22%, rgba(17, 16, 15, 0.06), transparent 28%),
+        var(--bg);
+      color: var(--fg);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    nav.site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(239, 239, 233, 0.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo img { height: 2rem; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+
+    .nav-links a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.35s ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 0.5rem 1.4rem !important;
+      border: 1px solid rgba(17, 16, 15, 0.14) !important;
+      border-radius: 100px !important;
+      background: var(--ink) !important;
+      color: var(--cream) !important;
+      box-shadow: 0 12px 34px rgba(17, 16, 15, 0.12);
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; color: var(--cream) !important; }
+
+    #menu-button {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--fg);
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    #mobile-menu {
+      display: none;
+      background: rgba(239, 239, 233, 0.96);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+      padding: 1rem 1.5rem 1.5rem;
+    }
+
+    #mobile-menu a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.75rem;
+      border-radius: 12px;
+      color: var(--fg);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    #mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
+    #mobile-menu .mob-cta { background: var(--ink); color: var(--cream); }
+    #mobile-menu .mob-cta:hover { background: var(--accent); color: var(--cream); }
+
+    .page-shell { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    .hero { padding: 4.5rem 0 2.5rem; position: relative; }
+    .hero-grid { display: block; }
+
+    .hero-copy-card {
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(2rem, 5vw, 4rem);
+      border-radius: 32px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-copy-card::before {
+      content: '';
+      position: absolute;
+      right: -7rem;
+      top: -7rem;
+      width: 300px;
+      height: 300px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+
+    .project-kicker {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      gap: 0.5rem;
+      padding: 0.35rem 0.95rem 0.35rem 0.65rem;
+      border: 1px solid rgba(190, 0, 28, 0.5);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-kicker-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent-glow);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    .hero-title {
+      font-size: clamp(3.4rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.075em;
+      font-weight: 800;
+      max-width: 780px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title span { color: var(--accent); }
+
+    .hero-summary {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.16rem);
+      line-height: 1.75;
+      margin-top: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .action-btn, .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 46px;
+      padding: 0.78rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .action-primary, .btn-primary {
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      color: var(--cream);
+      box-shadow: 0 10px 30px rgba(190, 0, 28, 0.24);
+    }
+
+    .action-secondary, .btn-secondary {
+      background: var(--ink);
+      border: 1px solid var(--ink);
+      color: var(--cream);
+    }
+
+    .btn-secondary {
+      background: var(--glass-strong);
+      color: var(--ink);
+      border: 1.5px solid rgba(17, 16, 15, 0.16);
+    }
+
+    .action-btn:hover, .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(190, 0, 28, 0.20);
+    }
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      padding: 1rem 0 4rem;
+    }
+
+    .info-item {
+      padding: 1.15rem;
+      border-radius: 22px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 16px 40px rgba(17, 16, 15, 0.06);
+      backdrop-filter: blur(14px);
+    }
+
+    .info-item span {
+      display: block;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .info-item strong { display: block; color: var(--fg); font-size: 0.98rem; line-height: 1.3; }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-heading {
+      font-size: clamp(2.1rem, 4vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      max-width: 900px;
+    }
+
+    .section-support {
+      max-width: 680px;
+      color: var(--muted);
+      margin-top: 0.9rem;
+      font-size: 1rem;
+    }
+
+    .image-led-section { padding: 1rem 0 5.5rem; }
+
+    .selected-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 1.25rem;
+      align-items: stretch;
+      margin-top: 2rem;
+    }
+
+    .photo-card {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      background: var(--ink);
+      position: relative;
+      min-height: 0;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      transition: filter 0.6s ease;
+    }
+
+    .photo-card:hover img { filter: saturate(1.03) contrast(1.03); }
+    .photo-card.tall { min-height: 0; }
+    .stacked-photos { display: grid; gap: 1.25rem; align-content: start; }
+    .stacked-photos .photo-card { min-height: 0; }
+
+    .wide-image { padding: 0 0 5.5rem; }
+
+    .wide-frame {
+      min-height: 0;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      background: var(--ink);
+      position: relative;
+    }
+
+    .wide-frame img { width: 100%; height: auto; object-fit: contain; display: block; }
+
+    .caption {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      max-width: calc(100% - 2rem);
+      padding: 0.72rem 0.85rem;
+      border-radius: 16px;
+      background: rgba(17, 16, 15, 0.70);
+      color: var(--cream);
+      backdrop-filter: blur(14px);
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+
+    .project-text-section { padding: 0 0 5.5rem; }
+
+    .text-layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.4fr) minmax(0, 0.6fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .body-card, .thesis-card, .note-card {
+      border-radius: 30px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(14px);
+    }
+
+    .body-card { padding: 2rem; }
+
+    .thesis-card {
+      position: sticky;
+      top: 6rem;
+      padding: 1.65rem;
+      background: linear-gradient(135deg, rgba(190, 0, 28, 0.09), rgba(255, 255, 255, 0.58));
+      border: 1px solid rgba(190, 0, 28, 0.22);
+      box-shadow: 0 22px 58px rgba(190, 0, 28, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.68);
+    }
+
+    .thesis-card .section-label { margin-bottom: 0.65rem; color: var(--accent); }
+
+    .thesis-card blockquote {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.65rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+      color: var(--fg);
+    }
+
+    .thesis-card p:not(.section-label) {
+      margin-top: 1rem;
+      color: var(--muted-strong);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .case-study-body {
+      color: rgba(17, 16, 15, 0.78);
+      font-size: clamp(1.02rem, 1.4vw, 1.12rem);
+      line-height: 1.85;
+    }
+
+    .case-study-body p + p { margin-top: 1.2rem; }
+    .case-study-body strong { color: var(--fg); font-weight: 800; }
+
+    .frame-notes-section { padding: 0 0 6rem; }
+
+    .frame-notes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .note-card {
+      padding: 1.35rem;
+      box-shadow: 0 16px 40px rgba(17, 16, 15, 0.07);
+    }
+
+    .note-card i {
+      color: var(--accent);
+      font-size: 1.35rem;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+    }
+
+    .note-card h3 {
+      font-size: 1.3rem;
+      line-height: 1;
+      letter-spacing: -0.035em;
+      margin-bottom: 0.55rem;
+    }
+
+    .note-card p {
+      color: var(--muted-strong);
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .mini-grid figure {
+      min-height: 220px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--ink);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 12px 30px rgba(17, 16, 15, 0.08);
+    }
+
+    .mini-grid img { width: 100%; height: 100%; object-fit: cover; }
+
+    .next-section { padding: 0 0 6rem; }
+
+    .next-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 2rem;
+      border-radius: 30px;
+      background: var(--ink);
+      color: var(--cream);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .next-card::before {
+      content: '';
+      position: absolute;
+      right: -6rem;
+      top: -6rem;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.35), transparent 68%);
+    }
+
+    .next-card h2 {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .next-card p {
+      margin-top: 0.75rem;
+      color: rgba(239, 239, 233, 0.72);
+      max-width: 650px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .next-card .action-btn { position: relative; z-index: 1; }
+
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 4rem 2rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -160px;
+      right: -120px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .footer-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: start;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(239, 239, 233, 0.12);
+    }
+
+    .footer-title {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+    }
+
+    .footer-title span { color: var(--accent); }
+
+    .footer-copy {
+      margin-top: 1rem;
+      color: rgba(239, 239, 233, 0.66);
+      max-width: 560px;
+    }
+
+    .contact-list { display: grid; gap: 0.8rem; justify-items: end; }
+
+    .contact-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: rgba(239, 239, 233, 0.82);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .contact-list a:hover { color: var(--accent); }
+
+    .socials { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem; }
+
+    .socials a {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(239, 239, 233, 0.08);
+      border: 1px solid rgba(239, 239, 233, 0.12);
+      color: var(--cream);
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .socials a:hover { transform: translateY(-3px); background: var(--accent); color: var(--cream); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      color: rgba(239, 239, 233, 0.55);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      #menu-button { display: block; }
+      .selected-grid, .text-layout, .footer-grid, .next-card { grid-template-columns: 1fr; }
+      .thesis-card { position: static; }
+      .info-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .frame-notes-grid { grid-template-columns: 1fr; }
+      .mini-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-list, .socials { justify-items: start; justify-content: flex-start; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner { padding: 1rem 1.25rem; }
+      .hero { padding-top: 3.5rem; }
+      .hero-copy-card, .photo-card, .wide-frame, .body-card, .thesis-card, .note-card, .next-card { border-radius: 26px; }
+      .hero-copy-card, .body-card, .thesis-card, .next-card { padding: 1.35rem; }
+      .photo-card.tall { min-height: 520px; }
+      .stacked-photos .photo-card, .wide-frame { min-height: 360px; }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell { padding: 0 1rem; }
+      .hero-actions, .action-btn { width: 100%; }
+      .action-btn { justify-content: center; }
+      .info-strip { grid-template-columns: 1fr; }
+      .selected-grid, .stacked-photos { gap: 1rem; }
+      .mini-grid { grid-template-columns: 1fr; }
+      .footer-bottom { display: grid; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="D'SEIKOU Home">
+        <img src="/media/D'SEIKOU Logo Black.png" alt="D'SEIKOU Logo" />
+      </a>
+
+      <div class="nav-links" id="desktop-nav">
+        <a href="/">Home</a>
+        <a href="/more-about-me/">About</a>
+        <a href="/multimedia-design/">Multimedia Design</a>
+        <a href="/fullstack-development/">Development</a>
+        <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+        <a href="/contact/" class="nav-cta">Contact</a>
+      </div>
+
+      <button id="menu-button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu">
+      <a href="/">Home</a>
+      <a href="/more-about-me/">About</a>
+      <a href="/multimedia-design/">Multimedia Design</a>
+      <a href="/fullstack-development/">Development</a>
+      <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+      <a href="/contact/" class="mob-cta">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="page-shell hero-grid">
+        <div class="hero-copy-card">
+          <div>
+            <div class="project-kicker"><span class="project-kicker-dot"></span>Photography Project</div>
+            <h1 class="hero-title">Man-<span>Made</span></h1>
+            <p class="hero-summary">An unedited observational photography series studying the fragility of things made by man — signs, walls, buildings, surfaces, and objects that appear permanent until weather, time, and touch reveal otherwise.</p>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#gallery" class="action-btn action-primary"><i class="bi bi-images"></i> View Images</a>
+            <a href="/multimedia-design/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i> Back to Multimedia</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell info-strip" aria-label="Project information">
+      <div class="info-item">
+        <span>Category</span>
+        <strong>Photography</strong>
+      </div>
+      <div class="info-item">
+        <span>Focus</span>
+        <strong>Built environments, material decay, fragility</strong>
+      </div>
+      <div class="info-item">
+        <span>Role</span>
+        <strong>Photographer</strong>
+      </div>
+      <div class="info-item">
+        <span>Project Type</span>
+        <strong>Observational Photography</strong>
+      </div>
+    </section>
+
+    <section id="gallery" class="page-shell image-led-section">
+      <p class="section-label">Selected frames</p>
+      <h2 class="section-heading">The built world looks solid, but every surface is already changing.</h2>
+      <p class="section-support">These frames are intentionally left unedited, keeping the daylight, colour, texture, and imperfections as they were seen.</p>
+
+      <div class="selected-grid">
+        <figure class="photo-card tall">
+          <img src="./assets/man-made-01.jpg" alt="No parking sign photographed from a low angle against a blue sky" />
+          <figcaption class="caption">A control sign made to command space, now scratched, weathered, and softened by time.</figcaption>
+        </figure>
+
+        <div class="stacked-photos">
+          <figure class="photo-card">
+            <img src="./assets/man-made-02.jpg" alt="Blue and turquoise building surface framed by trees and sky" />
+            <figcaption class="caption">Paint, walls, and edges become evidence of exposure rather than permanence.</figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="./assets/man-made-03.jpg" alt="Damaged sculptural face resting among leaves against a blue wall" />
+            <figcaption class="caption">A human-made face becomes fragile, broken, and partially reclaimed by plants.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell project-text-section">
+      <div class="text-layout">
+        <aside class="thesis-card">
+          <p class="section-label">Project Thesis</p>
+          <blockquote>
+            Man-made things often perform permanence, but texture tells the truth.
+          </blockquote>
+          <p>This series looks at the quiet instability of built objects — how weather, use, neglect, and nature expose the limits of what people construct.</p>
+        </aside>
+
+        <article class="body-card">
+          <div class="case-study-body">
+            <p><strong>Man-Made</strong> is an observational photography project focused on the fragility of objects, structures, and surfaces created by people. The images look at the built environment not as something fixed, but as something constantly being worn down, altered, and exposed.</p>
+
+            <p>The series moves between <strong>signage, architecture, walls, brickwork, sculptural objects, and weathered surfaces</strong>. Each frame highlights the tension between human intention and material weakness — things made to direct, protect, decorate, or last begin to show cracks, marks, fading, rust, peeling paint, and imperfect edges.</p>
+
+            <p>The photographs are intentionally <strong>unedited</strong>. I wanted the work to keep its raw daylight, natural colour shifts, and visible imperfections instead of making the scenes feel overly polished. That choice supports the concept: the fragility is not hidden, corrected, or beautified. It is allowed to remain visible.</p>
+
+            <p>At its core, this project is about <strong>looking closely at the ordinary built world</strong>. It reflects my interest in how photography can reveal the quiet vulnerability of things we usually treat as stable, useful, or permanent.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-shell wide-image" aria-label="Man-Made wide frame">
+      <figure class="wide-frame">
+        <img src="./assets/man-made-04.jpg" alt="Large building framed by trees and a bright sky" />
+      </figure>
+    </section>
+
+    <section class="page-shell frame-notes-section">
+      <p class="section-label">Frame notes</p>
+      <h2 class="section-heading">Surface, structure, and weathering carry the story.</h2>
+
+      <div class="frame-notes-grid">
+        <article class="note-card">
+          <i class="bi bi-bricks"></i>
+          <h3>Surface</h3>
+          <p>Texture becomes the main subject: scratches, chipped paint, brick patterns, stains, and uneven finishes reveal the physical life of each object.</p>
+        </article>
+
+        <article class="note-card">
+          <i class="bi bi-building"></i>
+          <h3>Structure</h3>
+          <p>The compositions use buildings, signs, posts, and walls to show how constructed forms can still feel vulnerable, temporary, and exposed.</p>
+        </article>
+
+        <article class="note-card">
+          <i class="bi bi-cloud-sun"></i>
+          <h3>Weathering</h3>
+          <p>Natural light, sky, trees, and plants sit beside the built objects, reminding the viewer that nature continues to press against what humans make.</p>
+        </article>
+      </div>
+
+      <div class="mini-grid" aria-label="Supporting Man-Made frames">
+        <figure><img src="./assets/man-made-05.jpg" alt="Pale wall and architectural corner against blue sky" /></figure>
+        <figure><img src="./assets/man-made-06.jpg" alt="Brick wall detail with metal support and shadow" /></figure>
+        <figure><img src="./assets/man-made-02.jpg" alt="Peeling blue wall and surrounding greenery" /></figure>
+      </div>
+    </section>
+
+    <section class="page-shell next-section">
+      <div class="next-card">
+        <div>
+          <h2>More photography projects live in the archive.</h2>
+          <p>Return to the multimedia design category to explore more image-led, motion-led, and visual storytelling work.</p>
+        </div>
+        <a href="/multimedia-design/" class="action-btn action-primary"><i class="bi bi-folder2-open"></i> Back to Archive</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <h2 class="footer-title">Let's make something <span>intentional.</span></h2>
+          <p class="footer-copy">
+            Have a project that needs photography, design direction, visual identity, digital systems, or something
+            beautifully in-between? Let's talk.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact/"><i class="bi bi-send-fill"></i> Contact D'SEIKOU</a>
+            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="contact-list">
+            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i> dinalediseko@dseikou.co.za</a>
+            <a href="tel:+27818994791"><i class="bi bi-telephone-fill"></i> (+27) 81 899 4791</a>
+          </div>
+
+          <div class="socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://www.instagram.com/ngwanokestar/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright © <span id="year"></span> D'SEIKOU. All rights reserved.</p>
+        <p>Man-Made</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const menuBtn = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const desktopNav = document.getElementById('desktop-nav');
+
+      function syncNav() {
+        const mobile = window.innerWidth <= 980;
+        if (menuBtn) menuBtn.style.display = mobile ? 'block' : 'none';
+        if (desktopNav) desktopNav.style.display = mobile ? 'none' : 'flex';
+        if (!mobile && mobileMenu) mobileMenu.style.display = 'none';
+        if (!mobile && menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      syncNav();
+      window.addEventListener('resize', syncNav);
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function () {
+          const isOpen = mobileMenu.style.display === 'block';
+          mobileMenu.style.display = isOpen ? 'none' : 'block';
+          menuBtn.setAttribute('aria-expanded', String(!isOpen));
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Didintle Naledi Diseko - Learnership Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                border: none;
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        body {
+            background-color: #f4f4f5; /* Clean light gray */
+            font-family: 'Inter', sans-serif;
+            color: #18181b;
+        }
+
+        .resume-container {
+            background: white;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 3rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-top: 10px solid #0f172a; /* Professional Slate Blue/Black */
+        }
+
+        h1 {
+            color: #0f172a;
+        }
+
+        h2 {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            color: #0f172a;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 1.1rem;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        strong {
+            color: #0f172a;
+        }
+
+        .job-title {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .date-badge {
+            background-color: #f1f5f9;
+            color: #334155;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .ref-card {
+            border-left: 3px solid #cbd5e1;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <header class="text-center mb-6">
+            <h1 class="text-4xl font-black mb-2 tracking-tight uppercase">DIDINTLE NALEDI DISEKO</h1>
+            <p class="text-[#334155] font-bold tracking-widest uppercase text-sm mb-3">Learnership Candidate</p>
+            <div class="contact-info flex flex-wrap justify-center gap-6 text-[#18181b] font-medium text-xs">
+                <span>📍 Pretoria, Gauteng</span>
+                <span>📞 +27 81 899 4791</span>
+                <span>✉️ dinalediseko@dseikou.co.za</span>
+            </div>
+        </header>
+
+        <!-- Personal Details Section (Crucial for Learnerships/SETA) -->
+        <section>
+            <h2>Personal Details</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-2 text-xs">
+                <p><strong>Identity Number:</strong> 0106150181084</p>
+                <p><strong>Nationality:</strong> South African</p>
+                <p><strong>Gender:</strong> Female</p>
+                <p><strong>Criminal Record:</strong> None</p>
+                <p><strong>Driver’s License:</strong> Code B PrDP</p>
+                <p><strong>Languages:</strong> English (Fluent), Setswana (Proficient)</p>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section>
+            <h2>Professional Objective</h2>
+            <p class="text-[#18181b] text-sm leading-relaxed opacity-90">
+                Highly motivated and adaptable young professional with a foundational NQF Level 5 qualification in Software Development and a strong academic background. I am eager to secure a position within the OSS Hastings Learnership program to further develop my practical skills, contribute to a dynamic team environment, and gain valuable industry experience. Known for excellent computer literacy, a strong work ethic, and the ability to learn new systems and processes rapidly.
+            </p>
+        </section>
+
+        <!-- Education (Moved up, as it's the primary qualifier for learnerships) -->
+        <section>
+            <h2>Education & Qualifications</h2>
+            <div class="grid grid-cols-1 gap-4 text-xs">
+                <div class="flex justify-between items-start border-b border-gray-100 pb-2">
+                    <div>
+                        <p class="font-bold text-[#0f172a] text-sm uppercase">National Certificate: Software Development (NQF 5)</p>
+                        <p class="font-semibold text-gray-700">CodeSpace Academy</p>
+                        <p class="text-gray-600 mt-1">Achieved Merit Pass | Core Focus: System logic, computer literacy, modern web technologies.</p>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start border-b border-gray-100 pb-2">
+                    <div>
+                        <p class="font-bold text-[#0f172a] text-sm uppercase">National Senior Certificate (Bachelor's Pass)</p>
+                        <p class="font-semibold text-gray-700">Pretoria Technical High School</p>
+                        <p class="text-gray-600 mt-1">Core Subjects: Electrical Technology & Engineering Graphics and Design (EGD).</p>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start pb-2">
+                    <div>
+                        <p class="font-bold text-[#0f172a] text-sm uppercase">Diploma in Integrated Communication Design</p>
+                        <p class="font-semibold text-gray-700">Tshwane University of Technology</p>
+                        <p class="text-gray-600 mt-1">Completed 2 Years | Core Focus: Visual communication, data organization, and design principles.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Expertise -->
+        <section>
+            <h2>Key Skills & Competencies</h2>
+            <div class="grid grid-cols-3 gap-4 text-[11px] text-[#18181b]">
+                <div>
+                    <p class="font-bold text-[#0f172a] uppercase mb-1 border-b border-gray-200 pb-1 inline-block">Technical & Admin</p>
+                    <ul class="space-y-1 mt-1 list-disc ml-4">
+                        <li>High Computer Literacy</li>
+                        <li>MS Office & Google Workspace</li>
+                        <li>Basic Software Development</li>
+                        <li>Digital Record Keeping</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="font-bold text-[#0f172a] uppercase mb-1 border-b border-gray-200 pb-1 inline-block">Interpersonal</p>
+                    <ul class="space-y-1 mt-1 list-disc ml-4">
+                        <li>Clear Verbal Communication</li>
+                        <li>Professional Written Communication</li>
+                        <li>Active Listening & Teamwork</li>
+                        <li>Conflict Resolution</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="font-bold text-[#0f172a] uppercase mb-1 border-b border-gray-200 pb-1 inline-block">Work Ethic</p>
+                    <ul class="space-y-1 mt-1 list-disc ml-4">
+                        <li>Punctuality & Reliability</li>
+                        <li>Eagerness to Learn</li>
+                        <li>Adaptability & Flexibility</li>
+                        <li>Attention to Detail</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience (Framed as foundational and responsible) -->
+        <section>
+            <h2>Work & Volunteer Experience</h2>
+
+            <div class="mb-4">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">Team Member & Floor Marshall</h3>
+                    <span class="date-badge">Sept 2024 – Present</span>
+                </div>
+                <p class="italic font-medium text-gray-600 text-xs mb-1">Total Ninja Kolonnade (Part-time)</p>
+                <ul class="list-disc ml-5 text-[#18181b] space-y-1 text-xs opacity-90">
+                    <li>Work collaboratively within a structured team environment to ensure operational safety and efficiency.</li>
+                    <li>Assist with daily public-facing inquiries, demonstrating strong customer service and communication skills.</li>
+                </ul>
+            </div>
+
+            <div class="mb-4">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">Freelance Digital Creator</h3>
+                    <span class="date-badge">Jan 2023 – Present</span>
+                </div>
+                <p class="italic font-medium text-gray-600 text-xs mb-1">Self-Employed (D’SEIKOU)</p>
+                <ul class="list-disc ml-5 text-[#18181b] space-y-1 text-xs opacity-90">
+                    <li>Demonstrate self-motivation and time management by successfully completing project deliverables on schedule.</li>
+                    <li>Utilize technical software to create digital documents and media assets.</li>
+                </ul>
+            </div>
+
+            <div class="mb-4">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">Youth Logistics Coordinator (Volunteer)</h3>
+                    <span class="date-badge">Sept 2017 – Present</span>
+                </div>
+                <p class="italic font-medium text-gray-600 text-xs mb-1">African Methodist Episcopal Church</p>
+                <ul class="list-disc ml-5 text-[#18181b] space-y-1 text-xs opacity-90">
+                    <li>Assist in organizing community events, handling basic administrative and logistical tasks.</li>
+                    <li>Demonstrate long-term commitment and reliability in a community leadership role.</li>
+                </ul>
+            </div>
+            
+            <div class="mb-4">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">ICT Academy Ambassador</h3>
+                    <span class="date-badge">June 2022 – Dec 2022</span>
+                </div>
+                <p class="italic font-medium text-gray-600 text-xs mb-1">Huawei (Hybrid)</p>
+                <ul class="list-disc ml-5 text-[#18181b] space-y-1 text-xs opacity-90">
+                    <li>Acted as a liaison between students and the academy, requiring excellent organizational and interpersonal skills.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- References -->
+        <section>
+            <h2>References</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                <div class="ref-card">
+                    <p class="font-bold text-sm">Nthabiseng Mmethi</p>
+                    <p class="text-[#0f172a] font-semibold text-[10px] mb-1 uppercase">Supervisor | Total Ninja</p>
+                    <p class="mb-1 font-medium">📞 +27 83 950 7114</p>
+                    <p class="text-gray-500 italic">Workplace reference for reliability and teamwork.</p>
+                </div>
+                <div class="ref-card">
+                    <p class="font-bold text-sm">Zinhle Mnguni</p>
+                    <p class="text-[#0f172a] font-semibold text-[10px] mb-1 uppercase">Past President | YPD</p>
+                    <p class="mb-1 font-medium">📞 +27 78 744 1519</p>
+                    <p class="text-gray-500 italic">Character reference for community involvement.</p>
+                </div>
+                <div class="ref-card">
+                    <p class="font-bold text-sm">Noluthando Madzivhe</p>
+                    <p class="text-[#0f172a] font-semibold text-[10px] mb-1 uppercase">Talent Manager | Huawei</p>
+                    <p class="mb-1 font-medium">✉️ noluthando.madzivhe@huawei.com</p>
+                    <p class="text-gray-500 italic">Reference for institutional representation.</p>
+                </div>
+                <div class="ref-card">
+                    <p class="font-bold text-sm">Katlego Malapane</p>
+                    <p class="text-[#0f172a] font-semibold text-[10px] mb-1 uppercase">Solutions Architect | HPE</p>
+                    <p class="mb-1 font-medium">📞 +27 79 857 9231</p>
+                    <p class="text-gray-500 italic">Professional mentor reference.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-4 pt-4 border-t border-gray-200 text-center">
+            <p class="text-[9px] text-gray-400 uppercase tracking-widest">End of Curriculum Vitae - Didintle Naledi Diseko</p>
+        </footer>
+    </div>
+</body>
+
+</html>

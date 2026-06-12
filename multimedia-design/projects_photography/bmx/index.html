@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ride The Campus Like A BMX Track | D'SEIKOU</title>
+  <meta name="description" content="A documentary-style photography project focused on movement, youth culture, and BMX expression across the Tshwane University of Technology Arts Campus." />
+  <link rel="icon" href="/media/black-favicon.png" type="image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    :root {
+      --bg: #efefe9;
+      --fg: #11100f;
+      --accent: #be001c;
+      --accent-soft: rgba(190, 0, 28, 0.08);
+      --accent-glow: rgba(190, 0, 28, 0.18);
+      --cream: #efefe9;
+      --ink: #11100f;
+      --glass: rgba(255, 255, 255, 0.50);
+      --glass-strong: rgba(255, 255, 255, 0.72);
+      --glass-border: rgba(17, 16, 15, 0.12);
+      --muted: rgba(17, 16, 15, 0.64);
+      --shadow-soft: 0 24px 70px rgba(17, 16, 15, 0.10);
+      --shadow-hover: 0 28px 80px rgba(190, 0, 28, 0.16);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 78% 8%, rgba(190, 0, 28, 0.11), transparent 34%),
+        radial-gradient(circle at 10% 22%, rgba(17, 16, 15, 0.06), transparent 28%),
+        var(--bg);
+      color: var(--fg);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(239, 239, 233, 0.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo img { display: block; height: 2rem; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+
+    .nav-links a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.35s ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 0.5rem 1.4rem !important;
+      border: 1px solid rgba(17, 16, 15, 0.14) !important;
+      border-radius: 100px !important;
+      background: var(--ink) !important;
+      color: var(--cream) !important;
+      box-shadow: 0 12px 34px rgba(17, 16, 15, 0.12);
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; color: var(--cream) !important; }
+
+    #menu-button {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--fg);
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    #mobile-menu {
+      display: none;
+      background: rgba(239, 239, 233, 0.96);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+      padding: 1rem 1.5rem 1.5rem;
+    }
+
+    #mobile-menu a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.75rem;
+      border-radius: 12px;
+      color: var(--fg);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    #mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
+    #mobile-menu .mob-cta { background: var(--ink); color: var(--cream); font-weight: 700; }
+    #mobile-menu .mob-cta:hover { background: var(--accent); color: var(--cream); }
+
+    .page-shell { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    .hero {
+      padding: 4.5rem 0 2.5rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: block;
+    }
+
+    .hero-copy-card {
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(2rem, 5vw, 4rem);
+      border-radius: 32px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-copy-card::before {
+      content: '';
+      position: absolute;
+      right: -7rem;
+      top: -7rem;
+      width: 300px;
+      height: 300px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+
+    .project-kicker {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      gap: 0.5rem;
+      padding: 0.35rem 0.95rem 0.35rem 0.65rem;
+      border: 1px solid rgba(190, 0, 28, 0.5);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-kicker-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent-glow);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    .hero-title {
+      font-size: clamp(3rem, 6.25vw, 6.3rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+      max-width: 780px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title span { color: var(--accent); }
+
+    .hero-summary {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.16rem);
+      line-height: 1.75;
+      margin-top: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 46px;
+      padding: 0.78rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .action-primary {
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      color: var(--cream);
+      box-shadow: 0 10px 30px rgba(190, 0, 28, 0.24);
+    }
+
+    .action-secondary {
+      background: var(--ink);
+      border: 1px solid var(--ink);
+      color: var(--cream);
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(190, 0, 28, 0.20);
+    }
+
+    .hero-image {
+      min-height: 620px;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      background: var(--ink);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.92) contrast(1.02);
+      transform: scale(1.01);
+    }
+
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(17, 16, 15, 0.42));
+      pointer-events: none;
+    }
+
+    .image-note {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 18px;
+      background: rgba(17, 16, 15, 0.72);
+      color: var(--cream);
+      backdrop-filter: blur(16px);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .image-note i { color: var(--accent); font-size: 1rem; }
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      padding: 1rem 0 4rem;
+    }
+
+    .info-item {
+      padding: 1.15rem;
+      border-radius: 22px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 16px 40px rgba(17, 16, 15, 0.06);
+      backdrop-filter: blur(14px);
+    }
+
+    .info-item span {
+      display: block;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .info-item strong {
+      display: block;
+      color: var(--fg);
+      font-size: 0.98rem;
+      line-height: 1.3;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.78rem 1.2rem;
+      border-radius: 100px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-primary {
+      border: 1.5px solid var(--accent);
+      background: var(--accent);
+      color: var(--cream);
+      box-shadow: 0 10px 30px rgba(190, 0, 28, 0.24);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(190, 0, 28, 0.34), 0 0 20px rgba(190, 0, 28, 0.22);
+    }
+
+    .btn-secondary {
+      border: 1.5px solid rgba(17, 16, 15, 0.16);
+      background: var(--glass-strong);
+      color: var(--ink);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-heading {
+      font-size: clamp(2.1rem, 4vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      max-width: 850px;
+    }
+
+    .section-context {
+      max-width: 640px;
+      margin-top: 0.85rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    /* ============================================
+       SELECTED FRAMES — hero-grade gallery shots
+       Large, cinematic, captioned. This is the
+       "wow" section: best frames only.
+       ============================================ */
+    .image-led-section { padding: 1rem 0 5.5rem; }
+
+    .gallery-lead {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+      gap: 1.25rem;
+      align-items: stretch;
+      margin-top: 2rem;
+    }
+
+    .photo-card {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      background: var(--ink);
+      position: relative;
+      min-height: 0;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      transition: filter 0.6s ease;
+    }
+
+    .photo-card:hover img {
+      filter: saturate(1.04) contrast(1.04);
+    }
+
+    .photo-card.tall { min-height: 0; }
+    .stacked-photos { display: grid; gap: 1.25rem; align-content: start; }
+    .stacked-photos .photo-card { min-height: 0; }
+
+    .caption {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      max-width: calc(100% - 2rem);
+      padding: 0.72rem 0.85rem;
+      border-radius: 16px;
+      background: rgba(17, 16, 15, 0.70);
+      color: var(--cream);
+      backdrop-filter: blur(14px);
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+
+    .project-text-section { padding: 0 0 5.5rem; }
+
+    .text-layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.4fr) minmax(0, 0.6fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .body-card {
+      border-radius: 30px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(14px);
+      padding: 2rem;
+    }
+
+    .thesis-card {
+      position: sticky;
+      top: 6rem;
+      padding: 1.65rem;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(190, 0, 28, 0.09), rgba(255, 255, 255, 0.58));
+      border: 1px solid rgba(190, 0, 28, 0.22);
+      box-shadow: 0 22px 58px rgba(190, 0, 28, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.68);
+      backdrop-filter: blur(14px);
+    }
+
+    .thesis-card .section-label {
+      margin-bottom: 0.65rem;
+      color: var(--accent);
+    }
+
+    .thesis-card blockquote {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.65rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+      color: var(--fg);
+    }
+
+    .thesis-card p:not(.section-label) {
+      margin-top: 1rem;
+      color: var(--muted-strong);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .case-study-body {
+      color: rgba(17, 16, 15, 0.78);
+      font-size: clamp(1.02rem, 1.4vw, 1.12rem);
+      line-height: 1.85;
+    }
+
+    .case-study-body p + p { margin-top: 1.2rem; }
+    .case-study-body strong { color: var(--fg); font-weight: 800; }
+
+    .wide-image { padding: 0 0 5.5rem; }
+
+    .wide-frame {
+      min-height: 0;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      background: var(--ink);
+      position: relative;
+    }
+
+    .wide-frame img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* ============================================
+       FRAME NOTES — quiet supporting analysis
+       This replaces the second image grid so the page
+       keeps one clear image hero section. These cards
+       explain the visual decisions without competing
+       with Selected Frames.
+       ============================================ */
+    .frame-notes-section { padding: 0 0 5.5rem; }
+
+    .section-intro {
+      max-width: 680px;
+      margin-top: 0.9rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .frame-notes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .notes-card {
+      padding: 1.35rem;
+      border-radius: 28px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 16px 42px rgba(17, 16, 15, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.62);
+      backdrop-filter: blur(14px);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .notes-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(190, 0, 28, 0.28);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .notes-card i {
+      color: var(--accent);
+      font-size: 1.35rem;
+    }
+
+    .notes-card h3 {
+      margin-top: 0.75rem;
+      font-size: 1.45rem;
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .notes-card p {
+      margin-top: 0.7rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 980px) {
+      .frame-notes-grid { grid-template-columns: 1fr; }
+    }
+
+    .next-section { padding: 0 0 6rem; }
+
+    .next-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 2rem;
+      border-radius: 30px;
+      background: var(--ink);
+      color: var(--cream);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .next-card::before {
+      content: '';
+      position: absolute;
+      right: -6rem;
+      top: -6rem;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.35), transparent 68%);
+    }
+
+    .next-card h2 {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .next-card p {
+      margin-top: 0.75rem;
+      color: rgba(239, 239, 233, 0.72);
+      max-width: 650px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .next-card .action-btn { position: relative; z-index: 1; }
+
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 4rem 2rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -160px;
+      right: -120px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: start;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(239, 239, 233, 0.12);
+    }
+
+    .footer-title {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+    }
+
+    .footer-title span { color: var(--accent); }
+
+    .footer-copy {
+      margin-top: 1rem;
+      color: rgba(239, 239, 233, 0.66);
+      max-width: 560px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.8rem;
+      justify-items: end;
+    }
+
+    .contact-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: rgba(239, 239, 233, 0.82);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .contact-list a:hover { color: var(--accent); }
+
+    .socials {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
+
+    .socials a {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(239, 239, 233, 0.08);
+      border: 1px solid rgba(239, 239, 233, 0.12);
+      color: var(--cream);
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .socials a:hover {
+      transform: translateY(-3px);
+      background: var(--accent);
+      color: var(--cream);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      color: rgba(239, 239, 233, 0.55);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .gallery-lead, .text-layout, .footer-grid { grid-template-columns: 1fr; }
+      .hero-copy-card, .hero-image { min-height: auto; }
+      .hero-image { aspect-ratio: 4 / 5; }
+      .thesis-card { position: static; }
+      .info-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-list, .socials { justify-items: start; justify-content: flex-start; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      #menu-button { display: block; }
+      .nav-inner { padding: 1rem 1.25rem; }
+      .hero { padding-top: 3.5rem; }
+      .hero-copy-card, .hero-image, .photo-card, .wide-frame, .next-card { border-radius: 26px; }
+      .hero-copy-card, .body-card, .thesis-card, .next-card { padding: 1.35rem; }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell { padding: 0 1rem; }
+      .hero-actions, .next-card, .action-btn { width: 100%; }
+      .action-btn { justify-content: center; }
+      .info-strip { grid-template-columns: 1fr; }
+      .gallery-lead, .stacked-photos { gap: 1rem; }
+      .image-note { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="D'SEIKOU Home">
+        <img src="/media/D'SEIKOU Logo Black.png" alt="D'SEIKOU Logo" />
+      </a>
+
+      <div class="nav-links" id="desktop-nav">
+        <a href="/">Home</a>
+        <a href="/more-about-me/">About</a>
+        <a href="/multimedia-design/">Multimedia Design</a>
+        <a href="/fullstack-development/">Development</a>
+        <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+        <a href="/contact/" class="nav-cta">Contact</a>
+      </div>
+
+      <button id="menu-button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu">
+      <a href="/">Home</a>
+      <a href="/more-about-me/">About</a>
+      <a href="/multimedia-design/">Multimedia Design</a>
+      <a href="/fullstack-development/">Development</a>
+      <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+      <a href="/contact/" class="mob-cta">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="page-shell hero-grid">
+        <div class="hero-copy-card">
+          <div>
+            <div class="project-kicker"><span class="project-kicker-dot"></span>Photography Project</div>
+            <h1 class="hero-title">Ride the Campus Like a <span>BMX Track</span></h1>
+            <p class="hero-summary">A motion-led photography series documenting how a familiar campus space can shift into something playful, cinematic, and alive through youth culture, rhythm, and movement.</p>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#gallery" class="action-btn action-primary"><i class="bi bi-images"></i> View Images</a>
+            <a href="/multimedia-design/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i> Back to Multimedia</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="page-shell info-strip" aria-label="Project information">
+      <div class="info-item">
+        <span>Category</span>
+        <strong>Photography</strong>
+      </div>
+      <div class="info-item">
+        <span>Focus</span>
+        <strong>Motion, youth culture, documentary-style photography</strong>
+      </div>
+      <div class="info-item">
+        <span>Role</span>
+        <strong>Photographer &amp; Editor</strong>
+      </div>
+      <div class="info-item">
+        <span>Project Type</span>
+        <strong>Campus Photography</strong>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SELECTED FRAMES
+         Best hero shots only — the "wow" images.
+         Large, cinematic, captioned. Keep this to
+         2-3 standout frames max so it stays a
+         highlight reel, not a full gallery.
+         ============================================ -->
+    <section id="gallery" class="page-shell image-led-section">
+      <p class="section-label">Selected frames</p>
+      <h2 class="section-heading">Movement turns the ordinary campus into a visual playground.</h2>
+      <p class="section-context">Best hero shots — large, cinematic, and captioned so each frame gets room to breathe.</p>
+
+      <div class="gallery-lead">
+        <figure class="photo-card tall">
+          <img src="./assets/campus-bmx-portrait.jpg" alt="BMX rider framed in motion across campus architecture" />
+          <figcaption class="caption">A familiar route becomes performance space through speed, balance, and presence.</figcaption>
+        </figure>
+
+        <div class="stacked-photos">
+          <figure class="photo-card">
+            <img src="./assets/campus-bmx-balance.jpg" alt="BMX rider near campus walkway and shadows" />
+            <figcaption class="caption">Curbs, walkways, parking areas, and shadows become part of the composition.</figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="./assets/campus-bmx-motion.jpg" alt="Documentary-style BMX campus photography with moody tones" />
+            <figcaption class="caption">The edit leans into darker tones, soft blur, and atmosphere.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell project-text-section">
+      <div class="text-layout">
+        <aside class="thesis-card">
+          <p class="section-label">Project Thesis</p>
+          <blockquote>
+            Ordinary spaces can become cinematic when movement gives them rhythm.
+          </blockquote>
+          <p>The campus was not designed as a BMX track, but through motion, framing, and youth expression, it begins to feel like one.</p>
+        </aside>
+
+        <article class="body-card">
+          <div class="case-study-body">
+            <p><strong>Ride the Campus Like a BMX Track</strong> is a photography project focused on movement, youth culture, and the way familiar environments can be transformed through personal expression.</p>
+
+            <p>The series follows a <strong>BMX rider moving through the Tshwane University of Technology Arts Campus</strong>, a space that is not necessarily designed for performance, but becomes shaped by the way he interacts with it. <strong>Curbs, walkways, parking areas, shadows, and open pockets of space</strong> become part of the visual language, turning the campus into something more playful, cinematic, and alive.</p>
+
+            <p>The creative direction leans into a <strong>slightly moody, documentary-inspired style</strong>. I wanted the images to feel unpolished in the right way — <strong>not overly staged, but still intentional</strong>. The darker tones, soft blur, and natural framing help create a sense of movement while keeping the focus on <strong>atmosphere, rhythm, and the rider's presence</strong> within the space.</p>
+
+            <p>At its core, this project is about <strong>seeing potential in ordinary surroundings</strong>. It reflects my interest in photography that does not only document a subject, but <strong>reframes the environment around them</strong>.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FRAME NOTES
+         A quieter supporting section that explains the
+         photographic decisions. This replaces the second
+         image grid so Selected Frames remains the only
+         hero-style gallery on the page.
+         ============================================ -->
+    <section class="page-shell frame-notes-section">
+      <p class="section-label">Frame notes</p>
+      <h2 class="section-heading">The series is built through motion, environment, and mood.</h2>
+      <p class="section-intro">Instead of adding another gallery, this section breaks down the visual choices that make the selected frames feel cinematic and alive.</p>
+
+      <div class="frame-notes-grid">
+        <article class="notes-card">
+          <i class="bi bi-bicycle"></i>
+          <h3>Motion</h3>
+          <p>Soft blur, body angle, and wheel movement keep the photographs from feeling frozen. The rider’s movement becomes the energy of the frame.</p>
+        </article>
+
+        <article class="notes-card">
+          <i class="bi bi-building"></i>
+          <h3>Environment</h3>
+          <p>The campus architecture is treated as part of the composition. Curbs, walkways, shadows, and empty pockets of space become visual obstacles and rhythm markers.</p>
+        </article>
+
+        <article class="notes-card">
+          <i class="bi bi-moon-stars-fill"></i>
+          <h3>Mood</h3>
+          <p>The darker edit and natural framing give the project a documentary feeling — unpolished enough to feel real, but intentional enough to feel cinematic.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-shell next-section">
+      <div class="next-card">
+        <div>
+          <h2>More photography projects live in the archive.</h2>
+          <p>Return to the multimedia design category to explore more image-led, motion-led, and visual storytelling work.</p>
+        </div>
+        <a href="/multimedia-design/" class="action-btn action-primary"><i class="bi bi-folder2-open"></i> Back to Archive</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <h2 class="footer-title">Let's make something <span>intentional.</span></h2>
+          <p class="footer-copy">
+            Have a project that needs photography, design direction, visual identity, digital systems, or something
+            beautifully in-between? Let's talk.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact/"><i class="bi bi-send-fill"></i> Contact D'SEIKOU</a>
+            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i
+                class="bi bi-whatsapp"></i> WhatsApp</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="contact-list">
+            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i>
+              dinalediseko@dseikou.co.za</a>
+            <a href="tel:+27818994791"><i class="bi bi-telephone-fill"></i> (+27) 81 899 4791</a>
+          </div>
+
+          <div class="socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i
+                class="bi bi-whatsapp"></i></a>
+            <a href="https://www.instagram.com/ngwanokestar/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright © <span id="year"></span> D'SEIKOU. All rights reserved.</p>
+        <p>Ride the Campus Like a BMX Track</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const menuBtn = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const desktopNav = document.getElementById('desktop-nav');
+
+      function syncNav() {
+        const mobile = window.innerWidth <= 980;
+        if (menuBtn) menuBtn.style.display = mobile ? 'block' : 'none';
+        if (desktopNav) desktopNav.style.display = mobile ? 'none' : 'flex';
+        if (!mobile && mobileMenu) mobileMenu.style.display = 'none';
+        if (!mobile && menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      syncNav();
+      window.addEventListener('resize', syncNav);
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function () {
+          const isOpen = mobileMenu.style.display === 'block';
+          mobileMenu.style.display = isOpen ? 'none' : 'block';
+          menuBtn.setAttribute('aria-expanded', String(!isOpen));
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
