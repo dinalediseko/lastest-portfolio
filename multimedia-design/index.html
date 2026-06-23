@@ -610,6 +610,144 @@
         0 0 18px rgba(239, 239, 233, 0.24);
     }
 
+    .video-preview-button {
+      appearance: none;
+      -webkit-appearance: none;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+    }
+
+    body.video-modal-open {
+      overflow: hidden;
+    }
+
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+
+    .video-modal.is-open {
+      display: flex;
+    }
+
+    .video-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 16, 15, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .video-modal-card {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 980px);
+      max-height: 92vh;
+      overflow: hidden;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 82% 10%, rgba(190, 0, 28, 0.20), transparent 32%),
+        var(--ink);
+      color: var(--cream);
+      border: 1px solid rgba(239, 239, 233, 0.12);
+      box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.45),
+        0 0 42px rgba(190, 0, 28, 0.20);
+      padding: clamp(1rem, 3vw, 1.5rem);
+    }
+
+    .video-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 3;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(239, 239, 233, 0.16);
+      border-radius: 999px;
+      background: rgba(239, 239, 233, 0.08);
+      color: var(--cream);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .video-modal-close:hover,
+    .video-modal-close:focus-visible {
+      transform: translateY(-2px);
+      background: var(--accent);
+      color: var(--cream);
+      outline: none;
+    }
+
+    .video-modal-header {
+      padding: 0.25rem 3.5rem 1rem 0.25rem;
+    }
+
+    .video-modal-label {
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .video-modal-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 3rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      color: var(--cream);
+    }
+
+    .video-modal-frame {
+      border-radius: 22px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(239, 239, 233, 0.12);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    #video-modal-player {
+      width: 100%;
+      max-height: 72vh;
+      display: block;
+      background: #000;
+    }
+
+    .video-modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1rem 0.25rem 0;
+      color: rgba(239, 239, 233, 0.66);
+      font-size: 0.9rem;
+    }
+
+    .video-modal-footer a {
+      color: var(--cream);
+      text-decoration: none;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .video-modal-footer a:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
     /* ============================================================
        FOOTER
     ============================================================ */
@@ -1065,28 +1203,248 @@
               </div>
             </div>
           </div>
-          
-          <!--
+
+          <!-- Motion 1 -->
           <div class="grid-item element-item filter-videography">
             <div class="portfolio-card">
-              <img src="https://placehold.co/600x400/718096/efefe9?text=Oceans+Breath" alt="Videography Project" />
+              <img src="./projects_motion/eskom/assets/eskom-still-03.png" alt="Eskom motion project poster" />
               <div class="portfolio-overlay">
-                <h4 class="portfolio-title">Ocean's Breath</h4>
-                <p class="portfolio-desc">A short film exploring the calming power of the sea.</p>
+                <h4 class="portfolio-title">Eskom</h4>
+                <p class="portfolio-desc">
+                  A motion-led public awareness piece using visual pacing, poster-style framing, and direct messaging to support energy-conscious communication.
+                </p>
                 <div class="portfolio-actions">
-                  <a href="#" class="portfolio-action watch-action">
-                    <i class="bi bi-play-circle"></i>
-                    <span>Watch</span>
+                  <a href="./projects_motion/eskom/" class="portfolio-action project-action">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>View Project</span>
                   </a>
+                  <button type="button" class="portfolio-action watch-action video-preview-button" data-video="./projects_motion/eskom/assets/eskom-motion.mp4" data-title="Eskom" data-project="./projects_motion/eskom/">
+                    <i class="bi bi-play-circle"></i>
+                    <span>Watch Video</span>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-        -->
+
+          <!-- Motion 2 -->
+          <div class="grid-item element-item filter-videography">
+            <div class="portfolio-card">
+              <img src="./projects_motion/dn-diseko-logo-reveal/assets/dn-diseko-still-03.png" alt="DN Diseko logo reveal motion project" />
+              <div class="portfolio-overlay">
+                <h4 class="portfolio-title">DN Diseko Logo Reveal</h4>
+                <p class="portfolio-desc">
+                  An early personal identity animation using a projector-style reveal, character timing, and a playful introduction to a developing creative mark.
+                </p>
+                <div class="portfolio-actions">
+                  <a href="./projects_motion/dn-diseko-logo-reveal/" class="portfolio-action project-action">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>View Project</span>
+                  </a>
+                  <button type="button" class="portfolio-action watch-action video-preview-button" data-video="./projects_motion/dn-diseko-logo-reveal/assets/dn-diseko-logo-reveal.mp4" data-title="DN Diseko Logo Reveal" data-project="./projects_motion/dn-diseko-logo-reveal/">
+                    <i class="bi bi-play-circle"></i>
+                    <span>Watch Video</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Motion 3 -->
+          <div class="grid-item element-item filter-videography">
+            <div class="portfolio-card">
+              <img src="./projects_motion/green-print/assets/green-print-still-01.png" alt="Green Print video report motion project" />
+              <div class="portfolio-overlay">
+                <h4 class="portfolio-title">Green Print</h4>
+                <p class="portfolio-desc">
+                  A Vox-inspired video report shaped through voiceover, editing rhythm, montage, and a central metaphor about growth and faith-led movement.
+                </p>
+                <div class="portfolio-actions">
+                  <a href="./projects_motion/green-print/" class="portfolio-action project-action">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>View Project</span>
+                  </a>
+                  <button type="button" class="portfolio-action watch-action video-preview-button" data-video="./projects_motion/green-print/assets/green-print-report.mp4" data-title="Green Print" data-project="./projects_motion/green-print/">
+                    <i class="bi bi-play-circle"></i>
+                    <span>Watch Video</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Motion 4 -->
+          <div class="grid-item element-item filter-videography">
+            <div class="portfolio-card">
+              <img src="./projects_motion/stigma/assets/stigma-still-03.png" alt="Stigma kinetic typography motion project" />
+              <div class="portfolio-overlay">
+                <h4 class="portfolio-title">Stigma</h4>
+                <p class="portfolio-desc">
+                  A kinetic typography video about mental health stigma, using sound-triggered smoke letters, glitch, and a cracked-screen reveal.
+                </p>
+                <div class="portfolio-actions">
+                  <a href="./projects_motion/stigma/" class="portfolio-action project-action">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>View Project</span>
+                  </a>
+                  <button type="button" class="portfolio-action watch-action video-preview-button" data-video="./projects_motion/stigma/assets/stigma-kinetic-typography.mp4" data-title="Stigma" data-project="./projects_motion/stigma/">
+                    <i class="bi bi-play-circle"></i>
+                    <span>Watch Video</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Motion 5 -->
+          <div class="grid-item element-item filter-videography">
+            <div class="portfolio-card">
+              <img src="./projects_motion/leadership-training-institute-recap/assets/arise-and-shine-poster.png" alt="Leadership Training Institute recap video project" />
+              <div class="portfolio-overlay">
+                <h4 class="portfolio-title">Leadership Training Institute</h4>
+                <p class="portfolio-desc">
+                  A CapCut-edited recap video structured around arrival, prayer, programme flow, and the transition from Opening Prayer into live choir worship.
+                </p>
+                <div class="portfolio-actions">
+                  <a href="./projects_motion/leadership-training-institute-recap/" class="portfolio-action project-action">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>View Project</span>
+                  </a>
+                  <button type="button" class="portfolio-action watch-action video-preview-button" data-video="./projects_motion/leadership-training-institute-recap/assets/arise-and-shine-recap.mp4" data-title="Leadership Training Institute" data-project="./projects_motion/leadership-training-institute-recap/">
+                    <i class="bi bi-play-circle"></i>
+                    <span>Watch Video</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Motion 6 -->
+          <div class="grid-item element-item filter-videography">
+            <div class="portfolio-card">
+              <img src="./projects_motion/thank-you-mokone/assets/4m-ty-still.png" alt="thank you Mokone recap video project" />
+              <div class="portfolio-overlay">
+                <h4 class="portfolio-title">thank you, Mokone</h4>
+                <p class="portfolio-desc">
+                  A short-form recap video shaped through crowd audio, DaVinci Resolve exploration, visual texture, and sound-led event pacing.
+                </p>
+                <div class="portfolio-actions">
+                  <a href="./projects_motion/thank-you-mokone/" class="portfolio-action project-action">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>View Project</span>
+                  </a>
+                  <button type="button" class="portfolio-action watch-action video-preview-button" data-video="./projects_motion/thank-you-mokone/assets/ty-4m.mp4" data-title="thank you, Mokone" data-project="./projects_motion/thank-you-mokone/">
+                    <i class="bi bi-play-circle"></i>
+                    <span>Watch Video</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Motion 7 -->
+          <div class="grid-item element-item filter-videography">
+            <div class="portfolio-card">
+              <img src="./projects_motion/ypd-mokone-logo-reveal/assets/ypd-mokone-light.png" alt="YPD Mokone Conference logo reveal motion project" />
+              <div class="portfolio-overlay">
+                <h4 class="portfolio-title">YPD Mokone Logo Reveal</h4>
+                <p class="portfolio-desc">
+                  An After Effects logo reveal delivered in dark and light versions, using structure, light, depth, and faith-based symbolic identity.
+                </p>
+                <div class="portfolio-actions">
+                  <a href="./projects_motion/ypd-mokone-logo-reveal/" class="portfolio-action project-action">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>View Project</span>
+                  </a>
+                  <button type="button" class="portfolio-action watch-action video-preview-button" data-video="./projects_motion/ypd-mokone-logo-reveal/assets/ypd-mokone-logo-reveal-dark.mp4" data-title="YPD Mokone Logo Reveal" data-project="./projects_motion/ypd-mokone-logo-reveal/">
+                    <i class="bi bi-play-circle"></i>
+                    <span>Watch Video</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Motion 8 -->
+          <div class="grid-item element-item filter-videography">
+            <div class="portfolio-card">
+              <img src="./projects_motion/kinetic-event-poster/assets/kinetic-event-poster-cover.png" alt="Kinetic event poster motion project" />
+              <div class="portfolio-overlay">
+                <h4 class="portfolio-title">Kinetic Event Poster</h4>
+                <p class="portfolio-desc">
+                  A loopable event poster designed in Illustrator and animated in After Effects with scrolling ribbons, ticker motion, and layered depth.
+                </p>
+                <div class="portfolio-actions">
+                  <a href="./projects_motion/kinetic-event-poster/" class="portfolio-action project-action">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>View Project</span>
+                  </a>
+                  <button type="button" class="portfolio-action watch-action video-preview-button" data-video="./projects_motion/kinetic-event-poster/assets/kinetic-event-poster.mp4" data-title="Kinetic Event Poster" data-project="./projects_motion/kinetic-event-poster/">
+                    <i class="bi bi-play-circle"></i>
+                    <span>Watch Video</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Motion 9 -->
+          <div class="grid-item element-item filter-videography">
+            <div class="portfolio-card">
+              <img src="./projects_motion/kustom-kreations-tumbler-video/assets/kustom-tumbler-poster.png" alt="Kustom Kreations tumbler video motion project" />
+              <div class="portfolio-overlay">
+                <h4 class="portfolio-title">Kustom Kreations Tumbler Video</h4>
+                <p class="portfolio-desc">
+                  A vertical product ad using Blender for the 3D tumbler hook and Canva for typography, mockups, pricing, and order-focused layout.
+                </p>
+                <div class="portfolio-actions">
+                  <a href="./projects_motion/kustom-kreations-tumbler-video/" class="portfolio-action project-action">
+                    <i class="bi bi-folder2-open"></i>
+                    <span>View Project</span>
+                  </a>
+                  <button type="button" class="portfolio-action watch-action video-preview-button" data-video="./projects_motion/kustom-kreations-tumbler-video/assets/kustom-kreations-tumbler-video.mp4" data-title="Kustom Kreations Tumbler Video" data-project="./projects_motion/kustom-kreations-tumbler-video/">
+                    <i class="bi bi-play-circle"></i>
+                    <span>Watch Video</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
         </div>
       </div>
     </section>
   </main>
+
+
+  <!-- ===================== VIDEO PREVIEW MODAL - MOTION PROJECTS ONLY ===================== -->
+  <div class="video-modal" id="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+    <div class="video-modal-backdrop" data-video-close></div>
+
+    <div class="video-modal-card" role="document">
+      <button type="button" class="video-modal-close" data-video-close aria-label="Close video preview">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+      <div class="video-modal-header">
+        <p class="video-modal-label">Motion Preview</p>
+        <h2 class="video-modal-title" id="video-modal-title">Project video</h2>
+      </div>
+
+      <div class="video-modal-frame">
+        <video id="video-modal-player" controls playsinline preload="metadata"></video>
+      </div>
+
+      <div class="video-modal-footer">
+        <span>This preview is only available for motion projects.</span>
+        <a href="#" id="video-modal-project-link">
+          <i class="bi bi-folder2-open"></i>
+          View full project
+        </a>
+      </div>
+    </div>
+  </div>
+
 
   <!-- ===================== FOOTER ===================== -->
   <footer id="contact">
@@ -1213,6 +1571,77 @@
       } else {
         revealGrid();
       }
+
+
+      // ── Motion Video Preview Modal - Motion Projects Only ─────
+      const videoModal = document.getElementById('video-modal');
+      const videoPlayer = document.getElementById('video-modal-player');
+      const videoModalTitle = document.getElementById('video-modal-title');
+      const videoProjectLink = document.getElementById('video-modal-project-link');
+
+      // Limited intentionally to motion project cards only.
+      const videoPreviewButtons = document.querySelectorAll('.grid-item.filter-videography .video-preview-button');
+      const videoCloseButtons = document.querySelectorAll('[data-video-close]');
+
+      function openVideoModal(button) {
+        if (!videoModal || !videoPlayer || !button) return;
+
+        const videoSrc = button.getAttribute('data-video');
+        const videoTitle = button.getAttribute('data-title') || 'Project video';
+        const projectHref = button.getAttribute('data-project') || '#';
+
+        if (!videoSrc) return;
+
+        if (videoModalTitle) videoModalTitle.textContent = videoTitle;
+        if (videoProjectLink) videoProjectLink.setAttribute('href', projectHref);
+
+        videoPlayer.pause();
+        videoPlayer.removeAttribute('src');
+        videoPlayer.load();
+
+        videoPlayer.setAttribute('src', videoSrc);
+        videoPlayer.load();
+
+        videoModal.classList.add('is-open');
+        videoModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('video-modal-open');
+
+        const playPromise = videoPlayer.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {
+            // Browser autoplay rules may block this until the user presses play.
+          });
+        }
+      }
+
+      function closeVideoModal() {
+        if (!videoModal || !videoPlayer) return;
+
+        videoPlayer.pause();
+        videoPlayer.removeAttribute('src');
+        videoPlayer.load();
+
+        videoModal.classList.remove('is-open');
+        videoModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('video-modal-open');
+      }
+
+      videoPreviewButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          openVideoModal(this);
+        });
+      });
+
+      videoCloseButtons.forEach(button => {
+        button.addEventListener('click', closeVideoModal);
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && videoModal && videoModal.classList.contains('is-open')) {
+          closeVideoModal();
+        }
+      });
+
 
       // ── Filtering logic ────────────────────────────────────
       const filterButtonGroup = document.querySelector('#portfolio-filters');

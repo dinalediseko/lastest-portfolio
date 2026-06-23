@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stigma | D'SEIKOU</title>
+  <meta name="description" content="A kinetic typography motion project about breaking the stigma around mental health through rhythm, pacing, typography, and visual emphasis." />
+  <link rel="icon" href="/media/black-favicon.png" type="image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    :root {
+      --bg: #efefe9;
+      --fg: #11100f;
+      --accent: #be001c;
+      --accent-soft: rgba(190, 0, 28, 0.08);
+      --accent-glow: rgba(190, 0, 28, 0.18);
+      --cream: #efefe9;
+      --ink: #11100f;
+      --glass: rgba(255, 255, 255, 0.50);
+      --glass-strong: rgba(255, 255, 255, 0.72);
+      --glass-border: rgba(17, 16, 15, 0.12);
+      --muted: rgba(17, 16, 15, 0.64);
+      --muted-strong: rgba(17, 16, 15, 0.78);
+      --shadow-soft: 0 24px 70px rgba(17, 16, 15, 0.10);
+      --shadow-hover: 0 28px 80px rgba(190, 0, 28, 0.16);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 78% 8%, rgba(190, 0, 28, 0.11), transparent 34%),
+        radial-gradient(circle at 10% 22%, rgba(17, 16, 15, 0.06), transparent 28%),
+        var(--bg);
+      color: var(--fg);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    a { color: inherit; }
+    img, video { max-width: 100%; display: block; }
+
+    nav.site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(239, 239, 233, 0.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo img { height: 2rem; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+
+    .nav-links a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.35s ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 0.5rem 1.4rem !important;
+      border: 1px solid rgba(17, 16, 15, 0.14) !important;
+      border-radius: 100px !important;
+      background: var(--ink) !important;
+      color: var(--cream) !important;
+      box-shadow: 0 12px 34px rgba(17, 16, 15, 0.12);
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; }
+
+    #menu-button {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--fg);
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    #mobile-menu {
+      display: none;
+      background: rgba(239, 239, 233, 0.96);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+      padding: 1rem 1.5rem 1.5rem;
+    }
+
+    #mobile-menu a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.75rem;
+      border-radius: 12px;
+      color: var(--fg);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    #mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
+    #mobile-menu .mob-cta { background: var(--ink); color: var(--cream); }
+    #mobile-menu .mob-cta:hover { background: var(--accent); color: var(--cream); }
+
+    .page-shell { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .hero { padding: 4.5rem 0 2.5rem; position: relative; }
+
+    .hero-copy-card {
+      padding: clamp(2rem, 5vw, 4rem);
+      border-radius: 32px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-copy-card::before {
+      content: '';
+      position: absolute;
+      right: -7rem;
+      top: -7rem;
+      width: 320px;
+      height: 320px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.22), transparent 68%);
+      pointer-events: none;
+    }
+
+    .project-kicker {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      gap: 0.5rem;
+      padding: 0.35rem 0.95rem 0.35rem 0.65rem;
+      border: 1px solid rgba(190, 0, 28, 0.50);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-kicker-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent-glow);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    .hero-title {
+      font-size: clamp(3rem, 6.25vw, 6.3rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+      max-width: 880px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title span { color: var(--accent); text-shadow: 0 0 22px rgba(190, 0, 28, 0.22); }
+
+    .hero-summary {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.16rem);
+      line-height: 1.75;
+      margin-top: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .action-btn, .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 46px;
+      padding: 0.78rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 800;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .action-primary, .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--cream);
+      box-shadow: 0 10px 30px rgba(190, 0, 28, 0.24);
+    }
+
+    .action-secondary, .btn-secondary {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--cream);
+    }
+
+    .action-btn:hover, .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(190, 0, 28, 0.20);
+    }
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      padding: 1rem 0 4rem;
+    }
+
+    .info-item {
+      padding: 1.15rem;
+      border-radius: 22px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 16px 40px rgba(17, 16, 15, 0.06);
+      backdrop-filter: blur(14px);
+    }
+
+    .info-item span {
+      display: block;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .info-item strong { display: block; color: var(--fg); font-size: 0.98rem; line-height: 1.3; }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-heading {
+      font-size: clamp(2.1rem, 4vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      max-width: 850px;
+    }
+
+    .section-subtext {
+      max-width: 720px;
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .film-section { padding: 1rem 0 5.5rem; }
+
+    .film-frame {
+      margin-top: 2rem;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid rgba(190, 0, 28, 0.22);
+      background:
+        radial-gradient(circle at 50% 50%, rgba(190, 0, 28, 0.08), transparent 58%),
+        var(--ink);
+      box-shadow: var(--shadow-soft), 0 0 48px rgba(190, 0, 28, 0.10);
+      position: relative;
+      padding: clamp(1rem, 4vw, 2rem);
+    }
+
+    .film-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        linear-gradient(90deg, transparent, rgba(190, 0, 28, 0.08), transparent),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0px, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 5px);
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .film-frame video {
+      width: min(100%, 980px);
+      height: auto;
+      margin: 0 auto;
+      border: 0;
+      border-radius: 24px;
+      background: var(--ink);
+      display: block;
+      box-shadow: 0 0 44px rgba(190, 0, 28, 0.16);
+      position: relative;
+      z-index: 1;
+    }
+
+    .film-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1rem auto 0;
+      max-width: 640px;
+      padding: 1rem 1.15rem;
+      border-radius: 18px;
+      background: rgba(17, 16, 15, 0.92);
+      border: 1px solid rgba(190, 0, 28, 0.18);
+      color: rgba(239, 239, 233, 0.76);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .film-caption strong { color: var(--cream); }
+    .film-caption i { color: var(--accent); }
+
+    .project-text-section { padding: 0 0 5.5rem; }
+
+    .text-layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.4fr) minmax(0, 0.6fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .body-card {
+      border-radius: 30px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(14px);
+      padding: 2rem;
+    }
+
+    .thesis-card {
+      position: sticky;
+      top: 6rem;
+      padding: 1.65rem;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(190, 0, 28, 0.08), rgba(255, 255, 255, 0.58));
+      border: 1px solid rgba(190, 0, 28, 0.22);
+      box-shadow: 0 22px 58px rgba(190, 0, 28, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.68);
+      backdrop-filter: blur(14px);
+    }
+
+    .thesis-card .section-label { margin-bottom: 0.65rem; color: var(--accent); }
+
+    .thesis-card blockquote {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.65rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+      color: var(--fg);
+    }
+
+    .thesis-card p:not(.section-label) {
+      margin-top: 1rem;
+      color: var(--muted-strong);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .case-study-body {
+      color: rgba(17, 16, 15, 0.78);
+      font-size: clamp(1.02rem, 1.4vw, 1.12rem);
+      line-height: 1.85;
+    }
+
+    .case-study-body p + p { margin-top: 1.2rem; }
+    .case-study-body strong { color: var(--fg); font-weight: 800; }
+
+    .stills-section { padding: 0 0 5.5rem; }
+
+    .stills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .still-card {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(190, 0, 28, 0.16);
+      background: var(--ink);
+      box-shadow: 0 18px 48px rgba(17, 16, 15, 0.10);
+    }
+
+    .still-card img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .still-card figcaption {
+      padding: 0.9rem 1rem;
+      color: rgba(239, 239, 233, 0.78);
+      font-size: 0.85rem;
+      line-height: 1.45;
+      background: rgba(17, 16, 15, 0.92);
+    }
+
+    .frame-notes-section { padding: 0 0 6rem; }
+
+    .frame-notes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .note-card {
+      padding: 1.35rem;
+      border-radius: 26px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 16px 42px rgba(17, 16, 15, 0.07);
+      backdrop-filter: blur(14px);
+    }
+
+    .note-card i { color: var(--accent); font-size: 1.35rem; }
+    .note-card h3 { margin-top: 0.75rem; font-size: 1.25rem; letter-spacing: -0.035em; }
+    .note-card p { margin-top: 0.55rem; color: var(--muted); line-height: 1.65; }
+
+    .next-section { padding: 0 0 6rem; }
+
+    .next-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 2rem;
+      border-radius: 30px;
+      background: var(--ink);
+      color: var(--cream);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .next-card::before {
+      content: '';
+      position: absolute;
+      right: -6rem;
+      top: -6rem;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.34), transparent 68%);
+    }
+
+    .next-card h2 {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .next-card p {
+      margin-top: 0.75rem;
+      color: rgba(239, 239, 233, 0.72);
+      max-width: 650px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .next-card .action-btn { position: relative; z-index: 1; }
+
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 4rem 2rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -160px;
+      right: -120px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(190, 0, 28, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .footer-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: start;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(239, 239, 233, 0.12);
+    }
+
+    .footer-title {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+    }
+
+    .footer-title span { color: var(--accent); }
+
+    .footer-copy { margin-top: 1rem; color: rgba(239, 239, 233, 0.66); max-width: 560px; }
+
+    .contact-list { display: grid; gap: 0.8rem; justify-items: end; }
+
+    .contact-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: rgba(239, 239, 233, 0.82);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .contact-list a:hover { color: var(--accent); }
+
+    .socials { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem; }
+
+    .socials a {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(239, 239, 233, 0.08);
+      border: 1px solid rgba(239, 239, 233, 0.12);
+      color: var(--cream);
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .socials a:hover { transform: translateY(-3px); background: var(--accent); color: var(--cream); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      color: rgba(239, 239, 233, 0.55);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      #menu-button { display: block; }
+      .text-layout, .footer-grid, .next-card { grid-template-columns: 1fr; }
+      .thesis-card { position: static; }
+      .info-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stills-grid, .frame-notes-grid { grid-template-columns: 1fr; }
+      .contact-list, .socials { justify-items: start; justify-content: flex-start; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner { padding: 1rem 1.25rem; }
+      .hero { padding-top: 3.5rem; }
+      .hero-copy-card, .body-card, .thesis-card, .film-frame, .still-card, .next-card { border-radius: 26px; }
+      .hero-copy-card, .body-card, .thesis-card, .next-card { padding: 1.35rem; }
+      .film-frame video { width: 100%; }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell { padding: 0 1rem; }
+      .hero-actions, .action-btn { width: 100%; }
+      .action-btn { justify-content: center; }
+      .info-strip { grid-template-columns: 1fr; }
+      .film-caption { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="D'SEIKOU Home">
+        <img src="/media/D'SEIKOU Logo Black.png" alt="D'SEIKOU Logo" />
+      </a>
+
+      <div class="nav-links" id="desktop-nav">
+        <a href="/">Home</a>
+        <a href="/more-about-me/">About</a>
+        <a href="/multimedia-design/">Multimedia Design</a>
+        <a href="/fullstack-development/">Development</a>
+        <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+        <a href="/contact/" class="nav-cta">Contact</a>
+      </div>
+
+      <button id="menu-button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu">
+      <a href="/">Home</a>
+      <a href="/more-about-me/">About</a>
+      <a href="/multimedia-design/">Multimedia Design</a>
+      <a href="/fullstack-development/">Development</a>
+      <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+      <a href="/contact/" class="mob-cta">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="page-shell">
+        <div class="hero-copy-card reveal">
+          <div>
+            <div class="project-kicker"><span class="project-kicker-dot"></span>Motion Project</div>
+            <h1 class="hero-title"><span>Stigma</span></h1>
+            <p class="hero-summary">
+              A kinetic typography video about breaking the stigma around mental health — using sound design, smoke-formed letters, glitch, and a cracked-screen reveal to make the word feel unstable, violent, and impossible to ignore.
+            </p>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#film" class="action-btn action-primary"><i class="bi bi-play-circle-fill"></i> Watch Motion</a>
+            <a href="/multimedia-design/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i> Back to Multimedia</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell info-strip" aria-label="Project information">
+      <div class="info-item">
+        <span>Category</span>
+        <strong>Motion</strong>
+      </div>
+      <div class="info-item">
+        <span>Focus</span>
+        <strong>Kinetic typography, sound design, mental health awareness</strong>
+      </div>
+      <div class="info-item">
+        <span>Role</span>
+        <strong>Motion Designer, Sound Editor &amp; Video Editor</strong>
+      </div>
+      <div class="info-item">
+        <span>Project Type</span>
+        <strong>Kinetic Typography Video</strong>
+      </div>
+    </section>
+
+    <section id="film" class="page-shell film-section reveal">
+      <p class="section-label">Featured Motion</p>
+      <h2 class="section-heading">A word built through tension, impact, smoke, and fracture.</h2>
+      <p class="section-subtext">
+        The video opens with a stylised cocking sound, followed by a shot-like impact where smoke appears and forms the first letter. This repeats letter by letter until the full word appears, glitches, and ends with a cracked-screen reveal.
+      </p>
+
+      <div class="film-frame">
+        <video controls playsinline preload="metadata" poster="./assets/stigma-still-03.png">
+          <source src="./assets/stigma-kinetic-typography.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div class="film-caption">
+          <span><i class="bi bi-camera-video-fill"></i> <strong>Format:</strong> Kinetic typography video</span>
+          <span><strong>Core device:</strong> Sound-triggered letter reveal</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell project-text-section">
+      <div class="text-layout">
+        <aside class="thesis-card reveal">
+          <p class="section-label">Project Thesis</p>
+          <blockquote>
+            Stigma does not always arrive softly; sometimes it hits, fractures, and leaves visible damage.
+          </blockquote>
+          <p>The video uses sound, smoke, glitch, and cracked glass to make mental health stigma feel physically disruptive.</p>
+        </aside>
+
+        <article class="body-card reveal">
+          <div class="case-study-body">
+            <p><strong>Stigma</strong> is a kinetic typography video about <strong>breaking the stigma around mental health</strong>. Rather than introducing the word normally, the animation builds it through a sequence of repeated tension and impact.</p>
+
+            <p>The video starts with a <strong>cocking sound</strong>, followed by a sharp shot-like sound cue. With each impact, a burst of smoke appears and forms one letter of the word. The sequence repeats until <strong>S-T-I-G-M-A</strong> has been revealed, making the word feel constructed through pressure rather than simply typed onto screen.</p>
+
+            <p>After the letter-by-letter reveal, the screen cuts to black before <strong>STIGMA</strong> returns in a glitching title moment. A cinematic anticipation sound builds tension, then resolves with the screen cracking. This final crack becomes a visual metaphor for the damage caused by silence, shame, judgement, and untreated conversations around mental health.</p>
+
+            <p>The creative direction leans into <strong>dark space, high contrast, smoke, glitch, and fracture</strong>. The goal was not to make the topic look decorative, but to make the viewer feel how heavy and destabilising stigma can be. The typography becomes the subject, the sound becomes the trigger, and the cracked screen becomes the consequence.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-shell stills-section reveal">
+      <p class="section-label">Selected Stills</p>
+      <h2 class="section-heading">Key frames from the reveal sequence.</h2>
+      <p class="section-subtext">
+        These stills show how the piece uses darkness, smoke, glitch, and impact to build the word before breaking the frame around it.
+      </p>
+
+      <div class="stills-grid">
+        <figure class="still-card">
+          <img src="./assets/stigma-still-01.png" alt="Opening still from Stigma kinetic typography video" />
+          <figcaption>Letter reveal: each sound cue introduces pressure before smoke forms part of the word.</figcaption>
+        </figure>
+        <figure class="still-card">
+          <img src="./assets/stigma-still-02.png" alt="Middle still from Stigma kinetic typography video" />
+          <figcaption>Build-up: repetition makes the typography feel tense and intentional instead of static.</figcaption>
+        </figure>
+        <figure class="still-card">
+          <img src="./assets/stigma-still-03.png" alt="Cracked final title still from Stigma kinetic typography video" />
+          <figcaption>Final fracture: the full word glitches and cracks the screen, turning the message into visible damage.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="page-shell frame-notes-section reveal">
+      <p class="section-label">Motion Notes</p>
+      <h2 class="section-heading">The choices behind the motion piece.</h2>
+
+      <div class="frame-notes-grid">
+        <div class="note-card">
+          <i class="bi bi-soundwave"></i>
+          <h3>Sound Design</h3>
+          <p>The cocking, shot-like impact, and cinematic anticipation sound create tension before the viewer fully understands the word being formed.</p>
+        </div>
+
+        <div class="note-card">
+          <i class="bi bi-type"></i>
+          <h3>Typography</h3>
+          <p>The word is not simply displayed; it is built letter by letter through smoke and impact, making the typography feel unstable and confrontational.</p>
+        </div>
+
+        <div class="note-card">
+          <i class="bi bi-bounding-box-circles"></i>
+          <h3>Fracture</h3>
+          <p>The cracked-screen ending visualises the damage stigma can create, turning the final title into both a word and a wound.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell next-section">
+      <div class="next-card">
+        <div>
+          <h2>More motion projects live in the archive.</h2>
+          <p>Return to the multimedia design category to explore more motion-led, image-led, and visual storytelling work.</p>
+        </div>
+        <a href="/multimedia-design/" class="action-btn action-primary"><i class="bi bi-folder2-open"></i> Back to Archive</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <h2 class="footer-title">Let's make something <span>intentional.</span></h2>
+          <p class="footer-copy">
+            Have a project that needs motion, design direction, visual identity, digital systems, or something beautifully in-between? Let's talk.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact/"><i class="bi bi-send-fill"></i> Contact D'SEIKOU</a>
+            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="contact-list">
+            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i> dinalediseko@dseikou.co.za</a>
+            <a href="tel:+27818994791"><i class="bi bi-telephone-fill"></i> (+27) 81 899 4791</a>
+          </div>
+
+          <div class="socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://www.instagram.com/ngwanokestar/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright © <span id="year"></span> D'SEIKOU. All rights reserved.</p>
+        <p>Stigma</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const menuBtn = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const desktopNav = document.getElementById('desktop-nav');
+
+      function syncNav() {
+        const mobile = window.innerWidth <= 980;
+        if (menuBtn) menuBtn.style.display = mobile ? 'block' : 'none';
+        if (desktopNav) desktopNav.style.display = mobile ? 'none' : 'flex';
+        if (!mobile && mobileMenu) mobileMenu.style.display = 'none';
+        if (!mobile && menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      syncNav();
+      window.addEventListener('resize', syncNav);
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function () {
+          const isOpen = mobileMenu.style.display === 'block';
+          mobileMenu.style.display = isOpen ? 'none' : 'block';
+          menuBtn.setAttribute('aria-expanded', String(!isOpen));
+        });
+      }
+
+      const revealElements = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach(function (element) { observer.observe(element); });
+    });
+  </script>
+</body>
+
+</html>

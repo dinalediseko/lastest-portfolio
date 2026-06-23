@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Didintle Naledi Diseko</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                border: none;
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        body {
+            background-color: #efefe9;
+            font-family: 'Inter', sans-serif;
+            color: #11100f;
+        }
+
+        .resume-container {
+            background: white;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 3rem;
+            box-shadow: 0 10px 25px rgba(17, 16, 15, 0.05);
+            border-top: 10px solid #be001c;
+        }
+
+        h2 {
+            border-bottom: 2px solid #be001c;
+            padding-bottom: 0.5rem;
+            color: #be001c;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 1.1rem;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        strong {
+            color: #11100f;
+        }
+
+        .job-title {
+            color: #11100f;
+            font-weight: 700;
+        }
+
+        .date-badge {
+            background-color: #efefe9;
+            color: #11100f;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .ref-card {
+            border-left: 3px solid #be001c;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <header class="text-center mb-6">
+            <h1 class="text-5xl font-black mb-2 tracking-tighter uppercase text-[#11100f]">DIDINTLE NALEDI DISEKO</h1>
+            <p class="text-[#be001c] font-bold tracking-widest uppercase text-xs mb-3">Multimedia Designer • Full-Stack Developer • Project Coordinator</p>
+            <div class="contact-info flex flex-wrap justify-center gap-6 text-[#11100f] font-medium text-xs">
+                <span>📍 Pretoria, Gauteng</span>
+                <span>📞 +27 81 899 4791</span>
+                <span>✉️ dinalediseko@dseikou.co.za</span>
+            </div>
+        </header>
+
+        <!-- Personal Details -->
+        <section>
+            <h2>Personal Details</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-1 text-xs">
+                <p><strong>Identity Number:</strong> 0106150181084</p>
+                <p><strong>Nationality:</strong> South African</p>
+                <p><strong>Gender:</strong> Female</p>
+                <p><strong>Criminal Record:</strong> None</p>
+                <p><strong>Driver’s License:</strong> Code B PrDP</p>
+                <p><strong>Languages:</strong> English (Fluent), Setswana (Proficient)</p>
+            </div>
+        </section>
+
+        <!-- Profile Summary -->
+        <section>
+            <h2>Professional Profile</h2>
+            <p class="text-[#11100f] text-sm leading-relaxed opacity-90">
+                A versatile and highly adaptive professional operating fluidly across software development, multimedia design, and project coordination. Equipped with a verified NQF Level 5 in Software Development alongside solid foundational training in integrated communication design. Adept at steering digital workflows, coordinating large-scale logistics, managing stakeholder communications, and engineering front-end user experiences. Recognized for a meticulous attention to detail, human-centered problem-solving, and a strong collaborative work ethic.
+            </p>
+        </section>
+
+        <!-- Core Skills -->
+        <section>
+            <h2>Skills & Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-[11px] text-[#11100f]">
+                <div>
+                    <p class="font-bold text-[#be001c] uppercase mb-1">Technical & Development</p>
+                    <ul class="space-y-1 list-disc ml-4">
+                        <li>React.js, Next.js, TypeScript</li>
+                        <li>Tailwind CSS, Git & Version Control</li>
+                        <li>Phaser Engine & Game UI Logic</li>
+                        <li>High Computer Literacy (MS Office/G-Suite)</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="font-bold text-[#be001c] uppercase mb-1">Creative & Visual</p>
+                    <ul class="space-y-1 list-disc ml-4">
+                        <li>Adobe Creative Suite (Photoshop, Illustrator)</li>
+                        <li>UI/UX Prototyping (Figma)</li>
+                        <li>Minimalist Design & Typography</li>
+                        <li>Brand Identity & Collateral Design</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="font-bold text-[#be001c] uppercase mb-1">Operational & Professional</p>
+                    <ul class="space-y-1 list-disc ml-4">
+                        <li>Logistics & Event Planning</li>
+                        <li>Stakeholder & Client Relations</li>
+                        <li>Written & Verbal Communication</li>
+                        <li>Conflict Resolution & Teamwork</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section>
+            <h2>Work Experience</h2>
+
+            <div class="mb-5">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">Freelance Project Manager & Designer</h3>
+                    <span class="date-badge">Jan 2023 – Present</span>
+                </div>
+                <p class="italic font-medium text-[#be001c] text-xs mb-1">D’SEIKOU (Self-Employed)</p>
+                <ul class="list-disc ml-5 text-[#11100f] space-y-1 text-xs opacity-90">
+                    <li>Operate a design and development consultancy, turning diverse client briefs into scalable web interfaces and cohesive branding systems.</li>
+                    <li>Oversee project lifecycles from concept to production, managing assets, digital files, and client-facing communication.</li>
+                </ul>
+            </div>
+
+            <div class="mb-5">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">Floor Marshall & Marketing Team Member</h3>
+                    <span class="date-badge">Sept 2024 – Present</span>
+                </div>
+                <p class="italic font-medium text-[#be001c] text-xs mb-1">Total Ninja Kolonnade (Part-time)</p>
+                <ul class="list-disc ml-5 text-[#11100f] space-y-1 text-xs opacity-90">
+                    <li>Deliver exceptional customer service, managing on-floor operations and swiftly navigating customer queries and conflict resolution.</li>
+                    <li>Collaborate actively with the branch marketing division to support localized audience engagement strategies.</li>
+                </ul>
+            </div>
+
+            <div class="mb-5">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">Youth Leader & Project Manager</h3>
+                    <span class="date-badge">Sept 2017 – Present</span>
+                </div>
+                <p class="italic font-medium text-[#be001c] text-xs mb-1">African Methodist Episcopal Church (Volunteer)</p>
+                <ul class="list-disc ml-5 text-[#11100f] space-y-1 text-xs opacity-90">
+                    <li>Direct administration, scheduling, and logistics for complex youth initiatives and community gatherings of up to 500+ participants.</li>
+                    <li>Manage visual media directions and digital documentation workflows for long-term community projects.</li>
+                </ul>
+            </div>
+
+            <div class="mb-5">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="job-title text-sm uppercase">Ambassador of the Huawei ICT Academy</h3>
+                    <span class="date-badge">June 2022 – Dec 2022</span>
+                </div>
+                <p class="italic font-medium text-[#be001c] text-xs mb-1">Huawei (Hybrid)</p>
+                <ul class="list-disc ml-5 text-[#11100f] space-y-1 text-xs opacity-90">
+                    <li>Served as a main point of contact between corporate stakeholders and tertiary education representatives, increasing academy program visibility by 30%.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h2>Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div>
+                    <p class="font-bold text-[#be001c] mb-1 uppercase">Software Development (NQF Level 5)</p>
+                    <p class="font-bold">CodeSpace Academy</p>
+                    <p class="text-gray-600">Achieved Merit Pass | Specialization in frontend architectures and logic</p>
+                </div>
+                <div>
+                    <p class="font-bold text-[#be001c] mb-1 uppercase">Dip. Integrated Communication Design</p>
+                    <p class="font-bold">Tshwane University of Technology</p>
+                    <p class="text-gray-600">Completed 2 Years | Visual communication, structural layouts, and data presentation</p>
+                </div>
+                <div class="col-span-2">
+                    <p class="font-bold text-[#be001c] mb-1 uppercase">National Senior Certificate (Bachelor's Pass)</p>
+                    <p class="font-bold">Pretoria Technical High School</p>
+                    <p class="text-gray-600">Core focuses: Electrical Technology & Engineering Graphics (EGD)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- References -->
+        <section>
+            <h2>References</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 text-xs">
+                <div class="ref-card">
+                    <p class="font-bold text-sm">Nthabiseng Mmethi</p>
+                    <p class="text-gray-500 font-semibold text-[10px] mb-1 uppercase">Supervisor | Total Ninja</p>
+                    <p class="font-medium">📞 +27 83 950 7114</p>
+                </div>
+                <div class="ref-card">
+                    <p class="font-bold text-sm">Zinhle Mnguni</p>
+                    <p class="text-gray-500 font-semibold text-[10px] mb-1 uppercase">Immediate Past President | YPD</p>
+                    <p class="font-medium">📞 +27 78 744 1519</p>
+                </div>
+                <div class="ref-card">
+                    <p class="font-bold text-sm">Noluthando Madzivhe</p>
+                    <p class="text-gray-500 font-semibold text-[10px] mb-1 uppercase">Talent Manager | Huawei</p>
+                    <p class="font-medium">✉️ noluthando.madzivhe@huawei.com | 📞 +27 71 398 1609</p>
+                </div>
+                <div class="ref-card">
+                    <p class="font-bold text-sm">Katlego Malapane</p>
+                    <p class="text-gray-500 font-semibold text-[10px] mb-1 uppercase">Presales Solutions Architect | HPE</p>
+                    <p class="font-medium">📞 +27 79 857 9231</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-6 pt-4 border-t border-gray-100 text-center">
+            <p class="text-[9px] text-gray-400 uppercase tracking-widest">End of Curriculum Vitae - Didintle Naledi Diseko</p>
+        </footer>
+    </div>
+</body>
+
+</html>
