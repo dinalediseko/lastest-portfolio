@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SideQuest Game Hub | D'SEIKOU</title>
-  <meta name="description" content="A D\'SEIKOU project detail page for SideQuest, a custom-built hyper-casual game hub using React, Phaser, Firebase-style score systems, pixel UI, and Netlify deployment." />
+   <title>CertifyMe Certificate Generator | D'SEIKOU</title>
+  <meta name="description" content="A D\'SEIKOU frontend project page for CertifyMe, a client-side certificate generator with live preview, CSV workflow, export-focused UX, and Netlify deployment." />
   <link rel="icon" href="/media/black-favicon.png" type="image" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -874,6 +874,223 @@
       }
     }
 
+  
+    .interface-preview {
+      border-radius: 30px;
+      overflow: hidden;
+      background: var(--ink);
+      border: 1px solid rgba(17, 16, 15, 0.14);
+      box-shadow: 0 24px 80px rgba(17, 16, 15, 0.18);
+    }
+
+    .interface-preview img {
+      width: 100%;
+      display: block;
+    }
+
+    .case-study-list {
+      margin: 1rem 0 1.4rem;
+      padding-left: 1.2rem;
+      color: var(--muted);
+    }
+
+    .case-study-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .tech-stack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.35rem;
+    }
+
+    .tech-pill {
+      padding: 0.8rem 0.9rem;
+      border-radius: 18px;
+      background: rgba(190, 0, 28, 0.08);
+      border: 1px solid rgba(190, 0, 28, 0.20);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--accent);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 1.4rem;
+    }
+
+    .feature-card {
+      padding: 1.2rem;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.52);
+      border: 1px solid rgba(17, 16, 15, 0.10);
+      box-shadow: 0 18px 50px rgba(17, 16, 15, 0.08);
+    }
+
+    .feature-card i {
+      width: 42px;
+      height: 42px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 14px;
+      margin-bottom: 0.85rem;
+      background: var(--accent);
+      color: var(--cream);
+      font-size: 1.15rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.025em;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    .architecture-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .architecture-card {
+      padding: 1.2rem;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.52);
+      border: 1px solid rgba(17, 16, 15, 0.10);
+      box-shadow: 0 18px 50px rgba(17, 16, 15, 0.08);
+    }
+
+    .architecture-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.025em;
+    }
+
+    .architecture-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 980px) {
+      .tech-stack-grid,
+      .feature-grid,
+      .architecture-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  
+    .interface-preview {
+      border-radius: 30px;
+      overflow: hidden;
+      background: var(--ink);
+      border: 1px solid rgba(17, 16, 15, 0.14);
+      box-shadow: 0 24px 80px rgba(17, 16, 15, 0.18);
+    }
+
+    .interface-preview img {
+      width: 100%;
+      display: block;
+    }
+
+    .case-study-list {
+      margin: 1rem 0 1.4rem;
+      padding-left: 1.2rem;
+      color: var(--muted);
+    }
+
+    .case-study-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .tech-stack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.35rem;
+    }
+
+    .tech-pill {
+      padding: 0.8rem 0.9rem;
+      border-radius: 18px;
+      background: rgba(190, 0, 28, 0.08);
+      border: 1px solid rgba(190, 0, 28, 0.20);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--accent);
+    }
+
+    .feature-grid,
+    .architecture-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 1.4rem;
+    }
+
+    .architecture-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feature-card,
+    .architecture-card {
+      padding: 1.2rem;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.52);
+      border: 1px solid rgba(17, 16, 15, 0.10);
+      box-shadow: 0 18px 50px rgba(17, 16, 15, 0.08);
+    }
+
+    .feature-card i {
+      width: 42px;
+      height: 42px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 14px;
+      margin-bottom: 0.85rem;
+      background: var(--accent);
+      color: var(--cream);
+      font-size: 1.15rem;
+    }
+
+    .feature-card h3,
+    .architecture-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.025em;
+    }
+
+    .feature-card p,
+    .architecture-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 980px) {
+      .tech-stack-grid,
+      .feature-grid,
+      .architecture-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -912,20 +1129,22 @@
 
   
   
+  
+  
   <main>
     <section class="hero">
       <div class="page-shell">
         <div class="hero-copy-card reveal">
           <div>
-            <div class="project-kicker"><span class="project-kicker-dot"></span>Full-Stack Project</div>
-            <h1 class="hero-title">SideQuest <span>Game Hub</span></h1>
+            <div class="project-kicker"><span class="project-kicker-dot"></span>Frontend Project</div>
+            <h1 class="hero-title">CertifyMe <span>Certificate Generator</span></h1>
             <p class="hero-summary">
-              A custom-built, hyper-casual arcade for my portfolio — because designers will do everything except finish their portfolios, so I turned the distraction into a playable product.
+              A client-side certificate generator with live preview, batch-friendly data entry, and export-focused interaction design.
             </p>
           </div>
 
           <div class="hero-actions">
-            <a href="https://sidequest.dseikou.co.za/" class="action-btn action-primary" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
+            <a href="https://certifyme-dseikou.netlify.app/" class="action-btn action-primary" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
             <a href="/fullstack-development/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i> Back to Development</a>
           </div>
         </div>
@@ -935,31 +1154,31 @@
     <section class="page-shell info-strip" aria-label="Project information">
       <div class="info-item">
         <span>Category</span>
-        <strong>Full-Stack / Game Hub</strong>
+        <strong>Frontend / Generator Tool</strong>
       </div>
       <div class="info-item">
         <span>Stack</span>
-        <strong>React, Phaser, Firebase, Netlify</strong>
+        <strong>HTML, CSS, JavaScript</strong>
       </div>
       <div class="info-item">
         <span>Focus</span>
-        <strong>Playable UI, Game State, Auth, Leaderboards</strong>
+        <strong>Live Preview, CSV Workflow, Export UX</strong>
       </div>
       <div class="info-item">
-        <span>Live Link</span>
-        <strong>sidequest.dseikou.co.za</strong>
+        <span>Deployment</span>
+        <strong>Netlify</strong>
       </div>
     </section>
 
     <section class="page-shell film-section reveal">
       <p class="section-label">Project Overview</p>
-      <h2 class="section-heading">A mini arcade built into the portfolio experience.</h2>
+      <h2 class="section-heading">A certificate generator that keeps production fast, visual, and browser-based.</h2>
       <p class="section-subtext">
-        SideQuest is a custom-built, hyper-casual game hub that turns portfolio browsing into something playful. It centralizes small arcade-style games inside one branded web experience, using familiar mechanics, lightweight interaction loops, and a pixel-inspired interface.
+        CertifyMe was built as a frontend utility for creating certificates without a heavy admin dashboard. The focus is simple: enter participant information, preview the certificate immediately, and move from one-off generation to bulk certificate production.
       </p>
 
-      <div class="arcade-preview">
-        <img src="./assets/sidequest-cover.jpg" alt="SideQuest Game Hub pixel-style cover visual" />
+      <div class="interface-preview">
+        <img src="./assets/certifyme-cover.jpg" alt="CertifyMe certificate generator cover visual" />
       </div>
     </section>
 
@@ -968,37 +1187,37 @@
         <aside class="thesis-card reveal">
           <p class="section-label">Project Thesis</p>
           <blockquote>
-            SideQuest exists because play is also a valid portfolio interaction.
+            CertifyMe turns certificate admin into a clear visual workflow instead of a repetitive design task.
           </blockquote>
-          <p>Instead of only telling people I build interactive systems, I made something they can actually click, play, score in, and return to.</p>
+          <p>The project is frontend-focused: no backend dependency, no complex account system, just a practical browser tool that handles the interaction between data, design, preview, and export.</p>
         </aside>
 
         <article class="body-card reveal">
           <div class="case-study-body">
-            <p><strong>SideQuest</strong> is a custom-built, hyper-casual game hub hosted at <strong>sidequest.dseikou.co.za</strong>. It was created as a playful extension of the D’SEIKOU portfolio: a small arcade that lets visitors take a break from scrolling and experience an interactive side of the brand.</p>
+            <p><strong>CertifyMe</strong> is a glassmorphism-styled, client-side certificate generator designed around speed and visual feedback. Instead of manually editing certificates one by one, the tool gives the user a structured way to input details, preview the result, and prepare certificate outputs.</p>
 
-            <p>The concept came from a very real creative problem: designers, developers, and multi-hyphenates are always doing side quests while trying to finish their main portfolio. Instead of fighting that habit, I turned it into the product idea. The result is a mini game hub that feels self-aware, useful for engagement, and aligned with my personality as a designer-developer.</p>
+            <p>The project sits under the <strong>Frontend</strong> category because its value comes from browser-side interaction: form handling, live preview updates, layout styling, and file/export preparation. It does not need a persistent backend to demonstrate the core experience.</p>
 
-            <p>Technically, the project combines <strong>React</strong> for the overarching interface, routing, reusable UI, and state handling, with <strong>Phaser</strong> for game-engine mechanics where canvas-based gameplay is needed. The wider system also uses Firebase-style thinking for user sessions, saved scores, personal bests, and leaderboard behaviour, then deploys through Netlify for fast web access.</p>
+            <p>The key UX decision is the live preview. Users should not have to guess how a name, programme title, date, or issuer detail will appear on the final certificate. As the data changes, the certificate view becomes the confirmation layer.</p>
 
-            <p>The platform is designed to feel lightweight but complete: game cards, player identity, score submission, leaderboard logic, personal best tracking, and a visual design system that makes every screen feel like it belongs inside the same arcade.</p>
+            <p>The bulk CSV workflow extends the tool from a single-certificate generator into a production assistant. It supports the kind of real-world admin scenario where a facilitator, designer, or organiser needs to generate certificates for multiple participants quickly and consistently.</p>
 
             <ul class="case-study-list">
-              <li><strong>Core idea:</strong> a branded arcade that extends the portfolio beyond static case studies.</li>
-              <li><strong>Interaction layer:</strong> playable hyper-casual games with simple rules, quick rounds, and clear feedback.</li>
-              <li><strong>System layer:</strong> reusable game cards, score handling, profile context, and leaderboard-ready structures.</li>
-              <li><strong>Brand layer:</strong> retro pixel art language, custom icons, and a bold red, cream, and black palette.</li>
+              <li><strong>Core purpose:</strong> generate polished certificates from structured participant data.</li>
+              <li><strong>Frontend layer:</strong> HTML, CSS, and JavaScript for form logic, layout control, and interactive preview states.</li>
+              <li><strong>Workflow layer:</strong> live preview for single certificates and bulk CSV handling for larger participant lists.</li>
+              <li><strong>Design layer:</strong> glassmorphism styling, high contrast, and certificate-first hierarchy.</li>
             </ul>
 
             <div class="tech-stack-grid" aria-label="Technology stack">
-              <div class="tech-pill">React</div>
-              <div class="tech-pill">Phaser</div>
-              <div class="tech-pill">Firebase</div>
+              <div class="tech-pill">HTML</div>
+              <div class="tech-pill">CSS</div>
+              <div class="tech-pill">JavaScript</div>
+              <div class="tech-pill">CSV Flow</div>
+              <div class="tech-pill">Live Preview</div>
+              <div class="tech-pill">Client-Side</div>
+              <div class="tech-pill">Export UX</div>
               <div class="tech-pill">Netlify</div>
-              <div class="tech-pill">Game State</div>
-              <div class="tech-pill">Leaderboards</div>
-              <div class="tech-pill">Pixel UI</div>
-              <div class="tech-pill">Responsive UX</div>
             </div>
           </div>
         </article>
@@ -1006,79 +1225,51 @@
     </section>
 
     <section class="page-shell stills-section reveal">
-      <p class="section-label">Game Roster</p>
-      <h2 class="section-heading">Classic mechanics, rebuilt as a branded arcade layer.</h2>
+      <p class="section-label">Interface System</p>
+      <h2 class="section-heading">The UI is built around input, preview, and output.</h2>
       <p class="section-subtext">
-        The hub is structured around familiar retro-style games that users instantly understand, which keeps the learning curve low and the interaction loop fast.
-      </p>
-
-      <div class="game-roster">
-        <div class="game-pill">
-          <span>1</span>
-          <h3>Flappy Bird</h3>
-          <p>A timing and rhythm challenge where the player navigates through obstacles and chases a higher score.</p>
-        </div>
-
-        <div class="game-pill">
-          <span>2</span>
-          <h3>Snake</h3>
-          <p>A classic grid-based arcade game that tests spatial planning, movement control, and survival.</p>
-        </div>
-
-        <div class="game-pill">
-          <span>3</span>
-          <h3>2048</h3>
-          <p>A number-combining puzzle game that brings slower strategy into the arcade mix.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-shell stills-section reveal">
-      <p class="section-label">Visual System</p>
-      <h2 class="section-heading">Retro pixel energy, but treated like a real interface system.</h2>
-      <p class="section-subtext">
-        The aesthetic leans into nostalgia without becoming messy: crisp icon rules, limited colour, strong contrast, and readable UI hierarchy.
+        The page structure communicates the workflow clearly: the user enters certificate data, checks the live preview, and prepares the final output.
       </p>
 
       <div class="stills-grid">
         <figure class="still-card">
-          <img src="./assets/sidequest-games.jpg" alt="SideQuest game roster visual" />
-          <figcaption>The game roster gives the hub a clear arcade structure while leaving room for future games.</figcaption>
+          <img src="./assets/certifyme-live-preview.jpg" alt="CertifyMe live preview workflow visual" />
+          <figcaption>Live preview turns the certificate into immediate feedback, reducing mistakes before export.</figcaption>
         </figure>
 
         <figure class="still-card">
-          <img src="./assets/sidequest-architecture.jpg" alt="SideQuest architecture visual" />
-          <figcaption>React handles the app shell and UI state, while Phaser supports game-engine behaviour for playable canvas games.</figcaption>
+          <img src="./assets/certifyme-bulk-csv.jpg" alt="CertifyMe bulk CSV workflow visual" />
+          <figcaption>Bulk CSV flow supports larger certificate batches where participant data needs to be processed consistently.</figcaption>
         </figure>
 
         <figure class="still-card">
-          <img src="./assets/sidequest-leaderboards.jpg" alt="SideQuest leaderboard visual" />
-          <figcaption>Leaderboards and personal bests add replay value beyond the first interaction.</figcaption>
+          <img src="./assets/certifyme-export-flow.jpg" alt="CertifyMe client-side export flow visual" />
+          <figcaption>The export flow keeps the project lightweight by handling the core generation experience in the browser.</figcaption>
         </figure>
       </div>
     </section>
 
     <section class="page-shell frame-notes-section reveal">
-      <p class="section-label">Build Notes</p>
-      <h2 class="section-heading">What I focused on while building it.</h2>
+      <p class="section-label">Key Features</p>
+      <h2 class="section-heading">What makes the tool useful.</h2>
 
-      <div class="frame-notes-grid">
-        <div class="note-card">
-          <i class="bi bi-controller"></i>
-          <h3>Playable First</h3>
-          <p>The project needed to feel like a real arcade, not a decorative portfolio gimmick. Each game has to be quick to understand, easy to restart, and satisfying enough to replay.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <i class="bi bi-eye-fill"></i>
+          <h3>Live Preview</h3>
+          <p>Users can see how the certificate changes as they adjust names, dates, programme titles, and issuer details.</p>
         </div>
 
-        <div class="note-card">
-          <i class="bi bi-grid-3x3-gap-fill"></i>
-          <h3>8x8 Icon Logic</h3>
-          <p>The custom pixel icons are built around an 8x8 logical grid so they stay crisp, readable, and consistent even when scaled down inside buttons or cards.</p>
+        <div class="feature-card">
+          <i class="bi bi-table"></i>
+          <h3>Bulk CSV Workflow</h3>
+          <p>The tool is designed for batch generation so multiple certificates can be prepared from structured participant data.</p>
         </div>
 
-        <div class="note-card">
-          <i class="bi bi-trophy-fill"></i>
-          <h3>Score Motivation</h3>
-          <p>Leaderboards, saved bests, and streak-like mechanics make the experience feel persistent, giving users a reason to come back instead of playing once and leaving.</p>
+        <div class="feature-card">
+          <i class="bi bi-download"></i>
+          <h3>Export-Oriented UX</h3>
+          <p>The interface is focused on getting users from data entry to usable certificate outputs with as little friction as possible.</p>
         </div>
       </div>
     </section>
@@ -1086,33 +1277,33 @@
     <section class="page-shell project-text-section">
       <div class="text-layout">
         <aside class="thesis-card reveal">
-          <p class="section-label">System Thinking</p>
+          <p class="section-label">Build Notes</p>
           <blockquote>
-            The important part was not just making games — it was making the games belong to the same world.
+            The challenge was making admin feel visual, not mechanical.
           </blockquote>
-          <p>The hub needed one consistent shell, one visual language, and reusable logic that could support more games later.</p>
+          <p>CertifyMe is less about showing off complexity and more about making a common design/admin task faster and more reliable.</p>
         </aside>
 
         <article class="body-card reveal">
-          <div class="system-grid">
-            <div class="system-card">
-              <h3>React App Shell</h3>
-              <p>React controls the overall structure: navigation, game cards, user-facing UI states, profile surfaces, and reusable layout pieces across the hub.</p>
+          <div class="architecture-grid">
+            <div class="architecture-card">
+              <h3>Client-Side Logic</h3>
+              <p>The browser handles the main interaction flow, which keeps the tool lightweight and easy to host as a frontend project.</p>
             </div>
 
-            <div class="system-card">
-              <h3>Phaser Game Layer</h3>
-              <p>Phaser handles game-specific mechanics where the project needs canvas rendering, collision, movement, scoring loops, and responsive game scenes.</p>
+            <div class="architecture-card">
+              <h3>Certificate Template System</h3>
+              <p>The certificate design is treated as a live template that receives user data and updates without forcing a manual design edit.</p>
             </div>
 
-            <div class="system-card">
-              <h3>Firebase-Ready Logic</h3>
-              <p>The system is designed around authentication, personal bests, score saving, and leaderboard behaviour so the arcade feels persistent and competitive.</p>
+            <div class="architecture-card">
+              <h3>CSV Batch Thinking</h3>
+              <p>The bulk workflow expands the use case from one certificate at a time to event, workshop, and programme-scale production.</p>
             </div>
 
-            <div class="system-card">
-              <h3>Netlify Deployment</h3>
-              <p>The hub is configured for web deployment on Netlify, making the arcade accessible as its own live subdomain connected to the main portfolio ecosystem.</p>
+            <div class="architecture-card">
+              <h3>Portfolio Value</h3>
+              <p>The project demonstrates practical frontend problem solving: interface design, form logic, data handling, preview behaviour, and export flow.</p>
             </div>
           </div>
         </article>
@@ -1122,13 +1313,15 @@
     <section class="page-shell next-section">
       <div class="next-card">
         <div>
-          <h2>Play the side quest, then come back to the main quest.</h2>
-          <p>SideQuest extends the portfolio into a playable space, showing how interface design, development, and brand personality can work together.</p>
+          <h2>A frontend tool made for real production work.</h2>
+          <p>CertifyMe shows how a browser-based interface can turn repetitive certificate creation into a clearer, faster workflow.</p>
         </div>
-        <a href="https://sidequest.dseikou.co.za/" class="action-btn action-primary" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Play SideQuest</a>
+        <a href="https://certifyme-dseikou.netlify.app/" class="action-btn action-primary" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Open Live Demo</a>
       </div>
     </section>
   </main>
+
+
 
 
 
@@ -1138,7 +1331,7 @@
         <div>
           <h2 class="footer-title">Let's make something <span>intentional.</span></h2>
           <p class="footer-copy">
-            Have a project that needs full-stack thinking, interface design, game logic, or something beautifully in-between? Let's talk.
+            Have a project that needs frontend thinking, interface design, workflow tooling, or something beautifully in-between? Let's talk.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="/contact/"><i class="bi bi-send-fill"></i> Contact D'SEIKOU</a>
@@ -1163,7 +1356,7 @@
 
       <div class="footer-bottom">
         <p>Copyright © <span id="year"></span> D'SEIKOU. All rights reserved.</p>
-        <p>SideQuest Game Hub</p>
+        <p>CertifyMe Certificate Generator</p>
       </div>
     </div>
   </footer>
