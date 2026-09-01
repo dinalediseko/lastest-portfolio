@@ -5,12 +5,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DN Diseko Logo Reveal | D'SEIKOU</title>
-  <meta name="description" content="A motion project for DN Diseko, an early personal logo reveal animation featuring a projector reveal and animated character before D'SEIKOU became the professional identity." />
+  <meta name="description"
+    content="A motion project for DN Diseko, an early personal logo reveal animation featuring a projector reveal and animated character before D'SEIKOU became the professional identity." />
   <link rel="icon" href="/media/black-favicon.png" type="image" />
+
+  <link rel="canonical"
+    href="https://portfolio.dseikou.co.za/multimedia-design/projects_motion/dn-diseko-logo-reveal/" />
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
   <style>
@@ -31,8 +38,17 @@
       --shadow-hover: 0 28px 80px rgba(190, 0, 28, 0.16);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       min-height: 100vh;
@@ -56,9 +72,22 @@
       z-index: 999;
     }
 
-    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
-    a { color: inherit; }
-    img, video { max-width: 100%; display: block; }
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Syne', sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img,
+    video {
+      max-width: 100%;
+      display: block;
+    }
 
     nav.site-nav {
       position: sticky;
@@ -80,8 +109,16 @@
       gap: 1rem;
     }
 
-    .nav-logo img { height: 2rem; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-logo img {
+      height: 2rem;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
     .nav-links a {
       color: var(--fg);
@@ -105,8 +142,13 @@
       transition: width 0.35s ease;
     }
 
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
     .nav-cta {
       padding: 0.5rem 1.4rem !important;
@@ -117,8 +159,14 @@
       box-shadow: 0 12px 34px rgba(17, 16, 15, 0.12);
     }
 
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; }
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+    }
 
     #menu-button {
       display: none;
@@ -151,11 +199,26 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
 
-    #mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
-    #mobile-menu .mob-cta { background: var(--ink); color: var(--cream); }
-    #mobile-menu .mob-cta:hover { background: var(--accent); color: var(--cream); }
+    #mobile-menu a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
 
-    .page-shell { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    #mobile-menu .mob-cta {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    #mobile-menu .mob-cta:hover {
+      background: var(--accent);
+      color: var(--cream);
+    }
+
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
     .reveal {
       opacity: 0;
@@ -163,9 +226,15 @@
       transition: opacity 0.75s ease, transform 0.75s ease;
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    .hero { padding: 4.5rem 0 2.5rem; position: relative; }
+    .hero {
+      padding: 4.5rem 0 2.5rem;
+      position: relative;
+    }
 
     .hero-copy-card {
       padding: clamp(2rem, 5vw, 4rem);
@@ -217,7 +286,17 @@
       animation: blink 2s ease-in-out infinite;
     }
 
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.35;
+      }
+    }
 
     .hero-title {
       font-size: clamp(3rem, 6.25vw, 6.3rem);
@@ -229,7 +308,10 @@
       z-index: 1;
     }
 
-    .hero-title span { color: var(--accent); text-shadow: 0 0 22px rgba(190, 0, 28, 0.22); }
+    .hero-title span {
+      color: var(--accent);
+      text-shadow: 0 0 22px rgba(190, 0, 28, 0.22);
+    }
 
     .hero-summary {
       max-width: 720px;
@@ -250,7 +332,8 @@
       z-index: 1;
     }
 
-    .action-btn, .btn {
+    .action-btn,
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -266,20 +349,23 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     }
 
-    .action-primary, .btn-primary {
+    .action-primary,
+    .btn-primary {
       background: var(--accent);
       border-color: var(--accent);
       color: var(--cream);
       box-shadow: 0 10px 30px rgba(190, 0, 28, 0.24);
     }
 
-    .action-secondary, .btn-secondary {
+    .action-secondary,
+    .btn-secondary {
       background: var(--ink);
       border-color: var(--ink);
       color: var(--cream);
     }
 
-    .action-btn:hover, .btn:hover {
+    .action-btn:hover,
+    .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 16px 40px rgba(190, 0, 28, 0.20);
     }
@@ -310,7 +396,12 @@
       margin-bottom: 0.3rem;
     }
 
-    .info-item strong { display: block; color: var(--fg); font-size: 0.98rem; line-height: 1.3; }
+    .info-item strong {
+      display: block;
+      color: var(--fg);
+      font-size: 0.98rem;
+      line-height: 1.3;
+    }
 
     .section-label {
       color: var(--accent);
@@ -337,7 +428,9 @@
       line-height: 1.75;
     }
 
-    .film-section { padding: 1rem 0 5.5rem; }
+    .film-section {
+      padding: 1rem 0 5.5rem;
+    }
 
     .film-frame {
       margin-top: 2rem;
@@ -397,10 +490,17 @@
       z-index: 1;
     }
 
-    .film-caption strong { color: var(--cream); }
-    .film-caption i { color: var(--accent); }
+    .film-caption strong {
+      color: var(--cream);
+    }
 
-    .project-text-section { padding: 0 0 5.5rem; }
+    .film-caption i {
+      color: var(--accent);
+    }
+
+    .project-text-section {
+      padding: 0 0 5.5rem;
+    }
 
     .text-layout {
       display: grid;
@@ -429,7 +529,10 @@
       backdrop-filter: blur(14px);
     }
 
-    .thesis-card .section-label { margin-bottom: 0.65rem; color: var(--accent); }
+    .thesis-card .section-label {
+      margin-bottom: 0.65rem;
+      color: var(--accent);
+    }
 
     .thesis-card blockquote {
       font-family: 'Syne', sans-serif;
@@ -453,10 +556,18 @@
       line-height: 1.85;
     }
 
-    .case-study-body p + p { margin-top: 1.2rem; }
-    .case-study-body strong { color: var(--fg); font-weight: 800; }
+    .case-study-body p+p {
+      margin-top: 1.2rem;
+    }
 
-    .stills-section { padding: 0 0 5.5rem; }
+    .case-study-body strong {
+      color: var(--fg);
+      font-weight: 800;
+    }
+
+    .stills-section {
+      padding: 0 0 5.5rem;
+    }
 
     .stills-grid {
       display: grid;
@@ -488,7 +599,9 @@
       background: rgba(17, 16, 15, 0.92);
     }
 
-    .frame-notes-section { padding: 0 0 6rem; }
+    .frame-notes-section {
+      padding: 0 0 6rem;
+    }
 
     .frame-notes-grid {
       display: grid;
@@ -506,11 +619,26 @@
       backdrop-filter: blur(14px);
     }
 
-    .note-card i { color: var(--accent); font-size: 1.35rem; }
-    .note-card h3 { margin-top: 0.75rem; font-size: 1.25rem; letter-spacing: -0.035em; }
-    .note-card p { margin-top: 0.55rem; color: var(--muted); line-height: 1.65; }
+    .note-card i {
+      color: var(--accent);
+      font-size: 1.35rem;
+    }
 
-    .next-section { padding: 0 0 6rem; }
+    .note-card h3 {
+      margin-top: 0.75rem;
+      font-size: 1.25rem;
+      letter-spacing: -0.035em;
+    }
+
+    .note-card p {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .next-section {
+      padding: 0 0 6rem;
+    }
 
     .next-card {
       display: grid;
@@ -553,7 +681,10 @@
       z-index: 1;
     }
 
-    .next-card .action-btn { position: relative; z-index: 1; }
+    .next-card .action-btn {
+      position: relative;
+      z-index: 1;
+    }
 
     footer {
       background: var(--ink);
@@ -575,7 +706,12 @@
       pointer-events: none;
     }
 
-    .footer-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
 
     .footer-grid {
       display: grid;
@@ -593,11 +729,21 @@
       font-weight: 800;
     }
 
-    .footer-title span { color: var(--accent); }
+    .footer-title span {
+      color: var(--accent);
+    }
 
-    .footer-copy { margin-top: 1rem; color: rgba(239, 239, 233, 0.66); max-width: 560px; }
+    .footer-copy {
+      margin-top: 1rem;
+      color: rgba(239, 239, 233, 0.66);
+      max-width: 560px;
+    }
 
-    .contact-list { display: grid; gap: 0.8rem; justify-items: end; }
+    .contact-list {
+      display: grid;
+      gap: 0.8rem;
+      justify-items: end;
+    }
 
     .contact-list a {
       display: inline-flex;
@@ -608,9 +754,16 @@
       transition: color 0.25s ease;
     }
 
-    .contact-list a:hover { color: var(--accent); }
+    .contact-list a:hover {
+      color: var(--accent);
+    }
 
-    .socials { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem; }
+    .socials {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
 
     .socials a {
       width: 42px;
@@ -624,7 +777,11 @@
       transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
     }
 
-    .socials a:hover { transform: translateY(-3px); background: var(--accent); color: var(--cream); }
+    .socials a:hover {
+      transform: translateY(-3px);
+      background: var(--accent);
+      color: var(--cream);
+    }
 
     .footer-bottom {
       display: flex;
@@ -637,29 +794,92 @@
     }
 
     @media (max-width: 980px) {
-      .nav-links { display: none; }
-      #menu-button { display: block; }
-      .text-layout, .footer-grid, .next-card { grid-template-columns: 1fr; }
-      .thesis-card { position: static; }
-      .info-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .stills-grid, .frame-notes-grid { grid-template-columns: 1fr; }
-      .contact-list, .socials { justify-items: start; justify-content: flex-start; }
+      .nav-links {
+        display: none;
+      }
+
+      #menu-button {
+        display: block;
+      }
+
+      .text-layout,
+      .footer-grid,
+      .next-card {
+        grid-template-columns: 1fr;
+      }
+
+      .thesis-card {
+        position: static;
+      }
+
+      .info-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stills-grid,
+      .frame-notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-list,
+      .socials {
+        justify-items: start;
+        justify-content: flex-start;
+      }
     }
 
     @media (max-width: 768px) {
-      .nav-inner { padding: 1rem 1.25rem; }
-      .hero { padding-top: 3.5rem; }
-      .hero-copy-card, .body-card, .thesis-card, .film-frame, .still-card, .next-card { border-radius: 26px; }
-      .hero-copy-card, .body-card, .thesis-card, .next-card { padding: 1.35rem; }
-      .film-frame video { width: 100%; }
+      .nav-inner {
+        padding: 1rem 1.25rem;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .hero-copy-card,
+      .body-card,
+      .thesis-card,
+      .film-frame,
+      .still-card,
+      .next-card {
+        border-radius: 26px;
+      }
+
+      .hero-copy-card,
+      .body-card,
+      .thesis-card,
+      .next-card {
+        padding: 1.35rem;
+      }
+
+      .film-frame video {
+        width: 100%;
+      }
     }
 
     @media (max-width: 640px) {
-      .page-shell { padding: 0 1rem; }
-      .hero-actions, .action-btn { width: 100%; }
-      .action-btn { justify-content: center; }
-      .info-strip { grid-template-columns: 1fr; }
-      .film-caption { align-items: flex-start; flex-direction: column; }
+      .page-shell {
+        padding: 0 1rem;
+      }
+
+      .hero-actions,
+      .action-btn {
+        width: 100%;
+      }
+
+      .action-btn {
+        justify-content: center;
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .film-caption {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -705,13 +925,15 @@
             <div class="project-kicker"><span class="project-kicker-dot"></span>Motion Project</div>
             <h1 class="hero-title">DN Diseko <span>Logo Reveal</span></h1>
             <p class="hero-summary">
-              An early personal identity animation created before D'SEIKOU became my professional identity — revealing my initials and surname through a playful projector sequence and an animated character wink.
+              An early personal identity animation created before D'SEIKOU became my professional identity — revealing
+              my initials and surname through a playful projector sequence and an animated character wink.
             </p>
           </div>
 
           <div class="hero-actions">
             <a href="#film" class="action-btn action-primary"><i class="bi bi-play-circle-fill"></i> Watch Motion</a>
-            <a href="/multimedia-design/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i> Back to Multimedia</a>
+            <a href="/multimedia-design/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i> Back
+              to Multimedia</a>
           </div>
         </div>
       </div>
@@ -740,7 +962,8 @@
       <p class="section-label">Featured Motion</p>
       <h2 class="section-heading">A personal mark revealed through projection, character, and timing.</h2>
       <p class="section-subtext">
-        The animation introduces the early DN Diseko identity through a projector-style reveal, using a character moment to add personality without turning the character into a direct cartoon version of me.
+        The animation introduces the early DN Diseko identity through a projector-style reveal, using a character moment
+        to add personality without turning the character into a direct cartoon version of me.
       </p>
 
       <div class="film-frame">
@@ -761,20 +984,30 @@
         <aside class="thesis-card reveal">
           <p class="section-label">Project Thesis</p>
           <blockquote>
-            Identity can be introduced before it is fully established — sometimes a name, a mark, and a small character moment are enough to begin.
+            Identity can be introduced before it is fully established — sometimes a name, a mark, and a small character
+            moment are enough to begin.
           </blockquote>
-          <p>This reveal captures an earlier stage of my creative identity, before D'SEIKOU became the professional system I use today.</p>
+          <p>This reveal captures an earlier stage of my creative identity, before D'SEIKOU became the professional
+            system I use today.</p>
         </aside>
 
         <article class="body-card reveal">
           <div class="case-study-body">
-            <p><strong>DN Diseko Logo Reveal</strong> is an early motion project created before I established <strong>D'SEIKOU</strong> as my professional identity. At the time, the visual identity was still personal and direct: my initials and surname, <strong>DN Diseko</strong>.</p>
+            <p><strong>DN Diseko Logo Reveal</strong> is an early motion project created before I established
+              <strong>D'SEIKOU</strong> as my professional identity. At the time, the visual identity was still personal
+              and direct: my initials and surname, <strong>DN Diseko</strong>.</p>
 
-            <p>The animation reveals the logo through a <strong>projector-style sequence</strong>, making the mark feel like it is being presented rather than simply placed on screen. This gave the reveal a small sense of ceremony while keeping the execution simple, personal, and character-driven.</p>
+            <p>The animation reveals the logo through a <strong>projector-style sequence</strong>, making the mark feel
+              like it is being presented rather than simply placed on screen. This gave the reveal a small sense of
+              ceremony while keeping the execution simple, personal, and character-driven.</p>
 
-            <p>The animated character represents me in spirit, but is <strong>not a cartoonified version of me</strong>. Instead, the character acts as a playful creative stand-in — someone who introduces the work, adds personality, and closes the sequence with a wink.</p>
+            <p>The animated character represents me in spirit, but is <strong>not a cartoonified version of me</strong>.
+              Instead, the character acts as a playful creative stand-in — someone who introduces the work, adds
+              personality, and closes the sequence with a wink.</p>
 
-            <p>Looking back, this project marks an important point in my creative development. It shows an earlier version of how I thought about <strong>personal branding, motion, presentation, and identity</strong> before those ideas evolved into the D'SEIKOU brand system.</p>
+            <p>Looking back, this project marks an important point in my creative development. It shows an earlier
+              version of how I thought about <strong>personal branding, motion, presentation, and identity</strong>
+              before those ideas evolved into the D'SEIKOU brand system.</p>
           </div>
         </article>
       </div>
@@ -784,21 +1017,25 @@
       <p class="section-label">Selected Stills</p>
       <h2 class="section-heading">Key frames from the reveal sequence.</h2>
       <p class="section-subtext">
-        These stills show the mark being built, the projector reveal, and the character moment that gives the animation its personality.
+        These stills show the mark being built, the projector reveal, and the character moment that gives the animation
+        its personality.
       </p>
 
       <div class="stills-grid">
         <figure class="still-card">
           <img src="./assets/dn-diseko-still-01.png" alt="Opening still from DN Diseko logo reveal animation" />
-          <figcaption>Opening gesture: the mark begins as a hand-drawn line before the full identity is revealed.</figcaption>
+          <figcaption>Opening gesture: the mark begins as a hand-drawn line before the full identity is revealed.
+          </figcaption>
         </figure>
         <figure class="still-card">
           <img src="./assets/dn-diseko-still-02.png" alt="Middle still from DN Diseko logo reveal animation" />
           <figcaption>Logo formation: the handwritten identity starts becoming recognisable on screen.</figcaption>
         </figure>
         <figure class="still-card">
-          <img src="./assets/dn-diseko-still-03.png" alt="Final still from DN Diseko logo reveal animation with character" />
-          <figcaption>Character reveal: the animated stand-in presents the mark and closes the sequence with personality.</figcaption>
+          <img src="./assets/dn-diseko-still-03.png"
+            alt="Final still from DN Diseko logo reveal animation with character" />
+          <figcaption>Character reveal: the animated stand-in presents the mark and closes the sequence with
+            personality.</figcaption>
         </figure>
       </div>
     </section>
@@ -817,7 +1054,8 @@
         <div class="note-card">
           <i class="bi bi-projector-fill"></i>
           <h3>Projection</h3>
-          <p>The projector setup frames the logo as something being introduced, giving the reveal a simple presentation logic.</p>
+          <p>The projector setup frames the logo as something being introduced, giving the reveal a simple presentation
+            logic.</p>
         </div>
 
         <div class="note-card">
@@ -832,9 +1070,11 @@
       <div class="next-card">
         <div>
           <h2>More motion projects live in the archive.</h2>
-          <p>Return to the multimedia design category to explore more motion-led, image-led, and visual storytelling work.</p>
+          <p>Return to the multimedia design category to explore more motion-led, image-led, and visual storytelling
+            work.</p>
         </div>
-        <a href="/multimedia-design/" class="action-btn action-primary"><i class="bi bi-folder2-open"></i> Back to Archive</a>
+        <a href="/multimedia-design/" class="action-btn action-primary"><i class="bi bi-folder2-open"></i> Back to
+          Archive</a>
       </div>
     </section>
   </main>
@@ -845,24 +1085,28 @@
         <div>
           <h2 class="footer-title">Let's make something <span>intentional.</span></h2>
           <p class="footer-copy">
-            Have a project that needs motion, design direction, visual identity, digital systems, or something beautifully in-between? Let's talk.
+            Have a project that needs motion, design direction, visual identity, digital systems, or something
+            beautifully in-between? Let's talk.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="/contact/"><i class="bi bi-send-fill"></i> Contact D'SEIKOU</a>
-            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i
+                class="bi bi-whatsapp"></i> WhatsApp</a>
           </div>
         </div>
 
         <div>
           <div class="contact-list">
-            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i> dinalediseko@dseikou.co.za</a>
+            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i>
+              dinalediseko@dseikou.co.za</a>
             <a href="tel:+27818994791"><i class="bi bi-telephone-fill"></i> (+27) 81 899 4791</a>
           </div>
 
           <div class="socials" aria-label="Social links">
             <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
             <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i
+                class="bi bi-whatsapp"></i></a>
             <a href="https://www.instagram.com/ngwanokestar/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
           </div>
         </div>

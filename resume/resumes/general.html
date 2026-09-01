@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Didintle Naledi Diseko – Curriculum Vitae</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.8rem; line-height: 1.6; color: #11100f;
+    background: #efefe9;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  @media print {
+    body { background: #fff; font-size: 0.75rem; }
+    .no-print { display: none; }
+    .page { box-shadow: none; margin: 0; max-width: 100%; border-radius: 0; }
+    a { color: inherit; text-decoration: none; }
+  }
+  @page { size: A4; margin: 12mm; }
+  .no-print { text-align: center; padding: 1rem; }
+  .no-print button {
+    background: #11100f; color: #fff; font-family: inherit; font-weight: 700;
+    font-size: 0.8rem; border: none; padding: 0.55rem 1.5rem; border-radius: 6px; cursor: pointer;
+  }
+  .no-print button:hover { background: #000000; }
+  .page {
+    background: #fff; max-width: 860px; margin: 0 auto 2rem; padding: 2.8rem 3rem;
+    border-top: 8px solid #11100f; box-shadow: 0 8px 30px rgba(17,16,15,0.08); border-radius: 0 0 4px 4px;
+  }
+  header { text-align: center; margin-bottom: 1.6rem; padding-bottom: 1.2rem; border-bottom: 1px solid #e0e0d8; }
+  header h1 { font-size: 2.6rem; font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase; line-height: 1; color: #11100f; }
+  .role-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #11100f; margin-top: 0.45rem; }
+  .contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 1rem; margin-top: 0.75rem; font-size: 0.72rem; color: #444; }
+  .contact a { color: #11100f; text-decoration: underline; }
+  .contact a:hover { text-decoration: underline; }
+  .contact span::before { content: '·'; margin-right: 1rem; color: #ccc; }
+  .contact span:first-child::before { content: ''; margin: 0; }
+  section { margin-top: 1.5rem; }
+  .section-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #11100f; border-bottom: 1.5px solid #11100f; padding-bottom: 0.3rem; margin-bottom: 0.9rem; }
+  .summary p { color: #11100f; opacity: 0.88; }
+
+  /* 2-col personal details */
+  .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.2rem 2rem; }
+  .details-grid p { font-size: 0.75rem; color: #11100f; opacity: 0.87; }
+  .details-grid strong { font-weight: 600; }
+
+  .job { margin-bottom: 1.1rem; }
+  .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.2rem; }
+  .job-title { font-weight: 700; font-size: 0.82rem; color: #11100f; text-transform: uppercase; letter-spacing: 0.02em; }
+  .job-date { font-size: 0.7rem; font-weight: 600; color: #555; white-space: nowrap; }
+  .job-org { font-size: 0.72rem; font-weight: 500; font-style: italic; color: #11100f; margin-top: 0.1rem; margin-bottom: 0.35rem; }
+  ul.bullets { list-style: disc; padding-left: 1.1rem; }
+  ul.bullets li { margin-bottom: 0.2rem; color: #11100f; opacity: 0.87; }
+  .edu-item { margin-bottom: 0.9rem; }
+  .edu-title { font-weight: 700; font-size: 0.8rem; color: #11100f; }
+  .edu-org { font-size: 0.72rem; color: #11100f; font-weight: 500; font-style: italic; margin-top: 0.05rem; }
+  .edu-detail { font-size: 0.72rem; color: #555; margin-top: 0.1rem; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  .skill-group-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #11100f; margin-bottom: 0.4rem; }
+  ul.skill-list { list-style: disc; padding-left: 1.1rem; }
+  ul.skill-list li { margin-bottom: 0.15rem; color: #11100f; opacity: 0.87; }
+
+  /* references */
+  .ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .ref-card { border-left: 3px solid #11100f; padding-left: 0.75rem; }
+  .ref-name { font-weight: 700; font-size: 0.8rem; }
+  .ref-role { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #777; margin-top: 0.1rem; margin-bottom: 0.2rem; }
+  .ref-contact { font-size: 0.72rem; }
+
+  footer { margin-top: 1.8rem; padding-top: 0.9rem; border-top: 1px solid #e0e0d8; text-align: center; font-size: 0.65rem; color: #aaa; letter-spacing: 0.08em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <button onclick="window.print()">Save as PDF / Print</button>
+</div>
+
+<div class="page">
+
+  <header>
+    <h1>Didintle Naledi Diseko</h1>
+    <p class="role-tag">Multimedia Designer &amp; Front-End Developer</p>
+    <div class="contact">
+      <span>Pretoria, Gauteng, South Africa</span>
+      <span>+27 81 899 4791</span>
+      <span><a href="mailto:dinalediseko@dseikou.co.za">dinalediseko@dseikou.co.za</a></span>
+      <span><a href="https://portfolio.dseikou.co.za" target="_blank">portfolio.dseikou.co.za</a></span>
+      <span><a href="https://github.com/dinalediseko" target="_blank">GitHub</a></span>
+      <span><a href="https://www.linkedin.com/in/dinalediseko" target="_blank">LinkedIn</a></span>
+    </div>
+  </header>
+
+  <!-- PERSONAL DETAILS -->
+  <section>
+    <p class="section-label">Personal Details</p>
+    <div class="details-grid">
+      <p><strong>Identity Number:</strong> 0106150181084</p>
+      <p><strong>Nationality:</strong> South African</p>
+      <p><strong>Gender:</strong> Female</p>
+      <p><strong>Criminal Record:</strong> None</p>
+      <p><strong>Driver's Licence:</strong> Code B PrDP</p>
+      <p><strong>Languages:</strong> English (Fluent) &amp; Setswana (Proficient)</p>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <section class="summary">
+    <p class="section-label">Professional Summary</p>
+    <p>
+      Multimedia Designer &amp; Front-End Developer with 3+ years of experience taking projects from visual concept through to production-ready code. Designs brand identities and digital campaigns in the Adobe Creative Suite, then builds and ships the front-end using React, Next.js, and Tailwind CSS. Holds a verified NQF Level 5 in Software Development and formal training in Integrated Communication Design — a combination that supports end-to-end delivery on both design-led and development-led projects.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <p class="section-label">Skills &amp; Expertise</p>
+    <div class="skills-grid">
+      <div>
+        <p class="skill-group-title">Technical &amp; Development</p>
+        <ul class="skill-list">
+          <li>React.js, Next.js, TypeScript</li>
+          <li>HTML5, CSS3, JavaScript ES6+</li>
+          <li>Tailwind CSS, Git &amp; GitHub</li>
+          <li>Figma (UI/UX prototyping)</li>
+          <li>Phaser (web game UI)</li>
+          <li>Firebase, Vue.js, Svelte</li>
+        </ul>
+      </div>
+      <div>
+        <p class="skill-group-title">Creative &amp; Visual</p>
+        <ul class="skill-list">
+          <li>Adobe Illustrator &amp; Photoshop</li>
+          <li>Adobe After Effects &amp; Premiere Pro</li>
+          <li>Adobe InDesign, XD, Lightroom</li>
+          <li>Brand Identity &amp; Visual Systems</li>
+          <li>Typography &amp; Layout Design</li>
+          <li>Digital &amp; Print Production</li>
+        </ul>
+      </div>
+      <div>
+        <p class="skill-group-title">Operational &amp; Professional</p>
+        <ul class="skill-list">
+          <li>Project Management &amp; Delivery</li>
+          <li>Stakeholder &amp; Client Relations</li>
+          <li>Logistics &amp; Event Coordination</li>
+          <li>Written &amp; Verbal Communication</li>
+          <li>Conflict Resolution &amp; Teamwork</li>
+          <li>Microsoft Office &amp; Google Workspace</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK EXPERIENCE -->
+  <section>
+    <p class="section-label">Work Experience</p>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Freelance Project Manager &amp; Designer</span>
+        <span class="job-date">January 2023 – Present</span>
+      </div>
+      <p class="job-org">D'SEIKOU · Self-Employed · Pretoria, Gauteng</p>
+      <ul class="bullets">
+        <li>Operate a design and development consultancy, translating diverse client briefs into scalable web applications and cohesive branding systems.</li>
+        <li>Manage complete project lifecycles — scoping, concept development, production, and delivery — across design, development, and content projects.</li>
+        <li>Develop front-end web interfaces using React, Next.js, and Tailwind CSS, implementing designs from Figma to production-ready code.</li>
+        <li>Art-direct visual output including brand identities, marketing collateral, motion graphics, and digital illustrations.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Floor Marshall &amp; Marketing Team Member</span>
+        <span class="job-date">September 2024 – Present</span>
+      </div>
+      <p class="job-org">Total Ninja Kolonnade · Part-Time · Pretoria, Gauteng</p>
+      <ul class="bullets">
+        <li>Support localised marketing and promotional activities, applying customer insights to on-site engagement strategies.</li>
+        <li>Manage on-floor operations for large-scale events, delivering exceptional customer service and resolving issues swiftly.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Youth Leader &amp; Project Manager</span>
+        <span class="job-date">September 2017 – Present</span>
+      </div>
+      <p class="job-org">African Methodist Episcopal Church · Volunteer · Pretoria, Gauteng</p>
+      <ul class="bullets">
+        <li>Direct administration, scheduling, and logistics for complex youth initiatives and community events of 500+ participants.</li>
+        <li>Manage visual media direction and digital documentation workflows for long-term community projects.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Ambassador, Huawei ICT Academy</span>
+        <span class="job-date">June 2022 – December 2022</span>
+      </div>
+      <p class="job-org">Huawei · Hybrid</p>
+      <ul class="bullets">
+        <li>Served as a primary representative between corporate stakeholders and tertiary institutions, increasing Academy programme visibility by 30%.</li>
+        <li>Developed and executed communication strategies to advance the Academy's brand presence across Gauteng.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Content Creator</span>
+        <span class="job-date">January 2022 – January 2023</span>
+      </div>
+      <p class="job-org">TILT · Agency · Hybrid</p>
+      <ul class="bullets">
+        <li>Developed and executed creative concepts for social media campaigns for clients including Pizza Hut, producing branded graphics, photography, and short-form video.</li>
+        <li>Collaborated with account managers to align creative output with campaign KPIs and brand guidelines.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <p class="section-label">Education</p>
+    <div class="edu-item">
+      <p class="edu-title">Software Development &nbsp;·&nbsp; Merit Pass &nbsp;·&nbsp; NQF Level 5</p>
+      <p class="edu-org">CodeSpace Academy · Remote</p>
+      <p class="edu-detail">Intensive frontend curriculum: HTML5, CSS3, JavaScript ES6+, React.js, Vue.js, TypeScript, Git, and Figma.</p>
+    </div>
+    <div class="edu-item">
+      <p class="edu-title">Diploma in Integrated Communication Design &nbsp;·&nbsp; 2 Years Completed</p>
+      <p class="edu-org">Tshwane University of Technology · Pretoria, Gauteng</p>
+      <p class="edu-detail">Visual Communication, Graphic Design, Information Design, and Interaction Design.</p>
+    </div>
+    <div class="edu-item">
+      <p class="edu-title">National Senior Certificate &nbsp;·&nbsp; Bachelor's Pass</p>
+      <p class="edu-org">Pretoria Technical High School · Pretoria, Gauteng</p>
+      <p class="edu-detail">Subjects: Electrical Technology &amp; Engineering Graphics and Design (EGD).</p>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section>
+    <p class="section-label">References</p>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <p class="ref-name">Nthabiseng Mmethi</p>
+        <p class="ref-role">Supervisor · Total Ninja</p>
+        <p class="ref-contact">+27 83 950 7114</p>
+      </div>
+      <div class="ref-card">
+        <p class="ref-name">Zinhle Mnguni</p>
+        <p class="ref-role">Immediate Past President · YPD</p>
+        <p class="ref-contact">+27 78 744 1519</p>
+      </div>
+      <div class="ref-card">
+        <p class="ref-name">Noluthando Madzivhe</p>
+        <p class="ref-role">Talent Manager · Huawei</p>
+        <p class="ref-contact">noluthando.madzivhe@huawei.com &nbsp;·&nbsp; +27 71 398 1609</p>
+      </div>
+      <div class="ref-card">
+        <p class="ref-name">Katlego Malapane</p>
+        <p class="ref-role">Presales Solutions Architect · HPE</p>
+        <p class="ref-contact">+27 79 857 9231</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>End of Curriculum Vitae · Didintle Naledi Diseko</footer>
+</div>
+</body>
+</html>

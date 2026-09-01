@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Didintle Naledi Diseko – Front-End Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #11100f;
+    background: #efefe9;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  @media print {
+    body { background: #fff; font-size: 0.75rem; }
+    .no-print { display: none; }
+    .page { box-shadow: none; margin: 0; max-width: 100%; border-radius: 0; }
+    a { color: inherit; text-decoration: none; }
+  }
+  @page { size: A4; margin: 12mm; }
+  .no-print { text-align: center; padding: 1rem; }
+  .no-print button {
+    background: #1d4ed8; color: #fff; font-family: inherit; font-weight: 700;
+    font-size: 0.8rem; border: none; padding: 0.55rem 1.5rem; border-radius: 6px; cursor: pointer;
+  }
+  .no-print button:hover { background: #1739a8; }
+  .page {
+    background: #fff; max-width: 860px; margin: 0 auto 2rem; padding: 2.8rem 3rem;
+    border-top: 8px solid #1d4ed8; box-shadow: 0 8px 30px rgba(17,16,15,0.08); border-radius: 0 0 4px 4px;
+  }
+  header { text-align: center; margin-bottom: 1.6rem; padding-bottom: 1.2rem; border-bottom: 1px solid #e0e0d8; }
+  header h1 { font-size: 2.6rem; font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase; line-height: 1; color: #11100f; }
+  .role-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #1d4ed8; margin-top: 0.45rem; }
+  .contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 1rem; margin-top: 0.75rem; font-size: 0.72rem; color: #444; }
+  .contact a { color: #1d4ed8; text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+  .contact span::before { content: '·'; margin-right: 1rem; color: #ccc; }
+  .contact span:first-child::before { content: ''; margin: 0; }
+  section { margin-top: 1.5rem; }
+  .section-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1d4ed8; border-bottom: 1.5px solid #1d4ed8; padding-bottom: 0.3rem; margin-bottom: 0.9rem; }
+  .summary p { color: #11100f; opacity: 0.88; }
+  .job { margin-bottom: 1.1rem; }
+  .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.2rem; }
+  .job-title { font-weight: 700; font-size: 0.82rem; color: #11100f; text-transform: uppercase; letter-spacing: 0.02em; }
+  .job-date { font-size: 0.7rem; font-weight: 600; color: #555; white-space: nowrap; }
+  .job-org { font-size: 0.72rem; font-weight: 500; color: #1d4ed8; margin-top: 0.1rem; margin-bottom: 0.35rem; }
+  ul.bullets { list-style: disc; padding-left: 1.1rem; }
+  ul.bullets li { margin-bottom: 0.2rem; color: #11100f; opacity: 0.87; }
+  .edu-item { margin-bottom: 0.9rem; }
+  .edu-title { font-weight: 700; font-size: 0.8rem; color: #11100f; }
+  .edu-org { font-size: 0.72rem; color: #1d4ed8; font-weight: 500; margin-top: 0.05rem; }
+  .edu-detail { font-size: 0.72rem; color: #555; margin-top: 0.1rem; }
+
+  /* 3-col skills for dev role */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  .skill-group-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #11100f; margin-bottom: 0.4rem; }
+  ul.skill-list { list-style: disc; padding-left: 1.1rem; }
+  ul.skill-list li { margin-bottom: 0.15rem; color: #11100f; opacity: 0.87; }
+  .project-note { font-size: 0.72rem; color: #555; margin-top: 0.1rem; font-style: italic; }
+  footer { margin-top: 1.8rem; padding-top: 0.9rem; border-top: 1px solid #e0e0d8; text-align: center; font-size: 0.65rem; color: #aaa; letter-spacing: 0.08em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <button onclick="window.print()">Save as PDF / Print</button>
+</div>
+
+<div class="page">
+
+  <header>
+    <h1>Didintle Naledi Diseko</h1>
+    <p class="role-tag">Front-End Developer</p>
+    <div class="contact">
+      <span>Pretoria, Gauteng, South Africa</span>
+      <span>+27 81 899 4791</span>
+      <span><a href="mailto:dinalediseko@dseikou.co.za">dinalediseko@dseikou.co.za</a></span>
+      <span><a href="https://portfolio.dseikou.co.za" target="_blank">portfolio.dseikou.co.za</a></span>
+      <span><a href="https://github.com/dinalediseko" target="_blank">github.com/dinalediseko</a></span>
+      <span><a href="https://www.linkedin.com/in/dinalediseko" target="_blank">LinkedIn</a></span>
+    </div>
+  </header>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <section class="summary">
+    <p class="section-label">Professional Summary</p>
+    <p>
+      Front-End Developer with 3+ years of experience building responsive, production-grade web applications using React, Next.js, and TypeScript. Skilled in translating Figma designs into clean, component-based interfaces with Tailwind CSS, integrating REST APIs and third-party services such as Firebase, and maintaining version-controlled codebases with Git. Focused on writing maintainable, performant code and delivering fully responsive, cross-device experiences from first commit to deployment.
+    </p>
+  </section>
+
+  <!-- TECHNICAL SKILLS (above the fold for devs) -->
+  <section>
+    <p class="section-label">Technical Skills</p>
+    <div class="skills-grid">
+      <div>
+        <p class="skill-group-title">Languages</p>
+        <ul class="skill-list">
+          <li>JavaScript (ES6+)</li>
+          <li>TypeScript</li>
+          <li>HTML5</li>
+          <li>CSS3 / SASS</li>
+        </ul>
+      </div>
+      <div>
+        <p class="skill-group-title">Frameworks &amp; Libraries</p>
+        <ul class="skill-list">
+          <li>React.js / Next.js</li>
+          <li>Vue.js / Alpine.js</li>
+          <li>Svelte</li>
+          <li>Tailwind CSS</li>
+          <li>Phaser (Game UI)</li>
+        </ul>
+      </div>
+      <div>
+        <p class="skill-group-title">Tools &amp; Practices</p>
+        <ul class="skill-list">
+          <li>Git &amp; GitHub</li>
+          <li>Figma (design-to-code)</li>
+          <li>Firebase</li>
+          <li>Responsive &amp; Mobile-First Design</li>
+          <li>Agile / Version Control</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED PROJECTS -->
+  <section>
+    <p class="section-label">Selected Projects</p>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Hyper-Casual Arcade Web Hub</span>
+        <span class="job-date">2026</span>
+      </div>
+      <p class="project-note">React · Tailwind CSS · Phaser · Mobile-First</p>
+      <ul class="bullets">
+        <li>Architected and shipped a responsive 6-game arcade hub (Snake, 2048, Block Slide, and others) optimised for both desktop and mobile touch interfaces.</li>
+        <li>Engineered Phaser game logic within a React component architecture, maintaining clean separation of concerns between UI shell and game engine.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Digital Event Application – "Save the Date"</span>
+        <span class="job-date">2026</span>
+      </div>
+      <p class="project-note">Next.js · Tailwind CSS · Firebase</p>
+      <ul class="bullets">
+        <li>Developed a custom event web application featuring interactive countdown components, RSVP functionality, and cohesive event branding.</li>
+        <li>Delivered a fully responsive layout optimised for cross-device usability and load performance.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WORK EXPERIENCE -->
+  <section>
+    <p class="section-label">Work Experience</p>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Freelance Designer &amp; Front-End Developer</span>
+        <span class="job-date">January 2023 – Present</span>
+      </div>
+      <p class="job-org">D'SEIKOU · Self-Employed · Pretoria, Gauteng</p>
+      <ul class="bullets">
+        <li>Build and deploy responsive web applications for clients using React, Next.js, and Tailwind CSS, implementing designs from Figma into clean, component-based front-end code.</li>
+        <li>Integrate REST APIs and third-party services, including Firebase, to power dynamic content, authentication, and data-driven features.</li>
+        <li>Optimise application performance through code-splitting, lazy loading, and asset optimisation, improving load times and Core Web Vitals scores.</li>
+        <li>Maintain version-controlled codebases using Git and GitHub, following collaborative branching and code review workflows across projects.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Content Creator &amp; Digital Designer</span>
+        <span class="job-date">January 2022 – January 2023</span>
+      </div>
+      <p class="job-org">TILT · Agency · Hybrid</p>
+      <ul class="bullets">
+        <li>Built and formatted digital assets for web delivery, ensuring cross-device compatibility and consistent rendering across screen sizes and browsers.</li>
+        <li>Implemented brand and layout guidelines within web-based content for clients including Pizza Hut, working to platform-specific technical constraints.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Ambassador, Huawei ICT Academy</span>
+        <span class="job-date">June 2022 – December 2022</span>
+      </div>
+      <p class="job-org">Huawei · Hybrid</p>
+      <ul class="bullets">
+        <li>Served as a key representative between corporate and academic stakeholders, increasing Academy programme visibility by 30%.</li>
+        <li>Developed communication strategies to expand the Academy's reach across tertiary institutions in Gauteng.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <p class="section-label">Education</p>
+    <div class="edu-item">
+      <p class="edu-title">Software Development &nbsp;·&nbsp; Merit Pass &nbsp;·&nbsp; NQF Level 5</p>
+      <p class="edu-org">CodeSpace Academy · Remote</p>
+      <p class="edu-detail">Intensive project-based curriculum: HTML5, CSS3, JavaScript ES6+, React.js, Vue.js, Git, TypeScript, and Figma.</p>
+    </div>
+    <div class="edu-item">
+      <p class="edu-title">Diploma in Integrated Communication Design &nbsp;·&nbsp; 2 Years Completed</p>
+      <p class="edu-org">Tshwane University of Technology · Pretoria, Gauteng</p>
+      <p class="edu-detail">Foundation in Graphic Design, Information Design, and Interaction Design — informs current UI development practice.</p>
+    </div>
+    <div class="edu-item">
+      <p class="edu-title">National Senior Certificate &nbsp;·&nbsp; Bachelor's Pass</p>
+      <p class="edu-org">Pretoria Technical High School · Pretoria, Gauteng</p>
+    </div>
+  </section>
+
+  <footer>End of Résumé · Didintle Naledi Diseko · References available upon request</footer>
+</div>
+</body>
+</html>

@@ -4,13 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>CertifyMe Certificate Generator | D'SEIKOU</title>
-  <meta name="description" content="A D\'SEIKOU frontend project page for CertifyMe, a client-side certificate generator with live preview, CSV workflow, export-focused UX, and Netlify deployment." />
+  <title>CertifyMe Certificate Generator | D'SEIKOU</title>
+  <meta name="description"
+    content="A D\'SEIKOU frontend project page for CertifyMe, a client-side certificate generator with live preview, CSV workflow, export-focused UX, and Netlify deployment." />
   <link rel="icon" href="/media/black-favicon.png" type="image" />
+
+  <link rel="canonical" href="https://portfolio.dseikou.co.za/fullstack-development/projects_frontend/CV4U/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
   <style>
@@ -31,8 +36,17 @@
       --shadow-hover: 0 28px 80px rgba(190, 0, 28, 0.16);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       min-height: 100vh;
@@ -56,9 +70,22 @@
       z-index: 999;
     }
 
-    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
-    a { color: inherit; }
-    img, video { max-width: 100%; display: block; }
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Syne', sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img,
+    video {
+      max-width: 100%;
+      display: block;
+    }
 
     nav.site-nav {
       position: sticky;
@@ -80,8 +107,16 @@
       gap: 1rem;
     }
 
-    .nav-logo img { height: 2rem; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-logo img {
+      height: 2rem;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
     .nav-links a {
       color: var(--fg);
@@ -105,8 +140,13 @@
       transition: width 0.35s ease;
     }
 
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
     .nav-cta {
       padding: 0.5rem 1.4rem !important;
@@ -117,8 +157,14 @@
       box-shadow: 0 12px 34px rgba(17, 16, 15, 0.12);
     }
 
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; }
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+    }
 
     #menu-button {
       display: none;
@@ -151,11 +197,26 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
 
-    #mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
-    #mobile-menu .mob-cta { background: var(--ink); color: var(--cream); }
-    #mobile-menu .mob-cta:hover { background: var(--accent); color: var(--cream); }
+    #mobile-menu a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
 
-    .page-shell { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    #mobile-menu .mob-cta {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    #mobile-menu .mob-cta:hover {
+      background: var(--accent);
+      color: var(--cream);
+    }
+
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
     .reveal {
       opacity: 0;
@@ -163,9 +224,15 @@
       transition: opacity 0.75s ease, transform 0.75s ease;
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    .hero { padding: 4.5rem 0 2.5rem; position: relative; }
+    .hero {
+      padding: 4.5rem 0 2.5rem;
+      position: relative;
+    }
 
     .hero-copy-card {
       padding: clamp(2rem, 5vw, 4rem);
@@ -217,7 +284,17 @@
       animation: blink 2s ease-in-out infinite;
     }
 
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.35;
+      }
+    }
 
     .hero-title {
       font-size: clamp(3rem, 6.25vw, 6.3rem);
@@ -229,7 +306,9 @@
       z-index: 1;
     }
 
-    .hero-title span { color: var(--accent); }
+    .hero-title span {
+      color: var(--accent);
+    }
 
     .hero-summary {
       max-width: 700px;
@@ -250,7 +329,8 @@
       z-index: 1;
     }
 
-    .action-btn, .btn {
+    .action-btn,
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -266,20 +346,23 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     }
 
-    .action-primary, .btn-primary {
+    .action-primary,
+    .btn-primary {
       background: var(--accent);
       border-color: var(--accent);
       color: var(--cream);
       box-shadow: 0 10px 30px rgba(190, 0, 28, 0.24);
     }
 
-    .action-secondary, .btn-secondary {
+    .action-secondary,
+    .btn-secondary {
       background: var(--ink);
       border-color: var(--ink);
       color: var(--cream);
     }
 
-    .action-btn:hover, .btn:hover {
+    .action-btn:hover,
+    .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 16px 40px rgba(190, 0, 28, 0.20);
     }
@@ -310,7 +393,12 @@
       margin-bottom: 0.3rem;
     }
 
-    .info-item strong { display: block; color: var(--fg); font-size: 0.98rem; line-height: 1.3; }
+    .info-item strong {
+      display: block;
+      color: var(--fg);
+      font-size: 0.98rem;
+      line-height: 1.3;
+    }
 
     .section-label {
       color: var(--accent);
@@ -340,7 +428,9 @@
     /* ============================================================
        FILM / MOTION PLAYER
     ============================================================ */
-    .film-section { padding: 1rem 0 5.5rem; }
+    .film-section {
+      padding: 1rem 0 5.5rem;
+    }
 
     .film-frame {
       margin-top: 2rem;
@@ -376,10 +466,17 @@
       letter-spacing: 0.04em;
     }
 
-    .film-caption strong { color: var(--cream); }
-    .film-caption i { color: var(--accent); }
+    .film-caption strong {
+      color: var(--cream);
+    }
 
-    .project-text-section { padding: 0 0 5.5rem; }
+    .film-caption i {
+      color: var(--accent);
+    }
+
+    .project-text-section {
+      padding: 0 0 5.5rem;
+    }
 
     .text-layout {
       display: grid;
@@ -408,7 +505,10 @@
       backdrop-filter: blur(14px);
     }
 
-    .thesis-card .section-label { margin-bottom: 0.65rem; color: var(--accent); }
+    .thesis-card .section-label {
+      margin-bottom: 0.65rem;
+      color: var(--accent);
+    }
 
     .thesis-card blockquote {
       font-family: 'Syne', sans-serif;
@@ -432,13 +532,21 @@
       line-height: 1.85;
     }
 
-    .case-study-body p + p { margin-top: 1.2rem; }
-    .case-study-body strong { color: var(--fg); font-weight: 800; }
+    .case-study-body p+p {
+      margin-top: 1.2rem;
+    }
+
+    .case-study-body strong {
+      color: var(--fg);
+      font-weight: 800;
+    }
 
     /* ============================================================
        SELECTED STILLS / OPTIONAL SUPPORTING FRAMES
     ============================================================ */
-    .stills-section { padding: 0 0 5.5rem; }
+    .stills-section {
+      padding: 0 0 5.5rem;
+    }
 
     .stills-grid {
       display: grid;
@@ -473,7 +581,9 @@
     /* ============================================================
        FRAME NOTES
     ============================================================ */
-    .frame-notes-section { padding: 0 0 6rem; }
+    .frame-notes-section {
+      padding: 0 0 6rem;
+    }
 
     .frame-notes-grid {
       display: grid;
@@ -491,11 +601,26 @@
       backdrop-filter: blur(14px);
     }
 
-    .note-card i { color: var(--accent); font-size: 1.35rem; }
-    .note-card h3 { margin-top: 0.75rem; font-size: 1.25rem; letter-spacing: -0.035em; }
-    .note-card p { margin-top: 0.55rem; color: var(--muted); line-height: 1.65; }
+    .note-card i {
+      color: var(--accent);
+      font-size: 1.35rem;
+    }
 
-    .next-section { padding: 0 0 6rem; }
+    .note-card h3 {
+      margin-top: 0.75rem;
+      font-size: 1.25rem;
+      letter-spacing: -0.035em;
+    }
+
+    .note-card p {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .next-section {
+      padding: 0 0 6rem;
+    }
 
     .next-card {
       display: grid;
@@ -538,7 +663,10 @@
       z-index: 1;
     }
 
-    .next-card .action-btn { position: relative; z-index: 1; }
+    .next-card .action-btn {
+      position: relative;
+      z-index: 1;
+    }
 
     footer {
       background: var(--ink);
@@ -560,7 +688,12 @@
       pointer-events: none;
     }
 
-    .footer-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
 
     .footer-grid {
       display: grid;
@@ -578,11 +711,21 @@
       font-weight: 800;
     }
 
-    .footer-title span { color: var(--accent); }
+    .footer-title span {
+      color: var(--accent);
+    }
 
-    .footer-copy { margin-top: 1rem; color: rgba(239, 239, 233, 0.66); max-width: 560px; }
+    .footer-copy {
+      margin-top: 1rem;
+      color: rgba(239, 239, 233, 0.66);
+      max-width: 560px;
+    }
 
-    .contact-list { display: grid; gap: 0.8rem; justify-items: end; }
+    .contact-list {
+      display: grid;
+      gap: 0.8rem;
+      justify-items: end;
+    }
 
     .contact-list a {
       display: inline-flex;
@@ -593,9 +736,16 @@
       transition: color 0.25s ease;
     }
 
-    .contact-list a:hover { color: var(--accent); }
+    .contact-list a:hover {
+      color: var(--accent);
+    }
 
-    .socials { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem; }
+    .socials {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
 
     .socials a {
       width: 42px;
@@ -609,7 +759,11 @@
       transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
     }
 
-    .socials a:hover { transform: translateY(-3px); background: var(--accent); color: var(--cream); }
+    .socials a:hover {
+      transform: translateY(-3px);
+      background: var(--accent);
+      color: var(--cream);
+    }
 
     .footer-bottom {
       display: flex;
@@ -622,30 +776,90 @@
     }
 
     @media (max-width: 980px) {
-      .nav-links { display: none; }
-      #menu-button { display: block; }
-      .text-layout, .footer-grid, .next-card { grid-template-columns: 1fr; }
-      .thesis-card { position: static; }
-      .info-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .stills-grid, .frame-notes-grid { grid-template-columns: 1fr; }
-      .contact-list, .socials { justify-items: start; justify-content: flex-start; }
+      .nav-links {
+        display: none;
+      }
+
+      #menu-button {
+        display: block;
+      }
+
+      .text-layout,
+      .footer-grid,
+      .next-card {
+        grid-template-columns: 1fr;
+      }
+
+      .thesis-card {
+        position: static;
+      }
+
+      .info-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stills-grid,
+      .frame-notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-list,
+      .socials {
+        justify-items: start;
+        justify-content: flex-start;
+      }
     }
 
     @media (max-width: 768px) {
-      .nav-inner { padding: 1rem 1.25rem; }
-      .hero { padding-top: 3.5rem; }
-      .hero-copy-card, .body-card, .thesis-card, .film-frame, .still-card, .next-card { border-radius: 26px; }
-      .hero-copy-card, .body-card, .thesis-card, .next-card { padding: 1.35rem; }
+      .nav-inner {
+        padding: 1rem 1.25rem;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .hero-copy-card,
+      .body-card,
+      .thesis-card,
+      .film-frame,
+      .still-card,
+      .next-card {
+        border-radius: 26px;
+      }
+
+      .hero-copy-card,
+      .body-card,
+      .thesis-card,
+      .next-card {
+        padding: 1.35rem;
+      }
     }
 
     @media (max-width: 640px) {
-      .page-shell { padding: 0 1rem; }
-      .hero-actions, .action-btn { width: 100%; }
-      .action-btn { justify-content: center; }
-      .info-strip { grid-template-columns: 1fr; }
-      .film-caption { align-items: flex-start; flex-direction: column; }
+      .page-shell {
+        padding: 0 1rem;
+      }
+
+      .hero-actions,
+      .action-btn {
+        width: 100%;
+      }
+
+      .action-btn {
+        justify-content: center;
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .film-caption {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
-  
+
     .presentation-frame {
       padding: clamp(0.75rem, 2vw, 1.2rem);
       border-radius: 28px;
@@ -744,6 +958,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .component-grid,
       .slide-feature-grid {
@@ -755,7 +970,7 @@
       }
     }
 
-  
+
     .arcade-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -867,6 +1082,7 @@
     }
 
     @media (max-width: 980px) {
+
       .game-roster,
       .system-grid,
       .tech-stack-grid {
@@ -874,7 +1090,7 @@
       }
     }
 
-  
+
     .interface-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -985,6 +1201,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .feature-grid,
       .architecture-grid {
@@ -992,7 +1209,7 @@
       }
     }
 
-  
+
     .interface-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -1084,13 +1301,13 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .feature-grid,
       .architecture-grid {
         grid-template-columns: 1fr;
       }
     }
-
   </style>
 </head>
 
@@ -1127,10 +1344,10 @@
     </div>
   </nav>
 
-  
-  
-  
-  
+
+
+
+
   <main>
     <section class="hero">
       <div class="page-shell">
@@ -1139,13 +1356,16 @@
             <div class="project-kicker"><span class="project-kicker-dot"></span>Frontend Project</div>
             <h1 class="hero-title">CertifyMe <span>Certificate Generator</span></h1>
             <p class="hero-summary">
-              A client-side certificate generator with live preview, batch-friendly data entry, and export-focused interaction design.
+              A client-side certificate generator with live preview, batch-friendly data entry, and export-focused
+              interaction design.
             </p>
           </div>
 
           <div class="hero-actions">
-            <a href="https://certifyme-dseikou.netlify.app/" class="action-btn action-primary" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
-            <a href="/fullstack-development/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i> Back to Development</a>
+            <a href="https://certifyme-dseikou.netlify.app/" class="action-btn action-primary" target="_blank"
+              rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
+            <a href="/fullstack-development/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i>
+              Back to Development</a>
           </div>
         </div>
       </div>
@@ -1174,7 +1394,9 @@
       <p class="section-label">Project Overview</p>
       <h2 class="section-heading">A certificate generator that keeps production fast, visual, and browser-based.</h2>
       <p class="section-subtext">
-        CertifyMe was built as a frontend utility for creating certificates without a heavy admin dashboard. The focus is simple: enter participant information, preview the certificate immediately, and move from one-off generation to bulk certificate production.
+        CertifyMe was built as a frontend utility for creating certificates without a heavy admin dashboard. The focus
+        is simple: enter participant information, preview the certificate immediately, and move from one-off generation
+        to bulk certificate production.
       </p>
 
       <div class="interface-preview">
@@ -1189,24 +1411,36 @@
           <blockquote>
             CertifyMe turns certificate admin into a clear visual workflow instead of a repetitive design task.
           </blockquote>
-          <p>The project is frontend-focused: no backend dependency, no complex account system, just a practical browser tool that handles the interaction between data, design, preview, and export.</p>
+          <p>The project is frontend-focused: no backend dependency, no complex account system, just a practical browser
+            tool that handles the interaction between data, design, preview, and export.</p>
         </aside>
 
         <article class="body-card reveal">
           <div class="case-study-body">
-            <p><strong>CertifyMe</strong> is a glassmorphism-styled, client-side certificate generator designed around speed and visual feedback. Instead of manually editing certificates one by one, the tool gives the user a structured way to input details, preview the result, and prepare certificate outputs.</p>
+            <p><strong>CertifyMe</strong> is a glassmorphism-styled, client-side certificate generator designed around
+              speed and visual feedback. Instead of manually editing certificates one by one, the tool gives the user a
+              structured way to input details, preview the result, and prepare certificate outputs.</p>
 
-            <p>The project sits under the <strong>Frontend</strong> category because its value comes from browser-side interaction: form handling, live preview updates, layout styling, and file/export preparation. It does not need a persistent backend to demonstrate the core experience.</p>
+            <p>The project sits under the <strong>Frontend</strong> category because its value comes from browser-side
+              interaction: form handling, live preview updates, layout styling, and file/export preparation. It does not
+              need a persistent backend to demonstrate the core experience.</p>
 
-            <p>The key UX decision is the live preview. Users should not have to guess how a name, programme title, date, or issuer detail will appear on the final certificate. As the data changes, the certificate view becomes the confirmation layer.</p>
+            <p>The key UX decision is the live preview. Users should not have to guess how a name, programme title,
+              date, or issuer detail will appear on the final certificate. As the data changes, the certificate view
+              becomes the confirmation layer.</p>
 
-            <p>The bulk CSV workflow extends the tool from a single-certificate generator into a production assistant. It supports the kind of real-world admin scenario where a facilitator, designer, or organiser needs to generate certificates for multiple participants quickly and consistently.</p>
+            <p>The bulk CSV workflow extends the tool from a single-certificate generator into a production assistant.
+              It supports the kind of real-world admin scenario where a facilitator, designer, or organiser needs to
+              generate certificates for multiple participants quickly and consistently.</p>
 
             <ul class="case-study-list">
               <li><strong>Core purpose:</strong> generate polished certificates from structured participant data.</li>
-              <li><strong>Frontend layer:</strong> HTML, CSS, and JavaScript for form logic, layout control, and interactive preview states.</li>
-              <li><strong>Workflow layer:</strong> live preview for single certificates and bulk CSV handling for larger participant lists.</li>
-              <li><strong>Design layer:</strong> glassmorphism styling, high contrast, and certificate-first hierarchy.</li>
+              <li><strong>Frontend layer:</strong> HTML, CSS, and JavaScript for form logic, layout control, and
+                interactive preview states.</li>
+              <li><strong>Workflow layer:</strong> live preview for single certificates and bulk CSV handling for larger
+                participant lists.</li>
+              <li><strong>Design layer:</strong> glassmorphism styling, high contrast, and certificate-first hierarchy.
+              </li>
             </ul>
 
             <div class="tech-stack-grid" aria-label="Technology stack">
@@ -1228,23 +1462,27 @@
       <p class="section-label">Interface System</p>
       <h2 class="section-heading">The UI is built around input, preview, and output.</h2>
       <p class="section-subtext">
-        The page structure communicates the workflow clearly: the user enters certificate data, checks the live preview, and prepares the final output.
+        The page structure communicates the workflow clearly: the user enters certificate data, checks the live preview,
+        and prepares the final output.
       </p>
 
       <div class="stills-grid">
         <figure class="still-card">
           <img src="./assets/certifyme-live-preview.jpg" alt="CertifyMe live preview workflow visual" />
-          <figcaption>Live preview turns the certificate into immediate feedback, reducing mistakes before export.</figcaption>
+          <figcaption>Live preview turns the certificate into immediate feedback, reducing mistakes before export.
+          </figcaption>
         </figure>
 
         <figure class="still-card">
           <img src="./assets/certifyme-bulk-csv.jpg" alt="CertifyMe bulk CSV workflow visual" />
-          <figcaption>Bulk CSV flow supports larger certificate batches where participant data needs to be processed consistently.</figcaption>
+          <figcaption>Bulk CSV flow supports larger certificate batches where participant data needs to be processed
+            consistently.</figcaption>
         </figure>
 
         <figure class="still-card">
           <img src="./assets/certifyme-export-flow.jpg" alt="CertifyMe client-side export flow visual" />
-          <figcaption>The export flow keeps the project lightweight by handling the core generation experience in the browser.</figcaption>
+          <figcaption>The export flow keeps the project lightweight by handling the core generation experience in the
+            browser.</figcaption>
         </figure>
       </div>
     </section>
@@ -1257,19 +1495,22 @@
         <div class="feature-card">
           <i class="bi bi-eye-fill"></i>
           <h3>Live Preview</h3>
-          <p>Users can see how the certificate changes as they adjust names, dates, programme titles, and issuer details.</p>
+          <p>Users can see how the certificate changes as they adjust names, dates, programme titles, and issuer
+            details.</p>
         </div>
 
         <div class="feature-card">
           <i class="bi bi-table"></i>
           <h3>Bulk CSV Workflow</h3>
-          <p>The tool is designed for batch generation so multiple certificates can be prepared from structured participant data.</p>
+          <p>The tool is designed for batch generation so multiple certificates can be prepared from structured
+            participant data.</p>
         </div>
 
         <div class="feature-card">
           <i class="bi bi-download"></i>
           <h3>Export-Oriented UX</h3>
-          <p>The interface is focused on getting users from data entry to usable certificate outputs with as little friction as possible.</p>
+          <p>The interface is focused on getting users from data entry to usable certificate outputs with as little
+            friction as possible.</p>
         </div>
       </div>
     </section>
@@ -1281,29 +1522,34 @@
           <blockquote>
             The challenge was making admin feel visual, not mechanical.
           </blockquote>
-          <p>CertifyMe is less about showing off complexity and more about making a common design/admin task faster and more reliable.</p>
+          <p>CertifyMe is less about showing off complexity and more about making a common design/admin task faster and
+            more reliable.</p>
         </aside>
 
         <article class="body-card reveal">
           <div class="architecture-grid">
             <div class="architecture-card">
               <h3>Client-Side Logic</h3>
-              <p>The browser handles the main interaction flow, which keeps the tool lightweight and easy to host as a frontend project.</p>
+              <p>The browser handles the main interaction flow, which keeps the tool lightweight and easy to host as a
+                frontend project.</p>
             </div>
 
             <div class="architecture-card">
               <h3>Certificate Template System</h3>
-              <p>The certificate design is treated as a live template that receives user data and updates without forcing a manual design edit.</p>
+              <p>The certificate design is treated as a live template that receives user data and updates without
+                forcing a manual design edit.</p>
             </div>
 
             <div class="architecture-card">
               <h3>CSV Batch Thinking</h3>
-              <p>The bulk workflow expands the use case from one certificate at a time to event, workshop, and programme-scale production.</p>
+              <p>The bulk workflow expands the use case from one certificate at a time to event, workshop, and
+                programme-scale production.</p>
             </div>
 
             <div class="architecture-card">
               <h3>Portfolio Value</h3>
-              <p>The project demonstrates practical frontend problem solving: interface design, form logic, data handling, preview behaviour, and export flow.</p>
+              <p>The project demonstrates practical frontend problem solving: interface design, form logic, data
+                handling, preview behaviour, and export flow.</p>
             </div>
           </div>
         </article>
@@ -1314,9 +1560,11 @@
       <div class="next-card">
         <div>
           <h2>A frontend tool made for real production work.</h2>
-          <p>CertifyMe shows how a browser-based interface can turn repetitive certificate creation into a clearer, faster workflow.</p>
+          <p>CertifyMe shows how a browser-based interface can turn repetitive certificate creation into a clearer,
+            faster workflow.</p>
         </div>
-        <a href="https://certifyme-dseikou.netlify.app/" class="action-btn action-primary" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Open Live Demo</a>
+        <a href="https://certifyme-dseikou.netlify.app/" class="action-btn action-primary" target="_blank"
+          rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Open Live Demo</a>
       </div>
     </section>
   </main>
@@ -1331,24 +1579,28 @@
         <div>
           <h2 class="footer-title">Let's make something <span>intentional.</span></h2>
           <p class="footer-copy">
-            Have a project that needs frontend thinking, interface design, workflow tooling, or something beautifully in-between? Let's talk.
+            Have a project that needs frontend thinking, interface design, workflow tooling, or something beautifully
+            in-between? Let's talk.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="/contact/"><i class="bi bi-send-fill"></i> Contact D'SEIKOU</a>
-            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i
+                class="bi bi-whatsapp"></i> WhatsApp</a>
           </div>
         </div>
 
         <div>
           <div class="contact-list">
-            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i> dinalediseko@dseikou.co.za</a>
+            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i>
+              dinalediseko@dseikou.co.za</a>
             <a href="tel:+27818994791"><i class="bi bi-telephone-fill"></i> (+27) 81 899 4791</a>
           </div>
 
           <div class="socials" aria-label="Social links">
             <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
             <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i
+                class="bi bi-whatsapp"></i></a>
             <a href="https://www.instagram.com/ngwanokestar/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
           </div>
         </div>

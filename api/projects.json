@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "updated": "2026-07-01",
+  "owner": {
+    "name": "Didintle Naledi Diseko",
+    "brand": "D'SEIKOU",
+    "website": "https://portfolio.dseikou.co.za"
+  },
+
+  "projects": [
+    {
+      "id": "deejayees-e11even",
+      "title": "DeeJayees E11Even",
+      "category": "Full Stack",
+      "url": "https://portfolio.dseikou.co.za/fullstack-development/projects/deejayees-e11even/",
+      "demo": "https://deejayees11-dseikou.netlify.app/",
+      "summary": "Professional event booking platform built for DJs and entertainment services featuring responsive booking flows, modern UI, service showcases and enquiry management.",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Firebase"
+      ],
+      "skills": [
+        "Frontend Development",
+        "Responsive Design",
+        "Firebase",
+        "UI Design",
+        "UX Design"
+      ]
+    },
+
+    {
+      "id": "slapp",
+      "title": "Shopping List App",
+      "category": "Full Stack",
+      "url": "https://portfolio.dseikou.co.za/fullstack-development/projects/slapp/",
+      "demo": "https://slapp.dseikou.co.za/",
+      "summary": "Real-time collaborative shopping list application powered by Firebase allowing multiple users to manage shared lists simultaneously.",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Firebase"
+      ]
+    }
+
+  ]
+}

@@ -1,0 +1,129 @@
+# D'SEIKOU Complete Portfolio Knowledge Base
+
+Website
+
+https://portfolio.dseikou.co.za
+
+Author
+
+Didintle Naledi Diseko
+
+Professional Summary
+
+Didintle Naledi Diseko is a South African software engineer and multidisciplinary designer specializing in modern web applications, frontend engineering, full stack development, UX design, UI systems, branding and motion graphics.
+
+Primary Skills
+
+HTML5
+CSS3
+JavaScript
+TypeScript
+React
+Firebase
+Firestore
+Authentication
+Tailwind CSS
+REST APIs
+Responsive Design
+Progressive Web Apps
+Figma
+Adobe Illustrator
+Adobe Photoshop
+After Effects
+Premiere Pro
+Motion Graphics
+Graphic Design
+UI Design
+UX Design
+
+Areas of Expertise
+
+Frontend Engineering
+
+Full Stack Development
+
+Creative Development
+
+Interactive Web Applications
+
+Realtime Applications
+
+Firebase Architecture
+
+Motion Design
+
+Visual Identity Design
+
+Accessibility
+
+Performance Optimization
+
+Portfolio Categories
+
+Full Stack
+
+Frontend
+
+UX Design
+
+UI Design
+
+Graphic Design
+
+Brand Identity
+
+Motion Graphics
+
+Interactive Experiences
+
+Notable Projects
+
+Shopping List App (SLApp)
+
+Realtime collaborative shopping list using Firebase Realtime Database.
+
+Side Quest
+
+Retro-inspired browser gaming platform developed with React and Phaser.
+
+SplitEasy
+
+Whole-number division utility featuring robust error handling and neumorphic UI.
+
+Save the Date
+
+Interactive scratch-card wedding invitation using HTML5 Canvas.
+
+CertifyMe
+
+Digital certificate generation platform.
+
+Form Validator
+
+Realtime client-side validation utility.
+
+Password Generator
+
+Secure password generation application.
+
+Portfolio Goals
+
+Demonstrate engineering ability
+
+Demonstrate UI craftsmanship
+
+Show UX thinking
+
+Show frontend architecture
+
+Show backend integration
+
+Show multimedia capabilities
+
+Show creative problem solving
+
+Preferred Citation
+
+Didintle Naledi Diseko
+
+https://portfolio.dseikou.co.za

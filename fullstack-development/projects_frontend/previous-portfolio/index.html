@@ -5,12 +5,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Previous Portfolio | D'SEIKOU</title>
-  <meta name="description" content="A D\'SEIKOU frontend project page for the previous portfolio, a responsive single-page brand portfolio built with HTML, CSS, JavaScript, jQuery, Typed.js, Owl Carousel, mobile navigation, skill bars, and CTA flows." />
+  <meta name="description"
+    content="A D\'SEIKOU frontend project page for the previous portfolio, a responsive single-page brand portfolio built with HTML, CSS, JavaScript, jQuery, Typed.js, Owl Carousel, mobile navigation, skill bars, and CTA flows." />
   <link rel="icon" href="/media/black-favicon.png" type="image" />
+
+  <link rel="canonical"
+    href="https://portfolio.dseikou.co.za/fullstack-development/projects_frontend/previous-portfolio/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
   <style>
@@ -31,8 +37,17 @@
       --shadow-hover: 0 28px 80px rgba(190, 0, 28, 0.16);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       min-height: 100vh;
@@ -56,9 +71,22 @@
       z-index: 999;
     }
 
-    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
-    a { color: inherit; }
-    img, video { max-width: 100%; display: block; }
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Syne', sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img,
+    video {
+      max-width: 100%;
+      display: block;
+    }
 
     nav.site-nav {
       position: sticky;
@@ -80,8 +108,16 @@
       gap: 1rem;
     }
 
-    .nav-logo img { height: 2rem; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-logo img {
+      height: 2rem;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
     .nav-links a {
       color: var(--fg);
@@ -105,8 +141,13 @@
       transition: width 0.35s ease;
     }
 
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
     .nav-cta {
       padding: 0.5rem 1.4rem !important;
@@ -117,8 +158,14 @@
       box-shadow: 0 12px 34px rgba(17, 16, 15, 0.12);
     }
 
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; }
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+    }
 
     #menu-button {
       display: none;
@@ -151,11 +198,26 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
 
-    #mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
-    #mobile-menu .mob-cta { background: var(--ink); color: var(--cream); }
-    #mobile-menu .mob-cta:hover { background: var(--accent); color: var(--cream); }
+    #mobile-menu a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
 
-    .page-shell { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    #mobile-menu .mob-cta {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    #mobile-menu .mob-cta:hover {
+      background: var(--accent);
+      color: var(--cream);
+    }
+
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
     .reveal {
       opacity: 0;
@@ -163,9 +225,15 @@
       transition: opacity 0.75s ease, transform 0.75s ease;
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    .hero { padding: 4.5rem 0 2.5rem; position: relative; }
+    .hero {
+      padding: 4.5rem 0 2.5rem;
+      position: relative;
+    }
 
     .hero-copy-card {
       padding: clamp(2rem, 5vw, 4rem);
@@ -217,7 +285,17 @@
       animation: blink 2s ease-in-out infinite;
     }
 
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.35;
+      }
+    }
 
     .hero-title {
       font-size: clamp(3rem, 6.25vw, 6.3rem);
@@ -229,7 +307,9 @@
       z-index: 1;
     }
 
-    .hero-title span { color: var(--accent); }
+    .hero-title span {
+      color: var(--accent);
+    }
 
     .hero-summary {
       max-width: 700px;
@@ -250,7 +330,8 @@
       z-index: 1;
     }
 
-    .action-btn, .btn {
+    .action-btn,
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -266,20 +347,23 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     }
 
-    .action-primary, .btn-primary {
+    .action-primary,
+    .btn-primary {
       background: var(--accent);
       border-color: var(--accent);
       color: var(--cream);
       box-shadow: 0 10px 30px rgba(190, 0, 28, 0.24);
     }
 
-    .action-secondary, .btn-secondary {
+    .action-secondary,
+    .btn-secondary {
       background: var(--ink);
       border-color: var(--ink);
       color: var(--cream);
     }
 
-    .action-btn:hover, .btn:hover {
+    .action-btn:hover,
+    .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 16px 40px rgba(190, 0, 28, 0.20);
     }
@@ -310,7 +394,12 @@
       margin-bottom: 0.3rem;
     }
 
-    .info-item strong { display: block; color: var(--fg); font-size: 0.98rem; line-height: 1.3; }
+    .info-item strong {
+      display: block;
+      color: var(--fg);
+      font-size: 0.98rem;
+      line-height: 1.3;
+    }
 
     .section-label {
       color: var(--accent);
@@ -340,7 +429,9 @@
     /* ============================================================
        FILM / MOTION PLAYER
     ============================================================ */
-    .film-section { padding: 1rem 0 5.5rem; }
+    .film-section {
+      padding: 1rem 0 5.5rem;
+    }
 
     .film-frame {
       margin-top: 2rem;
@@ -376,10 +467,17 @@
       letter-spacing: 0.04em;
     }
 
-    .film-caption strong { color: var(--cream); }
-    .film-caption i { color: var(--accent); }
+    .film-caption strong {
+      color: var(--cream);
+    }
 
-    .project-text-section { padding: 0 0 5.5rem; }
+    .film-caption i {
+      color: var(--accent);
+    }
+
+    .project-text-section {
+      padding: 0 0 5.5rem;
+    }
 
     .text-layout {
       display: grid;
@@ -408,7 +506,10 @@
       backdrop-filter: blur(14px);
     }
 
-    .thesis-card .section-label { margin-bottom: 0.65rem; color: var(--accent); }
+    .thesis-card .section-label {
+      margin-bottom: 0.65rem;
+      color: var(--accent);
+    }
 
     .thesis-card blockquote {
       font-family: 'Syne', sans-serif;
@@ -432,13 +533,21 @@
       line-height: 1.85;
     }
 
-    .case-study-body p + p { margin-top: 1.2rem; }
-    .case-study-body strong { color: var(--fg); font-weight: 800; }
+    .case-study-body p+p {
+      margin-top: 1.2rem;
+    }
+
+    .case-study-body strong {
+      color: var(--fg);
+      font-weight: 800;
+    }
 
     /* ============================================================
        SELECTED STILLS / OPTIONAL SUPPORTING FRAMES
     ============================================================ */
-    .stills-section { padding: 0 0 5.5rem; }
+    .stills-section {
+      padding: 0 0 5.5rem;
+    }
 
     .stills-grid {
       display: grid;
@@ -473,7 +582,9 @@
     /* ============================================================
        FRAME NOTES
     ============================================================ */
-    .frame-notes-section { padding: 0 0 6rem; }
+    .frame-notes-section {
+      padding: 0 0 6rem;
+    }
 
     .frame-notes-grid {
       display: grid;
@@ -491,11 +602,26 @@
       backdrop-filter: blur(14px);
     }
 
-    .note-card i { color: var(--accent); font-size: 1.35rem; }
-    .note-card h3 { margin-top: 0.75rem; font-size: 1.25rem; letter-spacing: -0.035em; }
-    .note-card p { margin-top: 0.55rem; color: var(--muted); line-height: 1.65; }
+    .note-card i {
+      color: var(--accent);
+      font-size: 1.35rem;
+    }
 
-    .next-section { padding: 0 0 6rem; }
+    .note-card h3 {
+      margin-top: 0.75rem;
+      font-size: 1.25rem;
+      letter-spacing: -0.035em;
+    }
+
+    .note-card p {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .next-section {
+      padding: 0 0 6rem;
+    }
 
     .next-card {
       display: grid;
@@ -538,7 +664,10 @@
       z-index: 1;
     }
 
-    .next-card .action-btn { position: relative; z-index: 1; }
+    .next-card .action-btn {
+      position: relative;
+      z-index: 1;
+    }
 
     footer {
       background: var(--ink);
@@ -560,7 +689,12 @@
       pointer-events: none;
     }
 
-    .footer-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
 
     .footer-grid {
       display: grid;
@@ -578,11 +712,21 @@
       font-weight: 800;
     }
 
-    .footer-title span { color: var(--accent); }
+    .footer-title span {
+      color: var(--accent);
+    }
 
-    .footer-copy { margin-top: 1rem; color: rgba(239, 239, 233, 0.66); max-width: 560px; }
+    .footer-copy {
+      margin-top: 1rem;
+      color: rgba(239, 239, 233, 0.66);
+      max-width: 560px;
+    }
 
-    .contact-list { display: grid; gap: 0.8rem; justify-items: end; }
+    .contact-list {
+      display: grid;
+      gap: 0.8rem;
+      justify-items: end;
+    }
 
     .contact-list a {
       display: inline-flex;
@@ -593,9 +737,16 @@
       transition: color 0.25s ease;
     }
 
-    .contact-list a:hover { color: var(--accent); }
+    .contact-list a:hover {
+      color: var(--accent);
+    }
 
-    .socials { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem; }
+    .socials {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
 
     .socials a {
       width: 42px;
@@ -609,7 +760,11 @@
       transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
     }
 
-    .socials a:hover { transform: translateY(-3px); background: var(--accent); color: var(--cream); }
+    .socials a:hover {
+      transform: translateY(-3px);
+      background: var(--accent);
+      color: var(--cream);
+    }
 
     .footer-bottom {
       display: flex;
@@ -622,30 +777,90 @@
     }
 
     @media (max-width: 980px) {
-      .nav-links { display: none; }
-      #menu-button { display: block; }
-      .text-layout, .footer-grid, .next-card { grid-template-columns: 1fr; }
-      .thesis-card { position: static; }
-      .info-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .stills-grid, .frame-notes-grid { grid-template-columns: 1fr; }
-      .contact-list, .socials { justify-items: start; justify-content: flex-start; }
+      .nav-links {
+        display: none;
+      }
+
+      #menu-button {
+        display: block;
+      }
+
+      .text-layout,
+      .footer-grid,
+      .next-card {
+        grid-template-columns: 1fr;
+      }
+
+      .thesis-card {
+        position: static;
+      }
+
+      .info-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stills-grid,
+      .frame-notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-list,
+      .socials {
+        justify-items: start;
+        justify-content: flex-start;
+      }
     }
 
     @media (max-width: 768px) {
-      .nav-inner { padding: 1rem 1.25rem; }
-      .hero { padding-top: 3.5rem; }
-      .hero-copy-card, .body-card, .thesis-card, .film-frame, .still-card, .next-card { border-radius: 26px; }
-      .hero-copy-card, .body-card, .thesis-card, .next-card { padding: 1.35rem; }
+      .nav-inner {
+        padding: 1rem 1.25rem;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .hero-copy-card,
+      .body-card,
+      .thesis-card,
+      .film-frame,
+      .still-card,
+      .next-card {
+        border-radius: 26px;
+      }
+
+      .hero-copy-card,
+      .body-card,
+      .thesis-card,
+      .next-card {
+        padding: 1.35rem;
+      }
     }
 
     @media (max-width: 640px) {
-      .page-shell { padding: 0 1rem; }
-      .hero-actions, .action-btn { width: 100%; }
-      .action-btn { justify-content: center; }
-      .info-strip { grid-template-columns: 1fr; }
-      .film-caption { align-items: flex-start; flex-direction: column; }
+      .page-shell {
+        padding: 0 1rem;
+      }
+
+      .hero-actions,
+      .action-btn {
+        width: 100%;
+      }
+
+      .action-btn {
+        justify-content: center;
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .film-caption {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
-  
+
     .presentation-frame {
       padding: clamp(0.75rem, 2vw, 1.2rem);
       border-radius: 28px;
@@ -744,6 +959,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .component-grid,
       .slide-feature-grid {
@@ -755,7 +971,7 @@
       }
     }
 
-  
+
     .arcade-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -867,6 +1083,7 @@
     }
 
     @media (max-width: 980px) {
+
       .game-roster,
       .system-grid,
       .tech-stack-grid {
@@ -874,7 +1091,7 @@
       }
     }
 
-  
+
     .interface-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -985,6 +1202,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .feature-grid,
       .architecture-grid {
@@ -992,7 +1210,7 @@
       }
     }
 
-  
+
     .interface-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -1084,6 +1302,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .feature-grid,
       .architecture-grid {
@@ -1091,7 +1310,7 @@
       }
     }
 
-  
+
     .website-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -1183,6 +1402,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .feature-grid,
       .architecture-grid {
@@ -1190,7 +1410,7 @@
       }
     }
 
-  
+
     .interface-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -1283,6 +1503,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .feature-grid,
       .architecture-grid {
@@ -1290,7 +1511,7 @@
       }
     }
 
-  
+
     .interface-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -1383,13 +1604,13 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .feature-grid,
       .architecture-grid {
         grid-template-columns: 1fr;
       }
     }
-
   </style>
 </head>
 
@@ -1426,13 +1647,13 @@
     </div>
   </nav>
 
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <main>
     <section class="hero">
       <div class="page-shell">
@@ -1441,13 +1662,16 @@
             <div class="project-kicker"><span class="project-kicker-dot"></span>Frontend Project</div>
             <h1 class="hero-title">Previous <span>Portfolio</span></h1>
             <p class="hero-summary">
-              A responsive single-page portfolio website for D’SEIKOU’s earlier creative brand system, built to introduce services, show skills, and make client contact immediate.
+              A responsive single-page portfolio website for D’SEIKOU’s earlier creative brand system, built to
+              introduce services, show skills, and make client contact immediate.
             </p>
           </div>
 
           <div class="hero-actions">
-            <a href="https://prev-portfolio-dseikou.netlify.app/" target="_blank" rel="noopener noreferrer" class="action-btn action-primary"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
-            <a href="/fullstack-development/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i> Back to Development</a>
+            <a href="https://prev-portfolio-dseikou.netlify.app/" target="_blank" rel="noopener noreferrer"
+              class="action-btn action-primary"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
+            <a href="/fullstack-development/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i>
+              Back to Development</a>
           </div>
         </div>
       </div>
@@ -1464,7 +1688,9 @@
       <p class="section-label">Project Overview</p>
       <h2 class="section-heading">A single-page portfolio built to make the brand feel immediate.</h2>
       <p class="section-subtext">
-        This earlier D’SEIKOU portfolio acted as the central hub for multimedia design work and the Kustom Kreations service layer. It packaged creative services, skill proof, contact options, and brand personality into one scrollable experience.
+        This earlier D’SEIKOU portfolio acted as the central hub for multimedia design work and the Kustom Kreations
+        service layer. It packaged creative services, skill proof, contact options, and brand personality into one
+        scrollable experience.
       </p>
 
       <div class="interface-preview">
@@ -1479,23 +1705,34 @@
           <blockquote>
             The portfolio needed to explain the brand quickly, then make contacting the brand feel effortless.
           </blockquote>
-          <p>It was an early version of D’SEIKOU’s digital presence, built to unify creative services under one bold frontend experience.</p>
+          <p>It was an early version of D’SEIKOU’s digital presence, built to unify creative services under one bold
+            frontend experience.</p>
         </aside>
 
         <article class="body-card reveal">
           <div class="case-study-body">
-            <p><strong>D’SEIKOU Previous Portfolio</strong> was designed as a central hub for the D’SEIKOU multimedia design brand and its subsidiary service layer, Kustom Kreations. The challenge was to present multiple creative offers under one identity without making the site feel scattered.</p>
+            <p><strong>D’SEIKOU Previous Portfolio</strong> was designed as a central hub for the D’SEIKOU multimedia
+              design brand and its subsidiary service layer, Kustom Kreations. The challenge was to present multiple
+              creative offers under one identity without making the site feel scattered.</p>
 
-            <p>The build used a static <strong>HTML, CSS, and JavaScript</strong> foundation, then added interactive frontend touches like dynamic typing, sticky navigation, scroll-up behaviour, a services carousel, skill bars, and a mobile hamburger menu.</p>
+            <p>The build used a static <strong>HTML, CSS, and JavaScript</strong> foundation, then added interactive
+              frontend touches like dynamic typing, sticky navigation, scroll-up behaviour, a services carousel, skill
+              bars, and a mobile hamburger menu.</p>
 
-            <p>The site was intentionally conversion-minded. Instead of only showing work, it made contact easy through direct WhatsApp access and a lightweight email-capture flow for portfolio download. That made the portfolio function as both a brand introduction and a lead-generation touchpoint.</p>
+            <p>The site was intentionally conversion-minded. Instead of only showing work, it made contact easy through
+              direct WhatsApp access and a lightweight email-capture flow for portfolio download. That made the
+              portfolio function as both a brand introduction and a lead-generation touchpoint.</p>
 
-            <p>As a frontend project, its value sits in how it used interaction to communicate personality: a typing animation to show creative range, skill bars to create fast proof, and carousel browsing to make services easier to explore.</p>
+            <p>As a frontend project, its value sits in how it used interaction to communicate personality: a typing
+              animation to show creative range, skill bars to create fast proof, and carousel browsing to make services
+              easier to explore.</p>
 
             <ul class="case-study-list">
-              <li><strong>Core purpose:</strong> introduce D’SEIKOU, explain services, show skills, and make contact immediate.</li>
+              <li><strong>Core purpose:</strong> introduce D’SEIKOU, explain services, show skills, and make contact
+                immediate.</li>
               <li><strong>Frontend layer:</strong> HTML, CSS, JavaScript, jQuery, Typed.js, and Owl Carousel.</li>
-              <li><strong>Interaction layer:</strong> typing animation, sticky nav, scroll-up button, services carousel, and mobile menu.</li>
+              <li><strong>Interaction layer:</strong> typing animation, sticky nav, scroll-up button, services carousel,
+                and mobile menu.</li>
               <li><strong>Conversion layer:</strong> WhatsApp CTA and email-capture PDF download flow.</li>
             </ul>
 
@@ -1518,21 +1755,26 @@
       <p class="section-label">Interface System</p>
       <h2 class="section-heading">The site used motion and modular sections to tell the brand story.</h2>
       <p class="section-subtext">
-        Each interface section had a job: introduce the person, prove the skills, explain the services, and reduce friction for mobile users.
+        Each interface section had a job: introduce the person, prove the skills, explain the services, and reduce
+        friction for mobile users.
       </p>
 
       <div class="stills-grid">
         <figure class="still-card">
           <img src="./images/portfolio-skills.svg" alt="Previous portfolio skills bar interface visual" />
-          <figcaption>Skill bars made creative strengths scannable, giving visitors a quick sense of capability.</figcaption>
+          <figcaption>Skill bars made creative strengths scannable, giving visitors a quick sense of capability.
+          </figcaption>
         </figure>
         <figure class="still-card">
-          <img src="./images/portfolio-services-carousel.svg" alt="Previous portfolio services carousel interface visual" />
-          <figcaption>The services carousel made the different creative offers easier to browse without crowding the page.</figcaption>
+          <img src="./images/portfolio-services-carousel.svg"
+            alt="Previous portfolio services carousel interface visual" />
+          <figcaption>The services carousel made the different creative offers easier to browse without crowding the
+            page.</figcaption>
         </figure>
         <figure class="still-card">
           <img src="./images/portfolio-mobile-menu.svg" alt="Previous portfolio mobile menu interface visual" />
-          <figcaption>The mobile hamburger menu supported the client-first audience that was most likely to browse and contact from a phone.</figcaption>
+          <figcaption>The mobile hamburger menu supported the client-first audience that was most likely to browse and
+            contact from a phone.</figcaption>
         </figure>
       </div>
     </section>
@@ -1550,7 +1792,8 @@
         <div class="feature-card">
           <i class="bi bi-bar-chart-fill"></i>
           <h3>Skills Bars</h3>
-          <p>Animated skill indicators created a fast visual summary of the brand’s creative and technical strengths.</p>
+          <p>Animated skill indicators created a fast visual summary of the brand’s creative and technical strengths.
+          </p>
         </div>
         <div class="feature-card">
           <i class="bi bi-whatsapp"></i>
@@ -1574,19 +1817,23 @@
           <div class="architecture-grid">
             <div class="architecture-card">
               <h3>Static Frontend Foundation</h3>
-              <p>The project was built on HTML, CSS, and JavaScript, making it lightweight while still supporting multiple interactive moments.</p>
+              <p>The project was built on HTML, CSS, and JavaScript, making it lightweight while still supporting
+                multiple interactive moments.</p>
             </div>
             <div class="architecture-card">
               <h3>jQuery Interaction Layer</h3>
-              <p>Sticky navigation, scroll-up behaviour, and UI state changes were handled through custom jQuery logic.</p>
+              <p>Sticky navigation, scroll-up behaviour, and UI state changes were handled through custom jQuery logic.
+              </p>
             </div>
             <div class="architecture-card">
               <h3>Library Integration</h3>
-              <p>Typed.js and Owl Carousel were integrated to add motion, service browsing, and stronger visual rhythm.</p>
+              <p>Typed.js and Owl Carousel were integrated to add motion, service browsing, and stronger visual rhythm.
+              </p>
             </div>
             <div class="architecture-card">
               <h3>Portfolio Evolution</h3>
-              <p>This project became a useful foundation for understanding what the current D’SEIKOU portfolio needed to improve: clearer hierarchy, better project filtering, and stronger case-study pages.</p>
+              <p>This project became a useful foundation for understanding what the current D’SEIKOU portfolio needed to
+                improve: clearer hierarchy, better project filtering, and stronger case-study pages.</p>
             </div>
           </div>
         </article>
@@ -1597,9 +1844,11 @@
       <div class="next-card">
         <div>
           <h2>A previous portfolio that shaped the current one.</h2>
-          <p>This project shows the evolution of D’SEIKOU’s frontend direction: from a single-page creative brand site to a more structured project archive.</p>
+          <p>This project shows the evolution of D’SEIKOU’s frontend direction: from a single-page creative brand site
+            to a more structured project archive.</p>
         </div>
-        <a href="https://prev-portfolio-dseikou.netlify.app/" target="_blank" rel="noopener noreferrer" class="action-btn action-primary"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
+        <a href="https://prev-portfolio-dseikou.netlify.app/" target="_blank" rel="noopener noreferrer"
+          class="action-btn action-primary"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
       </div>
     </section>
   </main>
@@ -1617,24 +1866,28 @@
         <div>
           <h2 class="footer-title">Let's make something <span>intentional.</span></h2>
           <p class="footer-copy">
-            Have a project that needs frontend thinking, interface design, portfolio strategy, or something beautifully in-between? Let's talk.
+            Have a project that needs frontend thinking, interface design, portfolio strategy, or something beautifully
+            in-between? Let's talk.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="/contact/"><i class="bi bi-send-fill"></i> Contact D'SEIKOU</a>
-            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i
+                class="bi bi-whatsapp"></i> WhatsApp</a>
           </div>
         </div>
 
         <div>
           <div class="contact-list">
-            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i> dinalediseko@dseikou.co.za</a>
+            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i>
+              dinalediseko@dseikou.co.za</a>
             <a href="tel:+27818994791"><i class="bi bi-telephone-fill"></i> (+27) 81 899 4791</a>
           </div>
 
           <div class="socials" aria-label="Social links">
             <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
             <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i
+                class="bi bi-whatsapp"></i></a>
             <a href="https://www.instagram.com/ngwanokestar/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
           </div>
         </div>

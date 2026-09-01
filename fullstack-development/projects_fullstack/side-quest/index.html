@@ -5,12 +5,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SideQuest Game Hub | D'SEIKOU</title>
-  <meta name="description" content="A D\'SEIKOU project detail page for SideQuest, a custom-built hyper-casual game hub using React, Phaser, Firebase-style score systems, pixel UI, and Netlify deployment." />
+  <meta name="description"
+    content="A D\'SEIKOU project detail page for SideQuest, a custom-built hyper-casual game hub using React, Phaser, Firebase-style score systems, pixel UI, and Netlify deployment." />
   <link rel="icon" href="/media/black-favicon.png" type="image" />
+
+  <link rel="canonical" href="https://portfolio.dseikou.co.za/fullstack-development/projects_fullstack/side-quest/" />
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
   <style>
@@ -31,8 +37,17 @@
       --shadow-hover: 0 28px 80px rgba(190, 0, 28, 0.16);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       min-height: 100vh;
@@ -56,9 +71,22 @@
       z-index: 999;
     }
 
-    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
-    a { color: inherit; }
-    img, video { max-width: 100%; display: block; }
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Syne', sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img,
+    video {
+      max-width: 100%;
+      display: block;
+    }
 
     nav.site-nav {
       position: sticky;
@@ -80,8 +108,16 @@
       gap: 1rem;
     }
 
-    .nav-logo img { height: 2rem; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-logo img {
+      height: 2rem;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
     .nav-links a {
       color: var(--fg);
@@ -105,8 +141,13 @@
       transition: width 0.35s ease;
     }
 
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
     .nav-cta {
       padding: 0.5rem 1.4rem !important;
@@ -117,8 +158,14 @@
       box-shadow: 0 12px 34px rgba(17, 16, 15, 0.12);
     }
 
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; }
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+    }
 
     #menu-button {
       display: none;
@@ -151,11 +198,26 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
 
-    #mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
-    #mobile-menu .mob-cta { background: var(--ink); color: var(--cream); }
-    #mobile-menu .mob-cta:hover { background: var(--accent); color: var(--cream); }
+    #mobile-menu a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
 
-    .page-shell { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    #mobile-menu .mob-cta {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    #mobile-menu .mob-cta:hover {
+      background: var(--accent);
+      color: var(--cream);
+    }
+
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
     .reveal {
       opacity: 0;
@@ -163,9 +225,15 @@
       transition: opacity 0.75s ease, transform 0.75s ease;
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    .hero { padding: 4.5rem 0 2.5rem; position: relative; }
+    .hero {
+      padding: 4.5rem 0 2.5rem;
+      position: relative;
+    }
 
     .hero-copy-card {
       padding: clamp(2rem, 5vw, 4rem);
@@ -217,7 +285,17 @@
       animation: blink 2s ease-in-out infinite;
     }
 
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.35;
+      }
+    }
 
     .hero-title {
       font-size: clamp(3rem, 6.25vw, 6.3rem);
@@ -229,7 +307,9 @@
       z-index: 1;
     }
 
-    .hero-title span { color: var(--accent); }
+    .hero-title span {
+      color: var(--accent);
+    }
 
     .hero-summary {
       max-width: 700px;
@@ -250,7 +330,8 @@
       z-index: 1;
     }
 
-    .action-btn, .btn {
+    .action-btn,
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -266,20 +347,23 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     }
 
-    .action-primary, .btn-primary {
+    .action-primary,
+    .btn-primary {
       background: var(--accent);
       border-color: var(--accent);
       color: var(--cream);
       box-shadow: 0 10px 30px rgba(190, 0, 28, 0.24);
     }
 
-    .action-secondary, .btn-secondary {
+    .action-secondary,
+    .btn-secondary {
       background: var(--ink);
       border-color: var(--ink);
       color: var(--cream);
     }
 
-    .action-btn:hover, .btn:hover {
+    .action-btn:hover,
+    .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 16px 40px rgba(190, 0, 28, 0.20);
     }
@@ -310,7 +394,12 @@
       margin-bottom: 0.3rem;
     }
 
-    .info-item strong { display: block; color: var(--fg); font-size: 0.98rem; line-height: 1.3; }
+    .info-item strong {
+      display: block;
+      color: var(--fg);
+      font-size: 0.98rem;
+      line-height: 1.3;
+    }
 
     .section-label {
       color: var(--accent);
@@ -340,7 +429,9 @@
     /* ============================================================
        FILM / MOTION PLAYER
     ============================================================ */
-    .film-section { padding: 1rem 0 5.5rem; }
+    .film-section {
+      padding: 1rem 0 5.5rem;
+    }
 
     .film-frame {
       margin-top: 2rem;
@@ -376,10 +467,17 @@
       letter-spacing: 0.04em;
     }
 
-    .film-caption strong { color: var(--cream); }
-    .film-caption i { color: var(--accent); }
+    .film-caption strong {
+      color: var(--cream);
+    }
 
-    .project-text-section { padding: 0 0 5.5rem; }
+    .film-caption i {
+      color: var(--accent);
+    }
+
+    .project-text-section {
+      padding: 0 0 5.5rem;
+    }
 
     .text-layout {
       display: grid;
@@ -408,7 +506,10 @@
       backdrop-filter: blur(14px);
     }
 
-    .thesis-card .section-label { margin-bottom: 0.65rem; color: var(--accent); }
+    .thesis-card .section-label {
+      margin-bottom: 0.65rem;
+      color: var(--accent);
+    }
 
     .thesis-card blockquote {
       font-family: 'Syne', sans-serif;
@@ -432,13 +533,21 @@
       line-height: 1.85;
     }
 
-    .case-study-body p + p { margin-top: 1.2rem; }
-    .case-study-body strong { color: var(--fg); font-weight: 800; }
+    .case-study-body p+p {
+      margin-top: 1.2rem;
+    }
+
+    .case-study-body strong {
+      color: var(--fg);
+      font-weight: 800;
+    }
 
     /* ============================================================
        SELECTED STILLS / OPTIONAL SUPPORTING FRAMES
     ============================================================ */
-    .stills-section { padding: 0 0 5.5rem; }
+    .stills-section {
+      padding: 0 0 5.5rem;
+    }
 
     .stills-grid {
       display: grid;
@@ -473,7 +582,9 @@
     /* ============================================================
        FRAME NOTES
     ============================================================ */
-    .frame-notes-section { padding: 0 0 6rem; }
+    .frame-notes-section {
+      padding: 0 0 6rem;
+    }
 
     .frame-notes-grid {
       display: grid;
@@ -491,11 +602,26 @@
       backdrop-filter: blur(14px);
     }
 
-    .note-card i { color: var(--accent); font-size: 1.35rem; }
-    .note-card h3 { margin-top: 0.75rem; font-size: 1.25rem; letter-spacing: -0.035em; }
-    .note-card p { margin-top: 0.55rem; color: var(--muted); line-height: 1.65; }
+    .note-card i {
+      color: var(--accent);
+      font-size: 1.35rem;
+    }
 
-    .next-section { padding: 0 0 6rem; }
+    .note-card h3 {
+      margin-top: 0.75rem;
+      font-size: 1.25rem;
+      letter-spacing: -0.035em;
+    }
+
+    .note-card p {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .next-section {
+      padding: 0 0 6rem;
+    }
 
     .next-card {
       display: grid;
@@ -538,7 +664,10 @@
       z-index: 1;
     }
 
-    .next-card .action-btn { position: relative; z-index: 1; }
+    .next-card .action-btn {
+      position: relative;
+      z-index: 1;
+    }
 
     footer {
       background: var(--ink);
@@ -560,7 +689,12 @@
       pointer-events: none;
     }
 
-    .footer-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
 
     .footer-grid {
       display: grid;
@@ -578,11 +712,21 @@
       font-weight: 800;
     }
 
-    .footer-title span { color: var(--accent); }
+    .footer-title span {
+      color: var(--accent);
+    }
 
-    .footer-copy { margin-top: 1rem; color: rgba(239, 239, 233, 0.66); max-width: 560px; }
+    .footer-copy {
+      margin-top: 1rem;
+      color: rgba(239, 239, 233, 0.66);
+      max-width: 560px;
+    }
 
-    .contact-list { display: grid; gap: 0.8rem; justify-items: end; }
+    .contact-list {
+      display: grid;
+      gap: 0.8rem;
+      justify-items: end;
+    }
 
     .contact-list a {
       display: inline-flex;
@@ -593,9 +737,16 @@
       transition: color 0.25s ease;
     }
 
-    .contact-list a:hover { color: var(--accent); }
+    .contact-list a:hover {
+      color: var(--accent);
+    }
 
-    .socials { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem; }
+    .socials {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
 
     .socials a {
       width: 42px;
@@ -609,7 +760,11 @@
       transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
     }
 
-    .socials a:hover { transform: translateY(-3px); background: var(--accent); color: var(--cream); }
+    .socials a:hover {
+      transform: translateY(-3px);
+      background: var(--accent);
+      color: var(--cream);
+    }
 
     .footer-bottom {
       display: flex;
@@ -622,30 +777,90 @@
     }
 
     @media (max-width: 980px) {
-      .nav-links { display: none; }
-      #menu-button { display: block; }
-      .text-layout, .footer-grid, .next-card { grid-template-columns: 1fr; }
-      .thesis-card { position: static; }
-      .info-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .stills-grid, .frame-notes-grid { grid-template-columns: 1fr; }
-      .contact-list, .socials { justify-items: start; justify-content: flex-start; }
+      .nav-links {
+        display: none;
+      }
+
+      #menu-button {
+        display: block;
+      }
+
+      .text-layout,
+      .footer-grid,
+      .next-card {
+        grid-template-columns: 1fr;
+      }
+
+      .thesis-card {
+        position: static;
+      }
+
+      .info-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stills-grid,
+      .frame-notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-list,
+      .socials {
+        justify-items: start;
+        justify-content: flex-start;
+      }
     }
 
     @media (max-width: 768px) {
-      .nav-inner { padding: 1rem 1.25rem; }
-      .hero { padding-top: 3.5rem; }
-      .hero-copy-card, .body-card, .thesis-card, .film-frame, .still-card, .next-card { border-radius: 26px; }
-      .hero-copy-card, .body-card, .thesis-card, .next-card { padding: 1.35rem; }
+      .nav-inner {
+        padding: 1rem 1.25rem;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .hero-copy-card,
+      .body-card,
+      .thesis-card,
+      .film-frame,
+      .still-card,
+      .next-card {
+        border-radius: 26px;
+      }
+
+      .hero-copy-card,
+      .body-card,
+      .thesis-card,
+      .next-card {
+        padding: 1.35rem;
+      }
     }
 
     @media (max-width: 640px) {
-      .page-shell { padding: 0 1rem; }
-      .hero-actions, .action-btn { width: 100%; }
-      .action-btn { justify-content: center; }
-      .info-strip { grid-template-columns: 1fr; }
-      .film-caption { align-items: flex-start; flex-direction: column; }
+      .page-shell {
+        padding: 0 1rem;
+      }
+
+      .hero-actions,
+      .action-btn {
+        width: 100%;
+      }
+
+      .action-btn {
+        justify-content: center;
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .film-caption {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
-  
+
     .presentation-frame {
       padding: clamp(0.75rem, 2vw, 1.2rem);
       border-radius: 28px;
@@ -744,6 +959,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .component-grid,
       .slide-feature-grid {
@@ -755,7 +971,7 @@
       }
     }
 
-  
+
     .arcade-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -867,13 +1083,13 @@
     }
 
     @media (max-width: 980px) {
+
       .game-roster,
       .system-grid,
       .tech-stack-grid {
         grid-template-columns: 1fr;
       }
     }
-
   </style>
 </head>
 
@@ -910,8 +1126,8 @@
     </div>
   </nav>
 
-  
-  
+
+
   <main>
     <section class="hero">
       <div class="page-shell">
@@ -920,13 +1136,16 @@
             <div class="project-kicker"><span class="project-kicker-dot"></span>Full-Stack Project</div>
             <h1 class="hero-title">SideQuest <span>Game Hub</span></h1>
             <p class="hero-summary">
-              A custom-built, hyper-casual arcade for my portfolio — because designers will do everything except finish their portfolios, so I turned the distraction into a playable product.
+              A custom-built, hyper-casual arcade for my portfolio — because designers will do everything except finish
+              their portfolios, so I turned the distraction into a playable product.
             </p>
           </div>
 
           <div class="hero-actions">
-            <a href="https://sidequest.dseikou.co.za/" class="action-btn action-primary" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
-            <a href="/fullstack-development/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i> Back to Development</a>
+            <a href="https://sidequest.dseikou.co.za/" class="action-btn action-primary" target="_blank"
+              rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
+            <a href="/fullstack-development/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i>
+              Back to Development</a>
           </div>
         </div>
       </div>
@@ -955,7 +1174,9 @@
       <p class="section-label">Project Overview</p>
       <h2 class="section-heading">A mini arcade built into the portfolio experience.</h2>
       <p class="section-subtext">
-        SideQuest is a custom-built, hyper-casual game hub that turns portfolio browsing into something playful. It centralizes small arcade-style games inside one branded web experience, using familiar mechanics, lightweight interaction loops, and a pixel-inspired interface.
+        SideQuest is a custom-built, hyper-casual game hub that turns portfolio browsing into something playful. It
+        centralizes small arcade-style games inside one branded web experience, using familiar mechanics, lightweight
+        interaction loops, and a pixel-inspired interface.
       </p>
 
       <div class="arcade-preview">
@@ -970,24 +1191,40 @@
           <blockquote>
             SideQuest exists because play is also a valid portfolio interaction.
           </blockquote>
-          <p>Instead of only telling people I build interactive systems, I made something they can actually click, play, score in, and return to.</p>
+          <p>Instead of only telling people I build interactive systems, I made something they can actually click, play,
+            score in, and return to.</p>
         </aside>
 
         <article class="body-card reveal">
           <div class="case-study-body">
-            <p><strong>SideQuest</strong> is a custom-built, hyper-casual game hub hosted at <strong>sidequest.dseikou.co.za</strong>. It was created as a playful extension of the D’SEIKOU portfolio: a small arcade that lets visitors take a break from scrolling and experience an interactive side of the brand.</p>
+            <p><strong>SideQuest</strong> is a custom-built, hyper-casual game hub hosted at
+              <strong>sidequest.dseikou.co.za</strong>. It was created as a playful extension of the D’SEIKOU portfolio:
+              a small arcade that lets visitors take a break from scrolling and experience an interactive side of the
+              brand.</p>
 
-            <p>The concept came from a very real creative problem: designers, developers, and multi-hyphenates are always doing side quests while trying to finish their main portfolio. Instead of fighting that habit, I turned it into the product idea. The result is a mini game hub that feels self-aware, useful for engagement, and aligned with my personality as a designer-developer.</p>
+            <p>The concept came from a very real creative problem: designers, developers, and multi-hyphenates are
+              always doing side quests while trying to finish their main portfolio. Instead of fighting that habit, I
+              turned it into the product idea. The result is a mini game hub that feels self-aware, useful for
+              engagement, and aligned with my personality as a designer-developer.</p>
 
-            <p>Technically, the project combines <strong>React</strong> for the overarching interface, routing, reusable UI, and state handling, with <strong>Phaser</strong> for game-engine mechanics where canvas-based gameplay is needed. The wider system also uses Firebase-style thinking for user sessions, saved scores, personal bests, and leaderboard behaviour, then deploys through Netlify for fast web access.</p>
+            <p>Technically, the project combines <strong>React</strong> for the overarching interface, routing, reusable
+              UI, and state handling, with <strong>Phaser</strong> for game-engine mechanics where canvas-based gameplay
+              is needed. The wider system also uses Firebase-style thinking for user sessions, saved scores, personal
+              bests, and leaderboard behaviour, then deploys through Netlify for fast web access.</p>
 
-            <p>The platform is designed to feel lightweight but complete: game cards, player identity, score submission, leaderboard logic, personal best tracking, and a visual design system that makes every screen feel like it belongs inside the same arcade.</p>
+            <p>The platform is designed to feel lightweight but complete: game cards, player identity, score submission,
+              leaderboard logic, personal best tracking, and a visual design system that makes every screen feel like it
+              belongs inside the same arcade.</p>
 
             <ul class="case-study-list">
-              <li><strong>Core idea:</strong> a branded arcade that extends the portfolio beyond static case studies.</li>
-              <li><strong>Interaction layer:</strong> playable hyper-casual games with simple rules, quick rounds, and clear feedback.</li>
-              <li><strong>System layer:</strong> reusable game cards, score handling, profile context, and leaderboard-ready structures.</li>
-              <li><strong>Brand layer:</strong> retro pixel art language, custom icons, and a bold red, cream, and black palette.</li>
+              <li><strong>Core idea:</strong> a branded arcade that extends the portfolio beyond static case studies.
+              </li>
+              <li><strong>Interaction layer:</strong> playable hyper-casual games with simple rules, quick rounds, and
+                clear feedback.</li>
+              <li><strong>System layer:</strong> reusable game cards, score handling, profile context, and
+                leaderboard-ready structures.</li>
+              <li><strong>Brand layer:</strong> retro pixel art language, custom icons, and a bold red, cream, and black
+                palette.</li>
             </ul>
 
             <div class="tech-stack-grid" aria-label="Technology stack">
@@ -1009,7 +1246,8 @@
       <p class="section-label">Game Roster</p>
       <h2 class="section-heading">Classic mechanics, rebuilt as a branded arcade layer.</h2>
       <p class="section-subtext">
-        The hub is structured around familiar retro-style games that users instantly understand, which keeps the learning curve low and the interaction loop fast.
+        The hub is structured around familiar retro-style games that users instantly understand, which keeps the
+        learning curve low and the interaction loop fast.
       </p>
 
       <div class="game-roster">
@@ -1037,18 +1275,21 @@
       <p class="section-label">Visual System</p>
       <h2 class="section-heading">Retro pixel energy, but treated like a real interface system.</h2>
       <p class="section-subtext">
-        The aesthetic leans into nostalgia without becoming messy: crisp icon rules, limited colour, strong contrast, and readable UI hierarchy.
+        The aesthetic leans into nostalgia without becoming messy: crisp icon rules, limited colour, strong contrast,
+        and readable UI hierarchy.
       </p>
 
       <div class="stills-grid">
         <figure class="still-card">
           <img src="./assets/sidequest-games.png" alt="SideQuest game roster visual" />
-          <figcaption>The game roster gives the hub a clear arcade structure while leaving room for future games.</figcaption>
+          <figcaption>The game roster gives the hub a clear arcade structure while leaving room for future games.
+          </figcaption>
         </figure>
 
         <figure class="still-card">
           <img src="./assets/sidequest-architecture-01.png" alt="SideQuest architecture visual" />
-          <figcaption>React handles the app shell and UI state, while Phaser supports game-engine behaviour for playable canvas games.</figcaption>
+          <figcaption>React handles the app shell and UI state, while Phaser supports game-engine behaviour for playable
+            canvas games.</figcaption>
         </figure>
 
         <figure class="still-card">
@@ -1066,19 +1307,22 @@
         <div class="note-card">
           <i class="bi bi-controller"></i>
           <h3>Playable First</h3>
-          <p>The project needed to feel like a real arcade, not a decorative portfolio gimmick. Each game has to be quick to understand, easy to restart, and satisfying enough to replay.</p>
+          <p>The project needed to feel like a real arcade, not a decorative portfolio gimmick. Each game has to be
+            quick to understand, easy to restart, and satisfying enough to replay.</p>
         </div>
 
         <div class="note-card">
           <i class="bi bi-grid-3x3-gap-fill"></i>
           <h3>8x8 Icon Logic</h3>
-          <p>The custom pixel icons are built around an 8x8 logical grid so they stay crisp, readable, and consistent even when scaled down inside buttons or cards.</p>
+          <p>The custom pixel icons are built around an 8x8 logical grid so they stay crisp, readable, and consistent
+            even when scaled down inside buttons or cards.</p>
         </div>
 
         <div class="note-card">
           <i class="bi bi-trophy-fill"></i>
           <h3>Score Motivation</h3>
-          <p>Leaderboards, saved bests, and streak-like mechanics make the experience feel persistent, giving users a reason to come back instead of playing once and leaving.</p>
+          <p>Leaderboards, saved bests, and streak-like mechanics make the experience feel persistent, giving users a
+            reason to come back instead of playing once and leaving.</p>
         </div>
       </div>
     </section>
@@ -1090,29 +1334,34 @@
           <blockquote>
             The important part was not just making games — it was making the games belong to the same world.
           </blockquote>
-          <p>The hub needed one consistent shell, one visual language, and reusable logic that could support more games later.</p>
+          <p>The hub needed one consistent shell, one visual language, and reusable logic that could support more games
+            later.</p>
         </aside>
 
         <article class="body-card reveal">
           <div class="system-grid">
             <div class="system-card">
               <h3>React App Shell</h3>
-              <p>React controls the overall structure: navigation, game cards, user-facing UI states, profile surfaces, and reusable layout pieces across the hub.</p>
+              <p>React controls the overall structure: navigation, game cards, user-facing UI states, profile surfaces,
+                and reusable layout pieces across the hub.</p>
             </div>
 
             <div class="system-card">
               <h3>Phaser Game Layer</h3>
-              <p>Phaser handles game-specific mechanics where the project needs canvas rendering, collision, movement, scoring loops, and responsive game scenes.</p>
+              <p>Phaser handles game-specific mechanics where the project needs canvas rendering, collision, movement,
+                scoring loops, and responsive game scenes.</p>
             </div>
 
             <div class="system-card">
               <h3>Firebase-Ready Logic</h3>
-              <p>The system is designed around authentication, personal bests, score saving, and leaderboard behaviour so the arcade feels persistent and competitive.</p>
+              <p>The system is designed around authentication, personal bests, score saving, and leaderboard behaviour
+                so the arcade feels persistent and competitive.</p>
             </div>
 
             <div class="system-card">
               <h3>Netlify Deployment</h3>
-              <p>The hub is configured for web deployment on Netlify, making the arcade accessible as its own live subdomain connected to the main portfolio ecosystem.</p>
+              <p>The hub is configured for web deployment on Netlify, making the arcade accessible as its own live
+                subdomain connected to the main portfolio ecosystem.</p>
             </div>
           </div>
         </article>
@@ -1123,9 +1372,11 @@
       <div class="next-card">
         <div>
           <h2>Play the side quest, then come back to the main quest.</h2>
-          <p>SideQuest extends the portfolio into a playable space, showing how interface design, development, and brand personality can work together.</p>
+          <p>SideQuest extends the portfolio into a playable space, showing how interface design, development, and brand
+            personality can work together.</p>
         </div>
-        <a href="https://sidequest.dseikou.co.za/" class="action-btn action-primary" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Play SideQuest</a>
+        <a href="https://sidequest.dseikou.co.za/" class="action-btn action-primary" target="_blank"
+          rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Play SideQuest</a>
       </div>
     </section>
   </main>
@@ -1138,24 +1389,28 @@
         <div>
           <h2 class="footer-title">Let's make something <span>intentional.</span></h2>
           <p class="footer-copy">
-            Have a project that needs full-stack thinking, interface design, game logic, or something beautifully in-between? Let's talk.
+            Have a project that needs full-stack thinking, interface design, game logic, or something beautifully
+            in-between? Let's talk.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="/contact/"><i class="bi bi-send-fill"></i> Contact D'SEIKOU</a>
-            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i
+                class="bi bi-whatsapp"></i> WhatsApp</a>
           </div>
         </div>
 
         <div>
           <div class="contact-list">
-            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i> dinalediseko@dseikou.co.za</a>
+            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i>
+              dinalediseko@dseikou.co.za</a>
             <a href="tel:+27818994791"><i class="bi bi-telephone-fill"></i> (+27) 81 899 4791</a>
           </div>
 
           <div class="socials" aria-label="Social links">
             <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
             <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i
+                class="bi bi-whatsapp"></i></a>
             <a href="https://www.instagram.com/ngwanokestar/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
           </div>
         </div>

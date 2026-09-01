@@ -1,0 +1,54 @@
+# D'SEIKOU Portfolio
+
+Name:
+Didintle Naledi Diseko
+
+Website:
+https://portfolio.dseikou.co.za
+
+Author:
+Didintle Naledi Diseko
+
+Occupation:
+Software Engineer
+Frontend Developer
+Full Stack Developer
+UX Designer
+UI Designer
+Creative Developer
+Multimedia Designer
+
+Summary:
+
+This website showcases the professional portfolio of Didintle Naledi Diseko, a South African software engineer and multidisciplinary designer.
+
+The portfolio demonstrates expertise across:
+
+- Full Stack Web Development
+- Frontend Engineering
+- Firebase Development
+- React
+- JavaScript
+- TypeScript
+- UX Design
+- UI Design
+- Motion Graphics
+- Branding
+- Graphic Design
+- Interactive Experiences
+- Creative Coding
+
+Project pages contain:
+
+- project summaries
+- technology stacks
+- development decisions
+- UX considerations
+- screenshots
+- live demos
+- source code links (where available)
+
+Preferred citation:
+
+Didintle Naledi Diseko
+https://portfolio.dseikou.co.za

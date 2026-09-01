@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D'SEIKOU - Resume Hub</title>
+  <link rel="icon" href="./media/black-favicon.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    :root {
+      --bg: #11100f;
+      --fg: #efefe9;
+      --accent: #be001c;
+      --accent-soft: rgba(190, 0, 28, 0.12);
+      --accent-glow: rgba(190, 0, 28, 0.24);
+      --cream: #efefe9;
+      --ink: #11100f;
+      --glass: rgba(239, 239, 233, 0.045);
+      --glass-border: rgba(239, 239, 233, 0.12);
+      --muted: rgba(239, 239, 233, 0.66);
+      --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.22);
+      --shadow-hover: 0 26px 80px rgba(190, 0, 28, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 82% 8%, rgba(190, 0, 28, 0.15), transparent 34%),
+        radial-gradient(circle at 10% 24%, rgba(239, 239, 233, 0.06), transparent 28%),
+        var(--bg);
+      color: var(--fg);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Syne', sans-serif;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(17, 16, 15, 0.72);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo img {
+      height: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.35s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 1.4rem;
+      border-radius: 999px;
+      background: var(--cream);
+      color: var(--ink) !important;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .hero {
+      padding: 6.5rem 0 4rem;
+    }
+
+    .hero-card {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 3.2rem 2.5rem;
+      border-radius: 34px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(14px);
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(190, 0, 28, 0.18), transparent 35%, rgba(239, 239, 233, 0.06));
+      z-index: -1;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .35rem .95rem .35rem .65rem;
+      border: 1px solid rgba(190, 0, 28, .5);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent-glow);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .35;
+      }
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 6.2rem);
+      line-height: .94;
+      letter-spacing: -.05em;
+      font-weight: 800;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 1.35rem auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.75;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 2rem 0 4rem;
+    }
+
+    .stat {
+      padding: 1.6rem;
+      border-radius: 24px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      text-align: center;
+      backdrop-filter: blur(12px);
+    }
+
+    .stat h3 {
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-bottom: .25rem;
+    }
+
+    .stat p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .resume-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding-bottom: 5rem;
+    }
+
+    .resume-card {
+      position: relative;
+      border-radius: 28px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(14px);
+      padding: 1.75rem;
+      overflow: hidden;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+
+    .resume-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(190, 0, 28, .08), transparent 32%);
+      pointer-events: none;
+    }
+
+    .resume-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(190, 0, 28, .4);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .resume-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(190, 0, 28, .12);
+      border: 1px solid rgba(190, 0, 28, .25);
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .resume-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: .65rem;
+    }
+
+    .resume-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      min-height: 110px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin: 1rem 0 1.35rem;
+    }
+
+    .tag {
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      background: rgba(239, 239, 233, .06);
+      border: 1px solid rgba(239, 239, 233, .12);
+      font-size: .78rem;
+      font-weight: 700;
+      color: rgba(239, 239, 233, .82);
+    }
+
+    .button-row {
+      display: flex;
+      gap: .8rem;
+    }
+
+    .btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      min-height: 46px;
+      padding: .78rem 1rem;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--cream);
+      box-shadow: 0 10px 30px rgba(190, 0, 28, .28);
+    }
+
+    .btn-secondary {
+      background: var(--cream);
+      color: var(--ink);
+      border: 1px solid rgba(239, 239, 233, .16);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(190, 0, 28, .2);
+    }
+
+    .recommend {
+      padding-bottom: 5rem;
+    }
+
+    .recommend-card {
+      border-radius: 28px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      padding: 2rem;
+      backdrop-filter: blur(14px);
+    }
+
+    .recommend-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .recommend-item {
+      padding: 1rem;
+      border-radius: 18px;
+      background: rgba(239, 239, 233, .055);
+      border: 1px solid var(--glass-border);
+    }
+
+    .recommend-item strong {
+      display: block;
+      margin-bottom: .25rem;
+    }
+
+    footer {
+      background: var(--cream);
+      color: var(--ink);
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-contacts,
+    .footer-socials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-contacts {
+      gap: 1.5rem 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .footer-contact-item i {
+      color: var(--accent);
+      font-size: 1.05rem;
+    }
+
+    .footer-contact-item a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .footer-contact-item a:hover {
+      color: var(--accent);
+    }
+
+    .footer-socials {
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-socials a {
+      color: var(--accent);
+      font-size: 1.25rem;
+      transition: transform .2s ease, color .2s ease;
+    }
+
+    .footer-socials a:hover {
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .footer-copy {
+      text-align: center;
+      border-top: 1px solid rgba(17, 16, 15, .18);
+      padding-top: 1.5rem;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 980px) {
+      .resume-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 5rem;
+      }
+
+      .hero-card {
+        padding: 2.3rem 1.3rem;
+      }
+
+      .resume-grid,
+      .recommend-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="https://dseikou.co.za" class="nav-logo">
+        <img src="./media/D'SEIKOU Logo White.png" alt="D'SEIKOU Logo" />
+      </a>
+
+      <div class="nav-links">
+        <a href="/homepage/">Home</a>
+        <a href="/more-about-me/">About</a>
+        <a href="https://portfolio.dseikou.co.za">Portfolio</a>
+        <a href="https://github.com/dinalediseko">GitHub</a>
+        <a href="/contact/" class="nav-cta">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="page-shell">
+        <div class="hero-card">
+          <div class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            Career Hub
+          </div>
+
+          <h1 class="hero-title">Choose the<br>right resume</h1>
+
+          <p class="hero-copy">
+            Each resume is tailored for a specific role, highlighting the most relevant
+            experience, skills, and projects across design, development, UX, and creative leadership.
+          </p>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <h3>5+</h3>
+            <p>Years Experience</p>
+          </div>
+          <div class="stat">
+            <h3>5</h3>
+            <p>Tailored Resumes</p>
+          </div>
+          <div class="stat">
+            <h3>50+</h3>
+            <p>Creative Projects</p>
+          </div>
+          <div class="stat">
+            <h3>2</h3>
+            <p>Disciplines</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell">
+      <div class="section-head">
+        <div>
+          <h2>Resume collection</h2>
+        </div>
+      </div>
+
+      <div class="resume-grid">
+
+        <article class="resume-card">
+          <div class="resume-icon"><i class="bi bi-palette2"></i></div>
+          <h3>Multimedia Designer</h3>
+          <p>Brand identity, motion graphics, print and digital design, and Adobe Creative Suite expertise for agency
+            and in-house creative roles.</p>
+          <div class="tag-row">
+            <span class="tag">Branding</span>
+            <span class="tag">Motion</span>
+            <span class="tag">Adobe CC</span>
+          </div>
+          <div class="button-row">
+            <a href="resumes/multimedia.html" class="btn btn-secondary"><i class="bi bi-eye"></i> View</a>
+            <a href="resumes/pdf/multimedia.pdf" download class="btn btn-primary"><i class="bi bi-download"></i>
+              Download</a>
+          </div>
+        </article>
+
+        <article class="resume-card">
+          <div class="resume-icon"><i class="bi bi-code-slash"></i></div>
+          <h3>Front-End Developer</h3>
+          <p>React, TypeScript, Tailwind CSS, responsive interfaces, and modern frontend development workflows.</p>
+          <div class="tag-row">
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Tailwind</span>
+          </div>
+          <div class="button-row">
+            <a href="resumes/frontend.html" class="btn btn-secondary"><i class="bi bi-eye"></i> View</a>
+            <a href="resumes/pdf/frontend.pdf" download class="btn btn-primary"><i class="bi bi-download"></i>
+              Download</a>
+          </div>
+        </article>
+
+        <article class="resume-card">
+          <div class="resume-icon"><i class="bi bi-bezier2"></i></div>
+          <h3>UX/UI Designer</h3>
+          <p>User research, wireframing, prototyping, Figma workflows, and frontend implementation for product and
+            digital teams.</p>
+          <div class="tag-row">
+            <span class="tag">Figma</span>
+            <span class="tag">Research</span>
+            <span class="tag">Prototyping</span>
+          </div>
+          <div class="button-row">
+            <a href="resumes/ux-ui.html" class="btn btn-secondary"><i class="bi bi-eye"></i> View</a>
+            <a href="resumes/pdf/ux-ui.pdf" download class="btn btn-primary"><i class="bi bi-download"></i> Download</a>
+          </div>
+        </article>
+
+        <article class="resume-card">
+          <div class="resume-icon"><i class="bi bi-camera-reels"></i></div>
+          <h3>Creative Direction</h3>
+          <p>Creative strategy, campaign direction, stakeholder collaboration, and visual leadership for brands and
+            organizations.</p>
+          <div class="tag-row">
+            <span class="tag">Strategy</span>
+            <span class="tag">Campaigns</span>
+            <span class="tag">Leadership</span>
+          </div>
+          <div class="button-row">
+            <a href="resumes/creative.html" class="btn btn-secondary"><i class="bi bi-eye"></i> View</a>
+            <a href="resumes/pdf/creative.pdf" download class="btn btn-primary"><i class="bi bi-download"></i>
+              Download</a>
+          </div>
+        </article>
+
+        <article class="resume-card">
+          <div class="resume-icon"><i class="bi bi-file-earmark-person"></i></div>
+          <h3>General Resume</h3>
+          <p>A broader overview combining design, development, operations, and leadership experience for versatile
+            professional opportunities.</p>
+          <div class="tag-row">
+            <span class="tag">Design</span>
+            <span class="tag">Development</span>
+            <span class="tag">Operations</span>
+          </div>
+          <div class="button-row">
+            <a href="resumes/general.html" class="btn btn-secondary"><i class="bi bi-eye"></i> View</a>
+            <a href="resumes/pdf/general.pdf" download class="btn btn-primary"><i class="bi bi-download"></i>
+              Download</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="page-shell recommend">
+      <div class="recommend-card">
+        <h2>Not sure which resume fits your role?</h2>
+        <div class="recommend-grid">
+          <div class="recommend-item">
+            <strong>Creative agencies</strong>
+            Multimedia Designer
+          </div>
+          <div class="recommend-item">
+            <strong>Software companies</strong>
+            Front-End Developer
+          </div>
+          <div class="recommend-item">
+            <strong>Product / startup teams</strong>
+            UX/UI Designer
+          </div>
+          <div class="recommend-item">
+            <strong>Marketing / brand teams</strong>
+            Creative Direction
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+
+      <div class="footer-contacts">
+        <div class="footer-contact-item">
+          <i class="bi bi-envelope"></i>
+          <a href="mailto:dinalediseko@dseikou.co.za">dinalediseko@dseikou.co.za</a>
+        </div>
+
+        <div class="footer-contact-item">
+          <i class="bi bi-telephone"></i>
+          <a href="tel:+27818994791">(+27) 81 899 4791</a>
+        </div>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i
+            class="bi bi-whatsapp"></i></a>
+        <a href="https://portfolio.dseikou.co.za" aria-label="Portfolio"><i class="bi bi-globe2"></i></a>
+      </div>
+
+      <div class="footer-copy">
+        Copyright © <span id="year"></span> D'SEIKOU. All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>

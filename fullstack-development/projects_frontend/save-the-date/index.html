@@ -5,12 +5,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Save the Date | D'SEIKOU</title>
-  <meta name="description" content="A D\'SEIKOU frontend project page for Save the Date, an interactive digital invitation built with React, TypeScript, HTML5 Canvas, pointer tracking, scratch-card masking, reward animations, audio sync, and iCalendar export." />
+  <meta name="description"
+    content="A D\'SEIKOU frontend project page for Save the Date, an interactive digital invitation built with React, TypeScript, HTML5 Canvas, pointer tracking, scratch-card masking, reward animations, audio sync, and iCalendar export." />
   <link rel="icon" href="/media/black-favicon.png" type="image" />
+
+  <link rel="canonical" href="https://portfolio.dseikou.co.za/fullstack-development/projects_frontend/save-the-date/" />
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
   <style>
@@ -31,8 +37,17 @@
       --shadow-hover: 0 28px 80px rgba(190, 0, 28, 0.16);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       min-height: 100vh;
@@ -56,9 +71,22 @@
       z-index: 999;
     }
 
-    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
-    a { color: inherit; }
-    img, video { max-width: 100%; display: block; }
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Syne', sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img,
+    video {
+      max-width: 100%;
+      display: block;
+    }
 
     nav.site-nav {
       position: sticky;
@@ -80,8 +108,16 @@
       gap: 1rem;
     }
 
-    .nav-logo img { height: 2rem; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-logo img {
+      height: 2rem;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
     .nav-links a {
       color: var(--fg);
@@ -105,8 +141,13 @@
       transition: width 0.35s ease;
     }
 
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
     .nav-cta {
       padding: 0.5rem 1.4rem !important;
@@ -117,8 +158,14 @@
       box-shadow: 0 12px 34px rgba(17, 16, 15, 0.12);
     }
 
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; }
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+    }
 
     #menu-button {
       display: none;
@@ -151,11 +198,26 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
 
-    #mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
-    #mobile-menu .mob-cta { background: var(--ink); color: var(--cream); }
-    #mobile-menu .mob-cta:hover { background: var(--accent); color: var(--cream); }
+    #mobile-menu a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
 
-    .page-shell { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    #mobile-menu .mob-cta {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    #mobile-menu .mob-cta:hover {
+      background: var(--accent);
+      color: var(--cream);
+    }
+
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
     .reveal {
       opacity: 0;
@@ -163,9 +225,15 @@
       transition: opacity 0.75s ease, transform 0.75s ease;
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    .hero { padding: 4.5rem 0 2.5rem; position: relative; }
+    .hero {
+      padding: 4.5rem 0 2.5rem;
+      position: relative;
+    }
 
     .hero-copy-card {
       padding: clamp(2rem, 5vw, 4rem);
@@ -217,7 +285,17 @@
       animation: blink 2s ease-in-out infinite;
     }
 
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.35;
+      }
+    }
 
     .hero-title {
       font-size: clamp(3rem, 6.25vw, 6.3rem);
@@ -229,7 +307,9 @@
       z-index: 1;
     }
 
-    .hero-title span { color: var(--accent); }
+    .hero-title span {
+      color: var(--accent);
+    }
 
     .hero-summary {
       max-width: 700px;
@@ -250,7 +330,8 @@
       z-index: 1;
     }
 
-    .action-btn, .btn {
+    .action-btn,
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -266,20 +347,23 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     }
 
-    .action-primary, .btn-primary {
+    .action-primary,
+    .btn-primary {
       background: var(--accent);
       border-color: var(--accent);
       color: var(--cream);
       box-shadow: 0 10px 30px rgba(190, 0, 28, 0.24);
     }
 
-    .action-secondary, .btn-secondary {
+    .action-secondary,
+    .btn-secondary {
       background: var(--ink);
       border-color: var(--ink);
       color: var(--cream);
     }
 
-    .action-btn:hover, .btn:hover {
+    .action-btn:hover,
+    .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 16px 40px rgba(190, 0, 28, 0.20);
     }
@@ -310,7 +394,12 @@
       margin-bottom: 0.3rem;
     }
 
-    .info-item strong { display: block; color: var(--fg); font-size: 0.98rem; line-height: 1.3; }
+    .info-item strong {
+      display: block;
+      color: var(--fg);
+      font-size: 0.98rem;
+      line-height: 1.3;
+    }
 
     .section-label {
       color: var(--accent);
@@ -340,7 +429,9 @@
     /* ============================================================
        FILM / MOTION PLAYER
     ============================================================ */
-    .film-section { padding: 1rem 0 5.5rem; }
+    .film-section {
+      padding: 1rem 0 5.5rem;
+    }
 
     .film-frame {
       margin-top: 2rem;
@@ -376,10 +467,17 @@
       letter-spacing: 0.04em;
     }
 
-    .film-caption strong { color: var(--cream); }
-    .film-caption i { color: var(--accent); }
+    .film-caption strong {
+      color: var(--cream);
+    }
 
-    .project-text-section { padding: 0 0 5.5rem; }
+    .film-caption i {
+      color: var(--accent);
+    }
+
+    .project-text-section {
+      padding: 0 0 5.5rem;
+    }
 
     .text-layout {
       display: grid;
@@ -408,7 +506,10 @@
       backdrop-filter: blur(14px);
     }
 
-    .thesis-card .section-label { margin-bottom: 0.65rem; color: var(--accent); }
+    .thesis-card .section-label {
+      margin-bottom: 0.65rem;
+      color: var(--accent);
+    }
 
     .thesis-card blockquote {
       font-family: 'Syne', sans-serif;
@@ -432,13 +533,21 @@
       line-height: 1.85;
     }
 
-    .case-study-body p + p { margin-top: 1.2rem; }
-    .case-study-body strong { color: var(--fg); font-weight: 800; }
+    .case-study-body p+p {
+      margin-top: 1.2rem;
+    }
+
+    .case-study-body strong {
+      color: var(--fg);
+      font-weight: 800;
+    }
 
     /* ============================================================
        SELECTED STILLS / OPTIONAL SUPPORTING FRAMES
     ============================================================ */
-    .stills-section { padding: 0 0 5.5rem; }
+    .stills-section {
+      padding: 0 0 5.5rem;
+    }
 
     .stills-grid {
       display: grid;
@@ -473,7 +582,9 @@
     /* ============================================================
        FRAME NOTES
     ============================================================ */
-    .frame-notes-section { padding: 0 0 6rem; }
+    .frame-notes-section {
+      padding: 0 0 6rem;
+    }
 
     .frame-notes-grid {
       display: grid;
@@ -491,11 +602,26 @@
       backdrop-filter: blur(14px);
     }
 
-    .note-card i { color: var(--accent); font-size: 1.35rem; }
-    .note-card h3 { margin-top: 0.75rem; font-size: 1.25rem; letter-spacing: -0.035em; }
-    .note-card p { margin-top: 0.55rem; color: var(--muted); line-height: 1.65; }
+    .note-card i {
+      color: var(--accent);
+      font-size: 1.35rem;
+    }
 
-    .next-section { padding: 0 0 6rem; }
+    .note-card h3 {
+      margin-top: 0.75rem;
+      font-size: 1.25rem;
+      letter-spacing: -0.035em;
+    }
+
+    .note-card p {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .next-section {
+      padding: 0 0 6rem;
+    }
 
     .next-card {
       display: grid;
@@ -538,7 +664,10 @@
       z-index: 1;
     }
 
-    .next-card .action-btn { position: relative; z-index: 1; }
+    .next-card .action-btn {
+      position: relative;
+      z-index: 1;
+    }
 
     footer {
       background: var(--ink);
@@ -560,7 +689,12 @@
       pointer-events: none;
     }
 
-    .footer-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
 
     .footer-grid {
       display: grid;
@@ -578,11 +712,21 @@
       font-weight: 800;
     }
 
-    .footer-title span { color: var(--accent); }
+    .footer-title span {
+      color: var(--accent);
+    }
 
-    .footer-copy { margin-top: 1rem; color: rgba(239, 239, 233, 0.66); max-width: 560px; }
+    .footer-copy {
+      margin-top: 1rem;
+      color: rgba(239, 239, 233, 0.66);
+      max-width: 560px;
+    }
 
-    .contact-list { display: grid; gap: 0.8rem; justify-items: end; }
+    .contact-list {
+      display: grid;
+      gap: 0.8rem;
+      justify-items: end;
+    }
 
     .contact-list a {
       display: inline-flex;
@@ -593,9 +737,16 @@
       transition: color 0.25s ease;
     }
 
-    .contact-list a:hover { color: var(--accent); }
+    .contact-list a:hover {
+      color: var(--accent);
+    }
 
-    .socials { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem; }
+    .socials {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+      margin-top: 1rem;
+    }
 
     .socials a {
       width: 42px;
@@ -609,7 +760,11 @@
       transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
     }
 
-    .socials a:hover { transform: translateY(-3px); background: var(--accent); color: var(--cream); }
+    .socials a:hover {
+      transform: translateY(-3px);
+      background: var(--accent);
+      color: var(--cream);
+    }
 
     .footer-bottom {
       display: flex;
@@ -622,30 +777,90 @@
     }
 
     @media (max-width: 980px) {
-      .nav-links { display: none; }
-      #menu-button { display: block; }
-      .text-layout, .footer-grid, .next-card { grid-template-columns: 1fr; }
-      .thesis-card { position: static; }
-      .info-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .stills-grid, .frame-notes-grid { grid-template-columns: 1fr; }
-      .contact-list, .socials { justify-items: start; justify-content: flex-start; }
+      .nav-links {
+        display: none;
+      }
+
+      #menu-button {
+        display: block;
+      }
+
+      .text-layout,
+      .footer-grid,
+      .next-card {
+        grid-template-columns: 1fr;
+      }
+
+      .thesis-card {
+        position: static;
+      }
+
+      .info-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stills-grid,
+      .frame-notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-list,
+      .socials {
+        justify-items: start;
+        justify-content: flex-start;
+      }
     }
 
     @media (max-width: 768px) {
-      .nav-inner { padding: 1rem 1.25rem; }
-      .hero { padding-top: 3.5rem; }
-      .hero-copy-card, .body-card, .thesis-card, .film-frame, .still-card, .next-card { border-radius: 26px; }
-      .hero-copy-card, .body-card, .thesis-card, .next-card { padding: 1.35rem; }
+      .nav-inner {
+        padding: 1rem 1.25rem;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .hero-copy-card,
+      .body-card,
+      .thesis-card,
+      .film-frame,
+      .still-card,
+      .next-card {
+        border-radius: 26px;
+      }
+
+      .hero-copy-card,
+      .body-card,
+      .thesis-card,
+      .next-card {
+        padding: 1.35rem;
+      }
     }
 
     @media (max-width: 640px) {
-      .page-shell { padding: 0 1rem; }
-      .hero-actions, .action-btn { width: 100%; }
-      .action-btn { justify-content: center; }
-      .info-strip { grid-template-columns: 1fr; }
-      .film-caption { align-items: flex-start; flex-direction: column; }
+      .page-shell {
+        padding: 0 1rem;
+      }
+
+      .hero-actions,
+      .action-btn {
+        width: 100%;
+      }
+
+      .action-btn {
+        justify-content: center;
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .film-caption {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
-  
+
     .presentation-frame {
       padding: clamp(0.75rem, 2vw, 1.2rem);
       border-radius: 28px;
@@ -744,6 +959,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .component-grid,
       .slide-feature-grid {
@@ -755,7 +971,7 @@
       }
     }
 
-  
+
     .arcade-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -867,6 +1083,7 @@
     }
 
     @media (max-width: 980px) {
+
       .game-roster,
       .system-grid,
       .tech-stack-grid {
@@ -874,7 +1091,7 @@
       }
     }
 
-  
+
     .interface-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -985,6 +1202,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .feature-grid,
       .architecture-grid {
@@ -992,7 +1210,7 @@
       }
     }
 
-  
+
     .interface-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -1084,6 +1302,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .feature-grid,
       .architecture-grid {
@@ -1091,7 +1310,7 @@
       }
     }
 
-  
+
     .website-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -1183,6 +1402,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .feature-grid,
       .architecture-grid {
@@ -1190,7 +1410,7 @@
       }
     }
 
-  
+
     .interface-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -1283,6 +1503,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .feature-grid,
       .architecture-grid {
@@ -1290,7 +1511,7 @@
       }
     }
 
-  
+
     .interface-preview {
       border-radius: 30px;
       overflow: hidden;
@@ -1383,6 +1604,7 @@
     }
 
     @media (max-width: 980px) {
+
       .tech-stack-grid,
       .feature-grid,
       .architecture-grid {
@@ -1390,22 +1612,106 @@
       }
     }
 
-  
-    .interface-preview { border-radius: 30px; overflow: hidden; background: var(--ink); border: 1px solid rgba(17,16,15,.14); box-shadow: 0 24px 80px rgba(17,16,15,.18); }
-    .interface-preview img { width: 100%; display:block; }
-    .case-study-list { margin: 1rem 0 1.4rem; padding-left: 1.2rem; color: var(--muted); }
-    .case-study-list li { margin-bottom: .55rem; }
-    .tech-stack-grid, .feature-grid, .architecture-grid { display:grid; gap:.9rem; margin-top:1.35rem; }
-    .tech-stack-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
-    .feature-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
-    .architecture-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-    .tech-pill { padding:.8rem .9rem; border-radius:18px; background:rgba(190,0,28,.08); border:1px solid rgba(190,0,28,.20); font-size:.78rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; text-align:center; color:var(--accent); }
-    .feature-card,.architecture-card { padding:1.2rem; border-radius:24px; background:rgba(255,255,255,.52); border:1px solid rgba(17,16,15,.10); box-shadow:0 18px 50px rgba(17,16,15,.08); }
-    .feature-card i { width:42px; height:42px; display:inline-grid; place-items:center; border-radius:14px; margin-bottom:.85rem; background:var(--accent); color:var(--cream); font-size:1.15rem; }
-    .feature-card h3,.architecture-card h3 { font-size:1rem; margin-bottom:.35rem; letter-spacing:-.025em; }
-    .feature-card p,.architecture-card p { color:var(--muted); font-size:.94rem; line-height:1.55; }
-    @media (max-width:980px){ .tech-stack-grid,.feature-grid,.architecture-grid{grid-template-columns:1fr;} }
 
+    .interface-preview {
+      border-radius: 30px;
+      overflow: hidden;
+      background: var(--ink);
+      border: 1px solid rgba(17, 16, 15, .14);
+      box-shadow: 0 24px 80px rgba(17, 16, 15, .18);
+    }
+
+    .interface-preview img {
+      width: 100%;
+      display: block;
+    }
+
+    .case-study-list {
+      margin: 1rem 0 1.4rem;
+      padding-left: 1.2rem;
+      color: var(--muted);
+    }
+
+    .case-study-list li {
+      margin-bottom: .55rem;
+    }
+
+    .tech-stack-grid,
+    .feature-grid,
+    .architecture-grid {
+      display: grid;
+      gap: .9rem;
+      margin-top: 1.35rem;
+    }
+
+    .tech-stack-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .architecture-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tech-pill {
+      padding: .8rem .9rem;
+      border-radius: 18px;
+      background: rgba(190, 0, 28, .08);
+      border: 1px solid rgba(190, 0, 28, .20);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--accent);
+    }
+
+    .feature-card,
+    .architecture-card {
+      padding: 1.2rem;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .52);
+      border: 1px solid rgba(17, 16, 15, .10);
+      box-shadow: 0 18px 50px rgba(17, 16, 15, .08);
+    }
+
+    .feature-card i {
+      width: 42px;
+      height: 42px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 14px;
+      margin-bottom: .85rem;
+      background: var(--accent);
+      color: var(--cream);
+      font-size: 1.15rem;
+    }
+
+    .feature-card h3,
+    .architecture-card h3 {
+      font-size: 1rem;
+      margin-bottom: .35rem;
+      letter-spacing: -.025em;
+    }
+
+    .feature-card p,
+    .architecture-card p {
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.55;
+    }
+
+    @media (max-width:980px) {
+
+      .tech-stack-grid,
+      .feature-grid,
+      .architecture-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -1442,14 +1748,14 @@
     </div>
   </nav>
 
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
   <main>
     <section class="hero">
       <div class="page-shell">
@@ -1458,13 +1764,16 @@
             <div class="project-kicker"><span class="project-kicker-dot"></span>Frontend Project</div>
             <h1 class="hero-title">Save the <span>Date</span></h1>
             <p class="hero-summary">
-              An interactive digital invitation that turns a physical scratch-card reveal into a mobile-friendly canvas experience with reward-state animations and calendar export.
+              An interactive digital invitation that turns a physical scratch-card reveal into a mobile-friendly canvas
+              experience with reward-state animations and calendar export.
             </p>
           </div>
 
           <div class="hero-actions">
-            <a href="https://savethedate-dseikou.netlify.app/" target="_blank" rel="noopener noreferrer" class="action-btn action-primary"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
-            <a href="/fullstack-development/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i> Back to Development</a>
+            <a href="https://savethedate-dseikou.netlify.app/" target="_blank" rel="noopener noreferrer"
+              class="action-btn action-primary"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
+            <a href="/fullstack-development/" class="action-btn action-secondary"><i class="bi bi-grid-1x2-fill"></i>
+              Back to Development</a>
           </div>
         </div>
       </div>
@@ -1481,7 +1790,9 @@
       <p class="section-label">Project Overview</p>
       <h2 class="section-heading">A digital invitation built around the feeling of discovery.</h2>
       <p class="section-subtext">
-        Save the Date translates the tactile experience of scratching open a physical card into a web-based reveal interaction. The user clears the hidden layer, unlocks the event detail, and receives a polished call-to-action to save the date.
+        Save the Date translates the tactile experience of scratching open a physical card into a web-based reveal
+        interaction. The user clears the hidden layer, unlocks the event detail, and receives a polished call-to-action
+        to save the date.
       </p>
       <div class="interface-preview">
         <img src="./assets/savethedate-hero.svg" alt="Save the Date scratch-card reveal interaction preview" />
@@ -1492,27 +1803,47 @@
       <div class="text-layout">
         <aside class="thesis-card reveal">
           <p class="section-label">Project Thesis</p>
-          <blockquote>The invitation should not just announce the date — it should make the reveal feel memorable.</blockquote>
-          <p>This project treats the invitation as an interaction, using canvas logic, pointer tracking, motion, and calendar export to turn a simple announcement into a small experience.</p>
+          <blockquote>The invitation should not just announce the date — it should make the reveal feel memorable.
+          </blockquote>
+          <p>This project treats the invitation as an interaction, using canvas logic, pointer tracking, motion, and
+            calendar export to turn a simple announcement into a small experience.</p>
         </aside>
 
         <article class="body-card reveal">
           <div class="case-study-body">
-            <p><strong>Save the Date</strong> is a premium interactive digital invitation built with <strong>React, TypeScript, HTML5 Canvas, and Web Audio API thinking</strong>. It turns a familiar scratch-card mechanic into a high-fidelity frontend experience.</p>
-            <p>The original concept uses procedural foil-style texturing and mathematical masking to hide the event information until the user clears enough of the surface. In this portfolio page, the supporting visuals are adapted into the D’SEIKOU palette, while the case study still explains the underlying creative-coding idea.</p>
-            <p>The interaction depends on precise pointer tracking rather than a simple click. The app follows mouse and touch movement, updates a canvas mask in real time, and measures the cleared area through pixel-level alpha data. Once the reveal passes the completion threshold, the app transitions into a reward state.</p>
-            <p>That reward state gives the project its sense of completion: particle bursts, delayed CTA reveal, background audio sync, and a client-side iCalendar file so the user can add the event to their calendar.</p>
+            <p><strong>Save the Date</strong> is a premium interactive digital invitation built with <strong>React,
+                TypeScript, HTML5 Canvas, and Web Audio API thinking</strong>. It turns a familiar scratch-card mechanic
+              into a high-fidelity frontend experience.</p>
+            <p>The original concept uses procedural foil-style texturing and mathematical masking to hide the event
+              information until the user clears enough of the surface. In this portfolio page, the supporting visuals
+              are adapted into the D’SEIKOU palette, while the case study still explains the underlying creative-coding
+              idea.</p>
+            <p>The interaction depends on precise pointer tracking rather than a simple click. The app follows mouse and
+              touch movement, updates a canvas mask in real time, and measures the cleared area through pixel-level
+              alpha data. Once the reveal passes the completion threshold, the app transitions into a reward state.</p>
+            <p>That reward state gives the project its sense of completion: particle bursts, delayed CTA reveal,
+              background audio sync, and a client-side iCalendar file so the user can add the event to their calendar.
+            </p>
 
             <ul class="case-study-list">
               <li><strong>Core purpose:</strong> reveal event details through a tactile scratch-card interaction.</li>
-              <li><strong>Frontend layer:</strong> React, TypeScript, canvas rendering, pointer events, and client-side export logic.</li>
-              <li><strong>Interaction layer:</strong> scratch tracking, clearance threshold, reward animation, audio sync, and calendar CTA.</li>
-              <li><strong>Experience layer:</strong> mobile-friendly gestures, polished reveal pacing, and a memorable event announcement flow.</li>
+              <li><strong>Frontend layer:</strong> React, TypeScript, canvas rendering, pointer events, and client-side
+                export logic.</li>
+              <li><strong>Interaction layer:</strong> scratch tracking, clearance threshold, reward animation, audio
+                sync, and calendar CTA.</li>
+              <li><strong>Experience layer:</strong> mobile-friendly gestures, polished reveal pacing, and a memorable
+                event announcement flow.</li>
             </ul>
 
             <div class="tech-stack-grid" aria-label="Technology stack">
-              <div class="tech-pill">React</div><div class="tech-pill">TypeScript</div><div class="tech-pill">Canvas</div><div class="tech-pill">Pointer API</div>
-              <div class="tech-pill">Web Audio</div><div class="tech-pill">Alpha Mask</div><div class="tech-pill">ICS Export</div><div class="tech-pill">Netlify</div>
+              <div class="tech-pill">React</div>
+              <div class="tech-pill">TypeScript</div>
+              <div class="tech-pill">Canvas</div>
+              <div class="tech-pill">Pointer API</div>
+              <div class="tech-pill">Web Audio</div>
+              <div class="tech-pill">Alpha Mask</div>
+              <div class="tech-pill">ICS Export</div>
+              <div class="tech-pill">Netlify</div>
             </div>
           </div>
         </article>
@@ -1522,11 +1853,24 @@
     <section class="page-shell stills-section reveal">
       <p class="section-label">Interaction States</p>
       <h2 class="section-heading">The page moves from hidden detail to revealed reward.</h2>
-      <p class="section-subtext">The project is structured around a clear interactive sequence: scratch, reveal, celebrate, then save the date.</p>
+      <p class="section-subtext">The project is structured around a clear interactive sequence: scratch, reveal,
+        celebrate, then save the date.</p>
       <div class="stills-grid">
-        <figure class="still-card"><img src="./assets/savethedate-revealed.svg" alt="Save the Date revealed state with calendar CTA" /><figcaption>The revealed state unlocks the date and introduces the calendar CTA after the user clears enough of the mask.</figcaption></figure>
-        <figure class="still-card"><img src="./assets/savethedate-mobile.svg" alt="Save the Date mobile pointer interaction visual" /><figcaption>Pointer capture supports mouse, stylus, and touch input so the scratch interaction works across devices.</figcaption></figure>
-        <figure class="still-card"><img src="./assets/savethedate-engine.svg" alt="Save the Date canvas engine flow visual" /><figcaption>The canvas engine tracks contact, updates an alpha mask, checks the threshold, and triggers the reward state.</figcaption></figure>
+        <figure class="still-card"><img src="./assets/savethedate-revealed.svg"
+            alt="Save the Date revealed state with calendar CTA" />
+          <figcaption>The revealed state unlocks the date and introduces the calendar CTA after the user clears enough
+            of the mask.</figcaption>
+        </figure>
+        <figure class="still-card"><img src="./assets/savethedate-mobile.svg"
+            alt="Save the Date mobile pointer interaction visual" />
+          <figcaption>Pointer capture supports mouse, stylus, and touch input so the scratch interaction works across
+            devices.</figcaption>
+        </figure>
+        <figure class="still-card"><img src="./assets/savethedate-engine.svg"
+            alt="Save the Date canvas engine flow visual" />
+          <figcaption>The canvas engine tracks contact, updates an alpha mask, checks the threshold, and triggers the
+            reward state.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -1534,9 +1878,20 @@
       <p class="section-label">Key Features</p>
       <h2 class="section-heading">A small invitation with a lot of interaction engineering.</h2>
       <div class="feature-grid">
-        <div class="feature-card"><i class="bi bi-brush-fill"></i><h3>Canvas Scratch Reveal</h3><p>The hidden layer is cleared through canvas masking, creating the feeling of physically scratching a card.</p></div>
-        <div class="feature-card"><i class="bi bi-phone-fill"></i><h3>Pointer-Based Gestures</h3><p>Pointer tracking supports mobile and desktop interaction without relying on click-only behaviour.</p></div>
-        <div class="feature-card"><i class="bi bi-calendar-event-fill"></i><h3>Calendar CTA</h3><p>After the reveal threshold is reached, the app can generate a client-side iCalendar file for saving the event.</p></div>
+        <div class="feature-card"><i class="bi bi-brush-fill"></i>
+          <h3>Canvas Scratch Reveal</h3>
+          <p>The hidden layer is cleared through canvas masking, creating the feeling of physically scratching a card.
+          </p>
+        </div>
+        <div class="feature-card"><i class="bi bi-phone-fill"></i>
+          <h3>Pointer-Based Gestures</h3>
+          <p>Pointer tracking supports mobile and desktop interaction without relying on click-only behaviour.</p>
+        </div>
+        <div class="feature-card"><i class="bi bi-calendar-event-fill"></i>
+          <h3>Calendar CTA</h3>
+          <p>After the reveal threshold is reached, the app can generate a client-side iCalendar file for saving the
+            event.</p>
+        </div>
       </div>
     </section>
 
@@ -1545,14 +1900,31 @@
         <aside class="thesis-card reveal">
           <p class="section-label">Build Notes</p>
           <blockquote>The challenge was making the web interaction feel physical.</blockquote>
-          <p>It needed the responsiveness of a touch experience, the polish of an invitation, and the logic of a small game state machine.</p>
+          <p>It needed the responsiveness of a touch experience, the polish of an invitation, and the logic of a small
+            game state machine.</p>
         </aside>
         <article class="body-card reveal">
           <div class="architecture-grid">
-            <div class="architecture-card"><h3>Procedural Texture Logic</h3><p>The visual layer is generated programmatically rather than relying only on a flat static image, helping the scratch surface feel richer.</p></div>
-            <div class="architecture-card"><h3>Alpha-Channel Tracking</h3><p>The app uses pixel data to estimate how much of the hidden layer has been cleared before unlocking the reward state.</p></div>
-            <div class="architecture-card"><h3>Reward State Machine</h3><p>Once the threshold is reached, the app moves into a controlled reveal sequence with particles, audio, and CTA timing.</p></div>
-            <div class="architecture-card"><h3>Frontend Portfolio Value</h3><p>The project demonstrates creative coding, interaction design, canvas rendering, mobile UX, and practical client-side export behaviour.</p></div>
+            <div class="architecture-card">
+              <h3>Procedural Texture Logic</h3>
+              <p>The visual layer is generated programmatically rather than relying only on a flat static image, helping
+                the scratch surface feel richer.</p>
+            </div>
+            <div class="architecture-card">
+              <h3>Alpha-Channel Tracking</h3>
+              <p>The app uses pixel data to estimate how much of the hidden layer has been cleared before unlocking the
+                reward state.</p>
+            </div>
+            <div class="architecture-card">
+              <h3>Reward State Machine</h3>
+              <p>Once the threshold is reached, the app moves into a controlled reveal sequence with particles, audio,
+                and CTA timing.</p>
+            </div>
+            <div class="architecture-card">
+              <h3>Frontend Portfolio Value</h3>
+              <p>The project demonstrates creative coding, interaction design, canvas rendering, mobile UX, and
+                practical client-side export behaviour.</p>
+            </div>
           </div>
         </article>
       </div>
@@ -1562,9 +1934,11 @@
       <div class="next-card">
         <div>
           <h2>An event announcement turned into an interaction.</h2>
-          <p>Save the Date shows how frontend logic can make a simple message feel cinematic, tactile, and memorable.</p>
+          <p>Save the Date shows how frontend logic can make a simple message feel cinematic, tactile, and memorable.
+          </p>
         </div>
-        <a href="https://savethedate-dseikou.netlify.app/" target="_blank" rel="noopener noreferrer" class="action-btn action-primary"><i class="bi bi-box-arrow-up-right"></i> Open Live App</a>
+        <a href="https://savethedate-dseikou.netlify.app/" target="_blank" rel="noopener noreferrer"
+          class="action-btn action-primary"><i class="bi bi-box-arrow-up-right"></i> Open Live App</a>
       </div>
     </section>
   </main>
@@ -1583,24 +1957,28 @@
         <div>
           <h2 class="footer-title">Let's make something <span>intentional.</span></h2>
           <p class="footer-copy">
-            Have a project that needs frontend thinking, creative coding, interactive design, or something beautifully in-between? Let's talk.
+            Have a project that needs frontend thinking, creative coding, interactive design, or something beautifully
+            in-between? Let's talk.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="/contact/"><i class="bi bi-send-fill"></i> Contact D'SEIKOU</a>
-            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+            <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i
+                class="bi bi-whatsapp"></i> WhatsApp</a>
           </div>
         </div>
 
         <div>
           <div class="contact-list">
-            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i> dinalediseko@dseikou.co.za</a>
+            <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i>
+              dinalediseko@dseikou.co.za</a>
             <a href="tel:+27818994791"><i class="bi bi-telephone-fill"></i> (+27) 81 899 4791</a>
           </div>
 
           <div class="socials" aria-label="Social links">
             <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
             <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i
+                class="bi bi-whatsapp"></i></a>
             <a href="https://www.instagram.com/ngwanokestar/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
           </div>
         </div>

@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ViaTown</title>
+    <meta name="description"
+        content="ViaTown is a concept-phase crowdsourced public transport tracking platform for South Africa — combining official schedules with community reports, modelled on EskomSePush. Because most transit connects in town." />
+    <link rel="icon" href="/media/black-favicon.png" type="image" />
+    <link rel="canonical" href="https://portfolio.dseikou.co.za/home/viatown/" />
+
+    <!-- Google Fonts: Syne (editorial display) + Outfit (clean body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <style>
+        /* ============================================================
+           DESIGN TOKENS — ALIGNED WITH EXISTING LIGHT STYLING
+        ============================================================ */
+        :root {
+            --bg: #efefe9;
+            --fg: #11100f;
+            --accent: #be001c;
+            --accent-soft: rgba(190, 0, 28, 0.08);
+            --accent-glow: rgba(190, 0, 28, 0.18);
+            --cream: #efefe9;
+            --ink: #11100f;
+            --glass: rgba(255, 255, 255, 0.48);
+            --glass-strong: rgba(255, 255, 255, 0.74);
+            --glass-border: rgba(17, 16, 15, 0.12);
+            --muted: rgba(17, 16, 15, 0.64);
+            --muted-strong: rgba(17, 16, 15, 0.78);
+            --shadow-soft: 0 24px 70px rgba(17, 16, 15, 0.10);
+            --shadow-hover: 0 28px 80px rgba(190, 0, 28, 0.16);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 80% 8%, rgba(190, 0, 28, 0.11), transparent 34%),
+                radial-gradient(circle at 10% 22%, rgba(17, 16, 15, 0.06), transparent 28%),
+                var(--bg);
+            color: var(--fg);
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Syne', sans-serif;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ============================================================
+           NAVIGATION
+        ============================================================ */
+        nav.site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(239, 239, 233, 0.72);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .nav-logo img {
+            height: 2rem;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--fg);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.35s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.5rem 1.4rem !important;
+            border: 1px solid rgba(17, 16, 15, 0.14) !important;
+            border-radius: 100px !important;
+            background: var(--ink) !important;
+            color: var(--cream) !important;
+            box-shadow: 0 12px 34px rgba(17, 16, 15, 0.12);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent) !important;
+            border-color: var(--accent) !important;
+        }
+
+        #menu-button {
+            display: none;
+            border: none;
+            background: transparent;
+            color: var(--fg);
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        #mobile-menu {
+            display: none;
+            background: rgba(239, 239, 233, 0.96);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+            padding: 1rem 1.5rem 1.5rem;
+        }
+
+        #mobile-menu a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            padding: 0.75rem;
+            border-radius: 12px;
+            color: var(--fg);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.25rem;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        #mobile-menu a:hover {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        #mobile-menu .mob-cta {
+            background: var(--ink);
+            color: var(--cream);
+        }
+
+        #mobile-menu .mob-cta:hover {
+            background: var(--accent);
+            color: var(--cream);
+        }
+
+        /* ============================================================
+           SHARED
+        ============================================================ */
+        .page-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .reveal {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .soft-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            padding: 0.78rem 1.2rem;
+            border-radius: 100px;
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary {
+            border: 1.5px solid var(--accent);
+            background: var(--accent);
+            color: var(--cream);
+            box-shadow: 0 10px 30px rgba(190, 0, 28, 0.24);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 36px rgba(190, 0, 28, 0.34), 0 0 20px rgba(190, 0, 28, 0.22);
+        }
+
+        .btn-secondary {
+            border: 1.5px solid rgba(17, 16, 15, 0.16);
+            background: var(--glass-strong);
+            color: var(--ink);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .section-kicker::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 18px var(--accent-glow);
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+        /* ============================================================
+           HERO
+        ============================================================ */
+        .project-hero {
+            padding: 7rem 0 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            right: -11rem;
+            top: 1rem;
+            width: 460px;
+            height: 460px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(190, 0, 28, 0.18), transparent 68%);
+            pointer-events: none;
+        }
+
+        .project-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(17, 16, 15, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(17, 16, 15, 0.035) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, black 20%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero-card {
+            position: relative;
+            z-index: 1;
+            padding: clamp(2rem, 5vw, 4rem);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: end;
+        }
+
+        .project-label {
+            margin-bottom: 1.15rem;
+        }
+
+        .project-title {
+            font-size: clamp(3.2rem, 9vw, 7.4rem);
+            line-height: 0.9;
+            letter-spacing: -0.07em;
+            font-weight: 800;
+            max-width: 780px;
+        }
+
+        .project-title span {
+            color: var(--accent);
+        }
+
+        .project-intro {
+            max-width: 670px;
+            margin-top: 1.35rem;
+            color: var(--muted-strong);
+            font-size: clamp(1rem, 1.6vw, 1.22rem);
+            line-height: 1.75;
+        }
+
+        .hero-meta {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .meta-chip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.9rem 1rem;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .meta-chip small {
+            color: var(--muted);
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.68rem;
+        }
+
+        .meta-chip strong {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.98rem;
+            text-align: right;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        /* ============================================================
+           CONTENT & BLUEPRINT SPECIFICS
+        ============================================================ */
+        .project-content {
+            padding: 2rem 0 6rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .article-card {
+            padding: clamp(1.5rem, 4vw, 3rem);
+        }
+
+        .article-card h2 {
+            margin-top: 0.65rem;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 0.98;
+            letter-spacing: -0.055em;
+        }
+
+        .project-body {
+            margin-top: 1.75rem;
+        }
+
+        .project-body p {
+            color: var(--muted-strong);
+            margin-bottom: 1.25rem;
+            font-size: clamp(1.02rem, 1.4vw, 1.12rem);
+            line-height: 1.85;
+        }
+
+        .project-body strong {
+            color: var(--fg);
+            font-weight: 800;
+        }
+
+        .project-insight {
+            margin: 2rem 0;
+            padding: 1.65rem;
+            border-radius: 26px;
+            background: linear-gradient(135deg, rgba(190, 0, 28, 0.08), rgba(255, 255, 255, 0.48));
+            border: 1px solid rgba(190, 0, 28, 0.2);
+            box-shadow: 0 18px 46px rgba(190, 0, 28, 0.08);
+        }
+
+        .insight-label {
+            margin-bottom: 0.55rem !important;
+            color: var(--accent) !important;
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .project-insight blockquote {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            line-height: 1.12;
+            font-size: clamp(1.45rem, 3vw, 2.55rem);
+            color: var(--fg);
+        }
+
+        /* ViaTown Specific Blueprint Design */
+        .blueprint-plan {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-auto-rows: minmax(108px, auto);
+            grid-auto-flow: dense;
+            gap: 1px;
+            background: rgba(239, 239, 233, 0.14);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            overflow: hidden;
+            margin: 2.5rem 0;
+            box-shadow: 0 12px 30px rgba(17, 16, 15, 0.05);
+        }
+
+        .room {
+            background: var(--ink);
+            padding: 1.25rem 1.4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .room--lg { grid-column: span 2; grid-row: span 2; }
+        .room--wide { grid-column: span 2; grid-row: span 1; }
+        .room--sm { grid-column: span 1; grid-row: span 1; }
+        .room--full { grid-column: span 4; grid-row: span 1; }
+
+        .room-tag {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            color: rgba(190, 0, 28, 0.9);
+            text-transform: uppercase;
+        }
+
+        .room h3 {
+            margin-top: 0.5rem;
+            font-size: clamp(0.98rem, 1.4vw, 1.3rem);
+            color: var(--cream);
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        .room p {
+            margin-top: 0.55rem;
+            color: rgba(239, 239, 233, 0.65);
+            font-size: 0.86rem;
+            line-height: 1.55;
+            margin-bottom: 0;
+        }
+
+        .room-status {
+            margin-top: auto;
+            padding-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: rgba(239, 239, 233, 0.5);
+        }
+
+        .room-status::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .pillar-card {
+            padding: 1.5rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid var(--glass-border);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .pillar-card i {
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .pillar-card h3 {
+            margin-top: 0.75rem;
+            font-size: 1.15rem;
+            letter-spacing: -0.035em;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .pillar-card p {
+            margin-top: 0.5rem;
+            color: var(--muted-strong);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .side-card {
+            padding: 1.5rem;
+            position: sticky;
+            top: 6rem;
+        }
+
+        .side-card h3 {
+            font-size: 1.35rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .info-list {
+            display: grid;
+            gap: 0.9rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .info-item {
+            display: grid;
+            gap: 0.2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 1px solid rgba(17, 16, 15, 0.1);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .info-item span {
+            color: var(--muted);
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .info-item strong {
+            font-size: 0.98rem;
+        }
+
+        .scope-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .scope-tags span {
+            padding: 0.45rem 0.75rem;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        .next-actions {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .action-card {
+            padding: 1.25rem;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.42);
+            text-decoration: none;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .action-card i {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        .action-card strong {
+            display: block;
+            margin-top: 0.35rem;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .action-card span {
+            display: block;
+            margin-top: 0.25rem;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        footer {
+            background: var(--ink);
+            color: var(--cream);
+            padding: 4rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -160px;
+            right: -120px;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(190, 0, 28, 0.18), transparent 70%);
+            pointer-events: none;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 2rem;
+            align-items: start;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(239, 239, 233, 0.12);
+        }
+
+        .footer-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+            font-weight: 800;
+        }
+
+        .footer-title span {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            margin-top: 1rem;
+            color: rgba(239, 239, 233, 0.66);
+            max-width: 560px;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 0.8rem;
+            justify-items: end;
+        }
+
+        .contact-list a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            color: rgba(239, 239, 233, 0.82);
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .contact-list a:hover {
+            color: var(--accent);
+        }
+
+        .socials {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: flex-end;
+            margin-top: 1rem;
+        }
+
+        .socials a {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: rgba(239, 239, 233, 0.08);
+            border: 1px solid rgba(239, 239, 233, 0.12);
+            color: var(--cream);
+            transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .socials a:hover {
+            transform: translateY(-3px);
+            background: var(--accent);
+            color: var(--cream);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            color: rgba(239, 239, 233, 0.55);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media (max-width: 980px) {
+            .nav-links { display: none; }
+            #menu-button { display: block; }
+            .hero-grid, .content-grid, .footer-grid { grid-template-columns: 1fr; }
+            .side-card { position: static; }
+            .contact-list, .socials { justify-items: start; justify-content: flex-start; }
+            .blueprint-plan { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .room--lg, .room--wide, .room--full { grid-column: span 2; }
+        }
+
+        @media (max-width: 680px) {
+            .page-shell { padding: 0 1rem; }
+            .nav-inner { padding: 1rem; }
+            .project-hero { padding: 4.5rem 0 2rem; }
+            .hero-card, .article-card, .side-card { border-radius: 24px; }
+            .hero-actions, .next-actions { grid-template-columns: 1fr; }
+            .btn { width: 100%; }
+            .blueprint-plan { grid-template-columns: 1fr; }
+            .room--lg, .room--wide, .room--sm, .room--full { grid-column: span 1; grid-row: span 1; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo" aria-label="D'SEIKOU Home">
+                <img src="/media/D'SEIKOU Logo Black.png" alt="D'SEIKOU Logo" />
+            </a>
+
+            <div class="nav-links" id="desktop-nav">
+                <a href="/">Home</a>
+                <a href="/more-about-me/">About</a>
+                <a href="/multimedia-design/">Multimedia Design</a>
+                <a href="/fullstack-development/">Development</a>
+                <a href="/homepage/index.html/">Home</a>
+                <a href="/contact/" class="nav-cta">Contact</a>
+            </div>
+
+            <button id="menu-button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu">
+            <a href="/">Home</a>
+            <a href="/more-about-me/">About</a>
+            <a href="/multimedia-design/">Multimedia Design</a>
+            <a href="/fullstack-development/">Development</a>
+            <a href="/homepage/index.html/">Home</a>
+            <a href="/contact/" class="mob-cta">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="project-hero">
+            <div class="page-shell">
+                <div class="hero-card soft-card reveal">
+                    <div class="hero-grid">
+                        <div>
+                            <p class="section-kicker project-label">The Art of What Could Be — Concept Phase</p>
+                            <h1 class="project-title">ViaTown<span>.</span></h1>
+                            <p class="project-intro">
+                                A crowdsourced public transport tracking platform for South Africa — combining official schedules with commuter-driven real-time updates. Because most transit connects in town.
+                            </p>
+
+                            <div class="hero-actions">
+                                <a class="btn btn-primary" href="#project-story"><i class="bi bi-compass"></i> Read the Blueprint</a>
+                                <a class="btn btn-secondary" href="/homepage/index.html/"><i class="bi bi-grid-1x2-fill"></i> Back to home</a>
+                            </div>
+                        </div>
+
+                        <aside class="hero-meta" aria-label="Project summary">
+                            <div class="meta-chip"><small>Category</small><strong>Urban Mobility</strong></div>
+                            <div class="meta-chip"><small>Stage</small><strong>Concept & Research</strong></div>
+                            <div class="meta-chip"><small>Role</small><strong>Solo Concept, Open to Collaboration</strong></div>
+                            <div class="meta-chip"><small>Format</small><strong>Mobile Application (Zero-Rated)</strong></div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT SECTION -->
+        <section class="project-content" id="project-story">
+            <div class="page-shell">
+                <div class="content-grid">
+                    
+                    <article class="article-card soft-card reveal">
+                        <p class="section-kicker">Project Thesis</p>
+                        
+                        <div class="project-insight">
+                            <p class="insight-label">The Core Idea</p>
+                            <blockquote>
+                                South Africans already crowdsource load shedding. Why not public transport?
+                            </blockquote>
+                        </div>
+
+                        <h2>Movement is information.</h2>
+                        
+                        <div class="project-body">
+                            <p><strong>ViaTown</strong> is not a new idea — it's an adaptation of one that already works. EskomSePush proved that when official information is fragmented, communities will collectively fill the gap if given the right platform. This concept applies that same model to the daily unpredictability of buses, trains, and taxis.</p>
+
+                            <p>The problem is urgent and lived. Tshwane Bus Services communicates via X (Twitter). Google Maps covers the Gautrain but not the minibus taxis, PRASA routes, or municipal buses most South Africans rely on. Commuters lose time, money, and dignity — not because they don't want to plan, but because the tools don't exist.</p>
+
+                            <p>The bold version asks: <strong>what if the Gautrain ran 24 hours?</strong> Core lines, reduced frequency, connecting night-shift workers, airport travellers, and a city that no longer sleeps. Not every route, not every stop — but enough to prove that world-class infrastructure can meet a city's full rhythm.</p>
+                            
+                            <!-- BLUEPRINT DIAGRAM -->
+                            <div class="blueprint-plan">
+                                <div class="room room--lg">
+                                    <div class="room-tag">F.01 — Core Feature</div>
+                                    <h3>Location-Based Tracking</h3>
+                                    <p>Users select their area, route, or specific transport mode — Tshwane Bus Services, Gautrain, PRASA, or minibus taxis — and the app filters real-time updates relevant to their journey.</p>
+                                    <div class="room-status">Inspired by ESP</div>
+                                </div>
+
+                                <div class="room room--wide">
+                                    <div class="room-tag">F.02</div>
+                                    <h3>Push Notifications</h3>
+                                    <p>Alerts before delays, schedule changes, or service disruptions — not after the commuter is already waiting.</p>
+                                    <div class="room-status">Core feature</div>
+                                </div>
+
+                                <div class="room room--sm">
+                                    <div class="room-tag">F.03</div>
+                                    <h3>Crowdsourced Updates</h3>
+                                    <p>Commuters report what's happening on the ground — delays, availability, rank queues.</p>
+                                    <div class="room-status">Community-driven</div>
+                                </div>
+
+                                <div class="room room--sm">
+                                    <div class="room-tag">F.04</div>
+                                    <h3>Zero-Rated Access</h3>
+                                    <p>The app must not consume personal mobile data. Accessibility is not a feature; it's a prerequisite.</p>
+                                    <div class="room-status">Non-negotiable</div>
+                                </div>
+
+                                <div class="room room--wide">
+                                    <div class="room-tag">F.05 — Trust & Safety</div>
+                                    <h3>Data Integrity Mechanisms</h3>
+                                    <p>Trust scores, peer-verification, and time-out algorithms to prevent spam, malicious updates, and data decay.</p>
+                                    <div class="room-status">Research phase</div>
+                                </div>
+
+                                <div class="room room--full">
+                                    <div class="room-tag">F.06 — Social Layer</div>
+                                    <h3>Community Chats</h3>
+                                    <p>Neighbourhood feeds where commuters share context — the same way ESP's "AskMyStreet" built trust through people, not just infrastructure.</p>
+                                    <div class="room-status">Inspired by ESP</div>
+                                </div>
+                            </div>
+
+                            <p><strong>What makes this different from Google Maps?</strong> Google Maps is built for private vehicle navigation first. Its public transport coverage in South Africa is static, incomplete, and disconnected from the lived realities of minibus taxis and municipal services. ViaTown would be built <em>by</em> commuters, <em>for</em> commuters — zero-rated, community-verified, and designed around how South Africans actually move.</p>
+                            
+                            <p>And the taxi industry? This platform would never track operational data — no driver identities, no registration details, no route profitability. Only commuter-relevant information: estimated time of arrival, passenger capacity, and cost of the ride. By centring the commuter experience, the platform supports rather than threatens the industry's role in urban mobility.</p>
+
+                            <!-- CONCEPTUAL PILLARS -->
+                            <h2 style="margin-top: 3rem; margin-bottom: 0.5rem;">Conceptual Pillars</h2>
+                            <p>Three principles the concept doesn't compromise on.</p>
+
+                            <div class="pillars-grid">
+                                <div class="pillar-card">
+                                    <i class="bi bi-people-fill"></i>
+                                    <h3>Community Over Infrastructure</h3>
+                                    <p>The platform is not built on official APIs alone. It's built on commuters reporting what they see, know, and experience — verified by the community, not just the institution.</p>
+                                </div>
+
+                                <div class="pillar-card">
+                                    <i class="bi bi-shield-lock-fill"></i>
+                                    <h3>Accessibility as Principle</h3>
+                                    <p>Zero-rated data, minimal battery consumption, and an interface designed for diverse digital literacy levels. If it doesn't work for the commuter at the rank, it doesn't work.</p>
+                                </div>
+
+                                <div class="pillar-card">
+                                    <i class="bi bi-lightning-charge-fill"></i>
+                                    <h3>The Gautrain Dream</h3>
+                                    <p>The Gautrain has shown what world-class public transport can look like in South Africa. This concept dares to ask what it would take to make that the baseline, not the exception — including 24-hour operations.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- SIDEBAR -->
+                    <aside class="side-card soft-card reveal">
+                        <h3>Project Information</h3>
+
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span>Category</span>
+                                <strong>Urban Mobility</strong>
+                            </div>
+                            <div class="info-item">
+                                <span>Current Phase</span>
+                                <strong>Concept & Research</strong>
+                            </div>
+                            <div class="info-item">
+                                <span>Format</span>
+                                <strong>Mobile Application (Zero-Rated)</strong>
+                            </div>
+                            <div class="info-item">
+                                <span>Role</span>
+                                <strong>Solo Concept, Open to Collaboration</strong>
+                            </div>
+                            <div class="info-item">
+                                <span>Inspired By</span>
+                                <strong>EskomSePush, Waze, Google Maps</strong>
+                            </div>
+                            <div class="info-item">
+                                <span>Name Rationale</span>
+                                <strong>Most transit connects in town</strong>
+                            </div>
+                        </div>
+
+                        <div class="scope-tags" aria-label="Project tags">
+                            <span>Urban Mobility</span>
+                            <span>Crowdsourcing</span>
+                            <span>Public Transport</span>
+                            <span>Zero-Rated Design</span>
+                            <span>Research</span>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <h2 class="footer-title">Let's make something <span>intentional.</span></h2>
+                    <p class="footer-copy">
+                        Have a project that needs design direction, campaign visuals, digital systems, or something beautifully in-between? Let's talk.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="/contact/"><i class="bi bi-send-fill"></i> Contact Me</a>
+                        <a class="btn btn-secondary" href="https://api.whatsapp.com/send?phone=27818994791"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="contact-list">
+                        <a href="mailto:dinalediseko@dseikou.co.za"><i class="bi bi-envelope-fill"></i> dinalediseko@dseikou.co.za</a>
+                        <a href="tel:+27818994791"><i class="bi bi-telephone-fill"></i> (+27) 81 899 4791</a>
+                    </div>
+
+                    <div class="socials" aria-label="Social links">
+                        <a href="https://www.linkedin.com/in/dinalediseko" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://github.com/dinalediseko" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=27818994791" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/ngwanokestar/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Copyright © <span id="year">2026</span> D'SEIKOU. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        document.getElementById('menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        });
+    </script>
+</body>
+</html>
