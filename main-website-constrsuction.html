@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Under Construction | D'SEIKOU</title>
+  <link rel="icon" href="/media/black-favicon.png" type="image" />
+  <link rel="canonical" href="https://portfolio.dseikou.co.za/under-construction.html/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    :root {
+      --bg: #11100f;
+      --fg: #efefe9;
+      --accent: #be001c;
+      --accent-soft: rgba(190, 0, 28, 0.13);
+      --accent-glow: rgba(190, 0, 28, 0.28);
+      --cream: #efefe9;
+      --ink: #11100f;
+      --glass: rgba(239, 239, 233, 0.045);
+      --glass-strong: rgba(239, 239, 233, 0.075);
+      --glass-border: rgba(239, 239, 233, 0.13);
+      --muted: rgba(239, 239, 233, 0.68);
+      --green: #00ff6a;
+      --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.28);
+      --shadow-glow: 0 26px 90px rgba(190, 0, 28, 0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 84% 10%, rgba(190, 0, 28, 0.18), transparent 34%),
+        radial-gradient(circle at 12% 20%, rgba(239, 239, 233, 0.06), transparent 30%),
+        linear-gradient(135deg, rgba(17, 16, 15, 1), rgba(26, 22, 21, 1));
+      color: var(--fg);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.75;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='420' height='420' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    }
+
+    h1, h2, h3 { font-family: 'Syne', sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+
+    .site-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(17, 16, 15, 0.74);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.15rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo img { display: block; height: 2rem; width: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.55rem;
+    }
+
+    .nav-links a {
+      color: var(--fg);
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 0.55rem 1.35rem;
+      border-radius: 999px;
+      background: var(--cream);
+      color: var(--ink) !important;
+      border: 1px solid rgba(239, 239, 233, 0.14);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
+    }
+
+    .nav-cta::after { display: none; }
+    .nav-cta:hover { background: var(--accent); color: var(--cream) !important; }
+
+    #menu-button {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--fg);
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    #mobile-menu {
+      display: none;
+      background: rgba(17, 16, 15, 0.96);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+      padding: 1rem 1.5rem 1.5rem;
+    }
+
+    #mobile-menu a {
+      display: block;
+      text-align: center;
+      padding: 0.78rem;
+      border-radius: 14px;
+      color: var(--fg);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    #mobile-menu a:hover { background: var(--accent-soft); color: var(--accent); }
+    #mobile-menu .mob-cta { background: var(--cream); color: var(--ink); }
+    #mobile-menu .mob-cta:hover { background: var(--accent); color: var(--cream); }
+
+    main {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: 4.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .orbit {
+      position: absolute;
+      border-radius: 999px;
+      border: 1px solid rgba(239, 239, 233, 0.08);
+      pointer-events: none;
+      animation: floatOrbit 12s ease-in-out infinite;
+    }
+
+    .orbit.one { width: 420px; height: 420px; top: 8%; left: -160px; }
+    .orbit.two { width: 620px; height: 620px; right: -250px; bottom: -220px; animation-delay: -4s; }
+
+    @keyframes floatOrbit {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+      50% { transform: translate3d(16px, -22px, 0) rotate(4deg); }
+    }
+
+    .status-card {
+      width: min(980px, 100%);
+      position: relative;
+      z-index: 2;
+      padding: clamp(2rem, 5vw, 4.5rem);
+      border-radius: clamp(26px, 4vw, 42px);
+      background: linear-gradient(135deg, rgba(239, 239, 233, 0.07), rgba(239, 239, 233, 0.035));
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft), var(--shadow-glow), inset 0 1px 0 rgba(239, 239, 233, 0.08);
+      backdrop-filter: blur(16px);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .status-card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(190, 0, 28, 0.18), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(239, 239, 233, 0.08), transparent 30%);
+      pointer-events: none;
+    }
+
+    .status-card > * { position: relative; z-index: 2; }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 1rem 0.45rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(190, 0, 28, 0.52);
+      color: var(--accent);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.35rem;
+    }
+
+    .status-pill span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent-glow);
+      animation: pulseDot 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulseDot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.78); } }
+
+    .glitch-wrap {
+      position: relative;
+      display: inline-grid;
+      place-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .status-code {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(6rem, 20vw, 14rem);
+      line-height: 0.82;
+      letter-spacing: -0.09em;
+      font-weight: 800;
+      color: var(--cream);
+      text-shadow: 0 0 38px rgba(190, 0, 28, 0.22);
+    }
+
+    .status-code::before,
+    .status-code::after {
+      content: 'WIP';
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      line-height: 0.82;
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      opacity: 0.52;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .status-code::before { color: var(--accent); transform: translate(-5px, 2px); animation: glitchOne 2.4s steps(2, end) infinite; }
+    .status-code::after { color: #51b7ff; transform: translate(5px, -2px); animation: glitchTwo 2.1s steps(2, end) infinite; }
+
+    @keyframes glitchOne {
+      0%, 100% { clip-path: inset(0 0 0 0); transform: translate(-4px, 1px); }
+      20% { clip-path: inset(15% 0 70% 0); transform: translate(-9px, -2px); }
+      36% { clip-path: inset(72% 0 12% 0); transform: translate(-2px, 3px); }
+      62% { clip-path: inset(38% 0 40% 0); transform: translate(-7px, 0); }
+      76% { clip-path: inset(0 0 0 0); transform: translate(-4px, 1px); }
+    }
+
+    @keyframes glitchTwo {
+      0%, 100% { clip-path: inset(0 0 0 0); transform: translate(4px, -1px); }
+      18% { clip-path: inset(70% 0 18% 0); transform: translate(9px, 2px); }
+      42% { clip-path: inset(10% 0 76% 0); transform: translate(2px, -4px); }
+      66% { clip-path: inset(42% 0 34% 0); transform: translate(7px, 1px); }
+      80% { clip-path: inset(0 0 0 0); transform: translate(4px, -1px); }
+    }
+
+    .status-title {
+      font-size: clamp(2rem, 5vw, 4.3rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      font-weight: 800;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .status-copy {
+      max-width: 660px;
+      margin: 1.15rem auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      line-height: 1.8;
+    }
+
+    .action-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 48px;
+      padding: 0.84rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      transition: transform 0.24s ease, box-shadow 0.24s ease, background 0.24s ease, color 0.24s ease, border-color 0.24s ease;
+    }
+
+    .action-primary {
+      background: var(--accent);
+      color: var(--cream);
+      border: 1px solid var(--accent);
+      box-shadow: 0 14px 34px rgba(190, 0, 28, 0.26);
+    }
+
+    .action-secondary {
+      background: var(--cream);
+      color: var(--ink);
+      border: 1px solid var(--cream);
+    }
+
+    .action-ghost {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid rgba(239, 239, 233, 0.18);
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(190, 0, 28, 0.2);
+    }
+
+    .danger-zone {
+      margin-top: 1.5rem;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      color: rgba(239, 239, 233, 0.44);
+      font-size: 0.8rem;
+    }
+
+    #do-not-press-btn {
+      border: 1px solid rgba(190, 0, 28, 0.62);
+      background: rgba(190, 0, 28, 0.13);
+      color: #ffb2be;
+      padding: 0.68rem 1rem;
+      border-radius: 999px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    #do-not-press-btn:hover {
+      transform: rotate(-1deg) translateY(-2px);
+      background: var(--accent);
+      color: var(--cream);
+      box-shadow: 0 0 32px rgba(190, 0, 28, 0.28);
+    }
+
+    .mini-routes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin: 2rem auto 0;
+      max-width: 700px;
+    }
+
+    .mini-route {
+      padding: 0.9rem 1rem;
+      border-radius: 18px;
+      border: 1px solid var(--glass-border);
+      background: rgba(239, 239, 233, 0.045);
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+      transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+    }
+
+    .mini-route i { display: block; color: var(--accent); font-size: 1.15rem; margin-bottom: 0.3rem; }
+    .mini-route:hover { transform: translateY(-3px); border-color: var(--accent); background: rgba(190, 0, 28, 0.1); color: var(--cream); }
+
+    footer {
+      border-top: 1px solid var(--glass-border);
+      background: rgba(17, 16, 15, 0.7);
+      color: var(--muted);
+      text-align: center;
+      padding: 1.5rem 2rem;
+      font-size: 0.86rem;
+    }
+
+    footer a { color: var(--accent); font-weight: 800; }
+
+    #hacked-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      background: #000;
+      color: var(--green);
+      font-family: 'Courier New', Courier, monospace;
+      overflow: hidden;
+    }
+
+    #matrix-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hacked-content {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hacked-message {
+      max-width: 920px;
+      font-size: clamp(1.7rem, 6vw, 4rem);
+      line-height: 1.05;
+      font-weight: 900;
+      color: var(--green);
+      text-shadow: 0 0 5px var(--green), 0 0 18px rgba(0, 255, 106, 0.7), 0 0 42px rgba(0, 255, 106, 0.35);
+      animation: hackedGlitch 0.8s steps(2, end) infinite;
+    }
+
+    @keyframes hackedGlitch {
+      0%, 100% { transform: translate(0); filter: hue-rotate(0deg); }
+      25% { transform: translate(-2px, 2px); }
+      50% { transform: translate(2px, -2px); filter: hue-rotate(18deg); }
+      75% { transform: translate(-1px, -1px); }
+    }
+
+    .hacked-sub {
+      margin-top: 1rem;
+      color: rgba(0, 255, 106, 0.72);
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      max-width: 560px;
+    }
+
+    .terminal-card {
+      width: min(760px, 100%);
+      margin-top: 1.5rem;
+      border: 1px solid rgba(0, 255, 106, 0.36);
+      background: rgba(0, 20, 8, 0.8);
+      box-shadow: 0 0 36px rgba(0, 255, 106, 0.18);
+      border-radius: 18px;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .terminal-top {
+      display: flex;
+      gap: 0.45rem;
+      padding: 0.7rem 0.85rem;
+      border-bottom: 1px solid rgba(0, 255, 106, 0.2);
+      background: rgba(0, 255, 106, 0.06);
+    }
+
+    .terminal-dot { width: 10px; height: 10px; border-radius: 999px; background: var(--green); opacity: 0.72; }
+    .terminal-body { padding: 1rem; color: rgba(0, 255, 106, 0.9); font-size: 0.95rem; line-height: 1.65; min-height: 116px; }
+    .typing-caret::after { content: '_'; animation: caret 0.75s step-end infinite; }
+    @keyframes caret { 50% { opacity: 0; } }
+
+    .reset-btn {
+      margin-top: 1.5rem;
+      border: 1px solid rgba(0, 255, 106, 0.55);
+      background: var(--green);
+      color: #001707;
+      padding: 0.78rem 1.2rem;
+      border-radius: 999px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .reset-btn:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(0, 255, 106, 0.28); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none !important; }
+      #menu-button { display: block; }
+      main { padding: 3.5rem 1rem; }
+      .mini-routes { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner { padding: 1rem; }
+      .action-row { flex-direction: column; align-items: stretch; }
+      .action-btn { width: 100%; }
+      .status-card { padding: 2rem 1.1rem; }
+      .status-copy { font-size: 0.98rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-shell" id="normal-content">
+    <nav>
+      <div class="nav-inner">
+        <a href="https://portfolio.dseikou.co.za/" class="nav-logo" aria-label="Go to D'SEIKOU homepage">
+          <img src="/media/D'SEIKOU Logo White.png" alt="D'SEIKOU Logo" />
+        </a>
+
+        <div class="nav-links" id="desktop-nav">
+          <a href="https://portfolio.dseikou.co.za/">Home</a>
+          <a href="https://portfolio.dseikou.co.za/more-about-me/">About</a>
+          <a href="https://portfolio.dseikou.co.za/multimedia-design/">Multimedia Design</a>
+          <a href="https://portfolio.dseikou.co.za/fullstack-development/">Full-Stack Development</a>
+          <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+          <a href="https://portfolio.dseikou.co.za/contact/" class="nav-cta">Contact</a>
+        </div>
+
+        <button id="menu-button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div id="mobile-menu">
+        <a href="https://portfolio.dseikou.co.za/">Home</a>
+        <a href="https://portfolio.dseikou.co.za/more-about-me/">About</a>
+        <a href="https://portfolio.dseikou.co.za/multimedia-design/">Multimedia Design</a>
+        <a href="https://portfolio.dseikou.co.za/fullstack-development/">Full-Stack Development</a>
+        <a href="https://sidequest.dseikou.co.za/">Side Quest</a>
+        <a href="https://portfolio.dseikou.co.za/contact/" class="mob-cta">Contact</a>
+      </div>
+    </nav>
+
+    <main>
+      <div class="orbit one"></div>
+      <div class="orbit two"></div>
+
+      <section class="status-card" aria-labelledby="status-title">
+        <div class="status-pill"><span></span> Structural Renovation</div>
+
+        <div class="glitch-wrap" aria-hidden="true">
+          <div class="status-code">WIP</div>
+        </div>
+
+        <h1 class="status-title" id="status-title">Work In Progress </h1>
+        <p class="status-copy">
+            I'm overthinking this site into existence... jokes but the website is currently under renovation. In the meantime:
+        </p>
+
+        <div class="action-row">
+          <a class="action-btn action-primary" href="https://portfolio.dseikou.co.za/"><i class="bi bi-house-door-fill"></i> Visit My Portfolio</a>
+          <a class="action-btn action-secondary" href="https://sidequest.dseikou.co.za/"><i class="bi bi-controller"></i> Go on a Side Quest</a>
+        </div>
+
+        <div class="mini-routes" aria-label="Popular portfolio routes">
+          <a class="mini-route" href="https://portfolio.dseikou.co.za/multimedia-design/"><i class="bi bi-palette-fill"></i> Multimedia Design</a>
+          <a class="mini-route" href="https://portfolio.dseikou.co.za/fullstack-development/"><i class="bi bi-code-slash"></i> Full-Stack Development</a>
+          <a class="mini-route" href="https://portfolio.dseikou.co.za/more-about-me/"><i class="bi bi-person-heart"></i> More About Me</a>
+        </div>
+
+        <div class="danger-zone">
+          <span>Absolutely not recommended.</span>
+          <button id="do-not-press-btn" type="button"><i class="bi bi-bug-fill"></i> DO NOT PRESS</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Copyright © <span id="year"></span> <a href="https://portfolio.dseikou.co.za/">D'SEIKOU</a>. All rights reserved.
+    </footer>
+  </div>
+
+  <div id="hacked-overlay" aria-hidden="true">
+    <canvas id="matrix-canvas"></canvas>
+    <div class="hacked-content">
+      <h2 class="hacked-message" id="hacked-title">SYSTEM BREACH</h2>
+      <p class="hacked-sub" id="hacked-sub">Initializing unnecessary drama...</p>
+      <div class="terminal-card" id="terminal-card" hidden>
+        <div class="terminal-top"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+        <div class="terminal-body"><span id="terminal-text" class="typing-caret"></span></div>
+      </div>
+      <button class="reset-btn" id="reset-btn" type="button" hidden>Okay, take me back</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const menuBtn = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const desktopNav = document.getElementById('desktop-nav');
+
+      function syncNav() {
+        const mobile = window.innerWidth <= 900;
+        if (menuBtn) menuBtn.style.display = mobile ? 'block' : 'none';
+        if (desktopNav) desktopNav.style.display = mobile ? 'none' : 'flex';
+        if (!mobile && mobileMenu) mobileMenu.style.display = 'none';
+        if (!mobile && menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      syncNav();
+      window.addEventListener('resize', syncNav);
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function () {
+          const isOpen = mobileMenu.style.display === 'block';
+          mobileMenu.style.display = isOpen ? 'none' : 'block';
+          menuBtn.setAttribute('aria-expanded', String(!isOpen));
+        });
+      }
+
+      const doNotPressBtn = document.getElementById('do-not-press-btn');
+      const hackedOverlay = document.getElementById('hacked-overlay');
+      const normalContent = document.getElementById('normal-content');
+      const hackedTitle = document.getElementById('hacked-title');
+      const hackedSub = document.getElementById('hacked-sub');
+      const terminalCard = document.getElementById('terminal-card');
+      const terminalText = document.getElementById('terminal-text');
+      const resetBtn = document.getElementById('reset-btn');
+      const canvas = document.getElementById('matrix-canvas');
+      const ctx = canvas.getContext('2d');
+
+      let animationFrameId = null;
+      let timeoutIds = [];
+
+      function queue(callback, delay) {
+        const id = window.setTimeout(callback, delay);
+        timeoutIds.push(id);
+      }
+
+      function clearQueued() {
+        timeoutIds.forEach(window.clearTimeout);
+        timeoutIds = [];
+      }
+
+      function typeText(element, text, speed, onDone) {
+        element.textContent = '';
+        let index = 0;
+
+        function typeNext() {
+          element.textContent = text.slice(0, index + 1);
+          index += 1;
+          if (index < text.length) {
+            queue(typeNext, speed);
+          } else if (typeof onDone === 'function') {
+            queue(onDone, 650);
+          }
+        }
+
+        typeNext();
+      }
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      function startMatrix() {
+        resizeCanvas();
+        const alphabet = 'アァカサタナハマヤャラワガザダバパABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789DSEIKOUWIP';
+        const fontSize = 16;
+        const columns = Math.ceil(canvas.width / fontSize);
+        const drops = Array.from({ length: columns }, () => Math.floor(Math.random() * canvas.height / fontSize));
+
+        function draw() {
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.07)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#00ff6a';
+          ctx.font = fontSize + 'px monospace';
+
+          for (let i = 0; i < drops.length; i += 1) {
+            const char = alphabet[Math.floor(Math.random() * alphabet.length)];
+            ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i] += 1;
+          }
+
+          animationFrameId = window.requestAnimationFrame(draw);
+        }
+
+        draw();
+      }
+
+      function stopMatrix() {
+        if (animationFrameId) window.cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+
+      function startHackedAnimation() {
+        clearQueued();
+        normalContent.style.display = 'none';
+        hackedOverlay.style.display = 'block';
+        hackedOverlay.setAttribute('aria-hidden', 'false');
+        terminalCard.hidden = true;
+        resetBtn.hidden = true;
+        terminalText.textContent = '';
+
+        startMatrix();
+
+        hackedTitle.textContent = 'Why would you do that...';
+        hackedSub.textContent = 'You clicked the one button with a clear boundary.';
+
+        queue(function () {
+          hackedTitle.textContent = 'You are def the drama.';
+          hackedSub.textContent = 'Running accountability.exe';
+        }, 2600);
+
+        queue(function () {
+          hackedTitle.textContent = 'DECRYPTING...';
+          hackedSub.textContent = 'Searching for your decision-making privileges.';
+        }, 5200);
+
+        queue(function () {
+          stopMatrix();
+          terminalCard.hidden = false;
+          hackedTitle.textContent = 'FINAL REPORT';
+          hackedSub.textContent = 'The investigation has concluded.';
+          typeText(terminalText, 'Imagine being with you in the garden of Eden. One instruction. One button. Still pressed.', 48, function () {
+            resetBtn.hidden = false;
+          });
+        }, 7600);
+      }
+
+      function resetPage() {
+        clearQueued();
+        stopMatrix();
+        hackedOverlay.style.display = 'none';
+        hackedOverlay.setAttribute('aria-hidden', 'true');
+        normalContent.style.display = 'flex';
+      }
+
+      if (doNotPressBtn) doNotPressBtn.addEventListener('click', startHackedAnimation);
+      if (resetBtn) resetBtn.addEventListener('click', resetPage);
+
+      window.addEventListener('resize', function () {
+        if (hackedOverlay.style.display === 'block') resizeCanvas();
+      });
+    });
+  </script>
+</body>
+
+</html>
